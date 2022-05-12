@@ -1,0 +1,59 @@
+@import "./Vars.css";
+
+/*Variables de estilos de botones*/
+
+.BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite {
+    font-family: var(--text);
+    border: none;
+    padding: 5px 15px 5px 15px;
+    width: auto;
+    font-size: 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+.BtnDark{
+    color: white;
+    background-color: var(--black);
+    
+}
+.BtnPurple{
+    color: white;
+    background-color: var(--purple);
+    
+}
+.BtnPink{
+    color: white;
+    background-color: var(--fusia);
+   
+}
+.BtnWhite{
+    color: var(--black);
+    background-color: white;
+    
+}
+.BtnBlue{
+    color: white;
+    background-color: var(--blue);
+    
+}
+.BtnGreen{
+    color: white;
+    background-color: var(--green);
+}
+.BtnDark:hover,.BtnBlue:hover,.BtnGreen:hover,.BtnPink:hover,.BtnPurple:hover,.BtnWhite:hover{
+    opacity: .7;
+}
+
+@media (min-width:480px) {
+    .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
+        font-size: 1.2rem;
+    }
+}
+@media (min-width:1024px) {
+    .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
+        font-size: 1.5rem;
+    }
+}
