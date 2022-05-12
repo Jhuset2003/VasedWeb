@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TestComponent from './components/TestComponent'
 
 import './styles/App.css'
  
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hola Mundo</h1>
+      <TestComponent/>
     </div>
   )
 }
