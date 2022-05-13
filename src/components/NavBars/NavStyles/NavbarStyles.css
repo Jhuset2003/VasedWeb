@@ -1,0 +1,74 @@
+@import "../../../styles/Vars.css";
+
+.NavLanLogo img{
+    width: 9rem;
+}
+.NavLanLogin a{
+    text-decoration: none;
+}
+.NavBarLan{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.NavLanContainer{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    
+}
+.NavBarLogin{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--purple);
+    align-items: center;
+    padding: 10px 15px 5px 15px;
+    width: auto;
+
+}
+.NavLinksContainer ul{
+    list-style: none;
+    display: flex;
+    gap: 3.5rem;
+    
+}
+.NavLinksContainer ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+    color: white;
+}
+.NavBarLoginLog img{
+    width: 4rem;
+}
+
+.Links{
+    font-size: 2.5rem;
+}
+.Links i{
+    color: white;
+}
+.NavBarLoginProfile li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+    color: white;
+}
+.NavCellMenu{
+    display: none;
+}
+
+@media (max-width:630px){
+    .NavBarLoginProfile,.NavLinksContainer{
+        display: none;
+    }
+    .NavCellMenu{
+        display: initial;
+    }
+}
