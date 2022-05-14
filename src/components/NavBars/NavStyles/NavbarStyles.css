@@ -21,7 +21,7 @@
 .NavBarLogin{
     display: flex;
     justify-content: space-between;
-    background-color: var(--purple);
+    background-color: var(--primary);
     align-items: center;
     padding: 10px 15px 5px 15px;
     width: auto;
@@ -63,6 +63,11 @@
 .NavCellMenu{
     display: none;
 }
+.BtnWhite{
+    background-color: transparent;
+    color: white;
+    font-size: 3rem;
+}
 
 @media (max-width:630px){
     .NavBarLoginProfile,.NavLinksContainer{
@@ -70,5 +75,8 @@
     }
     .NavCellMenu{
         display: initial;
+    }
+    .Links{
+        font-size: 5.5rem;
     }
 }

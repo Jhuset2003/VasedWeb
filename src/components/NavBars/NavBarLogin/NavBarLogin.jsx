@@ -4,8 +4,22 @@ import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
 import LinkClassrooms from "./NavBarLoginLinks/LinkClassrooms"
 import LinkProfile from "./NavBarLoginLinks/LinkProfile"
-import { FiMenu } from 'react-icons/fi';
+
+import Dropdown from './Menu/Dropdown'
 function NavBarLogin() {
+    const items = [
+        {
+          anchor: <LinkHome/>,
+        },
+        {
+          
+          anchor: <LinkActivities/>
+        },
+        {
+          
+          anchor: <LinkClassrooms/>,
+        }
+      ];
   return (
     <div className='NavBarLoginContainer'>
         <nav className='NavBarLogin'>
@@ -23,9 +37,12 @@ function NavBarLogin() {
                 <li><LinkProfile/>Perfil</li>
             </div>
             <div className='NavCellMenu'>
-                <button className='BtnWhite'><FiMenu/></button>
+                <div className="App">
+                <Dropdown dropdownTitle="Dropdown" items={items} />
+    </div>
             </div>
         </nav>
+        <div></div>
     </div>
   )
 }
