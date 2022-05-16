@@ -6,9 +6,10 @@ import '../../styles/Buttons_module.css';
 const FormLogin = () => {
   return (
     <div className="form-container">
+        <h1 className="form-title">Iniciar sesión</h1>
             <form action="" className="form">
                 <div className="form-item">
-                    <label htmlFor="userName">Usuario</label>
+                    <label htmlFor="" className="form-title">Usuario</label>
                     <input 
                     type="text" 
                     id="userName" 
@@ -18,7 +19,7 @@ const FormLogin = () => {
                 </div>
 
                 <div className="form-item">
-                    <label htmlFor="">Contraseña</label>
+                    <label htmlFor="" className="form-title">Contraseña</label>
                     <input 
                     type="password" 
                     id="password" 
@@ -30,6 +31,7 @@ const FormLogin = () => {
                 type="submit" 
                 className='BtnPurple'>Entrar</button>
             </form> 
+            <h3 className="form-recover">¿Olvidaste tu contraseña?</h3>
     </div>
   )
 }

@@ -13,4 +13,15 @@
 .form-item{
     display: grid;
     margin:1em 0 1em 0;
+    gap: 0.6em;
+}
+
+.form-title{
+    font-family: var(--title);
+    font-weight: 700;
+}
+
+.form-recover{
+    font-family: var(--text);
+    font-weight: 300;
 }
