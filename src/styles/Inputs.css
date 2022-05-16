@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --black: #212121;
+    --secundary: #AEADF0;
+    --primary: #7876E6;
+    --green: #4EBA63;
+    --yellow: #222;
+    --blue: #40C8F4;
+    --fusia: #ED1C91;
+    --purple: #7C51A1;
+    --white: #FFF;
+    --title: 'Comfortaa', cursive;
+    --text:'Roboto', sans-serif;
+  }
+
+.blue-input{
+    border: 2px solid var(--blue);
+    border-radius: 0.4em;
+    outline: none;
+    padding: 0.5em;
+    font-family: var(--text);
+}
+
+.purple-input{
+    border: 2px solid var(--purple);
+    border-radius: 0.4em;
+    outline: none;
+    padding: 0.5em;
+    font-family: var(--text);
+}
+
+.black-input{
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    border-radius: 0.4em;
+    outline: none;
+    padding: 0.5em;
+    font-family: var(--text);
+}

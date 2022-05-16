@@ -1,11 +1,10 @@
 import React from 'react';
-import NavBarLanding from './NavBars/NavBarLanding/NavBarLanding';
-
+import '../styles/Inputs.css';
 
 const TestComponent = () => {
   return (
     <div>
-        <NavBarLanding/>
+        <input type="text" className="blue-input"/>
     </div>
   )
 }
