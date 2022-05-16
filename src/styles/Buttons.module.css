@@ -47,6 +47,19 @@
 .BtnDark:hover,.BtnBlue:hover,.BtnGreen:hover,.BtnPink:hover,.BtnPurple:hover,.BtnWhite:hover{
     opacity: .7;
 }
+.BtnRounded{
+    padding: 5px;
+    color:var(--black);
+    background-color: transparent;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+}
+.BtnRounded:hover{
+    background-color: var(--fusia);
+    border-color: var(--fusia);
+    color: white;
+}
 
 @media (min-width:480px) {
     .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
