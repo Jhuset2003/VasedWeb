@@ -1,0 +1,16 @@
+@import '../../styles/Vars.css';
+
+.form-container{
+    display: grid;
+    justify-items: center;
+}
+
+.form{
+    display: grid;
+    justify-items: center;
+}
+
+.form-item{
+    display: grid;
+    margin:1em 0 1em 0;
+}

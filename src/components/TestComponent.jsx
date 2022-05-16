@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/Inputs.css';
+import FormLogin from './Forms/FormLogin';
 
 const TestComponent = () => {
   return (
     <div>
-        <input type="text" className="blue-input"/>
+      <FormLogin/>
     </div>
   )
 }
