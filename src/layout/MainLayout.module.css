@@ -1,0 +1,30 @@
+.centerMain{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainLayout{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .mainLayout{
+        width: 90%;
+    }
+}
+@media (min-width: 768px) {
+    .mainLayout{
+        width: 85%;
+    }
+}
+@media (min-width: 1024px) {
+    .mainLayout{
+        width: 80%;
+    }
+}
