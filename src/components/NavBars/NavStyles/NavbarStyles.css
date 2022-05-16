@@ -25,6 +25,8 @@
     align-items: center;
     padding: 10px 15px 5px 15px;
     width: auto;
+    height: 90px;
+    z-index: 110;
 
 }
 .NavLinksContainer ul{
@@ -46,7 +48,10 @@
 }
 
 .Links{
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+}
+.Links:hover{
+    font-size: 2.8rem;
 }
 .Links i{
     color: white;
@@ -63,10 +68,14 @@
 .NavCellMenu{
     display: none;
 }
-.BtnWhite{
+.NavCellMenu .BtnWhite{
     background-color: transparent;
     color: white;
     font-size: 3rem;
+    z-index: 12;
+}
+.NavCellMenu .BtnWhite:active{
+    color: black;
 }
 
 @media (max-width:630px){
@@ -78,5 +87,8 @@
     }
     .Links{
         font-size: 5.5rem;
+    }
+    .Links:hover{
+        font-size: 6.5rem;
     }
 }

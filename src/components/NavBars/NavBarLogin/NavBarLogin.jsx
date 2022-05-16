@@ -37,9 +37,9 @@ function NavBarLogin() {
                 <li><LinkProfile/>Perfil</li>
             </div>
             <div className='NavCellMenu'>
-                <div className="App">
-                <Dropdown dropdownTitle="Dropdown" items={items} />
-    </div>
+                
+                  <Dropdown dropdownTitle="Dropdown" items={items} />
+                
             </div>
         </nav>
         <div></div>
