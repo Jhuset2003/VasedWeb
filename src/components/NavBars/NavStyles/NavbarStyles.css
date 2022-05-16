@@ -1,0 +1,94 @@
+@import "../../../styles/Vars.css";
+
+.NavLanLogo img{
+    width: 9rem;
+}
+.NavLanLogin a{
+    text-decoration: none;
+}
+.NavBarLan{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.NavLanContainer{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    
+}
+.NavBarLogin{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primary);
+    align-items: center;
+    padding: 10px 15px 5px 15px;
+    width: auto;
+    height: 90px;
+    z-index: 110;
+
+}
+.NavLinksContainer ul{
+    list-style: none;
+    display: flex;
+    gap: 3.5rem;
+    
+}
+.NavLinksContainer ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+    color: white;
+}
+.NavBarLoginLog img{
+    width: 4rem;
+}
+
+.Links{
+    font-size: 2.3rem;
+}
+.Links:hover{
+    font-size: 2.8rem;
+}
+.Links i{
+    color: white;
+}
+.NavBarLoginProfile li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+    color: white;
+}
+.NavCellMenu{
+    display: none;
+}
+.NavCellMenu .BtnWhite{
+    background-color: transparent;
+    color: white;
+    font-size: 3rem;
+    z-index: 12;
+}
+.NavCellMenu .BtnWhite:active{
+    color: black;
+}
+
+@media (max-width:630px){
+    .NavBarLoginProfile,.NavLinksContainer{
+        display: none;
+    }
+    .NavCellMenu{
+        display: initial;
+    }
+    .Links{
+        font-size: 5.5rem;
+    }
+    .Links:hover{
+        font-size: 6.5rem;
+    }
+}
