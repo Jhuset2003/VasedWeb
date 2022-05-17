@@ -1,35 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+@import './Vars.css';
 
-:root {
-    --black: #212121;
-    --secundary: #AEADF0;
-    --primary: #7876E6;
-    --green: #4EBA63;
-    --gray: #7A7A7A;
-    --yellow: #222;
-    --blue: #40C8F4;
-    --fusia: #ED1C91;
-    --purple: #7C51A1;
-    --white: #FFF;
-    --title: 'Comfortaa', cursive;
-    --text:'Roboto', sans-serif;
-  }
-
-.blueInput{
-    border: 3px solid var(--blue);
-    border-radius: 0.8em;
-    outline: none;
-    padding: 1em;
-    width: 20rem;
-    font-family: var(--text);
-}
-
-.purpleInput{
+.purpleInput,.blueInput, .blackInput{
     border: 3px solid var(--purple);
     border-radius: 0.8em;
     outline: none;
     padding: .6em;
-    /* width: 20rem; */
     font-size: 1rem;
     font-family: var(--text);
 }
@@ -40,7 +15,6 @@
     border-radius: 0.8em;
     outline: none;
     padding: 1em;
-    width: 20rem;
     font-family: var(--text);
 }
 .disabledInput{
@@ -55,54 +29,28 @@
 
 
 @media (min-width: 768px) {
-    .blueInput{
-        padding: 1.2em;
-        width: 24rem;
-    }
     
-    .purpleInput, .disabledInput{
+    .purpleInput, .disabledInput,.blueInput{
         padding: .8em;
-        /* width: 24rem; */
+
     }
     
-    .blackInput{
-        padding: 1.2em;
-        width: 24rem;
-    }
-
 }
 
 @media (min-width: 992px) {
-    .blueInput{
-        padding: 1.4em;
-        width: 28rem;
-    }
     
-    .purpleInput, .disabledInput{
+    .purpleInput, .disabledInput, .blueInput,.blackInput{
         padding: .8em;
         font-size: 1.2rem;
-        /* width: 28rem; */
     }
-    
-    .blackInput{
-        padding: 1.4em;
-        width: 28rem;
-    }
-}
+}   
+
 
 @media (min-width: 1400px) {
-    .blueInput{
-        padding: 1.4em;
-        width: 28rem;
-    }
     
-    .purpleInput{
+    .purpleInput, .blackInput, .blackInput{
         padding: .8em;
-        /* width: 28rem; */
+
     }
     
-    .blackInput{
-        padding: 1.4em;
-        width: 28rem;
-    }
 }
