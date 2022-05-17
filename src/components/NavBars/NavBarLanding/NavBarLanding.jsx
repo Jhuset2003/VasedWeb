@@ -1,7 +1,7 @@
 import React from 'react'
 import log from "../../../assests/Recurso2.png"
 import {Link} from "react-router-dom"
-import "../../../styles/Buttons_module.css"
+import style from "../../../styles/Buttons.module.css"
 import "../NavStyles/NavbarStyles.css"
 function NavBarLanding() {
   return (
@@ -12,7 +12,7 @@ function NavBarLanding() {
         </div>
         <div className='NavLanLogin'>
           <Link to="/">
-            <button className='BtnPurple'>Login</button>
+            <button className={style.BtnPurple}>Login</button>
           </Link>
         </div>
       </nav>  
