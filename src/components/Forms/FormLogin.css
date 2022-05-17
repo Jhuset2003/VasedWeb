@@ -24,4 +24,6 @@
 .form-recover{
     font-family: var(--text);
     font-weight: 300;
+    text-decoration: none;
+    color: var(--black);
 }
