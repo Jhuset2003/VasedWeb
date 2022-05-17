@@ -8,10 +8,18 @@ const FormLogin = () => {
   return (
     <>
     <Formik
+    validate={(valores) =>{
+      let errores = {};
+
+      if(!valores.user){
+        errores.user = 'Por favor, ingresa un nombre'
+      }
+      return errores;
+    }}
     onSubmit={()=>{
-      console.log("formulario enviado")
+      console.log("formulario enviado") 
     }}>
-      {({handleSubmit, handleChange}) => (
+      {( {handleSubmit, errors, handleChange, handleBlur} ) => (
         <div className="form-container">
             <h1 className="form-title">Iniciar sesión</h1>
                 <form action="" className="form" onSubmit={handleSubmit}>
@@ -23,7 +31,9 @@ const FormLogin = () => {
                         name="user" 
                         placeholder="Barbablanca"
                         className="purple-input"
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        onBlur={handleBlur}/>
+                        {errors.user && <div>{errors.user}</div>}
                     </div>
 
                     <div className="form-item">
@@ -34,7 +44,8 @@ const FormLogin = () => {
                         name="password" 
                         placeholder="Contraseña123..."
                         className="purple-input"
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        onBlur={handleBlur}/>
                     </div>
                     <button 
                     type="submit" 
