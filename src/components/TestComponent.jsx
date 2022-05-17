@@ -1,12 +1,14 @@
 import React from 'react';
-import NavBarLanding from './NavBars/NavBarLanding/NavBarLanding';
-import NavBarLogin from './NavBars/NavBarLogin/NavBarLogin';
+import TableAttendance from './Tables/TableAttendance';
+
 
 
 const TestComponent = () => {
+
   return (
     <div>
-        <NavBarLogin/>
+        <TableAttendance/>
+        
     </div>
   )
 }

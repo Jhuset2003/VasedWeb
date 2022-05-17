@@ -1,0 +1,65 @@
+@import '../styles/Vars.css';
+
+.modal{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(245, 245, 245, 0.362);
+    color: red;
+}
+.modalCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.modalColor{
+    background: #F0F5F9;
+    border: .2rem solid var(--black);
+    border-radius: 1rem;
+    width: 100%;
+    height: max-content;
+    position: relative;
+    padding: 1rem;
+}
+.modalTop{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.ptBtn{
+    position: absolute;
+    top: -.1rem;
+    right: -.1rem;
+}
+.modalIcon{
+    font-size: 1rem;
+}
+.modalTitle{
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: var(--title);
+    text-align: center;
+}
+.modalContent{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width:640px) {
+    .modalColor{
+        width: 80%;
+    }
+}
+@media (min-width:768px) {
+    .modalColor{
+        width: 70%;
+    }
+}

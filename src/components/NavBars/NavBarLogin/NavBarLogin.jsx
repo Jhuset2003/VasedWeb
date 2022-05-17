@@ -4,7 +4,7 @@ import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
 import LinkClassrooms from "./NavBarLoginLinks/LinkClassrooms"
 import LinkProfile from "./NavBarLoginLinks/LinkProfile"
-import { BsFillHandThumbsUpFill } from 'react-icons/bs';
+
 import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
 function NavBarLogin() {
