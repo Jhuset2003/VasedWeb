@@ -1,14 +1,15 @@
 import React from 'react'
-import {Link} from "react-router-dom"
-import { SiGoogleclassroom } from 'react-icons/si';
+import {NavLink} from "react-router-dom"
+import aulas from "../../../../assests/Iconos-menu/aulas.svg"
 import "../../NavStyles/NavbarStyles.css"
 
 function LinkClassrooms() {
   return (
     <div className='Links'>
-        <Link to="/">
-            <i><SiGoogleclassroom/></i>
-        </Link>
+        <NavLink to="/">
+            <img src={aulas} alt="" />
+            <p>Aulas</p>
+        </NavLink>
     </div>
   )
 }

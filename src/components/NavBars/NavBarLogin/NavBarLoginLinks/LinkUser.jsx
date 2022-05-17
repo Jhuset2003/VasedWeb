@@ -1,16 +1,19 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
+import usuarios from "../../../../assests/Iconos-menu/usuarios.svg"
 import "../../NavStyles/NavbarStyles.css"
-import { CgProfile } from "react-icons/cg";
 
-function LinkProfile() {
+
+function LinkUser() {
   return (
     <div className='Links'>
         <NavLink to="/">
-            <i><CgProfile/></i>
+            <img src={usuarios} alt="" />
+            <p>Usuario</p>
+
         </NavLink>
     </div>
   )
 }
 
-export default LinkProfile
+export default LinkUser
