@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../styles/Inputs.css';
-import './FormLogin.css';
-import '../../styles/Buttons_module.css';
+import inputCss from '../../styles/Inputs.module.css';
+import formCss from './styles/FormLogin.module.css';
+import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
 
 const FormLogin = () => {
@@ -31,41 +31,41 @@ const FormLogin = () => {
       console.log("formulario enviado") 
     }}>
       {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
-        <div className="form-container">
-            <h1 className="form-title">Iniciar sesión</h1>
-                <form action="" className="form" onSubmit={handleSubmit}>
-                    <div className="form-item">
-                        <label htmlFor="user" className="form-subtitle">Usuario</label>
+        <div className={formCss.formContainer}>
+            <h1 className={formCss.formTitle}>Iniciar sesión</h1>
+                <form action="" className={formCss.form} onSubmit={handleSubmit}>
+                    <div className={formCss.formItem}>
+                        <label htmlFor="user" className={formCss.formSubtitle}>Usuario</label>
                         <input 
                         type="text" 
                         id="user" 
                         name="user" 
                         placeholder="Christian Ruiz"
                         value={values.user}
-                        className="purple-input"
+                        className={inputCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
-                        {touched.user && errors.user && <div className="errors">{errors.user}</div>}
+                        {touched.user && errors.user && <div className={formCss.errors}>{errors.user}</div>}
                     </div>
 
-                    <div className="form-item">
-                        <label htmlFor="password" className="form-subtitle">Contraseña</label>
+                    <div className={formCss.formItem}>
+                        <label htmlFor="password" className={formCss.formSubtitle}>Contraseña</label>
                         <input 
                         type="password" 
                         id="password" 
                         name="password" 
                         placeholder="Contraseña123..."
                         value={values.password}
-                        className="purple-input"
+                        className={inputCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
-                        {touched.password && errors.password && <div className="errors">{errors.password}</div>}
+                        {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}
                     </div>
                     <button 
                     type="submit" 
-                    className='BtnPurple'>Entrar</button>
+                    className={btn.BtnPurple}>Entrar</button>
                 </form> 
-                <a href="#" className="form-recover">¿Olvidaste tu contraseña?</a>
+                <a href="#" className={formCss.formRecover}>¿Olvidaste tu contraseña?</a>
         </div>
       )}
     </Formik>

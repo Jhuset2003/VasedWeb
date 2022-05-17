@@ -14,7 +14,7 @@
     --text:'Roboto', sans-serif;
   }
 
-.blue-input{
+.blueInput{
     border: 3px solid var(--blue);
     border-radius: 0.8em;
     outline: none;
@@ -23,7 +23,7 @@
     font-family: var(--text);
 }
 
-.purple-input{
+.purpleInput{
     border: 3px solid var(--purple);
     border-radius: 0.8em;
     outline: none;
@@ -32,7 +32,7 @@
     font-family: var(--text);
 }
 
-.black-input{
+.blackInput{
     border: 3px solid var(--black);
     background-color: var(--white);
     border-radius: 0.8em;
@@ -44,34 +44,34 @@
 
 
 @media (min-width: 768px) {
-    .blue-input{
+    .blueInput{
         padding: 1.2em;
         width: 24rem;
     }
     
-    .purple-input{
+    .purpleInput{
         padding: 1.2em;
         width: 24rem;
     }
     
-    .black-input{
+    .blackInput{
         padding: 1.2em;
         width: 24rem;
     }
 }
 
 @media (min-width: 992px) {
-    .blue-input{
+    .blueInput{
         padding: 1.4em;
         width: 28rem;
     }
     
-    .purple-input{
+    .purpleInput{
         padding: 1.4em;
         width: 28rem;
     }
     
-    .black-input{
+    .blackInput{
         padding: 1.4em;
         width: 28rem;
     }
@@ -79,17 +79,17 @@
 }
 
 @media (min-width: 1400px) {
-    .blue-input{
+    .blueInput{
         padding: 1.4em;
         width: 28rem;
     }
     
-    .purple-input{
+    .purpleInput{
         padding: 1.4em;
         width: 28rem;
     }
     
-    .black-input{
+    .blackInput{
         padding: 1.4em;
         width: 28rem;
     }

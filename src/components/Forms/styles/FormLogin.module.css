@@ -1,6 +1,6 @@
-@import '../../styles/Vars.css';
+@import '../../../styles/Vars.css';
 
-.form-container{
+.formContainer{
     display: grid;
     justify-items: center;
 }
@@ -10,22 +10,22 @@
     justify-items: center;
 }
 
-.form-item{
+.formItem{
     display: grid;
     margin:1em 0 1em 0;
     gap: 0.6em;
 }
 
-.form-title{
+.formTitle{
     font-family: var(--title);
     font-weight: 700;
 }
-.form-subtitle{
+.formSubtitle{
     font-family: var(--title);
     font-weight: 700;
 }
 
-.form-recover{
+.formRecover{
     font-family: var(--text);
     font-weight: 300;
     text-decoration: none;
@@ -33,20 +33,20 @@
 }
 
 .errors{
-    color: #ff0000;
-    font-family: var(--text);
+    color: #ED1C91;
+    font-family: var(--title);
 }
 
 @media (min-width: 992px) {
-    .form-title{
+    .formTitle{
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 2.8rem;
     }
-    .form-subtitle{
+    .formSubtitle{
         font-size: 1.5rem;
     }
-    .form-recover{
+    .formRecover{
         font-size: 1.5rem;
         margin-top: 2rem;
     }
@@ -54,10 +54,10 @@
 
 @media (min-width: 1400px) {
     
-    .form-subtitle{
+    .formSubtitle{
         font-size: 1.7rem;
     }
-    .form-recover{
+    .formRecover{
         font-size: 1.5rem;
         margin-top: 2rem;
     }
