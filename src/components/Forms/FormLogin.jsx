@@ -8,18 +8,29 @@ const FormLogin = () => {
   return (
     <>
     <Formik
+    initialValues={{
+      user: "",
+      password: ""
+    }}
     validate={(valores) =>{
       let errores = {};
 
+      //Validación del nombre de usuario
       if(!valores.user){
-        errores.user = 'Por favor, ingresa un nombre'
+        errores.user = 'Ingresa un nombre'
+      }
+      //Validación de contraseña 
+      if(!valores.password){
+        errores.password = 'Ingresa una contraseña'
       }
       return errores;
     }}
-    onSubmit={()=>{
+    
+    onSubmit={(valores, {resetForm})=>{
+      resetForm();
       console.log("formulario enviado") 
     }}>
-      {( {handleSubmit, errors, handleChange, handleBlur} ) => (
+      {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
         <div className="form-container">
             <h1 className="form-title">Iniciar sesión</h1>
                 <form action="" className="form" onSubmit={handleSubmit}>
@@ -29,11 +40,12 @@ const FormLogin = () => {
                         type="text" 
                         id="user" 
                         name="user" 
-                        placeholder="Barbablanca"
+                        placeholder="Christian Ruiz"
+                        value={values.user}
                         className="purple-input"
                         onChange={handleChange}
                         onBlur={handleBlur}/>
-                        {errors.user && <div>{errors.user}</div>}
+                        {touched.user && errors.user && <div className="errors">{errors.user}</div>}
                     </div>
 
                     <div className="form-item">
@@ -43,9 +55,11 @@ const FormLogin = () => {
                         id="password" 
                         name="password" 
                         placeholder="Contraseña123..."
+                        value={values.password}
                         className="purple-input"
                         onChange={handleChange}
                         onBlur={handleBlur}/>
+                        {touched.password && errors.password && <div className="errors">{errors.password}</div>}
                     </div>
                     <button 
                     type="submit" 

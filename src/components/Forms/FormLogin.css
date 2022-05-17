@@ -32,6 +32,11 @@
     color: var(--black);
 }
 
+.errors{
+    color: #ff0000;
+    font-family: var(--text);
+}
+
 @media (min-width: 992px) {
     .form-title{
         font-size: 2.5rem;
