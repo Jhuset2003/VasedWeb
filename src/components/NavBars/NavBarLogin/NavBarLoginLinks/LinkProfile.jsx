@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg";
 function LinkProfile() {
   return (
     <div className='Links'>
-        <NavLink to="/">
+        <NavLink to="/perfil">
             <i><CgProfile/></i>
         </NavLink>
     </div>
