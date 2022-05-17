@@ -1,11 +1,12 @@
 import React from 'react'
-import logRecort from "../../../assests/Recurso2Recort.png"
+import log from "../../../assests/Recurso2.png"
 import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
 import LinkClassrooms from "./NavBarLoginLinks/LinkClassrooms"
 import LinkProfile from "./NavBarLoginLinks/LinkProfile"
 
 import Dropdown from './Menu/Dropdown'
+import LinkUser from './NavBarLoginLinks/LinkUser'
 function NavBarLogin() {
     const items = [
         {
@@ -19,22 +20,33 @@ function NavBarLogin() {
           
           anchor: <LinkClassrooms/>,
         }
+        ,
+        {
+          
+          anchor: <LinkUser/>,
+        }
+        ,
+        {
+          
+          anchor: <LinkProfile/>,
+        }
       ];
   return (
     <div className='NavBarLoginContainer'>
         <nav className='NavBarLogin'>
             <div className='NavBarLoginLog'>
-                <img src={logRecort} alt="" />
+                <img src={log} alt="" />
             </div>
             <div className='NavLinksContainer'>
                 <ul>
-                    <li><LinkHome/>Home</li>
-                    <li><LinkActivities/>Actividades</li>
-                    <li><LinkClassrooms/>Aulas</li>
+                    <li><LinkHome/></li>
+                    <li><LinkActivities/></li>
+                    <li><LinkClassrooms/></li>
+                    <li><LinkUser/></li>
                 </ul>
             </div>
             <div className='NavBarLoginProfile'>
-                <li><LinkProfile/>Perfil</li>
+                <i><LinkProfile/></i>
             </div>
             <div className='NavCellMenu'>
                 

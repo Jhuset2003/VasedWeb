@@ -1,17 +1,19 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import home from "../../../../assests/Iconos-menu/inicio.svg"
+import usuarios from "../../../../assests/Iconos-menu/usuarios.svg"
 import "../../NavStyles/NavbarStyles.css"
 
-function LinkHome() {
+
+function LinkUser() {
   return (
     <div className='Links'>
         <NavLink className="navlink" to="/">
-            <img src={home} alt="" />
-            <p>Inicio</p>
+            <img src={usuarios} alt="" />
+            <p>Usuario</p>
+
         </NavLink>
     </div>
   )
 }
 
-export default LinkHome
+export default LinkUser
