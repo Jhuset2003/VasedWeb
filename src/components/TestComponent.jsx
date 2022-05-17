@@ -5,7 +5,6 @@ const TestComponent = () => {
 
   return (
     <div>
-        
         <NavBarLogin/>
     </div>
   )

@@ -5,6 +5,7 @@
     --secundary: #AEADF0;
     --primary: #7876E6;
     --green: #4EBA63;
+    --gray: #7A7A7A;
     --yellow: #222;
     --blue: #40C8F4;
     --fusia: #ED1C91;
@@ -27,8 +28,9 @@
     border: 3px solid var(--purple);
     border-radius: 0.8em;
     outline: none;
-    padding: 1em;
-    width: 20rem;
+    padding: .6em;
+    /* width: 20rem; */
+    font-size: 1rem;
     font-family: var(--text);
 }
 
@@ -41,6 +43,15 @@
     width: 20rem;
     font-family: var(--text);
 }
+.disabledInput{
+    border: 3px solid var(--gray);
+    background-color: #EDF2F4;
+    border-radius: 0.8em;
+    outline: none;
+    padding: .6em;
+    font-size: 1rem;
+    font-family: var(--text);
+}
 
 
 @media (min-width: 768px) {
@@ -49,15 +60,16 @@
         width: 24rem;
     }
     
-    .purpleInput{
-        padding: 1.2em;
-        width: 24rem;
+    .purpleInput, .disabledInput{
+        padding: .8em;
+        /* width: 24rem; */
     }
     
     .blackInput{
         padding: 1.2em;
         width: 24rem;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -66,16 +78,16 @@
         width: 28rem;
     }
     
-    .purpleInput{
-        padding: 1.4em;
-        width: 28rem;
+    .purpleInput, .disabledInput{
+        padding: .8em;
+        font-size: 1.2rem;
+        /* width: 28rem; */
     }
     
     .blackInput{
         padding: 1.4em;
         width: 28rem;
     }
-    
 }
 
 @media (min-width: 1400px) {
@@ -85,8 +97,8 @@
     }
     
     .purpleInput{
-        padding: 1.4em;
-        width: 28rem;
+        padding: .8em;
+        /* width: 28rem; */
     }
     
     .blackInput{
