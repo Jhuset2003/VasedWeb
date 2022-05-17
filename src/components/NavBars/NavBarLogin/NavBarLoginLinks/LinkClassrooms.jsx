@@ -6,7 +6,7 @@ import "../../NavStyles/NavbarStyles.css"
 function LinkClassrooms() {
   return (
     <div className='Links'>
-        <NavLink to="/">
+        <NavLink className="navlink" to="/">
             <img src={aulas} alt="" />
             <p>Aulas</p>
         </NavLink>

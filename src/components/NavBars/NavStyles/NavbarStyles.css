@@ -39,7 +39,7 @@
     
 }
 .NavBarLoginLog img{
-    width: 4rem;
+    width: 9rem;
 }
 
 .Links{
@@ -64,7 +64,7 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
-.Links svg:hover{
+.Links p:hover{
     color: var(--fusia);
 }
 .Links i:hover{
@@ -85,17 +85,18 @@
 }
 .NavCellMenu .BtnWhite{
     background-color: transparent;
-    color: white;
+    color: var(--black);
     font-size: 3rem;
     z-index: 12;
 }
-.NavCellMenu .BtnWhite:active{
-    color: black;
+.NavCellMenu .BtnWhite:hover{
+    color: var(--fusia);
 }
 
 
 
-@media (max-width:630px){
+
+@media (max-width:800px){
     .NavBarLoginProfile,.NavLinksContainer{
         display: none;
     }
@@ -105,7 +106,14 @@
     .Links{
         font-size: 5.5rem;
     }
-    .Links:hover{
-        font-size: 6.5rem;
+    
+    .navlink{
+        width: 150px;
+    }
+    .navlink img,p,i{
+        color: white;
+    }
+    .navlink img:hover,p:hover,i:hover{
+        color: var(--fusia);
     }
 }

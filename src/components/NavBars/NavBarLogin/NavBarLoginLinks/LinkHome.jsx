@@ -6,7 +6,7 @@ import "../../NavStyles/NavbarStyles.css"
 function LinkHome() {
   return (
     <div className='Links'>
-        <NavLink to="/">
+        <NavLink className="navlink" to="/">
             <img src={home} alt="" />
             <p>Inicio</p>
         </NavLink>

@@ -7,7 +7,7 @@ import "../../NavStyles/NavbarStyles.css"
 function LinkActivities() {
   return (
     <div className='Links'>
-        <NavLink to="/">
+        <NavLink className="navlink" to="/">
             <img src={actividades} alt="" />
             <p>Actividaes</p>
         </NavLink>

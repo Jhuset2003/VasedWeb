@@ -5,7 +5,7 @@ import {
   dropdown_item_list,
   active,
   item_list,
-} from "../../../../styles/dropdown.module.css";
+} from "./dropdown.module.css";
 import { FiMenu } from 'react-icons/fi';
 
 function Dropdown({ items = [], dropdownTitle }) {

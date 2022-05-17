@@ -7,7 +7,7 @@ import "../../NavStyles/NavbarStyles.css"
 function LinkUser() {
   return (
     <div className='Links'>
-        <NavLink to="/">
+        <NavLink className="navlink" to="/">
             <img src={usuarios} alt="" />
             <p>Usuario</p>
 
