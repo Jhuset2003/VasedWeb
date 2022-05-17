@@ -1,22 +1,21 @@
 import React from 'react'
 import log from "../../../assests/Recurso2.png"
 import {Link} from "react-router-dom"
-import { RiLoginBoxFill } from 'react-icons/ri';
 import "../../../styles/Buttons_module.css"
+import "../NavStyles/NavbarStyles.css"
 function NavBarLanding() {
   return (
     <div className='NavLanContainer'>
-      {/*<nav>
+      <nav className='NavBarLan'>
         <div className='NavLanLogo'>
           <img src={log} alt="" />
         </div>
         <div className='NavLanLogin'>
           <Link to="/">
-            <i><RiLoginBoxFill/></i>
+            <button className='BtnPurple'>Login</button>
           </Link>
         </div>
-      </nav>*/}
-      <button className='BtnBlue'>aaaaaaaaaaa <RiLoginBoxFill/></button>
+      </nav>  
     </div>
   )
 }
