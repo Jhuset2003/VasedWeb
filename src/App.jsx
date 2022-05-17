@@ -1,16 +1,11 @@
 import { useState } from 'react'
+import TestComponent from './components/TestComponent';
 
 import './styles/App.css'
  
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <h1>Hola Mundo</h1>
-    </div>
-  )
+  return < TestComponent/>;
 }
+export default App;
 
-export default App

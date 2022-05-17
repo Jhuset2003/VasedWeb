@@ -1,0 +1,28 @@
+.footer{
+    background-color: var(--purple);;
+    color: white;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 10px;
+    font-family: var(--fuente2);
+
+}
+.paragraph_container{
+    width: 500px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.footer_social_networks{
+    background-color: red;
+    align-items: flex-start
+}
+/*media query*/
+@media (min-width: 768px) {
+    .footer{
+        display:flex;
+
+    }
+}
