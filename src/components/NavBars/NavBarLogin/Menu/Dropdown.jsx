@@ -64,7 +64,7 @@ function Dropdown({ items = [], dropdownTitle }) {
         {items.map((item, index) => {
           return (
             <li className={item_list} key={index}>
-              <a href={item.slug}>{item.anchor}</a>
+              <a href={item.slug} onClick={clickHandler}>{item.anchor}</a>
             </li>
           );
         })}
