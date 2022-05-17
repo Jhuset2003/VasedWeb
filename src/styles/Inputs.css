@@ -41,3 +41,56 @@
     width: 20rem;
     font-family: var(--text);
 }
+
+
+@media (min-width: 768px) {
+    .blue-input{
+        padding: 1.2em;
+        width: 24rem;
+    }
+    
+    .purple-input{
+        padding: 1.2em;
+        width: 24rem;
+    }
+    
+    .black-input{
+        padding: 1.2em;
+        width: 24rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .blue-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+    
+    .purple-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+    
+    .black-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+    
+}
+
+@media (min-width: 1400px) {
+    .blue-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+    
+    .purple-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+    
+    .black-input{
+        padding: 1.4em;
+        width: 28rem;
+    }
+}
