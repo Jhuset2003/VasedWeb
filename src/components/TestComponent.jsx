@@ -5,7 +5,7 @@ import "./Sections/Hero.css";
 
 const TestComponent = () => {
   return (
-    <div className="sectionhome">
+    <div>
       <Hero />
       <Footer />
     </div>
