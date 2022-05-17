@@ -1,5 +1,5 @@
 import React from 'react';
-import TableAttendance from './Tables/TableAttendance';
+import NavBarLanding from "./NavBars/NavBarLanding/NavBarLanding"
 
 
 
@@ -7,8 +7,8 @@ const TestComponent = () => {
 
   return (
     <div>
-        <TableAttendance/>
         
+        <NavBarLanding/>
     </div>
   )
 }
