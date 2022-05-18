@@ -2,33 +2,124 @@
 
 
 .container{
-    background-color: var(--blue);
+    background-image: url(../../../assests/fondo.jpg);
+    background-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
+    /* opacity: 40%; */
+    display: grid;
+    justify-items: center;
+    align-content: center; 
 }
 
-.background{
-    width: 100%;
-    height: 100%;
-}
 
 .recoverView{
     display: grid;
     justify-items: center;
-    align-content: center;
     position: relative;
-
+    background-color: var(--white);
+    opacity: 90%;
+    border-radius: 3%;
+    padding: 3em 5em 2em 5em ;
+    /* margin: 1rem 1rem 1rem 1rem; */
 }
 
 .recoverTitle{
-    font-family: var(--title);
+    font-family: var(--form-title); /* Debo hacer que funcione esta fuente */
+    font-size: 1.2em;
+    margin-bottom: 2em;
 }
 
-.formFielTitle{
-    font-family: var(--title);
+.formField{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    margin-bottom: 1rem;
+}
+
+.formFieldTitle{
+    font-family: var(--form-title);
+    font-size: 0.85em;
+    font-weight: 100;
+    padding: 0 0 0.7em 0;
+
 }
 
 .BtnContainer{
     display: flex;
+    justify-content: space-around;
+    padding: 3em 0 0 0;
+}
+
+@media (min-width: 480px) {
+
+    .recoverTitle{
+        font-size: 1.4em;
+        margin-bottom: 1.5em;
+    }
+    
+    .formFieldTitle{
+        font-size: 1em;
+        padding: 0 0 1em 0;
+    
+    }
+    
+    .BtnContainer{
+        display: flex;
+        justify-content: space-around;
+        padding: 1em 0 0 0;
+    }
+    
+
+}
+
+@media (min-width: 768px){
+
+    .recoverView{
+        width: 70%;
+    }
+    
+    .recoverTitle{
+        font-size: 2em;
+    }
+    
+    .formFieldTitle{
+        font-size: 1.4em;
+        padding: 0 0 1em 0;
+    
+    }
+    
+    .BtnContainer{
+        display: flex;
+        justify-content: space-around;
+        padding: 1em 0 0 0;
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .recoverView{
+        width: 70%;
+        height: 90%;
+    }
+
+    .recoverTitle{
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+    
+    .formFieldTitle{
+        font-size: 2em;
+        padding: 0 0 1em 0;
+    
+    }
+    
+    .BtnContainer{
+        padding: 1em 0 2em 0;
+        margin-bottom: 2rem;
+        justify-content: space-around;
+
+    }
+    
 }
