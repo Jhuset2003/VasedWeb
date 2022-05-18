@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-
-        :root{
-            --color-fondo: #2a2a2a;
-        }
+@import "../../styles/Vars.css";
+     
    .footer{
             /* border: 1px solid #0000ff; */
             display: grid;
             grid-gap: 10px;
             grid-template-columns: repeat(1,1fr);
             text-align: center;
-            background-color: var(--color-fondo);
+            background-color: var(--black);
             text-align: center;
             color: white;
             padding: 10px;
@@ -34,6 +31,9 @@
        
         .vased{
             font-size: 30px;
+        }
+        .logo_vased{
+            width: 5rem;
         }
        .c3{
            flex-direction: column;

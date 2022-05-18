@@ -1,0 +1,120 @@
+@import "../../../styles/Vars.css";
+
+.NavLanLogo img{
+    width: 9rem;
+}
+.NavLanLogin a{
+    text-decoration: none;
+}
+.NavBarLan{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 30px;
+    
+}
+.NavLanContainer{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    
+}
+.NavBarLogin{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    padding: 10px 15px 5px 15px;
+    width: auto;
+    height: 90px;
+    z-index: 110;
+    border-bottom: 3px solid transparent;
+    border-image:linear-gradient(to right, var(--fusia) 10%, var(--blue) 100%) 1 ;
+
+}
+.NavLinksContainer ul{
+    list-style: none;
+    display: flex;
+    gap: 3.5rem;
+    
+}
+.NavBarLoginLog img{
+    width: 9rem;
+}
+
+.Links{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 3px;
+
+}
+.Links img{
+    width: 2rem;
+    height: 2.5rem;
+}
+.Links i{
+    font-size: 3rem;
+}
+.Links a{
+    text-decoration: none;
+}
+.Links p{
+    font-family: var(--title);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.Links p:hover{
+    color: var(--fusia);
+}
+.Links i:hover{
+    color: var(--fusia);
+}
+
+.NavBarLoginProfile li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text);
+    color: white;
+}
+.NavCellMenu{
+    display: none;
+}
+.NavCellMenu .BtnWhite{
+    background-color: transparent;
+    color: var(--black);
+    font-size: 3rem;
+    z-index: 12;
+    border: none;
+}
+.NavCellMenu .BtnWhite:hover{
+    color: var(--fusia);
+}
+
+
+
+
+@media (max-width:800px){
+    .NavBarLoginProfile,.NavLinksContainer{
+        display: none;
+    }
+    .NavCellMenu{
+        display: initial;
+    }
+    .Links{
+        font-size: 5.5rem;
+    }
+    
+    .navlink{
+        width: 150px;
+    }
+    .navlink img,p,i{
+        color: white;
+    }
+    .navlink img:hover,p:hover,i:hover{
+        color: var(--fusia);
+    }
+}

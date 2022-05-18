@@ -1,0 +1,56 @@
+@import './Vars.css';
+
+.purpleInput,.blueInput, .blackInput{
+    border: 3px solid var(--purple);
+    border-radius: 0.8em;
+    outline: none;
+    padding: .6em;
+    font-size: 1rem;
+    font-family: var(--text);
+}
+
+.blackInput{
+    border: 3px solid var(--black);
+    background-color: var(--white);
+    border-radius: 0.8em;
+    outline: none;
+    padding: 1em;
+    font-family: var(--text);
+}
+.disabledInput{
+    border: 3px solid var(--gray);
+    background-color: #EDF2F4;
+    border-radius: 0.8em;
+    outline: none;
+    padding: .6em;
+    font-size: 1rem;
+    font-family: var(--text);
+}
+
+
+@media (min-width: 768px) {
+    
+    .purpleInput, .disabledInput,.blueInput{
+        padding: .8em;
+
+    }
+    
+}
+
+@media (min-width: 992px) {
+    
+    .purpleInput, .disabledInput, .blueInput,.blackInput{
+        padding: .8em;
+        font-size: 1.2rem;
+    }
+}   
+
+
+@media (min-width: 1400px) {
+    
+    .purpleInput, .blackInput, .blackInput{
+        padding: .8em;
+
+    }
+    
+}

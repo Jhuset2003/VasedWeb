@@ -1,17 +1,11 @@
 import React from "react";
 import "./Footer.css";
-
+import logo from "../../assests/vased-logo-white.png";
 const Footer = () => {
   return (
     <footer class="footer container">
       <div className="logo_text containers">
-        <h2>
-          {" "}
-          <span>
-            <i class="fa-brands fa-blackberry"></i>
-          </span>
-          <b class="vased">VASED</b>
-        </h2>
+        <img className="logo_vased"src={logo} alt="" />
       </div>
       <div class="footer_social_networks containers">
         <a href="">
