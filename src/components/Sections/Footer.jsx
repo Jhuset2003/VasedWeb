@@ -5,23 +5,33 @@ import { FaHandPaper } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer class="footer container">
-      <div className="logo_text">
-        <p class="footer__p">VASED</p>
-        <div className="icons_objects ">
-          <FaHandPaper />
-        </div>
+      <div className="logo_text contenedores">
+        <h2>
+          {" "}
+          <span>
+            <i class="fa-brands fa-blackberry"></i>
+          </span>
+          <b class="vased">VASED</b>
+        </h2>
       </div>
-      <div class="footer_social_networks">
-        <i class="bi bi-facebook social"></i>
-        <i class="bi bi-twitter social"></i>
-        <i class="bi bi-instagram social"></i>
+      <div class="footer_social_networks contenedores">
+        <a href="">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
       </div>
-      <div class="paragraph_container">
-        <p class="text_footer">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et nulla
-          illo numquam? Est modi harum ullam odit rem maiores perferendis quidem
-      
+      <div class="paragraph_container contenedores c3">
+        <p>
+          {" "}
+          Lorem ipsum dolor sit amet consectetur adipisicing elitadipisicing
+          elit.
         </p>
+        <small>Lorem ipsum dolor sit amet .</small>
       </div>
     </footer>
   );

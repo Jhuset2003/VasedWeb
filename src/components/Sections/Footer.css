@@ -1,146 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-/*desktop*/
-.footer{
-    background-color: var(--purple);;
-    color: white;
-    text-align: center;
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    font-family: var(--fuente2);
-    background-color: var( --purple);
-    height: 15vh !important;
-    opacity: 0.5;
-    display: flex;
 
-}
-.logo_text{
-   display: flex;
-   flex-direction:row-reverse;
-   align-items: center;
-   justify-content: center;
-   background-color: yellow;
-   padding: 0 0 0 0; /*arriba(top), derecha(right), abajo(bottom), izquierda(left)*/
-   position: relative;
-   left: 70px; 
-}
+        :root{
+            --color-fondo: #7876e6;
+        }
+   .footer{
+            /* border: 1px solid #0000ff; */
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(1,1fr);
+            text-align: center;
+            background-color: var(--color-fondo);
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+        .contenedores{
+            /* border: 1px solid red; */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer a{
+            text-decoration: none;
+            font-size: 30px;
+            padding: 10px;
+            color: white;
 
-.icons_objects{
-    font-size: 1.2rem;
-    color: white;
-    padding: 0.5rem;
-    background-color: brown;
-}
-
-
-.paragraph_container{
-
-    display: flex;
-    align-items: flex-end;
-    background-color: blue;
-    position: relative;
-    right: 40px;
-    bottom: 30px;
-    font-family: 'Comfortaa', cursive;  
-}
-.text_footer{
-    font-size: 16px;
-    justify-content: left;
-    color: white;
-}
-.footer__p{
-    background-color: aqua;
-    font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Comfortaa', cursive;
-}
-.footer_social_networks{
-   background-color: red;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 920px;
-}
-
-.social{
-    margin:0 2%;
-    border-radius: 50%;
-    font-size: larger;
-    position: relative;
-    right: 10px;
-}
-/*media query*/
-              /*0-480*/
-
-@media (max-width: 480px) {/*aplica 0-480*/
-    .footer{
-         background-color: black;
-         height: 30vh !important;    
+        }
+        .fa-blackberry{
+            padding: 2px;
+        }
+        /* .footer a i{
+            display: block;
+            border: 1px solid red;
+            width: 30px;
+            height: 30px;
+        } */
+        .vased{
+            font-size: 30px;
+        }
+       .c3{
+           flex-direction: column;
        }
+       
+        @media (min-width: 500px) {
+            .footer{
+                grid-template-columns: repeat(3,1fr);
+            }
 
-       .footer__p{
-        background-color: aqua;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Comfortaa', cursive;
-        flex-direction: column;
-      
-       }
-
-       .footer_social_networks{
-        background-color: red;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 920px;
-     }
-     .paragraph_container{
-
-        display: flex;
-        align-items: flex-end;
-        background-color: blue;
-        position: relative;
-        right: 40px;
-        bottom: 30px;
-        font-family: 'Comfortaa', cursive;  
-    }
-   }
-   
-
-              /*0-768*/
-
-   @media (max-width: 768px) {/*aplica 0-768*/
-    .footer{
-        background-color: orange;
-        height: 30vh !important;  
-    }
-    .footer__p{
-        background-color: aqua;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Comfortaa', cursive;
-        flex-direction: column;
-       }
-
-       .footer_social_networks{
-        background-color: red;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 920px;
-     }
-     .paragraph_container{
-
-        display: flex;
-        align-items: flex-end;
-        background-color: blue;
-        position: relative;
-        right: 40px;
-        bottom: 30px;
-        font-family: 'Comfortaa', cursive;  
-    }
-}
+        }

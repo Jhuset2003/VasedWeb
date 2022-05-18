@@ -11,14 +11,18 @@ min-height: 100vh;/*para el footer*/
 display: flex;
 justify-content: center;
 align-items: center;
+
 }
 
 .icons_main{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     gap: 5rem;/*espacio entre los items*/
     padding: 1rem 0;
-
+    max-width: 300px;
+    margin: auto;
+    
 }
 
 .icons_items{
@@ -29,7 +33,10 @@ align-items: center;
     display: flex;
     align-items: center;
     justify-content: center;
+   
+    
 }
+
 .bg_green{
     background-color: var(--green);
 }
@@ -46,8 +53,9 @@ align-items: center;
 .text_info_hero{
     margin-bottom: 25px;/*para que este separado de la imagen*/
 }
-          
+
 .stripe{
+    margin: auto;
     width: 12rem;
     margin-bottom: 1rem;
     height: 0.4rem;
@@ -55,6 +63,7 @@ align-items: center;
 }
 
 .text_subtitle_hero{
+    
     font-size: 20px;
     font-weight: bold;
     margin: 0px;
@@ -64,20 +73,37 @@ align-items: center;
 .video_main_hero{
     width: 100%;
     height: 100%;
-    
+    /* border: 5px solid blue; */
+    margin: auto;
+    display: block;
+
 }
 video{
 	opacity: 0.5;
 	border-radius: 10px;
- 
+    border: 3px solid var(--blue);
+    display: block;
+    margin: auto;
+    height: 100%;
+
 }
 .welcome_video_hero{
     height: max-content;
     width: 300px;
-    flex-wrap: wrap;}
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
 .text_hero{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.text_hero >*{
+    padding: 10px;
 }
 
 .text_title_hero{
@@ -101,7 +127,7 @@ video{
 
 @media only screen and (min-width: 650px) {/*asi se muestra en esta medida*/
 .welcome_video_hero{
-     width: 300px;
+     max-width: 400px;
 
  }
 .content_hero{
@@ -109,6 +135,7 @@ video{
     justify-items: center;
     align-content: center;
  }
+
 }
 
 @media only screen and (min-width:950px){/* 950-2000 aplica,copio y pego borro lo que no tenga que sobreescribir, como las fuentes, el tamaño,*/
@@ -129,12 +156,10 @@ video{
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    max-width: 980px;
     margin: 0 auto;
     align-items: center;
     padding: 5px;
-     
-            
+               
  }
             
 .text_title_hero{
@@ -142,8 +167,14 @@ video{
 }
             
 .text_details_hero{
-    font-size: 25px;
+    font-size: 22px;
     margin: 30px 0;
+}
+.stripe{
+    margin: initial;
+}
+.icons_main{
+    margin: initial;
 }
  }
 
