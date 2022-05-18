@@ -1,15 +1,16 @@
 import React from 'react'
-import {Link} from "react-router-dom"
-import { MdOutlineFindInPage } from 'react-icons/md';
+import {NavLink} from "react-router-dom"
+import actividades from "../../../../assests/Iconos-menu/actividades.svg"
 import "../../NavStyles/NavbarStyles.css"
 
 
 function LinkActivities() {
   return (
     <div className='Links'>
-        <Link to="/">
-            <i className='Hover'><MdOutlineFindInPage/></i>
-        </Link>
+        <NavLink className="navlink" to="/">
+            <img src={actividades} alt="" />
+            <p>Actividaes</p>
+        </NavLink>
     </div>
   )
 }

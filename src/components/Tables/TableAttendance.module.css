@@ -1,0 +1,65 @@
+@import url("../../styles/Vars.css");
+
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: "Calibri";
+    justify-content: center;
+    padding: 2rem 5rem;
+    font-family: var(--text);
+  }
+  
+  table {
+    border-spacing: 0;
+    border: 2px solid var(--purple);
+    border-radius: 6px;
+  }
+  tr:last-child td{
+      border-bottom: 0;
+  }
+  
+  
+  th,
+  td {
+    margin: 0;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--purple);
+    color: var(--purple);
+  }
+  .pagination {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    font-family: var(--text);
+  }
+  
+  .pageController {
+    width: 20px;
+    height: 17px;
+    display: flex;
+  }
+  .pageControllerleft{
+    width: 20px;
+    height: 17px;
+    display: flex;
+    transform: rotate(180deg);
+  }
+  .Tbody{
+      text-align: center;
+  }
+  .button{
+      background-color: transparent;
+      border: none;
+      color: black;
+  }
+  button:hover{
+      color: var(--purple);
+  }
+  .Letters{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      font-family: var(--title);
+      font-size: 0.7rem;
+  }

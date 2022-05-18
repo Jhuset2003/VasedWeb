@@ -1,14 +1,14 @@
 import React from 'react'
-import {Link} from "react-router-dom"
-import { CgProfile } from 'react-icons/cg';
+import {NavLink} from "react-router-dom"
 import "../../NavStyles/NavbarStyles.css"
+import { CgProfile } from "react-icons/cg";
 
 function LinkProfile() {
   return (
     <div className='Links'>
-        <Link to="/">
+        <NavLink to="/">
             <i><CgProfile/></i>
-        </Link>
+        </NavLink>
     </div>
   )
 }
