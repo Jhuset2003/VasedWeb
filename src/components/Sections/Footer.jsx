@@ -5,7 +5,7 @@ import { FaHandPaper } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer class="footer container">
-      <div className="logo_text contenedores">
+      <div className="logo_text containers">
         <h2>
           {" "}
           <span>
@@ -14,7 +14,7 @@ const Footer = () => {
           <b class="vased">VASED</b>
         </h2>
       </div>
-      <div class="footer_social_networks contenedores">
+      <div class="footer_social_networks containers">
         <a href="">
           <i class="fa-brands fa-facebook"></i>
         </a>
@@ -25,7 +25,7 @@ const Footer = () => {
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
-      <div class="paragraph_container contenedores c3">
+      <div class="paragraph_container containers c3">
         <p>
           {" "}
           Lorem ipsum dolor sit amet consectetur adipisicing elitadipisicing

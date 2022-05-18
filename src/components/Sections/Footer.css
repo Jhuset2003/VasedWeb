@@ -14,7 +14,7 @@
             color: white;
             padding: 10px;
         }
-        .contenedores{
+        .containers{
             /* border: 1px solid red; */
             padding: 10px;
             display: flex;
@@ -31,12 +31,7 @@
         .fa-blackberry{
             padding: 2px;
         }
-        /* .footer a i{
-            display: block;
-            border: 1px solid red;
-            width: 30px;
-            height: 30px;
-        } */
+       
         .vased{
             font-size: 30px;
         }
