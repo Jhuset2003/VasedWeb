@@ -1,7 +1,6 @@
 import React from "react";
 import "./Hero.css";
 import video from "../../assests/video.mp4";
-import { FaHeart, FaHandPaper, FaHandsHelping } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -18,24 +17,17 @@ const Hero = () => {
             </video>
           </div>
           <div className="text_info_hero">
-            <h3 className="text_subtitle_hero">subtitulo</h3>
-            <h1 className="text_title_hero">Titulo</h1>
-            <hr className="stripe" />
-            <div className="icons_main">
-              <div className="icons_items bg_purple">
-                <FaHeart />
-              </div>
-              <div className="icons_items bg_pink">
-                <FaHandPaper />
-              </div>
-              <div className="icons_items bg_green">
-                <FaHandsHelping />
-              </div>
-            </div>
+            <h1 className="text_title_hero">
+              ¡Hola <br /> Te damos la bienvenida al <br /> Aula Virtual VASED
+            </h1>
+            <p class="text_details_hero">
+              Este es un ambiente de formación en donde encontraras diversos
+              cursos que hemos creado para ti.
+            </p>
 
             <p class="text_details_hero">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem
-              eligendi quia vel veritatis sint.
+              Si es tu primera vez aquí te invitamos a que te registres para
+              comenzar tus actividades en la plataforma.
             </p>
           </div>
         </section>
