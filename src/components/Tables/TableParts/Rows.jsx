@@ -6,93 +6,124 @@ export default function useRows() {
      {
         id:1,
         nombre:"demo",
+        acciones:"demo",
         aula:1,
         promedio:"demo",
         asistencia:"demo",
-        acciones:"demo",
+        
 
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
+   },
+   {
+      id:1,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
-     {
-        id:12,
-        nombre:"demo2",
-        aula:1,
-        promedio:"demo2",
-        asistencia:"demo2",
-        acciones:"demo2",
+   },
+   {
+      id:2,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
 
-     },
+   },
+   {
+      id:2,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
+
+   },
+   {
+      id:2,
+      nombre:"demo",
+      acciones:"demo",
+      aula:1,
+      promedio:"demo",
+      asistencia:"demo",
+      
+
+   },
+     
    ],
    []
  );

@@ -1,5 +1,6 @@
 import React from 'react';
-import NavBarLogin from "./NavBars/NavBarLogin/NavBarLogin"
+import TableAttendance from './Tables/TableAttendance';
+
 
 
 
@@ -8,7 +9,7 @@ const TestComponent = () => {
   return (
     <div>
         
-        <NavBarLogin/>
+        <TableAttendance/>
     </div>
   )
 }
