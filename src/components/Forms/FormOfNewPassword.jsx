@@ -4,7 +4,6 @@ import inputCss from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
 import formCss from './styles/FormLogin.module.css';
 import { Formik } from 'formik';
-import ModalRecover from '../Modals/ModalRecover';
 
 
 
