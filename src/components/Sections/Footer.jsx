@@ -1,24 +1,39 @@
 import React from "react";
-import "./Footer.css";
+import styles from "./Footer.module.css";
 import logo from "../../assests/vased-logo-white.png";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer class="footer container">
-      <div className="logo_text containers">
-        <img className="logo_vased"src={logo} alt="" />
+    <footer className={`${styles.footer} ${styles.containers}`}>
+      <div className={`${styles.logo_text} ${styles.containers}`}>
+        <img className={styles.logo_vased} src={logo} alt="" />
       </div>
-      <div class="footer_social_networks containers">
+      <div className={`${styles.footer_social_networks} ${styles.containers}`}>
         <a href="">
-          <i class="fa-brands fa-facebook"></i>
+          <FaFacebook />
         </a>
         <a href="">
-          <i class="fa-brands fa-twitter"></i>
+          <FaTwitter />
         </a>
         <a href="">
-          <i class="fa-brands fa-instagram"></i>
+          <FaInstagram />
+        </a>
+        <a href="">
+          <FaLinkedinIn />
+        </a>
+        <a href="">
+          <FaYoutube />
         </a>
       </div>
-      <div class="paragraph_container containers c3">
+      <div
+        className={`${styles.paragraph_container} ${styles.containers} ${styles.c3}`}
+      >
         <p>
           {" "}
           Lorem ipsum dolor sit amet consectetur adipisicing elitadipisicing

@@ -14,11 +14,11 @@ align-items: center;
 
 }
 
-.icons_main{
+/*.icons_main{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 5rem;/*espacio entre los items*/
+    gap: 5rem;
     padding: 1rem 0;
     max-width: 300px;
     margin: auto;
@@ -54,13 +54,13 @@ align-items: center;
     margin-bottom: 25px;/*para que este separado de la imagen*/
 }
 
-.stripe{
+/*.stripe{
     margin: auto;
     width: 12rem;
     margin-bottom: 1rem;
     height: 0.4rem;
     background-color: var(--fusia);
-}
+}*/
 
 .video_main_hero{
     width: 100%;
@@ -168,12 +168,12 @@ video{
     color: var(--black);
     font-family: 'Comfortaa', cursive;
 }
-.stripe{
+/*.stripe{
     margin: initial;
-}
-.icons_main{
+}*/
+/*.icons_main{
     margin: initial;
-}
+}*/
  }
 
 
