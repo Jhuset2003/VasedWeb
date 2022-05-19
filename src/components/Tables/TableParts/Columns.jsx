@@ -13,6 +13,11 @@ export default function useColumns() {
        accessor: "nombre"
      },
      {
+       Header: "Acciones",
+       accessor: "acciones"
+     },
+
+     {
        Header: "Aula",
        accessor: "aula",
        type:"numeric"
@@ -24,10 +29,6 @@ export default function useColumns() {
      {
        Header: "Asistencia",
        accessor: "asistencia"
-     },
-     {
-       Header: "Acciones",
-       accessor: "acciones"
      }
    ],
    []

@@ -1,12 +1,12 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
 import aulas from "../../../../assests/Iconos-menu/aulas.svg"
-import "../../NavStyles/NavbarStyles.css"
+import navStyles from"../../NavStyles/NavbarStyles.module.css"
 
 function LinkClassrooms() {
   return (
-    <div className='Links'>
-        <NavLink className="navlink" to="/aulas">
+    <div className={navStyles.Links}>
+        <NavLink className={navStyles.navlink} to="/aulas">
             <img src={aulas} alt="" />
             <p>Aulas</p>
         </NavLink>

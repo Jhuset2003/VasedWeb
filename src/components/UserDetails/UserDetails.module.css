@@ -1,0 +1,78 @@
+@import "../../styles/Vars.css";
+
+.UserDetailsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: transparent;
+    width: 100%;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 15%);
+    font-family: var(--title);
+}
+.UserNoDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 15%);
+    font-family: var(--title);
+}
+.UserNoDetailsContainer i{
+    font-size: 100px;
+    color: var(--gray);
+}
+.User{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 25px;
+    width: 30vw;
+}
+.User p{
+    font-weight: bold;
+}
+.Details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 25px;
+    width: 30vw;
+    
+}
+.Details p{
+    font-weight: bold;
+}
+
+@media (max-width:800px) {
+    .UserDetailsContainer{
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    .User{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 25px;
+        width: 50vw;
+    }
+    .Details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 25px;
+        width: 50vw;
+        
+    }
+}
