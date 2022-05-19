@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const TestComponent = () => {
+  return <div></div>;
+};
 
-  return (
-    <div>
-    
-    </div>
-  )
-}
-
-export default TestComponent
+export default TestComponent;
