@@ -7,7 +7,7 @@
 }
 
 .section_hero{
-min-height: 100vh;/*para el footer*/
+min-height: 64vh;/*para el footer*/
 display: flex;
 justify-content: center;
 align-items: center;
