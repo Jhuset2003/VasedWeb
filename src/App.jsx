@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import NavBarLogin from './components/NavBars/NavBarLogin/NavBarLogin'
@@ -12,7 +11,6 @@ import './styles/App.css'
  
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">

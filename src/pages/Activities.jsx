@@ -1,8 +1,10 @@
-import React from 'react'
+import CardActivity from '../components/Cards/CardActivity'
 
 const Activities = () => {
   return (
-    <div>Activities</div>
+    <div>
+      <CardActivity/>
+    </div>
   )
 }
 

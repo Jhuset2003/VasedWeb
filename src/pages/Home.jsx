@@ -1,11 +1,11 @@
 import React from 'react'
-import TestComponent from '../components/TestComponent'
+import FormUsers from '../components/Forms/FormUsers'
 
 const Home = () => {
   return (
     <div>
-      Home
-      <TestComponent/>
+      <FormUsers/>
+      ho
     </div>
   )
 }
