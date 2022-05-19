@@ -63,3 +63,15 @@
       font-family: var(--title);
       font-size: 0.7rem;
   }
+  .FilterTable{
+    border: 2px solid var(--purple);
+    border-radius: 10px;
+    height: 30px;
+    padding: 5px;
+    font-family: var(--title);
+  }
+  .InputContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }

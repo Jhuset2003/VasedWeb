@@ -1,8 +1,14 @@
 import React from 'react'
+import MainLayout from '../layout/MainLayout'
+import TableAttendance from "../components/Tables/TableAttendance"
 
 const AdminUsers = () => {
   return (
-    <div>AdminUsers</div>
+    <>
+      <MainLayout>
+        <TableAttendance/>
+      </MainLayout>
+    </>
   )
 }
 
