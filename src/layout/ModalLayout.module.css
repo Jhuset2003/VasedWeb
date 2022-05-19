@@ -8,7 +8,6 @@
     top: 0;
     z-index: 10;
     background-color: rgba(245, 245, 245, 0.362);
-    color: red;
 }
 .modalCenter{
     display: flex;
@@ -51,6 +50,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: var(--title);
 }
 
 @media (min-width:640px) {

@@ -1,14 +1,13 @@
 import React from 'react';
-import FormOfRecovering from './Forms/FormOfRecovering';
-import ModalRecover from './Modals/ModalRecover';/* recovery */
-import FormOfNewPassword from './Forms/FormOfNewPassword';/* newpassword */
+import FormOfNewPassword from '../pages/FormOfNewPassword';
+import FormOfRecovering from '../pages/FormOfRecovering';
 
 
 const TestComponent = () => {
 
   return (
     <div>
-      <FormOfRecovering/>
+      <FormOfNewPassword/>
     </div>
   )
 }
