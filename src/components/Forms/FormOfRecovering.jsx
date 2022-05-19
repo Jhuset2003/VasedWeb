@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 import recoCss from './styles/FormOfRecovering.module.css';
 import inputCss from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
@@ -49,7 +49,7 @@ const FormOfRecovering = () => {
                       {touched.email && errors.email && <div className={formCss.errors}>{errors.email}</div>}
                   </div>
                   <div className={recoCss.BtnContainer}>
-                      <button className={btn.BtnPurple}>Enviar</button>
+                      <button type="button" className={btn.BtnPurple}>Enviar</button>
                       <button className={btn.BtnPink}>Cancelar</button>
                   </div>
                 </form>
@@ -57,6 +57,8 @@ const FormOfRecovering = () => {
         </div>
       )}
       </Formik>
+
+      
     </>
   )
 }

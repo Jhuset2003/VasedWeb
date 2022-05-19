@@ -1,0 +1,54 @@
+@import '../styles/Vars.css';
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContainer{
+    width: 20rem;
+    min-height: 6rem;
+    background-color: var(--white);
+    position: relative;
+    border-radius: 0.7em;
+    border: 3px solid var(--green);
+    display: grid;
+    justify-items: center;
+    padding: 1.3em 1.3em 1em 1.3em;
+}
+
+.title{
+    font-family: var(--form-title);
+    font-weight: 100;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 0.5em;
+    margin-bottom: 1rem;
+}
+
+.btnClose{
+    position: absolute;
+    width: 2em;
+    height: 2em;    
+    border: none;
+    background: none;
+    background-color: #fff;
+    cursor: pointer;
+    top: 0.2rem;
+    right: 0.2rem;
+    transition: .3s ease all;
+    border-radius: 0.3em;
+    color: var(--fusia);
+    font-size: 1.2em;
+}
+
+.btnClose:hover{
+    background-color: #f3f3f3;
+}
