@@ -1,13 +1,13 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
 import actividades from "../../../../assests/Iconos-menu/actividades.svg"
-import "../../NavStyles/NavbarStyles.css"
+import navStyles from"../../NavStyles/NavbarStyles.module.css"
 
 
 function LinkActivities() {
   return (
-    <div className='Links'>
-        <NavLink className="navlink" to="/">
+    <div className={navStyles.Links}>
+        <NavLink className={navStyles.navlink} to="/actividades">
             <img src={actividades} alt="" />
             <p>Actividaes</p>
         </NavLink>

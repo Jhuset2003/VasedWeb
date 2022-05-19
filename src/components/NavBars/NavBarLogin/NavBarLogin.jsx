@@ -1,12 +1,12 @@
 import React from 'react'
-import log from "../../../assests/Recurso2.png"
+import log from "../../../assests/logo-aula-virtual.png"
 import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
 import LinkClassrooms from "./NavBarLoginLinks/LinkClassrooms"
 import LinkProfile from "./NavBarLoginLinks/LinkProfile"
-
 import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
+import navStyles from "../NavStyles/NavbarStyles.module.css"
 function NavBarLogin() {
     const items = [
         {
@@ -32,12 +32,12 @@ function NavBarLogin() {
         }
       ];
   return (
-    <div className='NavBarLoginContainer'>
-        <nav className='NavBarLogin'>
-            <div className='NavBarLoginLog'>
+    <div className={navStyles.NavBarLoginContainer}>
+        <nav className={navStyles.NavBarLogin}>
+            <div className={navStyles.NavBarLoginLog}>
                 <img src={log} alt="" />
             </div>
-            <div className='NavLinksContainer'>
+            <div className={navStyles.NavLinksContainer}>
                 <ul>
                     <li><LinkHome/></li>
                     <li><LinkActivities/></li>
@@ -45,10 +45,10 @@ function NavBarLogin() {
                     <li><LinkUser/></li>
                 </ul>
             </div>
-            <div className='NavBarLoginProfile'>
+            <div className={navStyles.NavBarLoginProfile}>
                 <i><LinkProfile/></i>
             </div>
-            <div className='NavCellMenu'>
+            <div className={navStyles.NavCellMenu}>
                 
                   <Dropdown dropdownTitle="Dropdown" items={items} />
                 
