@@ -10,13 +10,12 @@
             text-align: center;
             color: white;
             padding: 10px;
+            
         }
         .containers{
             /* border: 1px solid red; */
             padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    
         }
         .footer a{
             text-decoration: none;
@@ -29,19 +28,33 @@
             padding: 2px;
         }
        
-        .vased{
-            font-size: 30px;
-        }
+     
         .logo_vased{
             width: 5rem;
+            display: block;
         }
+
        .c3{
            flex-direction: column;
+       }
+
+       .c2{
+           display: flex !important;
+           justify-content: space-around !important;
+           align-items: center;
+           flex-direction: column;
+
+       }
+      
+       .styles.image{
+           display: flex;
        }
        
         @media (min-width: 500px) {
             .footer{
-                grid-template-columns: repeat(3,1fr);
+                grid-template-columns: repeat(2,1fr);
             }
-
+.c2{
+    flex-direction: row;
+}
         }

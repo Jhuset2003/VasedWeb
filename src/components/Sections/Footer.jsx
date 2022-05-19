@@ -10,36 +10,37 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} ${styles.containers}`}>
-      <div className={`${styles.logo_text} ${styles.containers}`}>
-        <img className={styles.logo_vased} src={logo} alt="" />
+    <footer className={styles.footer}>
+      <div className={`${styles.containers} ${styles.c2}`}>
+        <div className={styles.image}>
+          <img className={styles.logo_vased} src={logo} alt="" />
+        </div>
+        <div className={styles.social_networks}>
+          <a href="">
+            <FaFacebook />
+          </a>
+          <a href="">
+            <FaTwitter />
+          </a>
+          <a href="">
+            <FaInstagram />
+          </a>
+          <a href="">
+            <FaLinkedinIn />
+          </a>
+          <a href="">
+            <FaYoutube />
+          </a>
+        </div>
       </div>
-      <div className={`${styles.footer_social_networks} ${styles.containers}`}>
-        <a href="">
-          <FaFacebook />
+      <div className={`${styles.containers} ${styles.c3}`}>
+        <a href="https://fundacionvased.org/">
+          <p>Conocer más acerca de VASED</p>
         </a>
-        <a href="">
-          <FaTwitter />
-        </a>
-        <a href="">
-          <FaInstagram />
-        </a>
-        <a href="">
-          <FaLinkedinIn />
-        </a>
-        <a href="">
-          <FaYoutube />
-        </a>
-      </div>
-      <div
-        className={`${styles.paragraph_container} ${styles.containers} ${styles.c3}`}
-      >
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elitadipisicing
-          elit.
-        </p>
-        <small>Lorem ipsum dolor sit amet .</small>
+        <small>
+          ¿Tienes dudas o inconvenientes?Escribenos a
+          contacto.fundacionvased@gmail.com
+        </small>
       </div>
     </footer>
   );
