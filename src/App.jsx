@@ -7,7 +7,6 @@ import AdminUser from "./pages/AdminUsers";
 import Profile from "./pages/Profile";
 
 import "./styles/App.css";
-import Footer from "./components/Sections/Footer";
 import Landing from "./pages/Landing";
 import DetailUser from "./pages/DetailUser";
 
@@ -24,7 +23,6 @@ function App() {
         <Route path="/perfil" element={<Profile />} />
         <Route path="/detalle-usuario" element={<DetailUser/>}/>
       </Routes>
-      <Footer />
     </div>
   );
 }
