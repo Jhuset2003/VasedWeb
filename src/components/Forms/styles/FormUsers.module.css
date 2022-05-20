@@ -10,7 +10,7 @@
     width: 100%;
     display: grid;
     justify-items: center;
-    padding: 0 2rem;
+    padding: 0;
 }
 
 .flexItem {
@@ -25,12 +25,12 @@
 .formItem {
     width: 100%;
     display: grid;
-    margin: 0.5em 0 1.8em 0;
+    margin: 0.5em 0 2em 0;
     gap: 0.2em;
     position: relative;
 }
 
-.formTitle, .formSubtitle {
+.formTitle, .formSubtitle,.formSubtitleLabel {
     font-family: var(--title);
     font-weight: 700;
 }
@@ -40,18 +40,66 @@
 .formSubtitle {
     font-size: 0.9rem;
 }
+.formSubtitleLabel {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: start;
+}
 .errors {
     color: #ed1c91;
+    font-size: .8rem;
     font-family: var(--title);
     font-weight: bold;
     position: absolute;
     bottom: -1.5rem;
+}
+.divContent{
+    width: 100%;
+    padding: 1rem 0;
+}
+.radioContent{
+    padding: 1rem 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.radioBtnP {
+    
+    accent-color: rgba(250, 15, 117);
+}
+.radioBtnB {
+
+    accent-color: var(--blue);
+}
+.radioBtnG {
+
+    accent-color: var(--green);
+}
+.radioBtnY {
+
+    accent-color: var(--yellow);
+}
+.btnCenter{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 @media (min-width: 992px) {
     .formTitle {
         font-size: 1.5rem;
         margin-bottom: 2.8rem;
+    }
+    .form {
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        padding: 0 2rem;
+    }
+    .errors {
+        font-size: 1rem;
     }
     
 }

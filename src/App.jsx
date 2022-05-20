@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import NavBarLogin from "./components/NavBars/NavBarLogin/NavBarLogin";
 import Aulas from "./pages/Aulas";
@@ -9,12 +9,14 @@ import Profile from "./pages/Profile";
 import "./styles/App.css";
 import Landing from "./pages/Landing";
 import DetailUser from "./pages/DetailUser";
+import Login from "./pages/Login";
 
 function App() {
-
+  const location = useLocation();
   return (
     <div className="App">
-      <NavBarLogin />
+      
+      {location.pathname === "/login" ? null : <NavBarLogin />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/aulas" element={<Aulas />} />
@@ -22,6 +24,7 @@ function App() {
         <Route path="/usuarios" element={<AdminUser />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="/detalle-usuario" element={<DetailUser/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </div>
   );

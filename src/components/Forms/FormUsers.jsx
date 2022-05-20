@@ -22,12 +22,12 @@ const FormUsers = () =>{
         
         if(!valores.name){
             errores.name = 'Ingrese nombres'
-        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
+        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)){
             errores.name = "Los nombres solo puede contener letras"
         }
         if(!valores.lastName){
             errores.lastName = 'Ingrese apellidos'
-        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
+        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.lastName)){
             errores.lastName = "Los apellidos solo puede contener letras"
         }
         
@@ -67,22 +67,23 @@ const FormUsers = () =>{
                         <div className={styleForm.formItem}>
                             <label htmlFor="name" className={styleForm.formSubtitle}>Nombres</label>
                             <input 
-                            type="text" id="name" name="name" placeholder="Nombres" className={inputCss.disabledInput}
-                            value={values.name} disabled/>
+                            type="text" id="name" name="name" placeholder="Nombres" className={inputCss.purpleInput}
+                            value={values.name} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.name && errors.name && <div className={styleForm.errors}>{errors.name}</div>}
                         </div>
                         <div className={styleForm.formItem}>
                             <label htmlFor="lastname" className={styleForm.formSubtitle}>Apellidos</label>
                             <input 
-                            type="text" id="lastname" name="lastname" placeholder="Apellidos" className={inputCss.disabledInput}
-                            value={values.lastname} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.lastname && errors.lastname && <div className={styleForm.errors}>{errors.lastname}</div>}
+                            type="text" id="lastName" name="lastName" placeholder="Apellidos" className={inputCss.purpleInput}
+                            value={values.lastName} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.lastName && errors.lastName && <div className={styleForm.errors}>{errors.lastName}</div>}
                         </div>
                     </div>
                     <div className={styleForm.flexItem}>
                         <div className={styleForm.formItem}>
                             <label htmlFor="document" className={styleForm.formSubtitle}>Documento</label>
                             <input 
-                            type="number" id="document" name="document" placeholder="0000000" className={inputCss.disabledInput}
+                            type="number" id="document" name="document" placeholder="0000000" className={inputCss.purpleInput}
                             value={values.document} onChange={handleChange} onBlur={handleBlur}/>
                             {touched.document && errors.document && <div className={styleForm.errors}>{errors.document}</div>}
                         </div>
@@ -90,6 +91,7 @@ const FormUsers = () =>{
                             <label htmlFor="typeid" className={styleForm.formSubtitle}>Tipo de documento</label>
                             <Field as="select" name="typeid" className={inputCss.purpleInput}
                             value={values.typeid} onChange={handleChange} onBlur={handleBlur}>
+                                <option value="" selected>Tipo documento</option>
                                 <option value="1">Cédula de ciudadania</option>
                                 <option value="2">Tarjeta de identidad</option>
                                 <option value="3">Pasaporte</option>
@@ -109,8 +111,9 @@ const FormUsers = () =>{
                         <div className={styleForm.formItem}>
                             <label htmlFor="country" className={styleForm.formSubtitle}>País</label>
                             <input 
-                            type="text" id="country" name="country" placeholder="País" className={inputCss.disabledInput}
-                            value={values.country} disabled/>
+                            type="text" id="country" name="country" placeholder="País" className={inputCss.purpleInput}
+                            value={values.country} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.country && errors.country && <div className={styleForm.errors}>{errors.country}</div>}
                         </div>
                     </div>
                     <div className={styleForm.flexItem}>
@@ -125,7 +128,8 @@ const FormUsers = () =>{
                             <label htmlFor="rol" className={styleForm.formSubtitle}>Rol</label>
                             <Field as="select" name="rol" className={inputCss.purpleInput}
                             value={values.rol} onChange={handleChange} onBlur={handleBlur}>
-                            <option value="1">Administrador</option>
+                                <option value="" selected>Rol</option>
+                                <option value="1">Administrador</option>
                                 <option value="2">Profesor</option>
                                 <option value="3">Estudiante</option>
                             </Field>

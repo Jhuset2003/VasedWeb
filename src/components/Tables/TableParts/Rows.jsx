@@ -7,20 +7,20 @@ export default function useRows() {
  const rows = useMemo(
    () => [
      {
-        id:1,
-        nombre:"Pedro Garcia",
+        id:456789,
+        nombre:"Adam B Schiff",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
         </Link>
          <button className={BtnStyles.BtnDelete}> Eliminar </button>
         </div>,
-        rol:"Profesor",
+        rol:"Estudiante",
         ultimo_ingreso: "20/04/2022",
         creado: "02/02/2021",
      },
      {
-        id:2,
+        id:234567,
         nombre:"Elquin Arroyo",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
@@ -33,7 +33,7 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:3,
+        id:37890,
         nombre:"Paco Gracia",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
@@ -46,8 +46,21 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:4,
-        nombre:"Lola vaca",
+        id:212123,
+        nombre:"Esmeralda Tobon",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Estudiante",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
+     },
+     {
+        id:45678,
+        nombre:"Lola nuñez",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
@@ -59,8 +72,8 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:5,
-        nombre:"Lola vaca",
+        id:8765,
+        nombre:"Vanesa Beltran",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
@@ -72,8 +85,8 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:6,
-        nombre:"Lola vaca",
+        id:65432,
+        nombre:"Daniel Espitia",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
@@ -85,8 +98,8 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:7,
-        nombre:"Lola vaca",
+        id:76564,
+        nombre:"Camilo Corrales",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
@@ -98,8 +111,8 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:8,
-        nombre:"Lola vaca",
+        id:78903,
+        nombre:"Leonor Pedroza",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
@@ -111,21 +124,8 @@ export default function useRows() {
         creado: "02/02/2021",
      },
      {
-        id:9,
-        nombre:"Lola vaca",
-        acciones: <div className={rowsStyles.center}>
-         <Link to="/detalle-usuario">
-           <button className={BtnStyles.BtnPurple}> Ver más </button>
-        </Link>
-         <button className={BtnStyles.BtnDelete}> Eliminar </button>
-        </div>,
-        rol:"Profesor",
-        ultimo_ingreso: "20/04/2022",
-        creado: "02/02/2021",
-     },
-     {
-        id:10,
-        nombre:"Lola vaca",
+        id:105678,
+        nombre:"Patricia Perez",
         acciones: <div className={rowsStyles.center}>
          <Link to="/detalle-usuario">
            <button className={BtnStyles.BtnPurple}> Ver más </button>
