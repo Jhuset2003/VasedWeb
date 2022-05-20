@@ -16,7 +16,7 @@ const Aulas = () => {
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Usuarios</h1>
-          <button className={BtnStyles.BtnPurple} onClick={()=> setOpenModal(!openModal)}>Crear nueva aula</button>
+          <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}>Crear nueva aula</button>
         </div>
         <Search/>
         <CardAula/>

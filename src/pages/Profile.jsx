@@ -13,7 +13,7 @@ const Profile = () => {
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>
                 <Link to="/login">
-                  <button className={btn.BtnPink}>Cerrar sesión</button>
+                  <button className={btn.BtnDark}>Cerrar sesión</button>
                 </Link>
             </div>
             <FormProfile/>
