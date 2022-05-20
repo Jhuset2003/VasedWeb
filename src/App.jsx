@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import NavBarLogin from "./components/NavBars/NavBarLogin/NavBarLogin";
@@ -10,9 +9,9 @@ import Profile from "./pages/Profile";
 import "./styles/App.css";
 import Footer from "./components/Sections/Footer";
 import Landing from "./pages/Landing";
+import DetailUser from "./pages/DetailUser";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -23,6 +22,7 @@ function App() {
         <Route path="/Actividades" element={<Activities />} />
         <Route path="/usuarios" element={<AdminUser />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/detalle-usuario" element={<DetailUser/>}/>
       </Routes>
       <Footer />
     </div>

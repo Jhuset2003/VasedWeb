@@ -8,7 +8,7 @@ function UserNoDetails() {
         <MainLayout>
             <div className={userStyles.UserNoDetailsContainer}>
                 <i><FaBoxOpen/></i>
-                <h3>No Tienes </h3>
+                <h3>Ninguna</h3>
             </div>
         </MainLayout>
     </>
