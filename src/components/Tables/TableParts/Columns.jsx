@@ -4,7 +4,7 @@ export default function useColumns() {
  const columns = useMemo(
    () => [
      {
-       Header: "ID",
+       Header: "Código",
        accessor: "id",
        type:"numeric"
      },

@@ -13,7 +13,7 @@ const DetailUser = () => {
         <MainLayout>
         <div className={styles.Letters}>
             <h1>Detalle perfil</h1>
-            <button className={BtnStyles.BtnPurple} onClick={() => navigate(-1)}> Regresar </button>
+            <button className={BtnStyles.BtnDark} onClick={() => navigate(-1)}> Regresar </button>
         </div>
         <UserDetails/>
         <UserNoDetails/>

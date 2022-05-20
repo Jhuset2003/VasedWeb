@@ -3,17 +3,18 @@ import profileCss from './styles/Profile.module.css'
 
 import MainLayout from '../layout/MainLayout'
 import FormProfile from '../components/Forms/FormProfile'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
 
-  const navigate = useNavigate()
   return (
     <>
         <MainLayout>
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>
-                <button className={btn.BtnPink} onClick={() => navigate(-1)}>Cerrar sesión</button>
+                <Link to="/login">
+                  <button className={btn.BtnDark}>Cerrar sesión</button>
+                </Link>
             </div>
             <FormProfile/>
         </MainLayout>

@@ -4,6 +4,7 @@
     display: grid;
     justify-items: center;
     align-content: center;
+    margin-bottom: 17rem;
 }
 
 .section_hero{
@@ -75,8 +76,16 @@ video{
 }
 
 /*media query*/
+@media (min-width: 440px) {
+    .content_hero{
+        margin-bottom: 15rem;
+    }
+}
 
 @media only screen and (min-width: 650px) {/*asi se muestra en esta medida*/
+    .content_hero{
+        margin-bottom: 8rem;
+    }
 .welcome_video_hero{
      max-width: 400px;
 
@@ -90,6 +99,9 @@ video{
 }
 
 @media only screen and (min-width:950px){/* 950-2000 aplica,copio y pego borro lo que no tenga que sobreescribir, como las fuentes, el tamaño,*/
+    .content_hero{
+        margin: 0;
+    }
 .text_info_hero{
      margin-bottom: 0px;  
 }
