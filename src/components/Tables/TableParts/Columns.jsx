@@ -13,21 +13,21 @@ export default function useColumns() {
        accessor: "nombre"
      },
      {
-       Header: "Aula",
-       accessor: "aula",
-       type:"numeric"
-     },
-     {
-       Header: "Promedio",
-       accessor: "promedio"
-     },
-     {
-       Header: "Asistencia",
-       accessor: "asistencia"
-     },
-     {
        Header: "Acciones",
        accessor: "acciones"
+     },
+
+     {
+       Header: "Rol",
+       accessor: "rol",
+     },
+     {
+       Header: "Ultimo Ingreso",
+       accessor: "ultimo_ingreso"
+     },
+     {
+       Header: "Creado",
+       accessor: "creado"
      }
    ],
    []

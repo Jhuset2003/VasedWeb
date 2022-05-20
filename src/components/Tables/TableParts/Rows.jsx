@@ -1,98 +1,143 @@
 import { useMemo } from "react";
+import BtnStyles from '../../../styles/Buttons.module.css'
+import rowsStyles from './Rows.module.css'
+import {Link} from 'react-router-dom'
 
 export default function useRows() {
  const rows = useMemo(
    () => [
      {
         id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        nombre:"Pedro Garcia",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:2,
+        nombre:"Elquin Arroyo",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:3,
+        nombre:"Paco Gracia",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:4,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:5,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:6,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:7,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:8,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:1,
-        nombre:"demo",
-        aula:1,
-        promedio:"demo",
-        asistencia:"demo",
-        acciones:"demo",
-
+        id:9,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
      {
-        id:12,
-        nombre:"demo2",
-        aula:1,
-        promedio:"demo2",
-        asistencia:"demo2",
-        acciones:"demo2",
-
+        id:10,
+        nombre:"Lola vaca",
+        acciones: <div className={rowsStyles.center}>
+         <Link to="/detalle-usuario">
+           <button className={BtnStyles.BtnPurple}> Ver más </button>
+        </Link>
+         <button className={BtnStyles.BtnDelete}> Eliminar </button>
+        </div>,
+        rol:"Profesor",
+        ultimo_ingreso: "20/04/2022",
+        creado: "02/02/2021",
      },
+     
+     
    ],
    []
  );

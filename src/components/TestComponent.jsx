@@ -1,16 +1,7 @@
-import React from 'react';
-import NavBarLogin from "./NavBars/NavBarLogin/NavBarLogin"
-
-
+import React from "react";
 
 const TestComponent = () => {
+  return <div></div>;
+};
 
-  return (
-    <div>
-        
-        <NavBarLogin/>
-    </div>
-  )
-}
-
-export default TestComponent
+export default TestComponent;

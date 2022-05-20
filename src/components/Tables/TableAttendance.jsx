@@ -1,9 +1,12 @@
-import { useTable, usePagination } from "react-table";
+import { useTable, usePagination,useGlobalFilter  } from "react-table";
 import useRows from "./TableParts/Rows";
 import useColumns from "./TableParts/Columns";
 import TableStyles from "./TableAttendance.module.css"
 import { MdOutlineDoubleArrow } from "react-icons/md";
+
 import BtnStyles from "../../styles/Buttons.module.css"
+import {React} from 'react'
+
 
 
 export default function TableAttendance() {
@@ -17,9 +20,10 @@ export default function TableAttendance() {
         pageSize: 5,
         pageIndex: 0
       }
-    },
+    },useGlobalFilter,
     usePagination
   );
+
 
   const {
     getTableProps,
@@ -30,61 +34,55 @@ export default function TableAttendance() {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    pageCount,
-    gotoPage,
     nextPage,
+    setGlobalFilter,
     previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize }
+    state: { pageIndex,globalFilter }
   } = table;
+
 
   return (
     <div className={TableStyles.container}>
-        <div className={TableStyles.Letters}>
-            <h1>Estudiantes Aula 1 </h1>
-            <button className={BtnStyles.BtnPurple}> Crear Asistecia </button>
+        
+        <div className={TableStyles.InputContainer}>
+            <input
+            type="text"
+            value={globalFilter || ""}
+            onChange={e => setGlobalFilter(e.target.value)}
+            className={TableStyles.FilterTable}
+            placeholder="Nombre Actividad/Codigo"
+          />
         </div>
       <table {...getTableProps()}>
-        <thead>
-          {
-            // Loop over the header rows
-            headerGroups.map((headerGroup) => (
-              // Apply the header row props
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {
-                  // Loop over the headers in each row
-                  headerGroup.headers.map((column) => (
-                    // Apply the header cell props
-                    <th {...column.getHeaderProps()}>
-                      {
-                        // Render the header
-                        column.render("Header")
-                      }
-                    </th>
-                  ))
-                }
-              </tr>
-            ))
-          }
-        </thead>
-        {/* Apply the table body props */}
+      <thead>
+         {
+           headerGroups.map(headerGroup => (
+             <tr {...headerGroup.getHeaderGroupProps()}>
+               {
+                 headerGroup.headers.map((column) => (
+                   <th {...column.getHeaderProps()}>
+                     {
+                       column.render("Header")
+                     }
+                   </th>
+                 ))
+               }
+             </tr>
+           ))
+         }
+       </thead>
+
         <tbody className={TableStyles.Tbody} {...getTableBodyProps()}>
           {
-            // Loop over the table rows
             page.map((row) => {
-              // Prepare the row for display
               prepareRow(row);
               return (
-                // Apply the row props
                 <tr {...row.getRowProps()}>
                   {
-                    // Loop over the rows cells
                     row.cells.map((cell) => {
-                      // Apply the cell props
                       return (
                         <td {...cell.getCellProps()}>
                           {
-                            // Render the cell contents
                             cell.render("Cell")
                           }
                         </td>
