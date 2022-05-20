@@ -13,8 +13,8 @@ const AdminUsers = () => {
     <>
       <MainLayout>
         <div className={styles.Letters}>
-            <h1>Estudiantes Aula 1 </h1>
-            <button className={BtnStyles.BtnPurple} onClick={()=> setOpenModal(!openModal)}> Crear Asistecia </button>
+            <h1>Usuarios</h1>
+            <button className={BtnStyles.BtnPurple} onClick={()=> setOpenModal(!openModal)}> Crear nuevo usuario </button>
         </div>
         <TableAttendance/>
       </MainLayout>
