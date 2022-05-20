@@ -3,6 +3,7 @@
 .formContainer {
     display: grid;
     justify-items: center;
+    width: 100%;
 }
 
 .form {
@@ -52,6 +53,9 @@
         font-size: 1.5rem;
         margin-bottom: 2.8rem;
     }
+    
+}
+@media (min-width:1024px) {
     .flexItem {
         flex-direction: row;
         gap: 2rem;

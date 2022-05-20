@@ -7,60 +7,17 @@
 }
 
 .section_hero{
-min-height: 64vh;/*para el footer*/
+min-height: 75.2vh;/*para el footer*/
 display: flex;
 justify-content: center;
 align-items: center;
 
 }
 
-/*.icons_main{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5rem;
-    padding: 1rem 0;
-    max-width: 300px;
-    margin: auto;
-    
-}
-
-/*.icons_items{
-    font-size: 1.8rem;
-    color: white;
-    border-radius: 50%;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-    
-}
-
-.bg_green{
-    background-color: var(--green);
-}
-
-.bg_pink{
-    background-color: var(--fusia);
-
-}
-
-.bg_purple{
-    background-color: var(--purple);
-
-}*/
 .text_info_hero{
     margin-bottom: 25px;/*para que este separado de la imagen*/
 }
 
-/*.stripe{
-    margin: auto;
-    width: 12rem;
-    margin-bottom: 1rem;
-    height: 0.4rem;
-    background-color: var(--fusia);
-}*/
 
 .video_main_hero{
     width: 100%;
@@ -137,7 +94,7 @@ video{
      margin-bottom: 0px;  
 }
 .welcome_video_hero{
-    height: 300px;
+    height: auto;
     width: 400px;
 }
 .video_main_hero{

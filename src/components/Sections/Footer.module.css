@@ -1,5 +1,4 @@
-@import "../../styles/Vars.css";
-     
+  
    .footer{
             /* border: 1px solid #0000ff; */
             display: grid;
@@ -8,26 +7,32 @@
             text-align: center;
             background-color: var(--black);
             text-align: center;
-            color: white;
-            padding: 10px;
-            
+            align-items: center;
+            color: white;  
         }
         .containers{
             /* border: 1px solid red; */
             padding: 10px;
+            font-family: var(--text);
     
         }
-        .footer a{
+        .containers a{
+            text-decoration: none;
+            font-size: 30px;
+            color: white;
+            font-family: var(--title);
+
+        }
+        .social_networks a{
             text-decoration: none;
             font-size: 30px;
             padding: 10px;
             color: white;
-
         }
-        .fa-blackberry{
-            padding: 2px;
+        .social_networks a:hover{
+            color: var(--blue);
+            transition: ease-in .5s;
         }
-       
      
         .logo_vased{
             width: 5rem;

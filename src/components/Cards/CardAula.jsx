@@ -23,7 +23,7 @@ const CardAula = () => {
                     </div>
                     <div className={cardCss.btns}>
                         <button className={btn.BtnWhite}>Editar</button>
-                        <button className={btn.BtnDark}>Eliminar</button>
+                        <button className={btn.BtnDelete}>Eliminar</button>
                     </div>
                 </div>
                 <div className={cardCss.textContent}>

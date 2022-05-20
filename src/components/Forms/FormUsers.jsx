@@ -1,7 +1,7 @@
 import styleForm from './styles/FormUsers.module.css'
 import inputCss from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
-import { Formik } from 'formik';
+import { Formik,  Field } from 'formik';
 
 const FormUsers = () =>{
   return (
@@ -10,36 +10,49 @@ const FormUsers = () =>{
         initialValues={{
         name: "",
         lastName: "",
-        id: "",
-        type: "",
+        document: "",
+        typeid: "",
         birthday: "",
+        country: "",
+        email: "",
         rol: ""
         }}
         validate={(valores) =>{
         let errores = {};
-    
+        
+        if(!valores.name){
+            errores.name = 'Ingrese nombres'
+        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
+            errores.name = "Los nombres solo puede contener letras"
+        }
+        if(!valores.lastName){
+            errores.lastName = 'Ingrese apellidos'
+        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
+            errores.lastName = "Los apellidos solo puede contener letras"
+        }
+        
+        if(!valores.document){
+            errores.document = 'Ingrese un documento'
+        }
+        if(!valores.typeid){
+            errores.typeid = 'Seleccione un tipo de documento'
+        }
+        if(!valores.birthday){
+            errores.birthday = 'Ingresa una fecha de nacimiento'
+        }
+        if(!valores.country){
+            errores.country = 'Ingrese un país'
+        }
         if(!valores.email){
             errores.email = 'Ingresa un correo electronico'
         }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
             errores.email = "Debe contener un correo valido"
         }
-        
-        if(!valores.birthday){
-            errores.birthday = 'Ingresa una fecha de nacimiento'
-        }
-        if(!valores.city){
-            errores.city = 'Ingresa una ciudad'
-        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
-            errores.city = "La ciudad solo puede contener letras"
-        }
-
-        if(!valores.password){
-            errores.password = 'Ingresa una contraseña'
-        }
-        if(!valores.confirmPassword){
-            errores.confirmPassword = 'Repitir de nuevo la contraseña'
+        if(!valores.rol){
+            errores.rol = 'Seleccione un rol'
         }
         return errores;
+       
         }}
         
         onSubmit={({resetForm})=>{
@@ -48,7 +61,6 @@ const FormUsers = () =>{
         }}>
         {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
             <div className={styleForm.formContainer}>
-                <h1 className={styleForm.formTitle}>Actualizar perfil</h1>
                 <form className={styleForm.form} onSubmit={handleSubmit}>
                     
                     <div className={styleForm.flexItem}>
@@ -62,21 +74,43 @@ const FormUsers = () =>{
                             <label htmlFor="lastname" className={styleForm.formSubtitle}>Apellidos</label>
                             <input 
                             type="text" id="lastname" name="lastname" placeholder="Apellidos" className={inputCss.disabledInput}
-                            value={values.lastname} disabled/>
+                            value={values.lastname} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.lastname && errors.lastname && <div className={styleForm.errors}>{errors.lastname}</div>}
                         </div>
                     </div>
                     <div className={styleForm.flexItem}>
                         <div className={styleForm.formItem}>
-                            <label htmlFor="id" className={styleForm.formSubtitle}>Documento</label>
+                            <label htmlFor="document" className={styleForm.formSubtitle}>Documento</label>
                             <input 
-                            type="number" id="id" name="id" placeholder="0000000" className={inputCss.disabledInput}
-                            value={values.id} disabled/>
+                            type="number" id="document" name="document" placeholder="0000000" className={inputCss.disabledInput}
+                            value={values.document} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.document && errors.document && <div className={styleForm.errors}>{errors.document}</div>}
                         </div>
                         <div className={styleForm.formItem}>
                             <label htmlFor="typeid" className={styleForm.formSubtitle}>Tipo de documento</label>
+                            <Field as="select" name="typeid" className={inputCss.purpleInput}
+                            value={values.typeid} onChange={handleChange} onBlur={handleBlur}>
+                                <option value="1">Cédula de ciudadania</option>
+                                <option value="2">Tarjeta de identidad</option>
+                                <option value="3">Pasaporte</option>
+                            </Field>
+                            {touched.typeid && errors.typeid && <div className={styleForm.errors}>{errors.typeid}</div>}
+                        </div>
+                    </div>
+                    
+                    <div className={styleForm.flexItem}>
+                        <div className={styleForm.formItem}>
+                            <label htmlFor="birthday" className={styleForm.formSubtitle}>Fecha de nacimiento</label>
                             <input 
-                            type="date" id="typeid" name="typeid" placeholder="CC" className={inputCss.disabledInput}
-                            value={values.typeid} disabled/>
+                            type="date" id="birthday" name="birthday" placeholder="03/06/2022" className={inputCss.purpleInput}
+                            value={values.birthday} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.birthday && errors.birthday && <div className={styleForm.errors}>{errors.birthday}</div>}
+                        </div>
+                        <div className={styleForm.formItem}>
+                            <label htmlFor="country" className={styleForm.formSubtitle}>País</label>
+                            <input 
+                            type="text" id="country" name="country" placeholder="País" className={inputCss.disabledInput}
+                            value={values.country} disabled/>
                         </div>
                     </div>
                     <div className={styleForm.flexItem}>
@@ -88,43 +122,15 @@ const FormUsers = () =>{
                             {touched.email && errors.email && <div className={styleForm.errors}>{errors.email}</div>}
                         </div>
                         <div className={styleForm.formItem}>
-                            <label htmlFor="birthday" className={styleForm.formSubtitle}>Fecha de nacimiento</label>
-                            <input 
-                            type="date" id="birthday" name="birthday" placeholder="03/06/2022" className={inputCss.purpleInput}
-                            value={values.birthday} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.birthday && errors.birthday && <div className={styleForm.errors}>{errors.birthday}</div>}
+                            <label htmlFor="rol" className={styleForm.formSubtitle}>Rol</label>
+                            <Field as="select" name="rol" className={inputCss.purpleInput}
+                            value={values.rol} onChange={handleChange} onBlur={handleBlur}>
+                            <option value="1">Administrador</option>
+                                <option value="2">Profesor</option>
+                                <option value="3">Estudiante</option>
+                            </Field>
+                            {touched.rol && errors.rol && <div className={styleForm.errors}>{errors.rol}</div>}
                         </div>
-                    </div>
-
-                    <div className={styleForm.flexItem}>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="city" className={styleForm.formSubtitle}>Ciudad</label>
-                            <input 
-                            type="text" id="city" name="city" placeholder="Ciudad" className={inputCss.purpleInput}
-                            value={values.city} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.city && errors.city && <div className={styleForm.errors}>{errors.city}</div>}
-                        </div>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="country" className={styleForm.formSubtitle}>País</label>
-                            <input 
-                            type="text" id="country" name="country" placeholder="País" className={inputCss.disabledInput}
-                            value={values.country} disabled/>
-                        </div>
-                    </div>
-
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="password" className={styleForm.formSubtitle}>Contraseña</label>
-                        <input 
-                        type="password" id="password" name="password" placeholder="************" className={inputCss.purpleInput}
-                        value={values.password} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.password && errors.password && <div className={styleForm.errors}>{errors.password}</div>}
-                    </div>
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="confirmPassword" className={styleForm.formSubtitle}>Repetir contraseña</label>
-                        <input 
-                        type="password" id="confirmPassword" name="confirmPassword" placeholder="************" className={inputCss.purpleInput}
-                        value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.confirmPassword && errors.confirmPassword && <div className={styleForm.errors}>{errors.confirmPassword}</div>}
                     </div>
                     <button 
                     type="submit" 

@@ -37,9 +37,9 @@ const Footer = () => {
         <a href="https://fundacionvased.org/">
           <p>Conocer más acerca de VASED</p>
         </a>
+        <span>¿Tienes dudas o inconvenientes?</span><br />
         <small>
-          ¿Tienes dudas o inconvenientes?Escribenos a
-          contacto.fundacionvased@gmail.com
+          Escribenos a contacto.fundacionvased@gmail.com
         </small>
       </div>
     </footer>

@@ -43,10 +43,7 @@ export default function TableAttendance() {
 
   return (
     <div className={TableStyles.container}>
-        <div className={TableStyles.Letters}>
-            <h1>Estudiantes Aula 1 </h1>
-            <button className={BtnStyles.BtnPurple}> Crear Asistecia </button>
-        </div>
+        
         <div className={TableStyles.InputContainer}>
             <input
             type="text"

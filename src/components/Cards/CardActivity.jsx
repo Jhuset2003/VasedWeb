@@ -4,16 +4,12 @@ import btn from '../../styles/Buttons.module.css'
 import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
 
-import MainLayout from '../../layout/MainLayout'
-import MiniCardActivity from './MiniCardActivity'
-
 const CardActivity = () => {
 
     const [expand, setExpand] = useState(false)
 
   return (
     <>
-    <MainLayout>
         <div className={cardActivity.card}>
             <div className={cardActivity.content} >
                 <div className={cardActivity.bgBox}>
@@ -23,7 +19,7 @@ const CardActivity = () => {
                     </div>
                     <div className={cardActivity.btns}>
                         <button className={btn.BtnWhite}>Editar</button>
-                        <button className={btn.BtnDark}>Eliminar</button>
+                        <button className={btn.BtnDelete}>Eliminar</button>
                     </div>
                 </div>
                 <div className={cardActivity.textContent}>
@@ -66,7 +62,6 @@ const CardActivity = () => {
                 </div>
             }
         </div>
-    </MainLayout>
     </>
   )
 }
