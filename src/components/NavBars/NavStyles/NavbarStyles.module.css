@@ -5,6 +5,7 @@
 }
 .NavLanLogin a{
     text-decoration: none;
+    color: var(--purple);
 }
 .NavBarLan{
     display: flex;
