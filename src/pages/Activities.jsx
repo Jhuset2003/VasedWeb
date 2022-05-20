@@ -16,7 +16,7 @@ const Activities = () => {
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Actividades</h1>
-          <button className={BtnStyles.BtnPurple} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
+          <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
         </div>
         <Search/>
         <CardActivity/>

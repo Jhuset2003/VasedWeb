@@ -63,8 +63,12 @@
     display: flex;
     justify-content: space-between;
 }
+.radioBtnB, .radioBtnG, .radioBtnP, .radioBtnY{
+    width: 30px;
+    height: 30px;
+}
 .radioBtnP {
-    
+    border: 2px solid red;
     accent-color: rgba(250, 15, 117);
 }
 .radioBtnB {
