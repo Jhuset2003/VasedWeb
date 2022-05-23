@@ -1,5 +1,3 @@
-@import url("../../styles/Vars.css");
-
 .container {
     display: flex;
     flex-direction: column;
