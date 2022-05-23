@@ -1,14 +1,8 @@
-import React from 'react';
-import FormOfNewPassword from '../pages/FormOfNewPassword';
-import FormOfRecovering from '../pages/FormOfRecovering';
-
+import React from 'react'
 
 const TestComponent = () => {
-
   return (
-    <div>
-      <FormOfNewPassword/>
-    </div>
+    <div>TestComponent</div>
   )
 }
 

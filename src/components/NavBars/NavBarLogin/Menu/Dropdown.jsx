@@ -7,6 +7,7 @@ import {
   item_list,
 } from "./dropdown.module.css";
 import { FiMenu } from 'react-icons/fi';
+import navStyles from "../../NavStyles/NavbarStyles.module.css"
 
 function Dropdown({ items = [], dropdownTitle }) {
   const activatorRef = useRef(null);
@@ -49,13 +50,14 @@ function Dropdown({ items = [], dropdownTitle }) {
   return (
     <div className={dropdown_wrapper} onKeyUp={keyHandler}>
       <button
-        className={dropdown_activator}
+        className={dropdown_activator }
         aria-haspopup="true"
         
         onClick={clickHandler}
         ref={activatorRef}
+        
       >
-       <button className='BtnWhite'><FiMenu/></button>
+        <div className={navStyles.BtnWhite}><FiMenu/></div>
       </button>
       <ul
         ref={dropdownListRef}
@@ -64,7 +66,7 @@ function Dropdown({ items = [], dropdownTitle }) {
         {items.map((item, index) => {
           return (
             <li className={item_list} key={index}>
-              <a href={item.slug}>{item.anchor}</a>
+              <div onClick={clickHandler}>{item.anchor}</div>
             </li>
           );
         })}

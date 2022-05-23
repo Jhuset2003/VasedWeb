@@ -83,7 +83,7 @@ const FormOfNewPassword = () => {
       <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal}>
         <h1>Contraseña nueva establecida con éxito</h1>
         <Link to="/login">
-          <button></button>
+          <button>Iniciar sesión</button>
         </Link>
       </ModalLayout>
     </>
