@@ -69,7 +69,7 @@ const FormLogin = () => {
                       className={btn.BtnPurple}>Entrar</button>
                     </Link>
                 </form> 
-                <a href="#" className={formCss.formRecover}>¿Olvidaste tu contraseña?</a>
+                <Link to="/recover" className={formCss.formRecover}>¿Olvidaste tu contraseña?</Link>
         </div>
       )}
     </Formik>

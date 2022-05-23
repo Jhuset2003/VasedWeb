@@ -4,6 +4,7 @@ import inputCss from '../styles/Inputs.module.css';
 import btn from '../styles/Buttons.module.css';
 import formCss from '../components/Forms/styles/FormLogin.module.css'; 
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 
 
 const FormOfRecovering = () => {
@@ -48,8 +49,13 @@ const FormOfRecovering = () => {
                       {touched.email && errors.email && <div className={formCss.errors}>{errors.email}</div>}
                   </div>
                   <div className={recoCss.BtnContainer}>
+                    <Link to="/new-password">
                       <button type="button" className={btn.BtnPurple}>Enviar</button>
-                      <button className={btn.BtnPink}>Cancelar</button>
+                    </Link>
+                    <Link to="/login">
+                      <button className={btn.BtnPink}>Regresar</button>
+                    </Link>
+
                   </div>
                 </form>
             </div>
