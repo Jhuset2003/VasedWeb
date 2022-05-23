@@ -31,6 +31,7 @@ const FormLogin = () => {
       resetForm();
       console.log("formulario enviado") 
     }}>
+      
       {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
         <div className={formCss.formContainer}>
             <h1 className={formCss.formTitle}>Iniciar sesión</h1>
@@ -68,7 +69,7 @@ const FormLogin = () => {
                       className={btn.BtnPurple}>Entrar</button>
                     </Link>
                 </form> 
-                <a href="#" className={formCss.formRecover}>¿Olvidaste tu contraseña?</a>
+                <Link to="/recover" className={formCss.formRecover}>¿Olvidaste tu contraseña?</Link>
         </div>
       )}
     </Formik>

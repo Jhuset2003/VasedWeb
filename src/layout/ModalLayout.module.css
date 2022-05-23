@@ -54,8 +54,10 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    /*  justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
+    font-family: var(--title);
+    text-align: center;
     max-height: 90vh;
     overflow-x: hidden;
     overflow-y: scroll;
