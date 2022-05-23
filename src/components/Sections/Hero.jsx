@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Hero.module.css";
+import styles from "./styles/Hero.module.css";
 import video from "../../assests/video.mp4";
 
 const Hero = () => {

@@ -1,11 +1,8 @@
-@import url("../../styles/Vars.css");
-
 .container {
     display: flex;
     flex-direction: column;
     font-family: "Calibri";
     justify-content: center;
-    padding: 2rem 5rem;
     font-family: var(--text);
     max-width: 100%;
     overflow-x: auto;

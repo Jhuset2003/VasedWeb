@@ -4,7 +4,6 @@ import btn from '../../styles/Buttons.module.css'
 import cardCss from './styles/CardAula.module.css'
 import {FaTimes} from 'react-icons/fa'
 
-import MainLayout from '../../layout/MainLayout'
 import MiniCardActivity from './MiniCardActivity'
 
 const CardAula = () => {
@@ -13,7 +12,6 @@ const CardAula = () => {
 
   return (
     <>
-    <MainLayout>
         <div className={cardCss.card}>
             <div className={cardCss.content} >
                 <div className={cardCss.bgBox}>
@@ -76,7 +74,7 @@ const CardAula = () => {
                 </div>
             }
         </div>
-    </MainLayout>
+
     </>
   )
 }
