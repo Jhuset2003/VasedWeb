@@ -1,13 +1,11 @@
-@import "./Vars.css";
-
 /*Variables de estilos de botones*/
 
-.BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite {
-    font-family: var(--text);
+.BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite,.BtnDelete {
+    font-family: var(--title);
     border: none;
     padding: 5px 15px 5px 15px;
     width: auto;
-    font-size: 1rem;
+    font-size: .9rem;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -44,8 +42,34 @@
     color: white;
     background-color: var(--green);
 }
-.BtnDark:hover,.BtnBlue:hover,.BtnGreen:hover,.BtnPink:hover,.BtnPurple:hover,.BtnWhite:hover{
-    opacity: .7;
+.BtnDelete{
+    color: white;
+    background-color: var(--black);
+}
+.BtnDark:hover,.BtnGreen:hover,.BtnPurple:hover{
+    background-color: var(--gray);
+    color: white;
+    transition: ease-in .3s;
+}
+.BtnBlue:hover{
+    background-color: #4097f4;
+    color: white;
+    transition: ease-in .3s;
+}
+.BtnPink:hover{
+    background-color: #c0026d;
+    color: white;
+    transition: ease-in .3s;
+}
+.BtnWhite:hover{
+    background-color: #d8d7d7;
+    color: var(--black);
+    transition: ease-in .3s;
+}
+.BtnDelete:hover{
+    background-color: rgb(201, 38, 38);
+    color: white;
+    transition: ease-in .3s;
 }
 .BtnRounded{
     padding: 5px;
@@ -63,11 +87,11 @@
 
 @media (min-width:480px) {
     .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
-        font-size: 1.2rem;
+        font-size: .9rem;
     }
 }
 @media (min-width:1024px) {
     .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }

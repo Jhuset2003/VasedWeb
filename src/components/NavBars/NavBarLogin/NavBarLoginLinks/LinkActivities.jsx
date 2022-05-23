@@ -9,7 +9,7 @@ function LinkActivities() {
     <div className={navStyles.Links}>
         <NavLink className={navStyles.navlink} to="/actividades">
             <img src={actividades} alt="" />
-            <p>Actividaes</p>
+            <p>Actividades</p>
         </NavLink>
     </div>
   )

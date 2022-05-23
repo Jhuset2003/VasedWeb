@@ -9,6 +9,7 @@ import { useState } from 'react'
 const Profile = () => {
   const [openModal,setOpenModal] = useState(false)
 
+
   return (
     <>
         <MainLayout>

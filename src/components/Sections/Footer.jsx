@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Footer.module.css";
+import styles from "./styles/Footer.module.css";
 import logo from "../../assests/vased-logo-white.png";
 import {
   FaFacebook,
@@ -34,13 +34,9 @@ const Footer = () => {
         </div>
       </div>
       <div className={`${styles.containers} ${styles.c3}`}>
-        <a href="https://fundacionvased.org/">
-          <p>Conocer más acerca de VASED</p>
-        </a>
-        <small>
-          ¿Tienes dudas o inconvenientes?Escribenos a
-          contacto.fundacionvased@gmail.com
-        </small>
+        
+        <span>¿Tienes dudas o inconvenientes?</span><br />
+        <p>Escribenos a <span className={styles.color_text}>contacto.fundacionvased@gmail.com</span></p>
       </div>
     </footer>
   );

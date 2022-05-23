@@ -1,0 +1,184 @@
+.card{
+    -webkit-box-shadow: 1px 4px 15px -4px rgba(0,0,0,0.37); 
+    box-shadow: 1px 4px 15px -4px rgba(0,0,0,0.37);
+    font-family: var(--title);
+    border-radius: 1rem;
+    margin: 1rem 0; /* remove later in map */
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border-bottom: 3px inset #29292925;
+}
+
+.bgBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    background: var(--purple);
+    padding: 1.5rem;
+    min-height: 8rem;
+    border-radius: 1rem 1rem;
+}
+.btns{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0 0 0 ;
+}
+.bgBox h1{
+    color: white;
+}
+.bgBox p{
+    color: white;
+}
+.textContent{
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.note{
+    width: 100%;
+    padding-top: 1rem;
+}
+.icon{
+    width: 10%;
+    font-size: 2rem;
+    color: var(--black);
+}
+.expand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 8rem;
+    padding: 1rem;
+    transition: 1s;
+}
+
+.activities{
+    
+    width: 90%;
+    
+}
+.actTop{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.taskDescrip{
+    padding: 1rem 0;
+    font-family: var(--text);
+    font-size: 1rem;
+    color: var(--black);
+}
+.box{
+    min-width: 200px;
+    max-height: 100px;
+}
+.boxUser{
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.iconBox:hover{
+    color: red;
+}
+.users{
+    width: 90%;
+
+}
+.userTop{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+.boxScroll{
+    padding: 1rem;
+    max-height: 8rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/* Scroll styles*/
+.boxScroll::-webkit-scrollbar{
+    width: 3px;
+}
+.boxScroll::-webkit-scrollbar-thumb{
+background-color: var(--black);
+border-radius: 10px;
+}
+
+@media (min-width:480px) {
+
+    .btns{
+        padding: 0;
+    }
+    
+}
+
+@media (min-width:640px) {
+    
+    .actTop,.userTop{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+@media (min-width:768px) {
+    .content{
+        display: flex;
+        height: fit-content;
+        flex-direction: row;
+    }
+    
+    .bgBox{
+        width: 30%;
+        min-height: 8rem;
+        border-radius: 1rem 0 0 1rem;
+    }
+    .textContent{
+        text-align:left;
+        width: 70%;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .text{
+        width: 70%;
+    }
+    .note{
+        width: 70%;
+        padding-top: 0;
+    }
+    .btns{
+        padding: 1rem 0 0 0;
+    }
+}

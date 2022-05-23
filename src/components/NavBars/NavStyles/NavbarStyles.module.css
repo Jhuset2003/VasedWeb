@@ -1,10 +1,9 @@
-@import "../../../styles/Vars.css";
-
 .NavLanLogo img{
     width: 7rem;
 }
 .NavLanLogin a{
     text-decoration: none;
+    color: var(--purple);
 }
 .NavBarLan{
     display: flex;
@@ -58,6 +57,7 @@
 }
 .Links a{
     text-decoration: none;
+    color: var(--purple);
 }
 .Links p{
     font-family: var(--title);

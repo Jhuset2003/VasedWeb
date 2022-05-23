@@ -3,6 +3,7 @@ import inputCss from '../../styles/Inputs.module.css';
 import formCss from './styles/FormLogin.module.css';
 import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 
 const FormLogin = () => {
   return (
@@ -62,9 +63,11 @@ const FormLogin = () => {
                         onBlur={handleBlur}/>
                         {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}
                     </div>
-                    <button 
-                    type="submit" 
-                    className={btn.BtnPurple}>Entrar</button>
+                    <Link to="/">
+                      <button 
+                      type="submit" 
+                      className={btn.BtnPurple}>Entrar</button>
+                    </Link>
                 </form> 
                 <a href="#" className={formCss.formRecover}>¿Olvidaste tu contraseña?</a>
         </div>
