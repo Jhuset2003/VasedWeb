@@ -6,6 +6,8 @@ import { MdOutlineDoubleArrow } from "react-icons/md";
 
 import BtnStyles from "../../styles/Buttons.module.css"
 import {React} from 'react'
+import {FaSearch} from 'react-icons/fa'
+import search from '../Sections/styles/Search.module.css'
 
 
 
@@ -45,14 +47,25 @@ export default function TableAttendance() {
     <div className={TableStyles.container}>
         
         <div className={TableStyles.InputContainer}>
-            <input
+        <div className={search.positions}>
+          <FaSearch className={search.icon}/>
+          <input
+          onChange={e => setGlobalFilter(e.target.value)}
+          value={globalFilter || ""}
+          className={search.inputStyle}
+          type="text"
+          placeholder="Nombre Actividad/Código"
+          />
+        </div>
+           {/*  <input
             type="text"
             value={globalFilter || ""}
             onChange={e => setGlobalFilter(e.target.value)}
             className={TableStyles.FilterTable}
             placeholder="Nombre Actividad/Codigo"
-          />
+          /> */}
         </div>
+        
       <table {...getTableProps()}>
       <thead>
          {

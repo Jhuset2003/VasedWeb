@@ -3,6 +3,7 @@
     box-shadow: 1px 4px 15px -4px rgba(0,0,0,0.37);
     font-family: var(--title);
     border-radius: 1rem;
+    margin: 1rem 0; /* remove later in map */
 }
 
 .content{

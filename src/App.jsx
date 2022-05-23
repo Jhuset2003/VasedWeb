@@ -10,6 +10,7 @@ import "./styles/App.css";
 import Landing from "./pages/Landing";
 import DetailUser from "./pages/DetailUser";
 import Login from "./pages/Login";
+import Footer from "./components/Sections/Footer";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,8 @@ function App() {
         <Route path="/detalle-usuario" element={<DetailUser/>}/>
         <Route path="/login" element={<Login/>}/>
       </Routes>
+
+      <Footer />
     </div>
   );
 }

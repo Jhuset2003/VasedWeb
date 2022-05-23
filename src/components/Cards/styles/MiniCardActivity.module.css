@@ -18,11 +18,12 @@
     border-radius: 1rem 1rem 0 0;
 }
 .text{
-    padding: 2rem 0;
+    padding: 2rem 0 0 0;
     display: flex;
     flex-direction: column;
 }
 .btns{
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
