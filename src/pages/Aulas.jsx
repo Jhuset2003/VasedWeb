@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import CardAula from '../components/Cards/CardAula'
 import FormAulas from '../components/Forms/FormAulas'
 import Search from '../components/Sections/Search'
 import MainLayout from '../layout/MainLayout'
+import { UserContext } from '../context/GlobalContext'
 
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
@@ -11,11 +12,8 @@ import styles from './styles/AdminUser.module.css'
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
 
-  const user = {
-    "id" : 1,
-    "name" : "Rodrigo Vased",
-    "role" : 3
-  } 
+  const { user }  = useContext(UserContext)
+
   return (
     
     <div>
