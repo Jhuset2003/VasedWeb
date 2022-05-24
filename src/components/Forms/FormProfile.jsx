@@ -3,7 +3,9 @@ import formProfile from './styles/FormProfile.module.css';
 import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
 
+
 const FormProfile = () => {
+
     return (
     <>
         <Formik
@@ -126,7 +128,6 @@ const FormProfile = () => {
                         {touched.confirmPassword && errors.confirmPassword && <div className={formProfile.errors}>{errors.confirmPassword}</div>}
                     </div>
                     <button 
-                    type="submit" 
                     className={btn.BtnPurple}>Actualizar</button>
                 </form> 
             </div>
