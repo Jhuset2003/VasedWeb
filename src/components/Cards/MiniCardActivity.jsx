@@ -2,32 +2,32 @@ import React from 'react'
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 
-const MiniCardActivity = () => {
+const MiniCardActivity = ({user}) => {
 
-  const user = {
-    "id" : 1,
-    "name" : "Rodrigo Vased",
-    "role" : 3
-  }
-
+  console.log(user)
   return (
     <>
     <div className={card.container}>
 
-        <div className={card.cardTop}></div>
+    <div className={card.cardTop}></div>
         <div className={card.text}>
-            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste et delectus tempore, facilis minus at quia nihil amet suscipit rerum.</span>
-            <span>texto</span>
+            <span>Actividad 46434</span>
+
+            {user.role === 3 ? 
+              <span><strong>Entrega:</strong> 12/03/2020</span>
+            : null}
+
+            <span><strong>Limite:</strong> 25/04/2020</span>
+
+            {user.role === 3 ? 
+              <span><strong>Calificación:</strong> -</span>
+            : null}
+            
         </div>
-        {user.role === 1 ? 
+        {user.role === 1 || user.role === 2 ? 
         <div className={card.btns}>
             <button className={btn.BtnGreen}>Editar</button>
-            <button className={btn.BtnDark}>Eliminar</button>
-        </div>
-        : user.role === 2 ?
-        <div className={card.btns}>
-          <button className={btn.BtnGreen}>Editar</button>
-          <button className={btn.BtnDark}>Eliminar</button>
+            <button className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 

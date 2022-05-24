@@ -58,6 +58,25 @@
     width: 100%;
     padding-top: 1rem;
 }
+
+.circleNote{
+    margin-right: 1rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circleNote span{
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.circleNoteLaptop{
+    display: none;
+}
 .icon{
     width: 10%;
     font-size: 2rem;
@@ -180,5 +199,24 @@ border-radius: 10px;
     }
     .btns{
         padding: 1rem 0 0 0;
+    }
+
+    .circleNote{
+        display: none;
+    }
+    .circleNoteLaptop{
+        margin-right: 1rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 100%;
+        background-color: var(--fusia);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .circleNoteLaptop span{
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
     }
 }

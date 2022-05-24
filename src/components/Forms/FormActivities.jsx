@@ -89,14 +89,6 @@ const FormActivities = ({setOpenModal, openModal}) => {
                         </Field>
                         {touched.aula && errors.aula && <div className={styleForm.errors}>{errors.aula}</div>}
                     </div>
-
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="format" className={styleForm.formSubtitle}>Formato</label>
-                        <input 
-                        type="email" id="format" name="format" placeholder="Formato" className={inputCss.purpleInput}
-                        value={values.format} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.format && errors.format && <div className={styleForm.errors}>{errors.format}</div>}
-                    </div>
                     
                     <div className={styleForm.flexItem}>
                         <div className={styleForm.formItem}>

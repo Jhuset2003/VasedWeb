@@ -74,12 +74,22 @@ const FormAulas = ({setOpenModal, openModal}) => {
                     </div>
                     </div>
 
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="name" className={styleForm.formSubtitle}>Nombre Aula</label>
-                        <input 
-                        type="text" id="name" name="name" placeholder="Aula 1" className={inputCss.purpleInput}
-                        value={values.name} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.name && errors.name && <div className={styleForm.errors}>{errors.name}</div>}
+                    <div className={styleForm.flexItem}>
+                        <div className={styleForm.formItem}>
+                            <label htmlFor="name" className={styleForm.formSubtitle}>Nombre Aula</label>
+                            <input 
+                            type="text" id="name" name="name" placeholder="Aula 1" className={inputCss.purpleInput}
+                            value={values.name} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.name && errors.name && <div className={styleForm.errors}>{errors.name}</div>}
+                        </div>
+                        <div className={styleForm.formItem}>
+                            <label htmlFor="dateEnd" className={styleForm.formSubtitle}>Fecha terminación</label>
+                            <input 
+                            type="date" id="dateEnd" name="dateEnd" placeholder="20/03/2023" className={inputCss.purpleInput}
+                            value={values.dateEnd} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.dateEnd && errors.dateEnd && <div className={styleForm.errors}>{errors.dateEnd}</div>}
+                        </div>
+
                     </div>
                     
                     <div className={styleForm.flexItem}>
@@ -96,22 +106,6 @@ const FormAulas = ({setOpenModal, openModal}) => {
                             type="text" id="code" name="code" placeholder="10101" className={inputCss.purpleInput}
                             value={values.code} onChange={handleChange} onBlur={handleBlur}/>
                             {touched.code && errors.code && <div className={styleForm.errors}>{errors.code}</div>}
-                        </div>
-                    </div>
-                    <div className={styleForm.flexItem}>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="dateEnd" className={styleForm.formSubtitle}>Fecha terminación</label>
-                            <input 
-                            type="date" id="dateEnd" name="dateEnd" placeholder="20/03/2023" className={inputCss.purpleInput}
-                            value={values.dateEnd} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.dateEnd && errors.dateEnd && <div className={styleForm.errors}>{errors.dateEnd}</div>}
-                        </div>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="format" className={styleForm.formSubtitle}>Formato</label>
-                            <input 
-                            type="email" id="format" name="format" placeholder="Formato" className={inputCss.purpleInput}
-                            value={values.format} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.format && errors.format && <div className={styleForm.errors}>{errors.format}</div>}
                         </div>
                     </div>
                     
