@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
 import btn from '../../styles/Buttons.module.css'
 import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
 
+import {UserContext} from '../../context/GlobalContext'
+
 const CardActivity = () => {
 
     const [expand, setExpand] = useState(false)
 
-    const user = {
+    const { user }  = useContext(UserContext)
+
+    /* const user = {
         "id" : 1,
         "name" : "Rodrigo Vased",
         "role" : 3
-      }
+      } */
 
   return (
     <>

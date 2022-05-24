@@ -10,13 +10,22 @@ import styles from './styles/AdminUser.module.css'
 
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
+
+  const user = {
+    "id" : 1,
+    "name" : "Rodrigo Vased",
+    "role" : 3
+  } 
   return (
     
     <div>
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Aula</h1>
-          <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}>Crear nueva aula</button>
+          {user.role === 1 || user.role === 2 ?
+            <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}>Crear nueva aula</button>
+          :null}
+          
         </div>
         <Search/>
         <CardAula/>

@@ -11,12 +11,22 @@ import styles from './styles/AdminUser.module.css'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
+
+  const user = {
+        "id" : 1,
+        "name" : "Rodrigo Vased",
+        "role" : 1
+      } 
   return (
     <div>
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Actividades</h1>
-          <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
+          
+          {user.role === 1 || user.role === 2 ?
+            <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
+          :null}
+
         </div>
         <Search/>
         <CardActivity/>
