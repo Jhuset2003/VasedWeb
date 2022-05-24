@@ -12,7 +12,7 @@ function NavBarLogin() {
     const user = {
       "id" : 1,
       "name" : "Rodrigo Vased",
-      "role" : 1
+      "role" : 3
     }
     const items = [
         {
@@ -33,7 +33,7 @@ function NavBarLogin() {
           {
                       user.role === 1 ?
                       <LinkUser/>
-                      :user.role === 3 ?
+                      :user.role === 2 ?
                       <LinkStudents/>
                       :null
                     }
@@ -59,7 +59,7 @@ function NavBarLogin() {
                     {
                       user.role === 1 ?
                       <li><LinkUser/></li>
-                      :user.role === 3 ?
+                      :user.role === 2 ?
                       <li><LinkStudents/></li>
                       :null
                     }
