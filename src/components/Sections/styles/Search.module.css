@@ -35,15 +35,16 @@
     border-radius: 0.8em;
     outline: none;
     padding-right: .5rem;
-    padding: .6em;
+    padding: .4em;
     font-size: 1rem;
     font-family: var(--text);
 }
+
 .inputStyle {
     text-align: right;
 }
 .selectcenter {
-    text-align: center;
+    text-align: left;
 }
 
 @media (min-width:1024px) {

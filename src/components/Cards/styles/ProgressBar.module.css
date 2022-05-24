@@ -1,0 +1,12 @@
+.circle{
+    background-color: black;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    padding: .5rem;
+}
+.content{
+    width: 5rem;
+    height: auto;
+    font-family: var(--title);
+}

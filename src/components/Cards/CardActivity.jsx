@@ -8,6 +8,12 @@ const CardActivity = () => {
 
     const [expand, setExpand] = useState(false)
 
+    const user = {
+        "id" : 1,
+        "name" : "Rodrigo Vased",
+        "role" : 3
+      }
+
   return (
     <>
         <div className={cardActivity.card}>
@@ -17,10 +23,26 @@ const CardActivity = () => {
                         <h1>Title</h1>
                         <p>subtitle</p>
                     </div>
-                    <div className={cardActivity.btns}>
-                        <button className={btn.BtnWhite}>Editar</button>
-                        <button className={btn.BtnDelete}>Eliminar</button>
-                    </div>
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.circleNote}>
+                            <span>5/5</span>
+                        </div>
+                    :null}
+                    
+                    {user.role === 1 || user.role === 2 ?
+                        <div className={cardActivity.btns}>
+                            <button className={btn.BtnWhite}>Editar</button>
+                            <button className={btn.BtnDelete}>Eliminar</button>
+                        </div>
+                    :null}
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.btns}>
+                            <button className={btn.BtnDark}>Entregar</button>
+                        </div>
+                    :null}
+
                 </div>
                 <div className={cardActivity.textContent}>
                     <div className={cardActivity.text}>
@@ -28,9 +50,19 @@ const CardActivity = () => {
 
                         <span><strong>Fecha: 20/05/2020</strong></span>
                     </div>
-                    <div className={cardActivity.note}>
-                        <span>Nota Base: 5</span>
-                    </div>
+                    
+                    {user.role === 1 || user.role === 2 ?
+                        <div className={cardActivity.note}>
+                            <span>Nota Base: 5</span>
+                        </div>
+                    :null}
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.circleNoteLaptop}>
+                            <span>5/5</span>
+                        </div>
+                    :null}
+
                     <i className={cardActivity.icon} onClick={()=> setExpand(!expand)}>{expand ? <VscChevronUp/> : <VscChevronDown/>}</i>
                 </div>
             </div>
@@ -45,20 +77,50 @@ const CardActivity = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate odit maiores tempora laborum vitae harum aspernatur perferendis reprehenderit modi, officiis nesciunt dolores, eos et, veniam aperiam aliquid quidem fugit tenetur natus doloremque illum eveniet voluptatem accusantium? Cumque et porro sint hic doloribus maxime ducimus veniam consectetur, at nemo amet quae?</p>
                         </div>
                     </div>
-                    <div className={cardActivity.users}>
-                        <div className={cardActivity.student}>
-                            <div className={cardActivity.userTop}>
-                                <h2>Estudiantes</h2>
-                                <button className={`${btn.BtnDark} ${cardActivity.btnfont}`}>Agregar</button>
-                            </div>
-                            <div className={cardActivity.boxScroll}>
-                                <div className={cardActivity.box}>
-                                    <span className={cardActivity.boxUser}>user <FaTimes className={cardActivity.iconBox}/> </span>
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.activities}>
+                        <div className={cardActivity.actTop}>
+                            <h2>Feedback</h2>
+                        </div>
+                        <div className={cardActivity.taskDescrip}>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate odit maiores tempora laborum vitae harum aspernatur perferendis reprehenderit modi, officiis nesciunt dolores.</p>
+                        </div>
+                    </div>
+                    :null} 
+
+                    {user.role === 1 || user.role === 2 ?
+                        <div className={cardActivity.users}>
+
+                            {user.role === 1 ?
+                                <div className={cardActivity.teacher}>
+                                    <div className={cardActivity.userTop}>
+                                        <h2>Profesores</h2>
+                                        <button className={`${btn.BtnDark} ${cardActivity.btnfont}`}>Agregar</button>
+                                    </div>
+                                    <div className={cardActivity.boxScroll}>
+                                        <div className={cardActivity.box}>
+                                            <span className={cardActivity.boxUser}>user <FaTimes className={cardActivity.iconBox}/> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            :null}
+
+
+                            <div className={cardActivity.student}>
+                                <div className={cardActivity.userTop}>
+                                    <h2>Estudiantes</h2>
+                                    <button className={`${btn.BtnDark} ${cardActivity.btnfont}`}>Agregar</button>
+                                </div>
+                                <div className={cardActivity.boxScroll}>
+                                    <div className={cardActivity.box}>
+                                        <span className={cardActivity.boxUser}>user <FaTimes className={cardActivity.iconBox}/> </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
+                        :null}
                 </div>
             }
         </div>
