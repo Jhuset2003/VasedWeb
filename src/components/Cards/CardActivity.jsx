@@ -11,7 +11,6 @@ const CardActivity = () => {
     const [expand, setExpand] = useState(false)
 
     const { user }  = useContext(UserContext)
-
     /* const user = {
         "id" : 1,
         "name" : "Rodrigo Vased",

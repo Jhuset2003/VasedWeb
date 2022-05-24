@@ -14,14 +14,13 @@ import Footer from "./components/Sections/Footer";
 import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
 
-import { UserProvider } from './context/GlobalContext'
+
 
 
 function App() {
   const location = useLocation();
   return (
-    <>
-      <UserProvider>
+    
         <div className="App">
         
           {location.pathname === "/login" ? null :location.pathname === "/recover" ? null: location.pathname === "/new-password" ? null: <NavBarLogin />}
@@ -40,8 +39,7 @@ function App() {
 
           {location.pathname === "/login" ? null :location.pathname === "/recover" ? null: location.pathname === "/new-password" ? null: <Footer />}
         </div>
-      </UserProvider>
-    </>
+    
   );
 }
 export default App;
