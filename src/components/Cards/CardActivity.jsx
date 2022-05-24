@@ -37,6 +37,12 @@ const CardActivity = () => {
                         </div>
                     :null}
 
+                    {user.role === 3 ?
+                        <div className={cardActivity.btns}>
+                            <button className={btn.BtnDark}>Entregar</button>
+                        </div>
+                    :null}
+
                 </div>
                 <div className={cardActivity.textContent}>
                     <div className={cardActivity.text}>

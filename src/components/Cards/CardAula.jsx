@@ -14,7 +14,7 @@ const CardAula = () => {
     const user = {
         "id" : 1,
         "name" : "Rodrigo Vased",
-        "role" : 1
+        "role" : 3
       }
 
   return (
@@ -63,7 +63,9 @@ const CardAula = () => {
                     <div className={cardCss.activities}>
                         <div className={cardCss.actTop}>
                             <h2>Actividades</h2>
-                            <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>Crear una aula</button>
+                            {user.role === 1 ? 
+                                <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>Crear una aula</button>
+                            :null}
                         </div>
                         <div className={cardCss.miniCards}>
                             <MiniCardActivity user={user}/>
