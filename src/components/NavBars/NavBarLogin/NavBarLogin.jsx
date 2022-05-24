@@ -7,7 +7,13 @@ import LinkProfile from "./NavBarLoginLinks/LinkProfile"
 import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
 import navStyles from "../NavStyles/NavbarStyles.module.css"
+import LinkStudents from './NavBarLoginLinks/LinkStudents'
 function NavBarLogin() {
+    const user = {
+      "id" : 1,
+      "name" : "Rodrigo Vased",
+      "role" : 1
+    }
     const items = [
         {
           anchor: <LinkHome/>,
@@ -23,7 +29,15 @@ function NavBarLogin() {
         ,
         {
           
-          anchor: <LinkUser/>,
+          anchor: <>
+          {
+                      user.role === 1 ?
+                      <LinkUser/>
+                      :user.role === 3 ?
+                      <LinkStudents/>
+                      :null
+                    }
+          </>,
         }
         ,
         {
@@ -42,7 +56,13 @@ function NavBarLogin() {
                     <li><LinkHome/></li>
                     <li><LinkActivities/></li>
                     <li><LinkClassrooms/></li>
-                    <li><LinkUser/></li>
+                    {
+                      user.role === 1 ?
+                      <li><LinkUser/></li>
+                      :user.role === 3 ?
+                      <li><LinkStudents/></li>
+                      :null
+                    }
                 </ul>
             </div>
             <div className={navStyles.NavBarLoginProfile}>
