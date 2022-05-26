@@ -16,11 +16,7 @@ const FormAdd = () => {
 
   const [select, setselect] = useState("");
 
-  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-
   const [usuario, setusuario] = useState([]);
-
-  const [mostrardata, setmostrardata] = useState(false);
 
   const handleChange = (e) => {
     setselect(e.target.value);
@@ -40,12 +36,9 @@ const FormAdd = () => {
             <div className={formaddCss.forminput}></div>
             <div className={formaddCss.inputicons}>
               <select
-                name="nombre" /*para relacionarlo con los valores iniciales*/
+                name="nombre"
                 className={formaddCss.inputselect}
-                /* value={values.nombre}*/
                 onChange={handleChange}
-                /*estara pendiente de los cambios del input y debemos crear esa funcion la handlechange
-                    onBlur={handleBlur}*/
               >
                 <option defaultValue="" selected>
                   Usuario
@@ -59,9 +52,7 @@ const FormAdd = () => {
                   );
                 })}
               </select>
-              {/* {touched.nombre && errors.nombre && (
-                    <div>{errors.nombre}</div>
-                  )} */}
+
               <BsFillPlusSquareFill
                 className={formaddCss.inputbutton}
                 onClick={buttonadd}
@@ -72,7 +63,7 @@ const FormAdd = () => {
               <section className={formaddCss.listadd}>
                 {" "}
                 {usuario.map((item) => (
-                  <span>{item.nombre}</span>
+                  <span className={formaddCss.listext}>{item.nombre}</span>
                 ))}
               </section>
             </div>
@@ -93,36 +84,3 @@ const FormAdd = () => {
 };
 
 export default FormAdd;
-/*import axios from "axios";*/
-
-/*class App extends component{
-state={
-  ciudades:[]
-}
-
-componentDidmount(){
-  axios
-  .get("http://localhost:5000/webservice/controllers/ciudades.php")
-  .then(response=> {
-    console.log(response);
-    this.setState({ciudades: response.data})
-  })
-  .catch((error) => {
-    console.log(error);
-
-});
-
-render() {
-  return(
-<div className="App">
-  <div className="form-group">
-    <select name="ciudades" className="form-control">
-      {this.state.ciudades.map(elemento=>(
-        <option key={elemento.id} value={elemento.id}>{elemento.ciudad}</option>
-      )
-    )}
-</select>
-  </div>
-</div>
-  );
-}*/

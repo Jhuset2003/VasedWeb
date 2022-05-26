@@ -61,6 +61,12 @@
 	
 }
 
+.listext{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
 .buttonsformadd{
 display: flex;
 justify-content: space-around;
