@@ -169,6 +169,15 @@ background-color: var(--black);
 border-radius: 10px;
 }
 
+
+.modalContainer{
+    width: 80%;
+    height: 80%;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
 @media (min-width:480px) {
 
     .btns{
