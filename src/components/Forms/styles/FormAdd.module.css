@@ -1,17 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-* {
-	padding: 0px;
-	margin: 0;
-	box-sizing: border-box;
+.containerform{
+	height:100vh;
+	width: 100%;
+	position:absolute;
+	left:0;
+	z-index: 10;
+	display: grid;
+	place-items: center;
+	border: 2px solid red;
+	
+
 }
 
-body {
-	background: #E8E8E8;
-	font-family: 'Open Sans', sans-serif;
+.formulario{
+	height: 90%;
+	width: 90%;
+	border-radius: 1.5em;
+
 }
 
-.contenedor {
+.title{
+	width: 80%;
+	height: 100%;
+	margin: 0  auto;
+
+}
+.title h2{
+	font-size: 1.3rem;
+	font-weight: 100;
+	text-align: center;
+	margin: 1em 0;
+	
+	}
+
+.inputicons{
+	display: flex;
+		
+	}
+	
+.inputbutton{
+	padding: 2px;
+	font-size: 40px;
+	margin-left: 5px;
+	
+}
+
+.inputselect{
+	width: 85%;
+	margin-left: 10px;
+	
+}
+
+.listadd{
+	height: 200px;
+	width: 95%;
+	display: block;
+	margin: auto;
+	margin-top: 8px;
+	border:2px solid black;
+	
+}
+
+.buttonsformadd{
+display: flex;
+justify-content: space-around;
+margin-top: 10px;
+
+}
+
+@media  (min-width: 700px)
+{
+	.formulario{
+		height: 60%;
+		width: 40%;
+		
+	}	
+}
+
+
+/*.contenedor {
 	min-height: 100vh;
 	display: flex;
 	align-items: flex-start;
@@ -26,6 +93,19 @@ body {
 	padding: 20px;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+.box{
+	border: solid 2px black;
+	height: 200px;
+	overflow-y: scroll;
+}
+.plus{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+background-color: red;
+}
+
 
 .formulario > div {
 	margin-bottom: 20px;
@@ -62,6 +142,17 @@ body {
 	font-size: 12px;
 }
 
+.inputselect{
+	width: 100%;
+	height: 50px;
+}
+.inputicons{
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+font-size: 50px;
+}
 .formulario button[type="submit"] {
 	display: block;
 	background: #0085FF;
@@ -69,7 +160,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	border: none;
 	cursor: pointer;
-	width: 100%;
+	width: 20%;
 	padding: 10px;
 	border-radius: 5px;
 	color: #fff;
@@ -90,4 +181,4 @@ body {
 
 .formulario input[type="radio"] {
 	width: auto;
-}
+}*/

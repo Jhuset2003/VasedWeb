@@ -1,103 +1,128 @@
 import React, { useState } from "react";
-import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import formaddCss from "./styles/FormAdd.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { BsFillPlusSquareFill } from "react-icons/bs";
+
+const initialdata = [
+  { id: 1, nombre: "jhon doe" },
+  { id: 2, nombre: "jhonathan quintana" },
+  { id: 3, nombre: "max taylor" },
+  { id: 4, nombre: "carlos valdez" },
+  { id: 5, nombre: "barry allen" },
+];
 
 const FormAdd = () => {
+  const [db, setdb] = useState(initialdata);
+
+  const [select, setselect] = useState("");
+
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+
+  const [usuario, setusuario] = useState([]);
+
+  const [mostrardata, setmostrardata] = useState(false);
+
+  const handleChange = (e) => {
+    setselect(e.target.value);
+  };
+
+  const buttonadd = () => {
+    const user = initialdata.find((item) => item.id == select);
+    setusuario([...usuario, user]);
+  };
+
   return (
     <>
-      <Formik
-        initialValues={{
-          nombre: "",
-          correo: "",
-        }}
-        validate={(valores) => {
-          let errores = {};
+      <section className={formaddCss.containerform}>
+        <form className={formaddCss.formulario}>
+          <div className={formaddCss.title}>
+            <h2>Agregar usuarios a las aulas</h2>
+            <div className={formaddCss.forminput}></div>
+            <div className={formaddCss.inputicons}>
+              <select
+                name="nombre" /*para relacionarlo con los valores iniciales*/
+                className={formaddCss.inputselect}
+                /* value={values.nombre}*/
+                onChange={handleChange}
+                /*estara pendiente de los cambios del input y debemos crear esa funcion la handlechange
+                    onBlur={handleBlur}*/
+              >
+                <option defaultValue="" selected>
+                  Usuario
+                </option>
 
-          // Validacion nombre
-          if (!valores.nombre) {
-            errores.nombre = "Por favor ingresa un nombre";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
-            errores.nombre = "El nombre solo puede contener letras y espacios";
-          }
-
-          // Validacion correo
-          if (!valores.correo) {
-            errores.correo = "Por favor ingresa un correo electronico";
-          } else if (
-            !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-              valores.correo
-            )
-          ) {
-            errores.correo =
-              "El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.";
-          }
-
-          return errores;
-        }}
-        onSubmit={(valores, { resetForm }) => {
-          resetForm();
-          console.log("Formulario enviado");
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
-        }}
-      >
-        {({ errors }) => (
-          <Form className={formaddCss.formulario}>
-            <div>
-              <label htmlFor="nombre">Nombre Usuario</label>
-              <Field type="text" id="nombre" name="nombre" />
-              <ErrorMessage
-                name="nombre"
-                component={() => <div className="error">{errors.nombre}</div>}
-              />
-            </div>
-            <div>
-              <label htmlFor="correo">Correo</label>
-              <Field
-                type="text"
-                id="correo"
-                name="correo"
-                placeholder="correo@correo.com"
-              />
-              <ErrorMessage
-                name="correo"
-                component={() => <div className="error">{errors.correo}</div>}
+                {db.map((element) => {
+                  return (
+                    <option key={element.id} value={element.id}>
+                      {element.nombre}
+                    </option>
+                  );
+                })}
+              </select>
+              {/* {touched.nombre && errors.nombre && (
+                    <div>{errors.nombre}</div>
+                  )} */}
+              <BsFillPlusSquareFill
+                className={formaddCss.inputbutton}
+                onClick={buttonadd}
               />
             </div>
 
             <div>
-              <Field name="pais" as="select">
-                <option value="mexico">Mexico</option>
-                <option value="España">España</option>
-                <option value="Argentina">Argentina</option>
-              </Field>
+              <section className={formaddCss.listadd}>
+                {" "}
+                {usuario.map((item) => (
+                  <span>{item.nombre}</span>
+                ))}
+              </section>
             </div>
-
             <div>
-              <label>
-                <Field type="radio" name="sexo" value="hombre" /> Hombre
-              </label>
-              <label>
-                <Field type="radio" name="sexo" value="mujer" /> Mujer
-              </label>
+              <span className={formaddCss.box}></span>
             </div>
-
-            <div>
-              <Field name="mensaje" as="textarea" placeholder="Mensaje" />
+            <div className={formaddCss.buttonsformadd}>
+              <button type="submit" className={btn.BtnPurple}>
+                Enviar
+              </button>
+              <button className={btn.BtnPink}> Cancelar</button>
             </div>
-
-            <button type="submit">Enviar</button>
-            {formularioEnviado && (
-              <p className="exito">Formulario enviado con exito!</p>
-            )}
-          </Form>
-        )}
-      </Formik>
+          </div>
+        </form>
+      </section>
     </>
   );
 };
 
 export default FormAdd;
+/*import axios from "axios";*/
+
+/*class App extends component{
+state={
+  ciudades:[]
+}
+
+componentDidmount(){
+  axios
+  .get("http://localhost:5000/webservice/controllers/ciudades.php")
+  .then(response=> {
+    console.log(response);
+    this.setState({ciudades: response.data})
+  })
+  .catch((error) => {
+    console.log(error);
+
+});
+
+render() {
+  return(
+<div className="App">
+  <div className="form-group">
+    <select name="ciudades" className="form-control">
+      {this.state.ciudades.map(elemento=>(
+        <option key={elemento.id} value={elemento.id}>{elemento.ciudad}</option>
+      )
+    )}
+</select>
+  </div>
+</div>
+  );
+}*/

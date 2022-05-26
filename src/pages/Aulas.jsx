@@ -24,7 +24,6 @@ const Aulas = () => {
           </button>
         </div>
         <Search />
-        <FormAdd />
         <CardAula />
         <CardAula />
         <CardAula />
