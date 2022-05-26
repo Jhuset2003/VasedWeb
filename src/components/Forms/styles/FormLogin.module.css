@@ -23,6 +23,16 @@
     font-weight: 700;
 }
 
+.purpleInput{
+    border: 3px solid var(--purple);
+    border-radius: 0.8em;
+    outline: none;
+    padding: .6em;
+    font-size: 1rem;
+    font-family: var(--text);
+    width: 17rem;
+}
+
 .formRecover{
     font-family: var(--text);
     font-weight: 300;

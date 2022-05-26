@@ -48,7 +48,7 @@ const FormOfNewPassword = () => {
                       type="password" 
                       id="newPassword" 
                       name="newPassword"
-                      className={inputCss.purpleInput} 
+                      className={formCss.purpleInput} 
                       placeholder="*************"
                       value={values.password}
                       onChange={handleChange}
@@ -62,7 +62,7 @@ const FormOfNewPassword = () => {
                       type="password" 
                       id="confirmPassword" 
                       name="confirmPassword"
-                      className={inputCss.purpleInput} 
+                      className={formCss.purpleInput} 
                       placeholder="*************"
                       value={values.password}
                       onChange={handleChange}

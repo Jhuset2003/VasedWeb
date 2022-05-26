@@ -137,7 +137,7 @@ const CardActivity = () => {
                 <h1>Hacer entrega</h1>
                 <div className={cardActivity.textareaTitle}>
                     <h4>Entrega</h4>
-                    <textarea cols="50" rows="15"></textarea>
+                    <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
                 </div>
                 <div className={cardActivity.btnContainer}>
                     <button className={btn.BtnPink}>Enviar</button>
