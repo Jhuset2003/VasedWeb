@@ -9,13 +9,12 @@ export default function useColumns() {
  const columns = useMemo(
    () => dataList.map(info =>
     [{
-      id:info.id,
       Header:info.Header,
       accessor:info.accessor,
       type:info.type
     }]
     ),
-   []
+   [dataList]
  );
 
  return columns;

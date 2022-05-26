@@ -23,36 +23,37 @@ export const UserProvider = ({ children }) => {
 
 const ColumnsData = {
     dataList:[
-        {   id:"col1",
+        {   
+            id:1,
             Header: "Código",
-            accessor: "id",
+            accessor: "col1",
             type:"numeric"
           },
           {
-            id:"col2",
+            id:2,
             Header: "Nombre",
-            accessor: "nombre"
+            accessor: "col2"
           },
           {
-            id:"col3",
+            id:3,
             Header: "Acciones",
-            accessor: "acciones"
+            accessor: "col3"
           },
      
           {
-            id:"col4",
+            id:4,
             Header: "Rol",
-            accessor: "rol",
+            accessor: "col4",
           },
           {
-            id:"col5",
+            id:4,
             Header: "Ultimo Ingreso",
-            accessor: "ultimo_ingreso"
+            accessor: "col5"
           },
           {
-            id:"col6",
+            id:5,
             Header: "Creado",
-            accessor: "creado"
+            accessor: "col6"
           }
     ]
     
@@ -63,7 +64,7 @@ export const ColumnsProvider = ({children}) => {
     const [DataColumn, setDataColumn] = useState(ColumnsData)
     
     return(
-        <ColumnsContext.Provider value={{Data:DataColumn.Data}}>
+        <ColumnsContext.Provider value={{dataList:DataColumn.dataList}}>
             {children}
         </ColumnsContext.Provider>
     )
