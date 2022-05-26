@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import CardActivity from '../components/Cards/CardActivity'
 import FormActivities from '../components/Forms/FormActivities'
-import FormUsers from '../components/Forms/FormUsers'
 import Search from '../components/Sections/Search'
 import MainLayout from '../layout/MainLayout'
+import { UserContext } from '../context/GlobalContext'
 
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
@@ -12,11 +12,8 @@ import styles from './styles/AdminUser.module.css'
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
 
-  const user = {
-        "id" : 1,
-        "name" : "Rodrigo Vased",
-        "role" : 1
-      } 
+  const { user }  = useContext(UserContext)
+  
   return (
     <div>
       <MainLayout>

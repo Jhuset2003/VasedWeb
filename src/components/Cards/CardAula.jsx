@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
 import btn from '../../styles/Buttons.module.css'
 import cardCss from './styles/CardAula.module.css'
@@ -6,16 +6,13 @@ import {FaTimes} from 'react-icons/fa'
 
 import MiniCardActivity from './MiniCardActivity'
 import ProgressBar from './ProgressBar'
+import { UserContext } from '../../context/GlobalContext'
 
 const CardAula = () => {
 
     const [expand, setExpand] = useState(false)
 
-    const user = {
-        "id" : 1,
-        "name" : "Rodrigo Vased",
-        "role" : 3
-      }
+    const { user }  = useContext(UserContext)
 
   return (
     <>

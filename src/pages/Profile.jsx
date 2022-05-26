@@ -19,11 +19,7 @@ const Profile = () => {
                   <button className={btn.BtnPink}>Cerrar sesión</button>
                 </Link>
             </div>
-            <FormProfile/>
-          <button 
-            className={btn.BtnPurple}
-            onClick={()=> setOpenModal(!openModal)}>Actualizar
-          </button>
+            <FormProfile setOpenModal={setOpenModal} openModal={openModal}/>
         </MainLayout>
 
         <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal}>

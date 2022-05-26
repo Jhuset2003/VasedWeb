@@ -1,35 +1,20 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
+import { UserContext,ColumnsC } from "../../../context/GlobalContext";
 
 export default function useColumns() {
- const columns = useMemo(
-   () => [
-     {
-       Header: "Código",
-       accessor: "id",
-       type:"numeric"
-     },
-     {
-       Header: "Nombre",
-       accessor: "nombre"
-     },
-     {
-       Header: "Acciones",
-       accessor: "acciones"
-     },
+  const {user} = useContext(UserContext)
+  const {dataList} = useContext(ColumnsC)
+  
 
-     {
-       Header: "Rol",
-       accessor: "rol",
-     },
-     {
-       Header: "Ultimo Ingreso",
-       accessor: "ultimo_ingreso"
-     },
-     {
-       Header: "Creado",
-       accessor: "creado"
-     }
-   ],
+ const columns = useMemo(
+   () => dataList.map(info =>
+    [{
+      id:info.id,
+      Header:info.Header,
+      accessor:info.accessor,
+      type:info.type
+    }]
+    ),
    []
  );
 

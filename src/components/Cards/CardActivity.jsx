@@ -17,14 +17,17 @@ const CardActivity = () => {
         "role" : 3
       } */
 
+    const data = 0
+
   return (
     <>
         <div className={cardActivity.card}>
             <div className={cardActivity.content} >
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
-                        <h1>Title</h1>
-                        <p>subtitle</p>
+                        <h1>Actividad 3232</h1>
+                        {user.role === 1 || user.role === 2 ?
+                        <div> {data === null ? <button className={btn.BtnDark}>Asignar aula</button> : <p>Aula 1</p>} </div> : null}
                     </div>
 
                     {user.role === 3 ?
