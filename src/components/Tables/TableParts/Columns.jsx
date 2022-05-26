@@ -1,20 +1,22 @@
 import { useContext, useMemo } from "react";
-import { UserContext,ColumnsC } from "../../../context/GlobalContext";
+import { ColumnsC } from "../../../context/GlobalContext";
 
 export default function useColumns() {
-  const {user} = useContext(UserContext)
-  const {dataList} = useContext(ColumnsC)
-  
+
+const {dataList} = useContext(ColumnsC)
+
+      const proccedData = dataList.map((Info) => {
+        return{
+            
+            Header:Info.Header,
+            accessor:Info.accessor,
+            type:Info.type
+        }
+    } )
 
  const columns = useMemo(
-   () => dataList.map(info =>
-    [{
-      Header:info.Header,
-      accessor:info.accessor,
-      type:info.type
-    }]
-    ),
-   [dataList]
+   () =>proccedData,
+   []
  );
 
  return columns;
