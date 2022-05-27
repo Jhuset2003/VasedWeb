@@ -6,8 +6,6 @@ import btn from '../../styles/Buttons.module.css'
 import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
 import ModalLayout from '../../layout/ModalLayout'
-import MainLayout from '../../layout/MainLayout'
-import profile from '../../pages/styles/Profile.module.css'
 
 const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const [expand, setExpand] = useState(false);
@@ -22,8 +20,8 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
             <div className={cardActivity.content} >
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
-                        <h1>Title</h1>
-                        <p>subtitle</p>
+                        <h1>{activity.name}</h1>
+                        <p>{activity.code}</p>
                     </div>
 
                     {user.role === 3 ?
