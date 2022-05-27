@@ -4,6 +4,7 @@
     height: 100%;
     position: absolute;
     top: 0;
+    right: 0;
     z-index: 50;
     background-color: rgba(245, 245, 245, 0.362);
 }
@@ -54,8 +55,10 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    /*  justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
+    font-family: var(--title);
+    text-align: center;
     max-height: 90vh;
     overflow-x: hidden;
     overflow-y: scroll;

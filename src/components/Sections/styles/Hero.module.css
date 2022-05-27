@@ -1,0 +1,139 @@
+/*desktop*/
+.content_hero{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+.section_hero{
+min-height: 75.2vh;/*para el footer*/
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.text_info_hero{
+    margin-bottom: 25px;/*para que este separado de la imagen*/
+}
+
+
+.video_main_hero{
+    width: 100%;
+    height: 100%;
+    /* border: 5px solid blue; */
+    margin: auto;
+    display: block;
+
+}
+video{
+	opacity: 0.5;
+	border-radius: 10px;
+    border: 3px solid var(--blue);
+    display: block;
+    margin: auto;
+    height: 100%;
+
+}
+.welcome_video_hero{
+    height: max-content;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.text_hero{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.text_hero >*{
+    padding: 10px;
+}
+
+.text_title_hero{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    color: var(--black);
+	font-family: var(--title);
+    color: var(--purple);
+}
+
+.text_details_hero{
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    max-width: 450px;/*para que los parrafos no tengan mas de 6 o 7 palabras para que no se vuelva ilegible*/
+    margin: 20px auto;/*es lo mismo que margin left y margin rigth auto*/
+    font-family: 'Comfortaa', cursive;
+}
+
+/*media query*/
+@media (min-width: 440px) {
+
+}
+
+@media only screen and (min-width: 650px) {/*asi se muestra en esta medida*/
+
+.welcome_video_hero{
+     max-width: 400px;
+
+ }
+.content_hero{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+ }
+
+}
+
+@media only screen and (min-width:950px){/* 950-2000 aplica,copio y pego borro lo que no tenga que sobreescribir, como las fuentes, el tamaño,*/
+.text_info_hero{
+     margin-bottom: 0px;  
+}
+.welcome_video_hero{
+    height: auto;
+    width: 400px;
+}
+.video_main_hero{
+    width: 100%; 
+    height: 100%;    
+}
+            
+.text_hero{
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    align-items: center;
+    padding: 5px;
+               
+ }
+ 
+
+.text_title_hero{
+    font-size: 30px;
+    color: var(--purple);
+}
+            
+.text_details_hero{
+    font-size: 22px;
+    margin: 30px 0;
+    color: var(--black);
+    font-family: 'Comfortaa', cursive;
+}
+/*.stripe{
+    margin: initial;
+}*/
+/*.icons_main{
+    margin: initial;
+}*/
+ }
+
+

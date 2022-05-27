@@ -1,8 +1,6 @@
-@import './Vars.css';
-
 .purpleInput,.blueInput, .blackInput{
-    border: 3px solid var(--purple);
-    border-radius: 0.8em;
+    border: 2px solid var(--purple);
+    border-radius: 0.4em;
     outline: none;
     padding: .6em;
     font-size: 1rem;
@@ -30,27 +28,27 @@
 
 @media (min-width: 768px) {
     
-    .purpleInput, .disabledInput,.blueInput{
+    /* .purpleInput, .disabledInput,.blueInput{
         padding: .8em;
 
-    }
+    } */
     
 }
 
 @media (min-width: 992px) {
     
-    .purpleInput, .disabledInput, .blueInput,.blackInput{
+  /*   .purpleInput, .disabledInput, .blueInput,.blackInput{
         padding: .8em;
         font-size: 1.2rem;
-    }
+    } */
 }   
 
 
 @media (min-width: 1400px) {
     
-    .purpleInput, .blackInput, .blackInput{
+/*     .purpleInput, .blackInput, .blackInput{
         padding: .8em;
 
-    }
+    } */
     
 }

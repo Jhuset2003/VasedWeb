@@ -3,6 +3,7 @@
     box-shadow: 1px 4px 15px -4px rgba(0,0,0,0.37);
     font-family: var(--title);
     border-radius: 1rem;
+    margin: 1rem 0; /* remove later in map */
 }
 
 .content{
@@ -34,6 +35,7 @@
 }
 .bgBox h1{
     color: white;
+    font-size: 1.5rem;
 }
 .bgBox p{
     color: white;
@@ -54,7 +56,7 @@
     font-size: .9rem;
     margin: 1rem 0;
     color: var(--black);
-    max-height: 4rem;
+    max-height: 50%;
     overflow-y: auto;
 }
 .icon{
@@ -112,7 +114,7 @@ border-radius: 10px;
     max-height: 100px;
 }
 .boxUser{
-    padding: 0 1rem;
+    padding: .5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,6 +127,7 @@ border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding-bottom: 1rem;
 }
 .userTop{
     display: flex;
@@ -149,6 +152,16 @@ background-color: var(--black);
 border-radius: 10px;
 }
 
+
+.barlaptop{
+    display: none;
+}
+.bar{
+    display: block;
+}
+.text p span{
+    font-family: var();
+}
 @media (min-width:480px) {
 
     
@@ -178,11 +191,12 @@ border-radius: 10px;
     }
     .textContent{
         width: 70%;
-        padding: 0 2rem;
+        padding: 1rem 2rem;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        gap: 1rem;
     }
     .text{
         width: 90%;
@@ -191,8 +205,6 @@ border-radius: 10px;
         font-size: .9rem;
         padding-bottom: 1rem;
         color: var(--black);
-        max-height: auto;
-        overflow-y: unset;
     }
 
     .users{
@@ -202,5 +214,17 @@ border-radius: 10px;
         gap: 2rem;
     }
     
+    .barlaptop{
+        display: block;
+    }
+    .bar{
+        display: none;
+    }
 
+}
+@media (min-width:1024px) {
+    .text p{
+        max-height: auto;
+        overflow-y: hidden;
+    }
 }

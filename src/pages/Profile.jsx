@@ -1,11 +1,14 @@
 import btn from '../styles/Buttons.module.css'
 import profileCss from './styles/Profile.module.css'
-
 import MainLayout from '../layout/MainLayout'
 import FormProfile from '../components/Forms/FormProfile'
 import { Link } from 'react-router-dom'
+import ModalLayout from '../layout/ModalLayout'
+import { useState } from 'react'
 
 const Profile = () => {
+  const [openModal,setOpenModal] = useState(false)
+
 
   return (
     <>
@@ -13,11 +16,16 @@ const Profile = () => {
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>
                 <Link to="/login">
-                  <button className={btn.BtnDark}>Cerrar sesión</button>
+                  <button className={btn.BtnPink}>Cerrar sesión</button>
                 </Link>
             </div>
-            <FormProfile/>
+            <FormProfile setOpenModal={setOpenModal} openModal={openModal}/>
         </MainLayout>
+
+        <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal}>
+        <h1>Contraseña nueva establecida con éxito</h1>
+        <button className={btn.BtnPink} onClick={()=> setOpenModal(!openModal)}>Aceptar</button> 
+      </ModalLayout>
     </>
   )
 }

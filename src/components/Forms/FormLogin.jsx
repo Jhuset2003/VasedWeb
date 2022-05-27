@@ -1,5 +1,4 @@
 import React from 'react'
-import inputCss from '../../styles/Inputs.module.css';
 import formCss from './styles/FormLogin.module.css';
 import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
@@ -31,6 +30,7 @@ const FormLogin = () => {
       resetForm();
       console.log("formulario enviado") 
     }}>
+      
       {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
         <div className={formCss.formContainer}>
             <h1 className={formCss.formTitle}>Iniciar sesión</h1>
@@ -43,7 +43,7 @@ const FormLogin = () => {
                         name="user" 
                         placeholder="Christian Ruiz"
                         value={values.user}
-                        className={inputCss.purpleInput}
+                        className={formCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.user && errors.user && <div className={formCss.errors}>{errors.user}</div>}
@@ -57,7 +57,7 @@ const FormLogin = () => {
                         name="password" 
                         placeholder="Contraseña123..."
                         value={values.password}
-                        className={inputCss.purpleInput}
+                        className={formCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}
@@ -68,7 +68,7 @@ const FormLogin = () => {
                       className={btn.BtnPurple}>Entrar</button>
                     </Link>
                 </form> 
-                <a href="#" className={formCss.formRecover}>¿Olvidaste tu contraseña?</a>
+                <Link to="/recover" className={formCss.formRecover}>¿Olvidaste tu contraseña?</Link>
         </div>
       )}
     </Formik>

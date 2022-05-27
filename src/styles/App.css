@@ -28,3 +28,10 @@ body::-webkit-scrollbar-thumb{
   background-color: #ed1c92;
   border-radius: 10px;
 }
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

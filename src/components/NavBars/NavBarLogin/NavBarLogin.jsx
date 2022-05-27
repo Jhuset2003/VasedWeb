@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import log from "../../../assests/logo-aula-virtual.png"
 import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
@@ -7,7 +7,14 @@ import LinkProfile from "./NavBarLoginLinks/LinkProfile"
 import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
 import navStyles from "../NavStyles/NavbarStyles.module.css"
+import LinkStudents from './NavBarLoginLinks/LinkStudents'
+import { UserContext } from '../../../context/GlobalContext'
+
+
 function NavBarLogin() {
+
+    const { user }  = useContext(UserContext)
+
     const items = [
         {
           anchor: <LinkHome/>,
@@ -23,7 +30,15 @@ function NavBarLogin() {
         ,
         {
           
-          anchor: <LinkUser/>,
+          anchor: <>
+          {
+                      user.role === 1 ?
+                      <LinkUser/>
+                      :user.role === 2 ?
+                      <LinkStudents/>
+                      :null
+                    }
+          </>,
         }
         ,
         {
@@ -42,7 +57,13 @@ function NavBarLogin() {
                     <li><LinkHome/></li>
                     <li><LinkActivities/></li>
                     <li><LinkClassrooms/></li>
-                    <li><LinkUser/></li>
+                    {
+                      user.role === 1 ?
+                      <li><LinkUser/></li>
+                      :user.role === 2 ?
+                      <li><LinkStudents/></li>
+                      :null
+                    }
                 </ul>
             </div>
             <div className={navStyles.NavBarLoginProfile}>

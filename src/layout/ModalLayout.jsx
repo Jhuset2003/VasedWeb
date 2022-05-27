@@ -3,7 +3,7 @@ import  btn from '../styles/Buttons.module.css'
 
 import { FaTimes } from 'react-icons/fa'
 
-const ModalLayout = ({children, title, openModal,setOpenModal}) => {
+const ModalLayout = ({children, title, openModal,setOpenModal, icon}) => {
 
   return (
         <>
@@ -13,9 +13,9 @@ const ModalLayout = ({children, title, openModal,setOpenModal}) => {
                     <div className={styles.modalColor}>
                         <div className={styles.modalTop}>
 
-                        <button className={`${btn.BtnRounded} ${styles.ptBtn}`} onClick={()=> setOpenModal(false)}>
+                        {icon==="show" ? <button className={`${btn.BtnRounded} ${styles.ptBtn}`} onClick={()=> setOpenModal(false)}>
                             <FaTimes className={styles.modalIcon}/>
-                        </button>
+                        </button> : null}
 
                         <h1 className={styles.modalTitle}>{title}</h1>
                     
