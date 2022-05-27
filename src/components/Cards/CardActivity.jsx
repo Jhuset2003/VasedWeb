@@ -3,8 +3,13 @@ import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
 import btn from '../../styles/Buttons.module.css'
 import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
+import ModalLayout from '../../layout/ModalLayout'
+import MainLayout from '../../layout/MainLayout'
+import profile from '../../pages/styles/Profile.module.css'
 
 const CardActivity = () => {
+  const [openModal,setOpenModal] = useState(false)
+
 
     const [expand, setExpand] = useState(false)
 
@@ -39,7 +44,10 @@ const CardActivity = () => {
 
                     {user.role === 3 ?
                         <div className={cardActivity.btns}>
-                            <button className={btn.BtnDark}>Entregar</button>
+                            <button 
+                            type='submit' 
+                            className={btn.BtnDark} 
+                            onClick={()=> setOpenModal(!openModal)}>Entregar</button>{/* desarrollar la modal apartir de aquí */}
                         </div>
                     :null}
 
@@ -123,6 +131,21 @@ const CardActivity = () => {
                         :null}
                 </div>
             }
+        </div>
+
+        {/* ubicar modal */}
+        <div className={cardActivity.modalContainer}>
+            <ModalLayout setOpenModal={setOpenModal} openModal={openModal}>
+                        <h1>Hacer entrega</h1>
+                        <div className={cardActivity.textareaTitle}>
+                            <h4>Entrega</h4>
+                            <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
+                        </div>
+                        <div className={cardActivity.btnContainer}>
+                            <button className={btn.BtnPink}>Enviar</button>
+                            <button className={btn.BtnPurple}>Cancelar</button>
+                        </div>
+            </ModalLayout>
         </div>
     </>
   )
