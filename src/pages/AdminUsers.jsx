@@ -18,7 +18,7 @@ const AdminUsers = () => {
         </div>
         <TableAttendance/>
       </MainLayout>
-      <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal}>
+      <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal} icon="show">
           <FormUsers/>
       </ModalLayout>
     </>

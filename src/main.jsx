@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import {BrowserRouter} from "react-router-dom" 
 
-import { UserProvider } from './context/GlobalContext'
+import { ActivityProvider, AulaProvider, UserProvider } from './context/GlobalContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <UserProvider>
-      <BrowserRouter>
-          <App />    
-      </BrowserRouter>
+      <AulaProvider>
+        <ActivityProvider>
+        <BrowserRouter>
+            <App />    
+        </BrowserRouter>
+        </ActivityProvider>
+      </AulaProvider>
     </UserProvider>
 )

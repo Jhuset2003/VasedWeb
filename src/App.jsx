@@ -17,6 +17,7 @@ import FormOfRecovering from "./pages/FormOfRecovering";
 
 function App() {
   const location = useLocation();
+  
   return (
     <div className="App">
             
