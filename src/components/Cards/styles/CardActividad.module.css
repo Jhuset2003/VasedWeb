@@ -146,6 +146,24 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.textareaTitle{
+    display: grid;
+    align-content: flex-start;
+    justify-items: flex-start;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.textarea{
+    border-radius: 1rem;
+    border: 0.2em solid;
+    padding: 1rem;
+}
+
+.btnContainer{
+    display: flex;
+}
 /* Scroll styles*/
 .boxScroll::-webkit-scrollbar{
     width: 3px;
@@ -153,6 +171,15 @@
 .boxScroll::-webkit-scrollbar-thumb{
 background-color: var(--black);
 border-radius: 10px;
+}
+
+
+.modalContainer{
+    width: 80%;
+    height: 80%;
+    display: grid;
+    align-content: center;
+    justify-items: center;
 }
 
 @media (min-width:480px) {

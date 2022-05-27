@@ -1,5 +1,4 @@
 import React from 'react'
-import inputCss from '../../styles/Inputs.module.css';
 import formCss from './styles/FormLogin.module.css';
 import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
@@ -44,7 +43,7 @@ const FormLogin = () => {
                         name="user" 
                         placeholder="Christian Ruiz"
                         value={values.user}
-                        className={inputCss.purpleInput}
+                        className={formCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.user && errors.user && <div className={formCss.errors}>{errors.user}</div>}
@@ -58,7 +57,7 @@ const FormLogin = () => {
                         name="password" 
                         placeholder="Contraseña123..."
                         value={values.password}
-                        className={inputCss.purpleInput}
+                        className={formCss.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}

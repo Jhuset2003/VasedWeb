@@ -1,12 +1,15 @@
-import React, { useContext, useState } from "react";
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
-import btn from "../../styles/Buttons.module.css";
-import cardActivity from "./styles/CardActividad.module.css";
-import { FaTimes } from "react-icons/fa";
 
+import { useState, useContext } from "react";
 import { UserContext } from "../../context/GlobalContext";
+import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
+import btn from '../../styles/Buttons.module.css'
+import cardActivity from './styles/CardActividad.module.css'
+import {FaTimes} from 'react-icons/fa'
+import ModalLayout from '../../layout/ModalLayout'
+import MainLayout from '../../layout/MainLayout'
+import profile from '../../pages/styles/Profile.module.css'
 
-const CardActivity = ({ activity }) => {
+const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const [expand, setExpand] = useState(false);
 
   const { user } = useContext(UserContext);
@@ -15,68 +18,59 @@ const CardActivity = ({ activity }) => {
 
   return (
     <>
-      <div className={cardActivity.card} key={activity.id}>
-        <div className={cardActivity.content} key={activity.id}>
-          <div className={cardActivity.bgBox} key={activity.id}>
-            <div className={cardActivity.textBox} key={activity.id}>
-              <h1>{activity.name}</h1>
-              {user.role === 1 || user.role === 2 ? (
-                <div>
-                  {" "}
-                  {data === null ? (
-                    <button className={btn.BtnDark}>Asignar aula</button>
-                  ) : (
-                    <p>{activity.code}</p>
-                  )}{" "}
+        <div className={cardActivity.card}>
+            <div className={cardActivity.content} >
+                <div className={cardActivity.bgBox}>
+                    <div className={cardActivity.textBox}>
+                        <h1>Title</h1>
+                        <p>subtitle</p>
+                    </div>
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.circleNote}>
+                            <span>5/{activity.baseScore}</span>
+                        </div>
+                    :null}
+                    
+                    {user.role === 1 || user.role === 2 ?
+                        <div className={cardActivity.btns}>
+                            <button className={btn.BtnWhite}>Editar</button>
+                            <button className={btn.BtnDelete}>Eliminar</button>
+                        </div>
+                    :null}
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.btns}>
+                            <button 
+                            type='submit' 
+                            className={btn.BtnDark} 
+                            onClick={()=> setOpenModal(!openModal)}>Entregar</button>{/* desarrollar la modal apartir de aquí */}
+                        </div>
+                    :null}
+
                 </div>
-              ) : null}
+                <div className={cardActivity.textContent}>
+                    <div className={cardActivity.text}>
+                        <span>Fecha: 20/05/2020</span>
+
+                        <span><strong>Limite: {activity.fecha}</strong></span>
+                    </div>
+                    
+                    {user.role === 1 || user.role === 2 ?
+                        <div className={cardActivity.note}>
+                            <span>Nota Base: {activity.baseScore}</span>
+                        </div>
+                    :null}
+
+                    {user.role === 3 ?
+                        <div className={cardActivity.circleNoteLaptop}>
+                            <span>5/{activity.baseScore}</span>
+                        </div>
+                    :null}
+
+                    <i className={cardActivity.icon} onClick={()=> setExpand(!expand)}>{expand ? <VscChevronUp/> : <VscChevronDown/>}</i>
+                </div>
             </div>
-
-            {user.role === 3 ? (
-              <div className={cardActivity.circleNote}>
-                <span>5/{activity.baseScore}</span>
-              </div>
-            ) : null}
-
-            {user.role === 1 || user.role === 2 ? (
-              <div className={cardActivity.btns}>
-                <button className={btn.BtnWhite}>Editar</button>
-                <button className={btn.BtnDelete}>Eliminar</button>
-              </div>
-            ) : null}
-
-            {user.role === 3 ? (
-              <div className={cardActivity.btns}>
-                <button className={btn.BtnDark}>Entregar</button>
-              </div>
-            ) : null}
-          </div>
-          <div className={cardActivity.textContent}>
-            <div className={cardActivity.text}>
-              <span>Fecha: 3/02/2020</span>
-
-              <span>
-                <strong>Limite: {activity.fecha}</strong>
-              </span>
-            </div>
-
-            {user.role === 1 || user.role === 2 ? (
-              <div className={cardActivity.note}>
-                <span>Nota Base: {activity.baseScore}</span>
-              </div>
-            ) : null}
-
-            {user.role === 3 ? (
-              <div className={cardActivity.circleNoteLaptop}>
-                <span>5/5</span>
-              </div>
-            ) : null}
-
-            <i className={cardActivity.icon} onClick={() => setExpand(!expand)}>
-              {expand ? <VscChevronUp /> : <VscChevronDown />}
-            </i>
-          </div>
-        </div>
 
         {expand && (
           <div className={cardActivity.expand}>
@@ -158,6 +152,20 @@ const CardActivity = ({ activity }) => {
             ) : null}
           </div>
         )}
+      </div>
+
+      <div className={cardActivity.modalContainer}>
+        <ModalLayout setOpenModal={setOpenModal} openModal={openModal}>
+                    <h1>Hacer entrega</h1>
+                    <div className={cardActivity.textareaTitle}>
+                        <h4>Entrega</h4>
+                        <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
+                    </div>
+                    <div className={cardActivity.btnContainer}>
+                        <button className={btn.BtnPink}>Enviar</button>
+                        <button className={btn.BtnPurple}>Cancelar</button>
+                    </div>
+        </ModalLayout>
       </div>
     </>
   );
