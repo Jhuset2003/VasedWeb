@@ -1,5 +1,6 @@
 import React from 'react'
 import formCss from './styles/FormLogin.module.css';
+import input from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
@@ -17,11 +18,13 @@ const FormLogin = () => {
 
       //Validación del nombre de usuario
       if(!valores.user){
-        errores.user = 'Ingresa un nombre'
+        errores.user = 'Ingrese un correo'
+      }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
+        errores.user = "Ingrese un correo valido"
       }
       //Validación de contraseña 
       if(!valores.password){
-        errores.password = 'Ingresa una contraseña'
+        errores.password = 'Ingrese una contraseña'
       }
       return errores;
     }}
@@ -38,12 +41,12 @@ const FormLogin = () => {
                     <div className={formCss.formItem}>
                         <label htmlFor="user" className={formCss.formSubtitle}>Usuario</label>
                         <input 
-                        type="text" 
+                        type="email" 
                         id="user" 
                         name="user" 
-                        placeholder="Christian Ruiz"
+                        placeholder="example@correo.com"
                         value={values.user}
-                        className={formCss.purpleInput}
+                        className={input.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.user && errors.user && <div className={formCss.errors}>{errors.user}</div>}
@@ -57,7 +60,7 @@ const FormLogin = () => {
                         name="password" 
                         placeholder="Contraseña123..."
                         value={values.password}
-                        className={formCss.purpleInput}
+                        className={input.purpleInput}
                         onChange={handleChange}
                         onBlur={handleBlur}/>
                         {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}

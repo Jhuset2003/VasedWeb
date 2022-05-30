@@ -20,7 +20,7 @@ function App() {
   
   return (
     <div className="App">
-            
+           
     {location.pathname === "/login" ? null :location.pathname === "/recover" ? null: location.pathname === "/new-password" ? null: <NavBarLogin />}
     <Routes>
       <Route path="/" element={<Landing />} />
