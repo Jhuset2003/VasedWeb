@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({
         id: 1,
         name: "Rodrigo Vased",
-        role: 3,
+        role: 1,
     });
 
     return (

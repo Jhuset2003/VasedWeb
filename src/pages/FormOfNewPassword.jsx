@@ -80,11 +80,13 @@ const FormOfNewPassword = () => {
         </div>
       )}
       </Formik>
-      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal}>
-        <h1>Contraseña nueva establecida con éxito</h1>
-        <Link to="/login">
-          <button className={btn.BtnPink}>Iniciar sesión</button>
-        </Link>
+      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal} color="success">
+        <div className={newCss.modalContentSize}>
+          <h1>Contraseña nueva establecida con éxito</h1>
+          <Link to="/login">
+            <button className={btn.BtnGreen}>Iniciar sesión</button>
+          </Link>
+        </div>
       </ModalLayout>
     </>
 
