@@ -5,33 +5,40 @@ import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import { login } from "../../services/login";
 import { SessionContext } from "../../context/SessionContext";
-
-
+import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
+    const { user, setUser } = useContext(SessionContext);
+    const navigate = useNavigate();
 
-  const { user, setUser } = useContext(SessionContext);
+    const handleSubmitCustom = async (values) => {
+        const { email, password } = values;
+        const response = await login(email, password);
+        if (response.status === 200) {
+            setUser(response.data.user);
+            navigate("/");
+        };
 
-  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const { email, password } = values;
-    const { data } = await login(email, password);
-    console.log(data);
-    setSubmitting(false);
-  }
-  
+        if(response.status === 400){
+            alert("Usuario o contraseña incorrectos");
+        }
+
+        console.log(response.data);
+    };
+
     return (
         <>
             <Formik
                 initialValues={{
-                    user: "",
+                    email: "",
                     password: "",
                 }}
                 validate={(valores) => {
                     let errores = {};
 
                     //Validación del nombre de usuario
-                    if (!valores.user) {
-                        errores.user = "Ingresa un nombre";
+                    if (!valores.email) {
+                        errores.email = "Ingresa un nombre";
                     }
                     //Validación de contraseña
                     if (!valores.password) {
@@ -39,7 +46,12 @@ const FormLogin = () => {
                     }
                     return errores;
                 }}
-                onSubmit={handleSubmit}
+                onSubmit={(valores, { resetForm }) => {
+                    resetForm();
+                    handleSubmitCustom(valores);
+                    console.log(valores)
+                    console.log("formulario enviado");
+                }}
             >
                 {({
                     values,
@@ -58,24 +70,24 @@ const FormLogin = () => {
                         >
                             <div className={formCss.formItem}>
                                 <label
-                                    htmlFor="user"
+                                    htmlFor="email"
                                     className={formCss.formSubtitle}
                                 >
                                     Usuario
                                 </label>
                                 <input
                                     type="text"
-                                    id="user"
-                                    name="user"
+                                    id="email"
+                                    name="email"
                                     placeholder="Christian Ruiz"
-                                    value={values.user}
+                                    value={values.email}
                                     className={formCss.purpleInput}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
-                                {touched.user && errors.user && (
+                                {touched.email && errors.email && (
                                     <div className={formCss.errors}>
-                                        {errors.user}
+                                        {errors.email}
                                     </div>
                                 )}
                             </div>
@@ -103,9 +115,9 @@ const FormLogin = () => {
                                     </div>
                                 )}
                             </div>
-                                <button type="submit" className={btn.BtnPurple}>
-                                    Entrar
-                                </button>
+                            <button type="submit" className={btn.BtnPurple}>
+                                Entrar
+                            </button>
                         </form>
                         <Link to="/recover" className={formCss.formRecover}>
                             ¿Olvidaste tu contraseña?

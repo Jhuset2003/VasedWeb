@@ -1,4 +1,4 @@
-import GlobalReducer from "./GlobalReducer";
+import GlobalReducer from "../reducers/GlobalReducer";
 import { v4 } from "uuid";
 import React, { createContext, useReducer, useState } from "react";
 import rowsStyles from "../components/Tables/TableParts/Rows.module.css";
