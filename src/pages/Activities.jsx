@@ -8,11 +8,12 @@ import { ActivityContext, UserContext } from '../context/GlobalContext'
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
+import { SessionContext } from '../context/SessionContext'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
 
-  const { user }  = useContext(UserContext)
+  const { user }  = useContext(SessionContext)
 
   const { activity } = useContext(ActivityContext);
   
@@ -28,7 +29,7 @@ const Activities = () => {
 
         </div>
         <Search/>
-        {activity.map(activity => <CardActivity activity={activity}/>)}
+        {activity.map(activity => <CardActivity key={activity.id} activity={activity}/>)}
   
       </MainLayout>
       <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal} icon="show">

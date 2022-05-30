@@ -9,11 +9,12 @@ import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
 import  Form  from '../components/Forms/Form'
+import { SessionContext } from '../context/SessionContext'
 
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
 
-  const { user }  = useContext(UserContext)
+  const { user }  = useContext(SessionContext)
 
   const { aulas } = useContext(AulaContext);
 

@@ -11,5 +11,4 @@ export default function GlobalReducer(state,action){
             break;
     }
 
-    
 }

@@ -6,12 +6,12 @@ import { FaTimes } from "react-icons/fa";
 
 import MiniCardActivity from "./MiniCardActivity";
 import ProgressBar from "./ProgressBar";
-import { UserContext } from "../../context/GlobalContext";
+import { SessionContext } from "../../context/SessionContext";
 
 const CardAula = ({ aulas }) => {
   const [expand, setExpand] = useState(false);
 
-  const { user } = useContext(UserContext);
+  const { user } = useContext(SessionContext);
 
   return (
     <div className={cardCss.card} key={aulas.id}>

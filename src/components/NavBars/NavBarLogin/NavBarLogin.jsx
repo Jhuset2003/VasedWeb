@@ -8,12 +8,12 @@ import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
 import navStyles from "../NavStyles/NavbarStyles.module.css"
 import LinkStudents from './NavBarLoginLinks/LinkStudents'
-import { UserContext } from '../../../context/GlobalContext'
+import { SessionContext } from '../../../context/SessionContext'
 
 
 function NavBarLogin() {
 
-    const { user }  = useContext(UserContext)
+    const { user }  = useContext(SessionContext)
 
     const items = [
         {

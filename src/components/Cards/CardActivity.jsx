@@ -1,16 +1,16 @@
 
 import { useState, useContext } from "react";
-import { UserContext } from "../../context/GlobalContext";
 import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
 import btn from '../../styles/Buttons.module.css'
 import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
 import ModalLayout from '../../layout/ModalLayout'
+import { SessionContext } from "../../context/SessionContext";
 
 const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const [expand, setExpand] = useState(false);
 
-  const { user } = useContext(UserContext);
+  const { user } = useContext(SessionContext);
 
   const data = 0;
 

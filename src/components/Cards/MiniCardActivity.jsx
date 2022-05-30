@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/GlobalContext';
+import { SessionContext } from '../../context/SessionContext';
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 
 const MiniCardActivity = ({task}) => {
 
-  const { user } = useContext(UserContext);
+  const { user } = useContext(SessionContext);
 
   return (
     <>
