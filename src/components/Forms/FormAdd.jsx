@@ -24,6 +24,7 @@ const FormAdd = () => {
 
   const buttonadd = () => {
     const user = initialdata.find((item) => item.id == select);
+    if (!!user === false) return;
     setusuario([...usuario, user]);
   };
 

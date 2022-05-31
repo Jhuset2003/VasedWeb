@@ -1,29 +1,32 @@
-.centerMain{
+.centerMain {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 2rem 0;
 }
-.mainLayout{
-    width: 95%;
-/*     min-height: 50vh; */
+
+.mainLayout {
+    width: 100%;
+    /*     min-height: 50vh; */
     display: flex;
     flex-direction: column;
-    
+
 }
 
 @media (min-width: 640px) {
-    .mainLayout{
+    .mainLayout {
         width: 90%;
     }
 }
+
 @media (min-width: 768px) {
-    .mainLayout{
+    .mainLayout {
         width: 85%;
     }
 }
+
 @media (min-width: 1024px) {
-    .mainLayout{
+    .mainLayout {
         width: 80%;
     }
 }

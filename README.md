@@ -80,4 +80,8 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 
 ## Links Importantes
 
-[Sprint con Product Backlog y requerimientos técnicos.](https://trello.com/lmsvased)
+- [Formik ](https://formik.org/docs/overview) - Librería React usada.
+- [React-icons](https://react-icons.github.io/react-icons/)- Librería React usada.
+- [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)-Paquete npm
+- [React-table](https://react-table-v7.tanstack.com/docs/overview)- Librería React usada.
+- [Sprint con Product Backlog y requerimientos técnicos.](https://trello.com/lmsvased)
