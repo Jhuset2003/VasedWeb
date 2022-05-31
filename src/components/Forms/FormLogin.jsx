@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import formCss from "./styles/FormLogin.module.css";
+import input from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { login } from "../../services/login";
 import { SessionContext } from "../../context/SessionContext";
-import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
     const { user, setUser } = useContext(SessionContext);
@@ -79,9 +79,9 @@ const FormLogin = () => {
                                     type="text"
                                     id="email"
                                     name="email"
-                                    placeholder="Christian Ruiz"
+                                    placeholder="example@correo.com"
                                     value={values.email}
-                                    className={formCss.purpleInput}
+                                    className={input.purpleInput}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
@@ -105,7 +105,7 @@ const FormLogin = () => {
                                     name="password"
                                     placeholder="Contraseña123..."
                                     value={values.password}
-                                    className={formCss.purpleInput}
+                                    className={input.purpleInput}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
