@@ -4,7 +4,7 @@ import btn from '../../styles/Buttons.module.css';
 import { Formik } from 'formik';
 
 
-const FormProfile = () => {
+const FormProfile = ({openModal, setOpenModal}) => {
 
     return (
     <>
@@ -128,7 +128,7 @@ const FormProfile = () => {
                         {touched.confirmPassword && errors.confirmPassword && <div className={formProfile.errors}>{errors.confirmPassword}</div>}
                     </div>
                     <button 
-                    className={btn.BtnPurple}>Actualizar</button>
+                    className={btn.BtnPurple} onClick={()=> setOpenModal(!openModal)}>Actualizar</button>
                 </form> 
             </div>
         )}

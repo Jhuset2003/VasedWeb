@@ -27,6 +27,24 @@
     padding: 1rem;
 }
 
+.modalGreen{
+    background: #F0F5F9;
+    border: .2rem solid var(--green);
+    border-radius: 1rem;
+    width: fit-content;
+    height: max-content;
+    position: relative;
+    padding: 1rem;
+}
+.modalRed{
+    background: #F0F5F9;
+    border: .2rem solid rgb(183, 11, 11);
+    border-radius: 1rem;
+    width: fit-content;
+    height: max-content;
+    position: relative;
+    padding: 1rem;
+}
 .modalTop {
     width: 100%;
     display: flex;
@@ -61,7 +79,7 @@
     text-align: center;
     max-height: 90vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .modalContent::-webkit-scrollbar {

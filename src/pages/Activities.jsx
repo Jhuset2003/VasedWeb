@@ -1,31 +1,38 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import CardActivity from '../components/Cards/CardActivity'
 import FormActivities from '../components/Forms/FormActivities'
-import FormUsers from '../components/Forms/FormUsers'
 import Search from '../components/Sections/Search'
 import MainLayout from '../layout/MainLayout'
+import { ActivityContext, UserContext } from '../context/GlobalContext'
 
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
+import { SessionContext } from '../context/SessionContext'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
+
+  const { user }  = useContext(SessionContext)
+
+  const { activity } = useContext(ActivityContext);
+  
   return (
     <div>
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Actividades</h1>
-          <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
+          
+          {user.role === 1 || user.role === 2 ?
+            <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}> Crear nueva actividad </button>
+          :null}
+
         </div>
         <Search/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
+        {activity.map(activity => <CardActivity key={activity.id} activity={activity}/>)}
+  
       </MainLayout>
-      <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal}>
+      <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal} icon="show">
         <FormActivities setOpenModal={setOpenModal} openModal={openModal}/>
       </ModalLayout>
     </div>

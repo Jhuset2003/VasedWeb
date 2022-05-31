@@ -1,26 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SessionContext } from '../../context/SessionContext';
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 
-const MiniCardActivity = ({user}) => {
+const MiniCardActivity = ({task}) => {
 
-  console.log(user)
+  const { user } = useContext(SessionContext);
+
   return (
     <>
-    <div className={card.container}>
+    <div className={card.container} key={task.id}>
 
     <div className={card.cardTop}></div>
         <div className={card.text}>
-            <span>Actividad 46434</span>
+            <span>{task.name}*</span>
 
             {user.role === 3 ? 
               <span><strong>Entrega:</strong> 12/03/2020</span>
             : null}
 
-            <span><strong>Limite:</strong> 25/04/2020</span>
+            <span><strong>Limite:</strong> {task.fecha}</span>
 
             {user.role === 3 ? 
-              <span><strong>Calificación:</strong> -</span>
+              <span><strong>Calificación:</strong> 0/{task.baseScore}*</span>
             : null}
             
         </div>

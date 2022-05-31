@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import log from "../../../assests/logo-aula-virtual.png"
 import LinkHome from "./NavBarLoginLinks/LinkHome"
 import LinkActivities from "./NavBarLoginLinks/LinkActivities"
@@ -8,12 +8,13 @@ import Dropdown from './Menu/Dropdown'
 import LinkUser from './NavBarLoginLinks/LinkUser'
 import navStyles from "../NavStyles/NavbarStyles.module.css"
 import LinkStudents from './NavBarLoginLinks/LinkStudents'
+import { SessionContext } from '../../../context/SessionContext'
+
+
 function NavBarLogin() {
-    const user = {
-      "id" : 1,
-      "name" : "Rodrigo Vased",
-      "role" : 3
-    }
+
+    const { user }  = useContext(SessionContext)
+
     const items = [
         {
           anchor: <LinkHome/>,
