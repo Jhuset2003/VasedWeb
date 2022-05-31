@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({
         id: 1,
         name: "Rodrigo Vased",
-        role: 1,
+        role: 3,
     });
 
     return (
