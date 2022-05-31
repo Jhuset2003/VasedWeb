@@ -3,19 +3,23 @@ import CardActivity from '../components/Cards/CardActivity'
 import FormActivities from '../components/Forms/FormActivities'
 import Search from '../components/Sections/Search'
 import MainLayout from '../layout/MainLayout'
-import { UserContext } from '../context/GlobalContext'
+import { ActivityContext, UserContext } from '../context/GlobalContext'
 
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
+import { SessionContext } from '../context/SessionContext'
+import { motion } from 'framer-motion'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
 
-  const { user }  = useContext(UserContext)
+  const { user }  = useContext(SessionContext)
+
+  const { activity } = useContext(ActivityContext);
   
   return (
-    <div>
+    <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Actividades</h1>
@@ -26,16 +30,13 @@ const Activities = () => {
 
         </div>
         <Search/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
-        <CardActivity/>
+        {activity.map(activity => <CardActivity key={activity.id} activity={activity}/>)}
+  
       </MainLayout>
-      <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal}>
+      <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal} icon="show">
         <FormActivities setOpenModal={setOpenModal} openModal={openModal}/>
       </ModalLayout>
-    </div>
+    </motion.div>
   )
 }
 

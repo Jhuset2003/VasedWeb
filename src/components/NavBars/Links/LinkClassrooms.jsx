@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import aulas from "../../../../assests/Iconos-menu/aulas.svg"
-import navStyles from"../../NavStyles/NavbarStyles.module.css"
+import aulas from "../../../assests/Iconos-menu/aulas.svg"
+import navStyles from"../NavStyles/NavbarStyles.module.css"
 
 function LinkClassrooms() {
   return (

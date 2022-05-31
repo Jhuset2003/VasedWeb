@@ -7,7 +7,7 @@ import {
   item_list,
 } from "./dropdown.module.css";
 import { FiMenu } from 'react-icons/fi';
-import navStyles from "../../NavStyles/NavbarStyles.module.css"
+import navStyles from "../NavStyles/NavbarStyles.module.css"
 
 function Dropdown({ items = [], dropdownTitle }) {
   const activatorRef = useRef(null);
