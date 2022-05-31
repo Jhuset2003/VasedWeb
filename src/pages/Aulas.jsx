@@ -32,7 +32,7 @@ const Aulas = () => {
             
           </div>
           <Search/>
-          {aulas.map(aulas => <CardAula aulas={aulas}/>)}
+          {aulas.map(aula => <CardAula key={aula.id} aulas={aula}/>)}
 
         </MainLayout>
         <ModalLayout title="Formulario Aulas" setOpenModal={setOpenModal} openModal={openModal} icon="show">

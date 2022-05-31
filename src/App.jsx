@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import NavBarLogin from "./components/NavBars/NavBarLogin/NavBarLogin";
 import Aulas from "./pages/Aulas";
@@ -13,6 +13,8 @@ import Login from "./pages/Login";
 import Footer from "./components/Sections/Footer";
 import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
+import Auth from "./middlewares/Auth";
+import AuthAdmin from "./middlewares/AuthAdmin";
 
 function App() {
     const location = useLocation();
@@ -26,9 +28,31 @@ function App() {
             )}
             <Routes>
                 <Route path="/" element={<Landing />} />
-                <Route path="/aulas" element={<Aulas />} />
-                <Route path="/Actividades" element={<Activities />} />
-                <Route path="/usuarios" element={<AdminUser />} />
+                <Route
+                    path="/aulas"
+                    element={
+                        <Auth>
+                            <Aulas />
+                        </Auth>
+                    }
+                />
+
+                <Route
+                    path="/Actividades"
+                    element={
+                        <Auth>
+                            <Activities />
+                        </Auth>
+                    }
+                />
+                <Route
+                    path="/usuarios"
+                    element={
+                        <AuthAdmin>
+                            <AdminUser />
+                        </AuthAdmin>
+                    }
+                />
                 <Route path="/perfil" element={<Profile />} />
                 <Route path="/detalle-usuario" element={<DetailUser />} />
                 <Route path="/login" element={<Login />} />
