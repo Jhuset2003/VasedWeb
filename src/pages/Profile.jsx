@@ -16,7 +16,9 @@ const Profile = () => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    setUser({})
+    setUser(null)
+    window.localStorage.removeItem("sessionLogin")
+    window.localStorage.removeItem("token")
     navigate('/login')
   }
 

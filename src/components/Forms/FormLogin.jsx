@@ -16,6 +16,9 @@ const FormLogin = () => {
         const response = await login(email, password);
         if (response.status === 200) {
             setUser(response.data.user);
+            window.localStorage.setItem("sessionLogin", JSON.stringify(response.data.user));
+            window.localStorage.setItem("token", response.data.token);
+            
             navigate("/");
         };
 

@@ -16,13 +16,22 @@ import FormOfRecovering from "./pages/FormOfRecovering";
 import Auth from "./middlewares/Auth";
 import AuthAdmin from "./middlewares/AuthAdmin";
 import AuthTeacher from "./middlewares/AuthTeacher";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SessionContext } from "./context/SessionContext";
 import Guest from "./middlewares/Guest";
 
 function App() {
     const location = useLocation();
-    const { user } = useContext(SessionContext);
+    const { user, setUser } = useContext(SessionContext);
+
+    useEffect(() => {
+        //set user from localStorage
+        if (localStorage.getItem("sessionLogin")) {
+            const userLocal = JSON.parse(localStorage.getItem("sessionLogin"));
+            setUser(userLocal);
+        }
+    },[])
+
     return (
         <div className="App">
             {location.pathname === "/login" ? null : location.pathname ===
@@ -82,6 +91,8 @@ function App() {
                         <FormOfNewPassword />
                     </Guest>
                 } />
+
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
 
             {location.pathname === "/login" ? null : location.pathname ===
