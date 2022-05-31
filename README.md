@@ -69,7 +69,7 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 
 ## Autores
 
-- 👨‍💻 **[Sara salas](hthttps://github.com/sarisp3260)**
+- 👨‍💻 **[Sara salas](https://github.com/sarisp3260)**
 - 👨‍💻 **[Enmanuel Pereira](https://github.com/iElectro13)**
 - 👨‍💻 **[Christian javier ruiz](https://github.com/Lord-Mugen)**
 - 👨‍💻 **[Albert Quintanilla](https://github.com/Jhuset2003)**
