@@ -9,6 +9,7 @@ import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
 import { SessionContext } from '../context/SessionContext'
+import { motion } from 'framer-motion'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
@@ -18,7 +19,7 @@ const Activities = () => {
   const { activity } = useContext(ActivityContext);
   
   return (
-    <div>
+    <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
       <MainLayout>
         <div className={styles.Letters}>
           <h1>Actividades</h1>
@@ -35,7 +36,7 @@ const Activities = () => {
       <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal} icon="show">
         <FormActivities setOpenModal={setOpenModal} openModal={openModal}/>
       </ModalLayout>
-    </div>
+    </motion.div>
   )
 }
 

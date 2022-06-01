@@ -6,6 +6,7 @@ import cardActivity from './styles/CardActividad.module.css'
 import {FaTimes} from 'react-icons/fa'
 import ModalLayout from '../../layout/ModalLayout'
 import { SessionContext } from "../../context/SessionContext";
+import { motion } from "framer-motion";
 
 const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const [expand, setExpand] = useState(false);
@@ -15,8 +16,8 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const data = 0;
 
   return (
-    <>
-        <div className={cardActivity.card}>
+    <motion.div >
+        <div className={cardActivity.card} >
             <div className={cardActivity.content} >
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
@@ -71,7 +72,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
             </div>
 
         {expand && (
-          <div className={cardActivity.expand}>
+          <div className={cardActivity.expand} >
             <div className={cardActivity.activities}>
               <div className={cardActivity.actTop}>
                 <h2>Tarea 1</h2>
@@ -165,7 +166,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
                     </div>
         </ModalLayout>
       </div>
-    </>
+    </motion.div>
   );
 };
 

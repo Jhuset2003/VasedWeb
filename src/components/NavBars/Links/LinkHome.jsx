@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import home from "../../../../assests/Iconos-menu/inicio.svg"
-import navStyles from"../../NavStyles/NavbarStyles.module.css"
+import home from "../../../assests/Iconos-menu/inicio.svg"
+import navStyles from"../NavStyles/NavbarStyles.module.css"
 
 function LinkHome() {
   return (

@@ -19,7 +19,8 @@ export const UserProvider = ({ children }) => {
         <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
     );
 };
-
+/* end user context */
+/* start columns data */
 const ColumnsData = {
     dataList: [
         {
@@ -61,7 +62,8 @@ export const ColumnsProvider = ({ children }) => {
         </ColumnsC.Provider>
     );
 };
-
+/* end columns data */
+/* start Rows data */
 const rowsData = {
     dataList: [
         {
@@ -258,7 +260,7 @@ export const RowsProvider = ({ children }) => {
     );
 };
 
-/* end user context */
+/* end rows data */
 
 /* start aula context */
 

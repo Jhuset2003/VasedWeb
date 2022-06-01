@@ -2,13 +2,13 @@ import btn from '../styles/Buttons.module.css'
 import profileCss from './styles/Profile.module.css'
 import MainLayout from '../layout/MainLayout'
 import FormProfile from '../components/Forms/FormProfile'
-import { Link } from 'react-router-dom'
+
 import ModalLayout from '../layout/ModalLayout'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { SessionContext } from '../context/SessionContext'
 import { useNavigate } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 const Profile = () => {
   const [openModal,setOpenModal] = useState(false)
   const { user, setUser } = useContext(SessionContext)
@@ -17,11 +17,13 @@ const Profile = () => {
 
   const handleLogout = () => {
     setUser({})
+    window.localStorage.removeItem("sessionLogin")
+    window.localStorage.removeItem("token")
     navigate('/login')
   }
 
   return (
-    <>
+    <motion.div animate={{opacity:1}} initial={{opacity:0}}>
         <MainLayout>
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>
@@ -36,7 +38,7 @@ const Profile = () => {
             <button className={btn.BtnGreen} onClick={()=> setOpenModal(!openModal)}>Aceptar</button> 
           </div>
         </ModalLayout>
-    </>
+    </motion.div>
   )
 }
 

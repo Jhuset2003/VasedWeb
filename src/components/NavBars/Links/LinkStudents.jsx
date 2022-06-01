@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import usuarios from "../../../../assests/Iconos-menu/usuarios.svg"
-import navStyles from"../../NavStyles/NavbarStyles.module.css"
+import usuarios from "../../../assests/Iconos-menu/usuarios.svg"
+import navStyles from"../NavStyles/NavbarStyles.module.css"
 
 
 function LinkStudents() {
