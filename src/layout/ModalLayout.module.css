@@ -21,7 +21,7 @@
     background: #F0F5F9;
     border: .2rem solid var(--black);
     border-radius: 1rem;
-    width: 100%;
+    width: 95%;
     height: max-content;
     position: relative;
     padding: 1rem;
@@ -73,7 +73,6 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     font-family: var(--title);
     text-align: center;

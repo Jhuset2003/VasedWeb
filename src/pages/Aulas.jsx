@@ -3,20 +3,18 @@ import CardAula from '../components/Cards/CardAula'
 import FormAulas from '../components/Forms/FormAulas'
 import Search from '../components/Sections/Search'
 import MainLayout from '../layout/MainLayout'
-import { AulaContext, UserContext } from '../context/GlobalContext'
 
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
-import  Form  from '../components/Forms/Form'
 import { SessionContext } from '../context/SessionContext'
+import { GlobalContext } from '../context/GlobalContext'
 
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
 
   const { user }  = useContext(SessionContext)
-
-  const { aulas } = useContext(AulaContext);
+  const { state: { classrooms } }  = useContext(GlobalContext)
 
 
   return (
@@ -32,7 +30,7 @@ const Aulas = () => {
             
           </div>
           <Search/>
-          {aulas.map(aula => <CardAula key={aula.id} aulas={aula}/>)}
+          {classrooms.map(classroom => <CardAula key={classroom.id} classroom={classroom}/>)}
 
         </MainLayout>
         <ModalLayout title="Formulario Aulas" setOpenModal={setOpenModal} openModal={openModal} icon="show">

@@ -1,16 +1,44 @@
-import { useContext, useMemo } from "react";
-import { ColumnsC } from "../../../context/GlobalContext";
+import { useMemo } from "react";
 
 export default function useColumns() {
 
-const {dataList} = useContext(ColumnsC)
+  const tableStructure = {
+    dataList: [
+        {
+            Header: "Código",
+            accessor: "id",
+            type: "numeric",
+        },
+        {
+            Header: "Nombre",
+            accessor: "nombre",
+        },
+        {
+            Header: "Acciones",
+            accessor: "acciones",
+        },
 
-      const proccedData = dataList.map((Info) => {
+        {
+            Header: "Rol",
+            accessor: "rol",
+        },
+        {
+            Header: "Ultimo Ingreso",
+            accessor: "ultimo_ingreso",
+        },
+        {
+            Header: "Creado",
+            accessor: "creado",
+        },
+    ],
+};
+
+      const proccedData = tableStructure.dataList.map((info) => {
         return{
             
-            Header:Info.Header,
-            accessor:Info.accessor,
-            type:Info.type
+            Header:info.Header,
+            accessor:info.accessor,
+            type:info.type
         }
     } )
 

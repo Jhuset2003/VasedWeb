@@ -1,12 +1,11 @@
 import {React, useState} from 'react'
-import MainLayout from '../layout/MainLayout'
 import ModalLayout from '../layout/ModalLayout'
+import MainLayout from '../layout/MainLayout'
 import TableAttendance from "../components/Tables/TableAttendance"
 import FormUsers from '../components/Forms/FormUsers'
 
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
-import TableAttendanceTest from '../components/Tables/TableAttendanceTest'
 
 const AdminUsers = () => {
   const [openModal,setOpenModal] = useState(false)
@@ -19,6 +18,7 @@ const AdminUsers = () => {
         </div>
         <TableAttendance/>
       </MainLayout>
+      
       <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal} icon="show">
           <FormUsers/>
       </ModalLayout>

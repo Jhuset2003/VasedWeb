@@ -19,10 +19,21 @@ import AuthTeacher from "./middlewares/AuthTeacher";
 import { useContext, useEffect } from "react";
 import { SessionContext } from "./context/SessionContext";
 import Guest from "./middlewares/Guest";
+import { GlobalContext } from "./context/GlobalContext";
+import {getClassrooms} from "./services/classrooms";
 
 function App() {
     const location = useLocation();
     const { user, setUser } = useContext(SessionContext);
+    const { state, dispatch } = useContext(GlobalContext);
+
+    const setStates = async () => {
+        const classrooms = await getClassrooms();
+        dispatch({
+            type: "SET_CLASSROOMS",
+            payload: classrooms,
+        });
+    }
 
     useEffect(() => {
         //set user from localStorage
@@ -30,7 +41,12 @@ function App() {
             const userLocal = JSON.parse(localStorage.getItem("sessionLogin"));
             setUser(userLocal);
         }
+
+        setStates()
+
     },[])
+
+    /* console.log(state) */
 
     return (
         <div className="App">
