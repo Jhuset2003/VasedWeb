@@ -5,11 +5,11 @@ import btn from '../styles/Buttons.module.css';
 import formCss from '../components/Forms/styles/FormLogin.module.css'; 
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 
 const FormOfRecovering = () => {
   return (
-    <>
+    <motion.div initial={{opacity:0}} animate={{opacity:1}}>
       <Formik
       initialValues={{
       email: ""
@@ -64,7 +64,7 @@ const FormOfRecovering = () => {
       </Formik>
 
       
-    </>
+    </motion.div>
   )
 }
 

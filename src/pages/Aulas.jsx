@@ -8,9 +8,8 @@ import { AulaContext, UserContext } from '../context/GlobalContext'
 import ModalLayout from '../layout/ModalLayout'
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
-import  Form  from '../components/Forms/Form'
 import { SessionContext } from '../context/SessionContext'
-
+import { motion } from 'framer-motion'
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
 
@@ -22,7 +21,7 @@ const Aulas = () => {
   return (
     
     <>
-      <div>
+      <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
         <MainLayout>
           <div className={styles.Letters}>
             <h1>Aula</h1>
@@ -39,7 +38,7 @@ const Aulas = () => {
             <FormAulas setOpenModal={setOpenModal} openModal={openModal}/>
             {/* <Form setOpenModal={setOpenModal} openModal={openModal}/> */}
         </ModalLayout>
-      </div>
+      </motion.div>
     </>
 
   )
