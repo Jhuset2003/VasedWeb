@@ -16,8 +16,8 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const data = 0;
 
   return (
-    <>
-        <motion.div className={cardActivity.card} >
+    <motion.div >
+        <div className={cardActivity.card} >
             <div className={cardActivity.content} >
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
@@ -72,7 +72,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
             </div>
 
         {expand && (
-          <motion.div className={cardActivity.expand} >
+          <div className={cardActivity.expand} >
             <div className={cardActivity.activities}>
               <div className={cardActivity.actTop}>
                 <h2>Tarea 1</h2>
@@ -149,9 +149,9 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
                 </div>
               </div>
             ) : null}
-          </motion.div>
+          </div>
         )}
-      </motion.div>
+      </div>
 
       <div className={cardActivity.modalContainer}>
         <ModalLayout setOpenModal={setOpenModal} openModal={openModal}>
@@ -166,7 +166,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
                     </div>
         </ModalLayout>
       </div>
-    </>
+    </motion.div>
   );
 };
 

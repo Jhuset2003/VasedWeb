@@ -1,6 +1,6 @@
 import styles from './ModalLayout.module.css'
 import  btn from '../styles/Buttons.module.css'
-
+import { motion } from 'framer-motion'
 import { FaTimes } from 'react-icons/fa'
 
 const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => {
@@ -8,7 +8,7 @@ const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => 
   return (
         <>
         {openModal &&
-            <div className={styles.modal}>
+            <motion.div className={styles.modal} animate={{scale:1}} initial={{scale:0}}>
                 <div className={styles.modalCenter}>
                     <div className={color === "success" ? styles.modalGreen : color === "error" ? styles.modalRed : styles.modalColor}>
                         <div className={styles.modalTop}>
@@ -27,7 +27,7 @@ const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => 
                         </div>
                     </div>
                 </div>
-            </div>}
+            </motion.div>}
     </>
   )
 }

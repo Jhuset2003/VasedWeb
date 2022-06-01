@@ -17,11 +17,13 @@ const Profile = () => {
 
   const handleLogout = () => {
     setUser({})
+    window.localStorage.removeItem("sessionLogin")
+    window.localStorage.removeItem("token")
     navigate('/login')
   }
 
   return (
-    <motion.div>
+    <motion.div animate={{opacity:1}} initial={{opacity:0}}>
         <MainLayout>
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>

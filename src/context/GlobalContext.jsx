@@ -386,7 +386,7 @@ const aulasData = {
             ],
         },
         {
-            id: 2,
+            id: 3,
             capability: 100,
             name: "Aula Francés",
             code: "Aula004",

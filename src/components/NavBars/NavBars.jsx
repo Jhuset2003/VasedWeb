@@ -13,7 +13,6 @@ import LinkStudents from './Links/LinkStudents'
 import { SessionContext } from '../../context/SessionContext'
 import { motion } from "framer-motion"
 function NavBars() {
-    const login = true
 
     const { user }  = useContext(SessionContext)
 
@@ -52,21 +51,21 @@ function NavBars() {
   return (
     <>
     {
-        login === false ?
+        !user.role ?
     
     <div className={navStyles.NavLanContainer}>
       <nav className={navStyles.NavBarLan}>
-        <div className={navStyles.NavLanLogo}>
+        <motion.div className={navStyles.NavLanLogo} animate={{scale:1}} initial={{scale:0}}>
           <img src={log} alt="" />
-        </div>
-        <div className={navStyles.NavLanLogin}>
-          <Link to="/">
+        </motion.div>
+        <motion.div className={navStyles.NavLanLogin} animate={{scale:1}} initial={{scale:0}}>
+          <Link to="/login">
             <button className={style.BtnPurple}>Login</button>
           </Link>
-        </div>
+        </motion.div>
       </nav>  
     </div>
-    :login === true ?
+    :
     <div className={navStyles.NavBarLoginContainer}>
         <motion.nav className={navStyles.NavBarLogin}>
             <motion.div className={navStyles.NavBarLoginLog} animate={{scale:1}} initial={{scale:0}}>
@@ -97,7 +96,6 @@ function NavBars() {
         </motion.nav>
         <div></div>
     </div>
-    :null
     }
     </>
   )
