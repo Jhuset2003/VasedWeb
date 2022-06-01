@@ -4,10 +4,10 @@ import logStylesin from './styles/Login.module.css'
 
 import FormLogin from '../components/Forms/FormLogin'
 import { Link } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 const Login = () => {
   return (
-    <div className={logStylesin.container}>
+    <motion.div className={logStylesin.container} initial={{opacity:0}} animate={{opacity:1}}>
       <Link to="/" className={logStylesin.logo}>
         <img src={logo} className={logStylesin.logoImg} alt="" />
       </Link>
@@ -17,7 +17,7 @@ const Login = () => {
       <div className={logStylesin.formPt}>
         <FormLogin/>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

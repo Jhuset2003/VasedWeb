@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles/Footer.module.css";
 import logo from "../../assests/vased-logo-white.png";
+import { motion } from "framer-motion";
 import {
   FaFacebook,
   FaTwitter,
@@ -10,7 +11,7 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <motion.footer className={styles.footer} initial={{y:100}} animate={{y:0}}>
       <div className={`${styles.containers} ${styles.c2}`}>
         <div className={styles.image}>
           <img className={styles.logo_vased} src={logo} alt="" />
@@ -38,7 +39,7 @@ const Footer = () => {
         <span>¿Tienes dudas o inconvenientes?</span><br />
         <p>Escribenos a <span className={styles.color_text}>contacto.fundacionvased@gmail.com</span></p>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

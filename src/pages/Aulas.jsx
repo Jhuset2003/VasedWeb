@@ -10,6 +10,8 @@ import styles from './styles/AdminUser.module.css'
 import { SessionContext } from '../context/SessionContext'
 import { GlobalContext } from '../context/GlobalContext'
 
+import { motion } from 'framer-motion'
+
 const Aulas = () => {
   const [openModal,setOpenModal] = useState(false)
 
@@ -20,10 +22,10 @@ const Aulas = () => {
   return (
     
     <>
-      <div>
+      <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
         <MainLayout>
           <div className={styles.Letters}>
-            <h1>Aula</h1>
+            <h1>Aulas</h1>
             {user.role === 1 || user.role === 2 ?
               <button className={BtnStyles.BtnDark} onClick={()=> setOpenModal(!openModal)}>Crear nueva aula</button>
             :null}
@@ -37,7 +39,7 @@ const Aulas = () => {
             <FormAulas setOpenModal={setOpenModal} openModal={openModal}/>
             {/* <Form setOpenModal={setOpenModal} openModal={openModal}/> */}
         </ModalLayout>
-      </div>
+      </motion.div>
     </>
 
   )
