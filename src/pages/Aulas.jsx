@@ -18,6 +18,7 @@ const Aulas = () => {
   const { user }  = useContext(SessionContext)
   const { state: { classrooms } }  = useContext(GlobalContext)
 
+  /* console.log(classrooms) */
 
   return (
     
