@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
-import MainLayout from '../layout/MainLayout'
 import ModalLayout from '../layout/ModalLayout'
+import MainLayout from '../layout/MainLayout'
 import TableAttendance from "../components/Tables/TableAttendance"
 import FormUsers from '../components/Forms/FormUsers'
 
@@ -19,6 +19,7 @@ const AdminUsers = () => {
         </div>
         <TableAttendance/>
       </MainLayout>
+      
       <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal} icon="show">
           <FormUsers/>
       </ModalLayout>

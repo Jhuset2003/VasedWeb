@@ -1,19 +1,30 @@
 import styleForm from "./styles/FormUsers.module.css";
 import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
-import { Formik, Field } from "formik";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { AulaContext } from "../../context/GlobalContext";
+import { Formik } from "formik";
 import { createClassroom } from "../../services/classrooms";
+import { GlobalContext } from "../../context/GlobalContext";
+import { useContext } from "react";
 
 const FormAulas = ({ setOpenModal, openModal }) => {
-    const { addAula } = useContext(AulaContext);
+
+    const { dispatch } = useContext(GlobalContext);
 
     const handleSubmitCustom = async (values) => {
         const resp = await createClassroom(values);
-        console.log(resp)
+        dispatch({
+            type: "ADD_CLASSROOM",
+            payload: {
+                ...resp,
+                tasks: [],
+                users: {
+                    teachers: [],
+                    students: [],
+                },
+            },
+        })
         setOpenModal(false);
+        console.log(resp)
     }
 
     return (
@@ -55,7 +66,6 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                     console.log("send");
                     handleSubmitCustom(valores)
                     console.log(valores)
-                    /* setOpenModal(false) */
                 }}
             >
                 {({
