@@ -8,6 +8,32 @@ export default function GlobalReducer(state, action) {
         users: [],
       };
 
+    case "SET_EDITING_NULL":
+      return {
+        ...state,
+        classroomEditing: null,
+        taskEditing: null,
+        userEditing: null,
+      }
+    
+    case "SET_CLASSROOM_EDITING":
+      return {
+        ...state,
+        classroomEditing: action.payload,
+      }
+
+    case "SET_TASK_EDITING":
+      return {
+        ...state,
+        taskEditing: action.payload,
+      }
+    
+    case "SET_USER_EDITING":
+      return {
+        ...state,
+        userEditing: action.payload,
+      }
+
     case "SET_CLASSROOMS":
       return {
         ...state,

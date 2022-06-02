@@ -49,7 +49,7 @@ export const deleteClassroom = async (classroomId) => {
     }
 }
 
-export const updateClassroom = async (classroomId) => {
+export const updateClassroom = async (values) => {
     try {
         const config = {
             headers: {
@@ -57,7 +57,7 @@ export const updateClassroom = async (classroomId) => {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
         }
-        const response = await axios.put(CLASSROOM_UPDATE_ROUTE + "/"+ classroomId, config);
+        const response = await axios.put(CLASSROOM_UPDATE_ROUTE + "/"+ values.id, values, config);
         return response;
     }
     catch (error) {

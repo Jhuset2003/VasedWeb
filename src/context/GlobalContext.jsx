@@ -9,6 +9,9 @@ export const GlobalProvider = ({ children }) => {
     classrooms: [],
     tasks: [],
     users: [],
+    classroomEditing: null,
+    taskEditing: null,
+    userEditing: null,
   });
 
   return (
