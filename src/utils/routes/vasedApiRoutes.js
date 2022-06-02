@@ -11,7 +11,13 @@ export const CLASSROOM_ROUTE = API_URL + "/classrooms"
 
 // auth routes 
 export const LOGIN_ROUTE = AUTH_ROUTE + "/login"
-export const REGISTER_ROUTE = AUTH_ROUTE + "/register"
 
 // classroom routes
 export const CLASSROOM_CREATE_ROUTE = CLASSROOM_ROUTE + "/create-classroom"
+export const CLASSROOMS_GET_ROUTE = CLASSROOM_ROUTE + "/"
+
+// Task routes
+export const TASK_CREATE_ROUTE = TASK_ROUTE + "/create-task"
+
+// User routes
+export const CREATE_USER_ROUTE = USER_ROUTE + "/create-user"
