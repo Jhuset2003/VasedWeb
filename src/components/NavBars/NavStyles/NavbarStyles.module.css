@@ -9,7 +9,7 @@
     display: flex;
     width: 90%;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 1rem;
     
 }
 .NavLanContainer{
@@ -27,8 +27,8 @@
     width: auto;
     height: 68px;
     z-index: 110;
-    border-bottom: 3px solid transparent;
-    border-image:linear-gradient(to right, var(--fusia) 10%, var(--blue) 100%) 1 ;
+    border-bottom: 3px solid var(--purple);
+    
 
 }
 .NavLinksContainer ul{
@@ -112,9 +112,6 @@
         width: 150px;
     }
     .navlink img{
-        color: white;
-    }
-    .navlink p{
         color: white;
     }
     .navlink i{

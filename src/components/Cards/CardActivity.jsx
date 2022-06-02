@@ -16,9 +16,9 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
   const data = 0;
 
   return (
-    <motion.div >
+    <div >
         <div className={cardActivity.card} >
-            <div className={cardActivity.content} >
+            <motion.div className={cardActivity.content} transition={{}}>
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
                         <h1>{activity.name}</h1>
@@ -69,7 +69,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
 
                     <i className={cardActivity.icon} onClick={()=> setExpand(!expand)}>{expand ? <VscChevronUp/> : <VscChevronDown/>}</i>
                 </div>
-            </div>
+            </motion.div>
 
         {expand && (
           <div className={cardActivity.expand} >
@@ -166,7 +166,7 @@ const CardActivity = ({ activity, setOpenModal, openModal }) => {
                     </div>
         </ModalLayout>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

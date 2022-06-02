@@ -20,49 +20,6 @@ export const UserProvider = ({ children }) => {
     );
 };
 /* end user context */
-/* start columns data */
-const ColumnsData = {
-    dataList: [
-        {
-            Header: "Código",
-            accessor: "id",
-            type: "numeric",
-        },
-        {
-            Header: "Nombre",
-            accessor: "nombre",
-        },
-        {
-            Header: "Acciones",
-            accessor: "acciones",
-        },
-
-        {
-            Header: "Rol",
-            accessor: "rol",
-        },
-        {
-            Header: "Ultimo Ingreso",
-            accessor: "ultimo_ingreso",
-        },
-        {
-            Header: "Creado",
-            accessor: "creado",
-        },
-    ],
-};
-
-export const ColumnsC = createContext(ColumnsData);
-export const ColumnsProvider = ({ children }) => {
-    const [DataColumn, setDataColumn] = useState(ColumnsData);
-
-    return (
-        <ColumnsC.Provider value={{ dataList: DataColumn.dataList }}>
-            {children}
-        </ColumnsC.Provider>
-    );
-};
-/* end columns data */
 /* start Rows data */
 const rowsData = {
     dataList: [
