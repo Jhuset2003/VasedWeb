@@ -1,7 +1,13 @@
-import { v4 } from "uuid";
-
 export default function GlobalReducer(state, action) {
   switch (action.type) {
+
+    case "SET_INITIAL_STATE":
+      return {
+        classrooms: [],
+        tasks: [],
+        users: [],
+      };
+
     case "SET_CLASSROOMS":
       return {
         ...state,
@@ -101,61 +107,75 @@ export default function GlobalReducer(state, action) {
       };
 
     case "DELETE_STUDENT_FROM_CLASSROOM":
-        return {
-            ...state,
-            classrooms: state.classrooms.map((classroom) =>{
-                return classroom.id === action.payload.classroomId ? {
-                    ...classroom,
-                    users: {
-                        ...classroom.users,
-                        students: classroom.students.filter(
-                            (student) => student.id !== action.payload.studentId
-                        ),
-                    },
-                } : classroom
-            })
-        }
+      return {
+        ...state,
+        classrooms: state.classrooms.map((classroom) => {
+          return classroom.id === action.payload.classroomId
+            ? {
+                ...classroom,
+                users: {
+                  ...classroom.users,
+                  students: classroom.students.filter(
+                    (student) => student.id !== action.payload.studentId
+                  ),
+                },
+              }
+            : classroom;
+        }),
+      };
 
     case "DELETE_TASK_FROM_CLASSROOM":
-        return {
-            ...state,
-            classrooms: state.classrooms.map((classroom) =>{
-                return classroom.id === action.payload.classroomId ? {
-                    ...classroom,
-                    tasks: classroom.tasks.filter(
-                        (task) => task.id !== action.payload.taskId
-                    ),
-                } : classroom
-            })
-        }    
-    
+      return {
+        ...state,
+        classrooms: state.classrooms.map((classroom) => {
+          return classroom.id === action.payload.classroomId
+            ? {
+                ...classroom,
+                tasks: classroom.tasks.filter(
+                  (task) => task.id !== action.payload.taskId
+                ),
+              }
+            : classroom;
+        }),
+      };
+
     case "ADD_TEACHER_TO_CLASSROOM":
-        return {
-            ...state,
-            classrooms: state.classrooms.map((classroom) =>{
-                return classroom.id === action.payload.classroomId ? {
-                    ...classroom,
-                    users: {
-                        ...classroom.users,
-                        teachers: [...classroom.users.teachers, action.payload.teacher],
-                    },
-                } : classroom
-            })
-        }
-    
+      return {
+        ...state,
+        classrooms: state.classrooms.map((classroom) => {
+          return classroom.id === action.payload.classroomId
+            ? {
+                ...classroom,
+                users: {
+                  ...classroom.users,
+                  teachers: [
+                    ...classroom.users.teachers,
+                    action.payload.teacher,
+                  ],
+                },
+              }
+            : classroom;
+        }),
+      };
+
     case "ADD_STUDENT_TO_CLASSROOM":
-        return {
-            ...state,
-            classrooms: state.classrooms.map((classroom) =>{
-                return classroom.id === action.payload.classroomId ? {
-                    ...classroom,
-                    users: {
-                        ...classroom.users,
-                        students: [...classroom.users.students, action.payload.student],
-                    },
-                } : classroom
-            })
-        }
+      return {
+        ...state,
+        classrooms: state.classrooms.map((classroom) => {
+          return classroom.id === action.payload.classroomId
+            ? {
+                ...classroom,
+                users: {
+                  ...classroom.users,
+                  students: [
+                    ...classroom.users.students,
+                    action.payload.student,
+                  ],
+                },
+              }
+            : classroom;
+        }),
+      };
 
     default:
       break;

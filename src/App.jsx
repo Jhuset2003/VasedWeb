@@ -72,12 +72,12 @@ function App() {
             const userLocal = JSON.parse(localStorage.getItem("sessionLogin"));
             setUser(userLocal);
         }
-
-        setStates()
-
     },[])
 
-    /* console.log(state) */
+    useEffect(() => {
+        //set data in the context
+        setStates()
+    },[user])
 
     return (
         <div className="App">
