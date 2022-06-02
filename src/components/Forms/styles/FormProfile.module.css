@@ -39,6 +39,7 @@
 }
 .formSubtitle {
     font-size: 0.9rem;
+    text-align: left;
 }
 .errors {
     color: #ed1c91;

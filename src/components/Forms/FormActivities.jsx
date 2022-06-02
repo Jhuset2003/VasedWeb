@@ -31,12 +31,6 @@ const FormActivities = ({setOpenModal, openModal}) => {
         if(!valores.code){
             errores.code = 'Ingrese un código'
         }
-        if(!valores.aula){
-            errores.aula = 'Seleccione un fecha'
-        }
-        if(!valores.format){
-            errores.format = 'Ingrese un formato'
-        }
         if(!valores.description){
             errores.description = 'Ingrese una desccripción'
         }
@@ -82,20 +76,11 @@ const FormActivities = ({setOpenModal, openModal}) => {
                         <label htmlFor="aula" className={styleForm.formSubtitle}>Aula</label>
                         <Field as="select" name="aula" className={inputCss.purpleInput}
                             value={values.aula} onChange={handleChange} onBlur={handleBlur}>
-                            <option value="" selected>Aula</option>
+                            <option value="" selected>Usuario</option>
                             <option value="1">Aula 12</option>
                             <option value="2">Aula 22</option>
                             <option value="3">Aula 433</option>
                         </Field>
-                        {touched.aula && errors.aula && <div className={styleForm.errors}>{errors.aula}</div>}
-                    </div>
-
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="format" className={styleForm.formSubtitle}>Formato</label>
-                        <input 
-                        type="email" id="format" name="format" placeholder="Formato" className={inputCss.purpleInput}
-                        value={values.format} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.format && errors.format && <div className={styleForm.errors}>{errors.format}</div>}
                     </div>
                     
                     <div className={styleForm.flexItem}>

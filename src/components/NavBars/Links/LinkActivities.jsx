@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import actividades from "../../../../assests/Iconos-menu/actividades.svg"
-import navStyles from"../../NavStyles/NavbarStyles.module.css"
+import actividades from "../../../assests/Iconos-menu/actividades.svg"
+import navStyles from"../NavStyles/NavbarStyles.module.css"
 
 
 function LinkActivities() {

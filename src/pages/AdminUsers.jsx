@@ -6,11 +6,12 @@ import FormUsers from '../components/Forms/FormUsers'
 
 import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
+import { motion } from 'framer-motion'
 
 const AdminUsers = () => {
   const [openModal,setOpenModal] = useState(false)
   return (
-    <>
+    <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
       <MainLayout>
         <div className={styles.Letters}>
             <h1>Usuarios</h1>
@@ -18,10 +19,10 @@ const AdminUsers = () => {
         </div>
         <TableAttendance/>
       </MainLayout>
-      <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal}>
+      <ModalLayout title="Formulario Usuarios" setOpenModal={setOpenModal} openModal={openModal} icon="show">
           <FormUsers/>
       </ModalLayout>
-    </>
+    </motion.div>
   )
 }
 

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 import styles from "./styles/Hero.module.css";
 import video from "../../assests/video.mp4";
+import ReactPlayer from "react-player";
 import MainLayout from "../../layout/MainLayout";
 
 const Hero = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   return (
     <div>
       <MainLayout>
@@ -11,14 +14,17 @@ const Hero = () => {
           <div className={styles.content_hero}>
             <section className={styles.text_hero}>
               <div className={styles.welcome_video_hero}>
-                <video className={styles.video_main_hero} controls>
-                  <source
-                    className={styles.video_main_hero}
-                    src={video}
-                    type="video/mp4"
-                  />
-                  
-                </video>
+                {isVideoPlaying === false && (
+                  <div className={styles.videoicons}>
+                    <FaPlay onClick={() => setIsVideoPlaying(true)} />
+                  </div>
+                )}
+                <ReactPlayer
+                  controls
+                  url={video}
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                />
               </div>
               <div className={styles.text_info_hero}>
                 <h1 className={styles.text_title_hero}>
