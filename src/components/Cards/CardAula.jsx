@@ -28,6 +28,13 @@ const CardAula = ({ classroom }) => {
     });
   }
 
+  const handleEdit = () => {
+    dispatch({
+      type: "SET_CLASSROOM_EDITING",
+      payload: classroom,
+    });
+  }
+
   return (
     <div className={cardCss.card}>
       <div className={cardCss.content}>
@@ -45,7 +52,7 @@ const CardAula = ({ classroom }) => {
 
           {user.role === 1 ? (
             <div className={cardCss.btns}>
-              <button className={btn.BtnWhite}>Editar</button>
+              <button onClick={handleEdit} className={btn.BtnWhite}>Editar</button>
               <button
               onClick={handleDelete} 
               className={btn.BtnDelete}>

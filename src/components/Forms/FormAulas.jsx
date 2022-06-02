@@ -2,18 +2,23 @@ import styleForm from "./styles/FormUsers.module.css";
 import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from "formik";
-import { createClassroom } from "../../services/classrooms";
+import { createClassroom, updateClassroom } from "../../services/classrooms";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useContext } from "react";
 
 const FormAulas = ({ setOpenModal, openModal }) => {
-
-    const { dispatch } = useContext(GlobalContext);
+    const {
+        state: { classroomEditing },
+        dispatch,
+    } = useContext(GlobalContext);
 
     const handleSubmitCustom = async (values) => {
         const resp = await createClassroom(values);
-        
-        console.log(resp)
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
+        console.log(resp);
         dispatch({
             type: "ADD_CLASSROOM",
             payload: {
@@ -24,23 +29,52 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                     students: [],
                 },
             },
-        })
+        });
 
         setOpenModal(false);
-        console.log(resp)
-    }
+        console.log(resp);
+    };
+
+    const handleSubmitEdit = async (values) => {
+        const resp = await updateClassroom(values);
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
+        console.log(values);
+
+        setOpenModal(false);
+
+        dispatch({
+            type: "UPDATE_CLASSROOM",
+            payload: {
+                ...resp.data,
+                tasks: [],
+                users: {
+                    teachers: [],
+                    students: [],
+                },
+            },
+        });
+
+        dispatch({
+            type: "SET_EDITING_NULL",
+        });
+    };
 
     return (
         <>
             <Formik
-                initialValues={{
-                    name: "",
-                    capacity: "",
-                    code: "",
-                    endsAt: "",
-                    description: "",
-                    adminDescription: "",
-                }}
+                initialValues={
+                    classroomEditing || {
+                        name: "",
+                        capacity: "",
+                        code: "",
+                        endsAt: "",
+                        description: "",
+                        adminDescription: "",
+                    }
+                }
                 validate={(valores) => {
                     let errores = {};
 
@@ -67,8 +101,12 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                 }}
                 onSubmit={(valores) => {
                     console.log("send");
-                    handleSubmitCustom(valores)
-                    console.log(valores)
+                    console.log(valores);
+                    if (classroomEditing) {
+                        handleSubmitEdit(valores);
+                    } else {
+                        handleSubmitCustom(valores);
+                    }
                 }}
             >
                 {({
@@ -169,12 +207,11 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
-                                    {touched.capacity &&
-                                        errors.capacity && (
-                                            <div className={styleForm.errors}>
-                                                {errors.capacity}
-                                            </div>
-                                        )}
+                                    {touched.capacity && errors.capacity && (
+                                        <div className={styleForm.errors}>
+                                            {errors.capacity}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className={styleForm.formItem}>
                                     <label
@@ -252,7 +289,7 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                             </div>
                             <div className={styleForm.btnCenter}>
                                 <button type="submit" className={btn.BtnPurple}>
-                                    Enviar
+                                    {classroomEditing ? "Editar" : "Crear"}
                                 </button>
                                 <button
                                     className={btn.BtnPink}
