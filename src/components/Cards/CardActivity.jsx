@@ -15,13 +15,13 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { deleteTask } from '../../services/task'
 import FormActivities from '../Forms/FormActivities'
 
-const CardActivity = ({ task }) => {
+const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }) => {
   //estado para mostrar contenido de tarea
   const [expand, setExpand] = useState(false);
 
   //estados modal
-  const [modalTask, setModalTask] = useState(false);
-  const [modalEdit, setModalEdit] = useState(false);
+  /* const [modalTask, setModalTask] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false); */
 
   //context
   const { user } = useContext(SessionContext);
@@ -189,25 +189,6 @@ const CardActivity = ({ task }) => {
         )}
       </div>
 
-      <div className={cardActivity.modalContainer}>
-
-        {/* <ModalLayout title="Editar Actividad" setOpenModal={setModalEdit} openModal={modalEdit} icon="show">
-          <FormActivities/>
-        </ModalLayout>
-
-        <ModalLayout setOpenModal={setModalTask} openModal={modalTask}>
-          <h1>Hacer entrega</h1>
-          <div className={cardActivity.textareaTitle}>
-              <h4>Entrega</h4>
-              <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
-          </div>
-          <div className={cardActivity.btnContainer}>
-              <button className={btn.BtnPink}>Enviar</button>
-              <button className={btn.BtnPurple}>Cancelar</button>
-          </div>
-        </ModalLayout> */}
-
-      </div>
     </motion.div>
   );
 };
