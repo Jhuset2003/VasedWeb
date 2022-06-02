@@ -9,11 +9,13 @@ import BtnStyles from '../styles/Buttons.module.css'
 import styles from './styles/AdminUser.module.css'
 import { SessionContext } from '../context/SessionContext'
 import { motion } from 'framer-motion'
+import { GlobalContext } from '../context/GlobalContext'
 
 const Activities = () => {
   const [openModal,setOpenModal] = useState(false)
 
   const { user }  = useContext(SessionContext)
+  const { state: { tasks } }  = useContext(GlobalContext)
   
   return (
     <motion.div  initial={{opacity:0}} animate={{opacity:1}}>
@@ -27,7 +29,10 @@ const Activities = () => {
 
         </div>
         <Search/>
-        {/* {activity.map(activity => <CardActivity key={activity.id} activity={activity}/>)} */}
+
+        {tasks.map((task) => {
+          return <CardActivity key={task.id} task={task}/>
+        })}
   
       </MainLayout>
       <ModalLayout title="Formulario Actividades" setOpenModal={setOpenModal} openModal={openModal} icon="show">

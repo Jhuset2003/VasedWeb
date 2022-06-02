@@ -18,7 +18,6 @@ const Aulas = () => {
   const { user }  = useContext(SessionContext)
   const { state: { classrooms } }  = useContext(GlobalContext)
 
-  /* console.log(classrooms) */
 
   return (
     
@@ -33,7 +32,10 @@ const Aulas = () => {
             
           </div>
           <Search/>
-          {classrooms.map(classroom => <CardAula key={classroom.id} classroom={classroom}/>)}
+          
+          {classrooms.map(( classroom ) => {
+            return <CardAula key={classroom.id} classroom={classroom}/>
+          })}
 
         </MainLayout>
         <ModalLayout title="Formulario Aulas" setOpenModal={setOpenModal} openModal={openModal} icon="show">

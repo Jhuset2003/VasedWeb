@@ -5,30 +5,30 @@ export default function useColumns() {
   const tableStructure = {
     dataList: [
         {
-            Header: "Código",
+            Header: "Acciones",
+            accessor: "actions",
+        },
+        {
+            Header: "Documento",
             accessor: "id",
             type: "numeric",
         },
         {
             Header: "Nombre",
-            accessor: "nombre",
-        },
-        {
-            Header: "Acciones",
-            accessor: "acciones",
+            accessor: "name",
         },
 
         {
             Header: "Rol",
-            accessor: "rol",
+            accessor: "role",
         },
         {
-            Header: "Ultimo Ingreso",
-            accessor: "ultimo_ingreso",
+            Header: "Email",
+            accessor: "email",
         },
         {
             Header: "Creado",
-            accessor: "creado",
+            accessor: "createdAt",
         },
     ],
 };

@@ -1,209 +1,54 @@
-import { useMemo } from "react";
 import BtnStyles from "../../../styles/Buttons.module.css";
 import rowsStyles from "./Rows.module.css";
+import { RiDeleteBin6Line, RiEditBoxFill, RiEyeLine } from "react-icons/ri";
 
+import { useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../../context/GlobalContext";
+import { deleteUser } from "../../../services/users";
 
 export default function useRows() {
 
-   const rowsData = {
-      dataList: [
-          {
-              id: 456789,
-              nombre: "Adam B Schiff",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Estudiante",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 234567,
-              nombre: "Elquin Arroyo",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 37890,
-              nombre: "Paco Gracia",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 212123,
-              nombre: "Esmeralda Tobon",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Estudiante",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 45678,
-              nombre: "Lola nuñez",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 8765,
-              nombre: "Vanesa Beltran",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 65432,
-              nombre: "Daniel Espitia",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 76564,
-              nombre: "Camilo Corrales",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 78903,
-              nombre: "Leonor Pedroza",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-          {
-              id: 105678,
-              nombre: "Patricia Perez",
-              acciones: (
-                  <div className={rowsStyles.center}>
-                      <Link to="/detalle-usuario">
-                          <button className={BtnStyles.BtnPurple}>
-                              {" "}
-                              Ver más{" "}
-                          </button>
-                      </Link>
-                      <button className={BtnStyles.BtnDelete}> Eliminar </button>
-                  </div>
-              ),
-              rol: "Profesor",
-              ultimo_ingreso: "20/04/2022",
-              creado: "02/02/2021",
-          },
-      ],
-  };
+    const { state: { users }, dispatch } = useContext(GlobalContext);
 
-   const proccedData = rowsData.dataList.map((info)=>{
+    const handleDelete = async (id) => {
+        const resp = await deleteUser(id);
+        if(resp.status !== 200 && resp.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch({
+            type: "DELETE_USER",
+            payload: id,
+        });
+    }
+
+   const proccedData = users.map((user)=>{
       return{
-         id:info.id,
-         nombre:info.nombre,
-         acciones:info.acciones,
-         rol:info.rol,
-         ultimo_ingreso:info.ultimo_ingreso,
-         creado:info.creado
+         actions: 
+         (<div className={rowsStyles.center}>
+            <Link to="/detalle-usuario">
+                <button className={BtnStyles.BtnPurple}>
+                    <RiEyeLine/>
+                </button>
+            </Link>
+            <button onClick={()=>{handleDelete(user.id)}} className={BtnStyles.BtnDelete}>
+                <RiDeleteBin6Line/> 
+            </button>
+            <button className={BtnStyles.BtnGreen}>
+                <RiEditBoxFill/> 
+            </button>
+        </div>),
+         id:user.dni,
+         name:user.names + " " + user.lastNames,
+         role:user.roleId,
+         email:user.email,
+         createdAt:user.id
       }
    })
 
  const rows = useMemo(
-   () => proccedData,[]
+   () => proccedData,[users]
  );
 
  return rows;

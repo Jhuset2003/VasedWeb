@@ -1,15 +1,32 @@
+//styles
 import styleForm from "./styles/FormUsers.module.css";
 import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
+
+//react
+import { useContext } from "react";
 import { Formik, Field } from "formik";
 import { createUser } from "../../services/users";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const FormUsers = ({ setOpenModal, openModal }) => {
 
+  const { dispatch } = useContext(GlobalContext);
+
   const handleSubmitCustom = async (values) => {
     const resp = await createUser(values);
+
+    if(resp.status !== 200 && resp.status !== 204){
+      console.log('error')
+      return
+    }
+    dispatch({
+      type: "ADD_USER",
+      payload: resp.data,
+    })
+    
+    setOpenModal(false);
     console.log(resp);
-    /* setOpenModal(false); */
   }
   
   return (
@@ -271,20 +288,13 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                   )}
                 </div>
 
-              <div className={styleForm.btnCenter}>
-                <button type="submit" className={btn.BtnPurple}>
-                  Enviar
-                </button>
-
-                <button
-                type="button"
-                  className={btn.BtnPink}
-                  onClick={() => setOpenModal(!openModal)}
-                >
-                    
-                  Cancelar
-                </button>
-              </div>
+                <div className={styleForm.btnCenter}>
+                  <button 
+                  type="submit"
+                  /* onClick={handleSubmit} */
+                  className={btn.BtnPurple}>Enviar</button>
+                  <button className={btn.BtnPink} type="button" onClick={()=> setOpenModal(!openModal)}> Cancelar</button>
+                </div>
             </form>
           </div>
         )}
