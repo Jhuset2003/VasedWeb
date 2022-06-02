@@ -43,9 +43,9 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
   }
 
   return (
-    <motion.div >
+    <div >
         <div className={cardActivity.card} >
-            <div className={cardActivity.content} >
+            <motion.div className={cardActivity.content} transition={{}}>
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
                         <h1>{task.name}</h1>
@@ -105,7 +105,7 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
 
                     <i className={cardActivity.icon} onClick={()=> setExpand(!expand)}>{expand ? <VscChevronUp/> : <VscChevronDown/>}</i>
                 </div>
-            </div>
+            </motion.div>
 
         {expand && (
           <div className={cardActivity.expand} >
@@ -189,7 +189,20 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
         )}
       </div>
 
-    </motion.div>
+      <div className={cardActivity.modalContainer}>
+        <ModalLayout setOpenModal={setOpenModal} openModal={openModal}>
+                    <h1>Hacer entrega</h1>
+                    <div className={cardActivity.textareaTitle}>
+                        <h4>Entrega</h4>
+                        <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
+                    </div>
+                    <div className={cardActivity.btnContainer}>
+                        <button className={btn.BtnPink}>Enviar</button>
+                        <button className={btn.BtnPurple}>Cancelar</button>
+                    </div>
+        </ModalLayout>
+      </div>
+    </div>
   );
 };
 

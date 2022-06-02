@@ -1,9 +1,9 @@
-import { useMemo } from "react";
-
+import { useContext, useMemo } from "react";
 export default function useColumns() {
 
-  const tableStructure = {
-    dataList: [
+ const columns = useMemo(
+   () =>  
+    [
         {
             Header: "Acciones",
             accessor: "actions",
@@ -30,21 +30,7 @@ export default function useColumns() {
             Header: "Creado",
             accessor: "createdAt",
         },
-    ],
-};
-
-      const proccedData = tableStructure.dataList.map((info) => {
-        return{
-            
-            Header:info.Header,
-            accessor:info.accessor,
-            type:info.type
-        }
-    } )
-
- const columns = useMemo(
-   () =>proccedData,
-   []
+    ],  []
  );
 
  return columns;
