@@ -1,4 +1,4 @@
-import { CLASSROOM_CREATE_ROUTE, CLASSROOMS_GET_ROUTE, CLASSROOM_DELETE_ROUTE } from "../utils/routes/vasedApiRoutes";
+import { CLASSROOM_CREATE_ROUTE, CLASSROOMS_GET_ROUTE, CLASSROOM_DELETE_ROUTE, CLASSROOM_UPDATE_ROUTE } from "../utils/routes/vasedApiRoutes";
 import axios from "axios";
 
 export const createClassroom = async (classroom) => {
@@ -42,6 +42,22 @@ export const deleteClassroom = async (classroomId) => {
             }
         }
         const response = await axios.delete(CLASSROOM_DELETE_ROUTE + "/" + classroomId, config);
+        return response;
+    }
+    catch (error) {
+        return error.response.data;
+    }
+}
+
+export const updateClassroom = async (classroomId) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        const response = await axios.put(CLASSROOM_UPDATE_ROUTE + "/"+ classroomId, config);
         return response;
     }
     catch (error) {

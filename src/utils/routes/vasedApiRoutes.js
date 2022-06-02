@@ -16,6 +16,7 @@ export const LOGIN_ROUTE = AUTH_ROUTE + "/login"
 export const CLASSROOM_CREATE_ROUTE = CLASSROOM_ROUTE + "/create-classroom"
 export const CLASSROOMS_GET_ROUTE = CLASSROOM_ROUTE + "/"
 export const CLASSROOM_DELETE_ROUTE = CLASSROOM_ROUTE + "/delete-classroom"
+export const CLASSROOM_UPDATE_ROUTE = CLASSROOM_ROUTE + "/update-classroom"
 
 // Task routes
 export const TASK_CREATE_ROUTE = TASK_ROUTE + "/create-task"
