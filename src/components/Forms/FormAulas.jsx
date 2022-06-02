@@ -12,10 +12,12 @@ const FormAulas = ({ setOpenModal, openModal }) => {
 
     const handleSubmitCustom = async (values) => {
         const resp = await createClassroom(values);
+        
+        console.log(resp)
         dispatch({
             type: "ADD_CLASSROOM",
             payload: {
-                ...resp,
+                ...resp.data,
                 tasks: [],
                 users: {
                     teachers: [],
@@ -23,6 +25,7 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                 },
             },
         })
+
         setOpenModal(false);
         console.log(resp)
     }

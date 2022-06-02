@@ -1,15 +1,32 @@
+//components
+import { Formik,  Field } from 'formik';
+
+//styles
 import styleForm from './styles/FormUsers.module.css'
 import inputCss from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
-import { Formik,  Field } from 'formik';
+
+//react
+import { useContext } from 'react';
 import { createTask } from '../../services/task';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const FormActivities = ({setOpenModal, openModal}) => {
 
+    const { dispatch } = useContext(GlobalContext);
+
     const handleSubmitCustom = async (values) => {
         const resp = await createTask(values);
-        console.log(resp)
+        if(resp.status !== 200 && resp.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch ({
+            type: "ADD_TASK",
+            payload: resp.data
+        })
         setOpenModal(false);
+        console.log(resp)
     }
 
   return (

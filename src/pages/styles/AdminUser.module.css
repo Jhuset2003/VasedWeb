@@ -8,6 +8,24 @@
     font-size: 0.7rem;
 }
 
+.textareaTitle{
+    display: grid;
+    align-content: flex-start;
+    justify-items: flex-start;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.textarea{
+    border-radius: 1rem;
+    border: 0.2em solid;
+    padding: 1rem;
+}
+
+.btnContainer{
+    display: flex;
+}
+
 @media (min-width: 768px) {
     .Letters{
         flex-direction: row;
