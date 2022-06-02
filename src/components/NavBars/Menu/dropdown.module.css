@@ -29,7 +29,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     right: 20px;
@@ -48,7 +48,7 @@
   .dropdown_item_list.active {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     
     width: 60vw;

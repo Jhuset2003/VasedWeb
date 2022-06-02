@@ -107,6 +107,9 @@
     .Links{
         font-size: 5.5rem;
     }
+    .Links img{
+        margin-bottom: 0px;
+    }
     
     .navlink{
         width: 150px;

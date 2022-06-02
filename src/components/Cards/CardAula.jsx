@@ -7,11 +7,26 @@ import { FaTimes } from "react-icons/fa";
 import MiniCardActivity from "./MiniCardActivity";
 import ProgressBar from "./ProgressBar";
 import { SessionContext } from "../../context/SessionContext";
+import { GlobalContext } from "../../context/GlobalContext";
+import { deleteClassroom } from "../../services/classrooms";
 
 const CardAula = ({ classroom }) => {
   const [expand, setExpand] = useState(false);
 
   const { user } = useContext(SessionContext);
+  const { dispatch } = useContext(GlobalContext);
+
+  const handleDelete = async () => {
+    const resp = await deleteClassroom(classroom.id)
+    if(resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+    dispatch({
+      type: "DELETE_CLASSROOM",
+      payload: classroom.id,
+    });
+  }
 
   return (
     <div className={cardCss.card}>
@@ -31,7 +46,11 @@ const CardAula = ({ classroom }) => {
           {user.role === 1 ? (
             <div className={cardCss.btns}>
               <button className={btn.BtnWhite}>Editar</button>
-              <button className={btn.BtnDelete}>Eliminar</button>
+              <button
+              onClick={handleDelete} 
+              className={btn.BtnDelete}>
+                Eliminar
+              </button>
             </div>
           ) : null}
         </div>
