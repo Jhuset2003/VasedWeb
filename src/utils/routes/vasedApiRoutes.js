@@ -18,6 +18,9 @@ export const CLASSROOMS_GET_ROUTE = CLASSROOM_ROUTE + "/"
 export const CLASSROOM_DELETE_ROUTE = CLASSROOM_ROUTE + "/delete-classroom"
 export const CLASSROOM_UPDATE_ROUTE = CLASSROOM_ROUTE + "/update-classroom"
 export const CLASSROOM_ADD_USER = CLASSROOM_ROUTE + "/add-user"
+export const CLASSROOM_ADD_TASK = CLASSROOM_ROUTE + "/add-task"
+export const CLASSROOM_DELETE_TASK = CLASSROOM_ROUTE + "/delete-task"
+export const CLASSROOM_DELETE_USER = CLASSROOM_ROUTE + "/delete-user"
 
 // Task routes
 export const TASK_CREATE_ROUTE = TASK_ROUTE + "/create-task"
