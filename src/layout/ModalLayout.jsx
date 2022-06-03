@@ -19,9 +19,9 @@ const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => 
   return (
         <>
         {(openModal || classroomEditing || taskEditing || userEditing ) &&
-            <motion.div className={styles.modal} animate={{scale:1}} initial={{scale:0}}>
+            <div className={styles.modal} >
                 <div className={styles.modalCenter}>
-                    <div className={color === "success" ? styles.modalGreen : color === "error" ? styles.modalRed : styles.modalColor}>
+                    <motion.div animate={{scale:1}} initial={{scale:0}} className={color === "success" ? styles.modalGreen : color === "error" ? styles.modalRed : styles.modalColor}>
                         <div className={styles.modalTop}>
 
                         {icon==="show" ? <button className={`${btn.BtnRounded} ${styles.ptBtn}`} onClick={handleClose}>
@@ -36,9 +36,9 @@ const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => 
                             {children}
 
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
-            </motion.div>}
+            </div>}
     </>
   )
 }

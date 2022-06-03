@@ -1,16 +1,20 @@
-import React, { useContext, useState } from "react";
+//components
 import CardAula from "../components/Cards/CardAula";
 import FormAulas from "../components/Forms/FormAulas";
 import Search from "../components/Sections/Search";
 import MainLayout from "../layout/MainLayout";
-
 import ModalLayout from "../layout/ModalLayout";
+
+//styles
 import BtnStyles from "../styles/Buttons.module.css";
 import styles from "./styles/AdminUser.module.css";
+
+//react
+import React, { useContext, useState } from "react";
+import { motion } from "framer-motion";
 import { SessionContext } from "../context/SessionContext";
 import { GlobalContext } from "../context/GlobalContext";
 
-import { motion } from "framer-motion";
 
 const Aulas = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -27,7 +31,7 @@ const Aulas = () => {
                 <MainLayout>
                     <div className={styles.Letters}>
                         <h1>Aulas</h1>
-                        {user.role === 1 || user.role === 2 ? (
+                        {user.role === 1 ? (
                             <button
                                 className={BtnStyles.BtnDark}
                                 onClick={() => setOpenModal(!openModal)}
@@ -70,7 +74,6 @@ const Aulas = () => {
                         setOpenModal={setOpenModal}
                         openModal={openModal}
                     />
-                    {/* <Form setOpenModal={setOpenModal} openModal={openModal}/> */}
                 </ModalLayout>
             </motion.div>
         </>

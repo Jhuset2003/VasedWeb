@@ -11,9 +11,8 @@
 </a>
 </p>
 
----
-
----
+___
+___
 
 <p align="center">
   <a href="https://educamas.com.co/" target="_blank">
@@ -28,9 +27,10 @@
 <img src="docs/linea.gif" width="100%" height="2px" >
 </p>
 
----
+___
 
 <hr>
+
 
 # Fundación VASED
 
@@ -104,20 +104,20 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
     <img src="https://skillicons.dev/icons?i=git,vim,linux,nodejs,express,postgresql,python,bash,js,github,heroku,html,md,vscode,figma&theme=light" />
   </a>
 </p>
-
 <hr>
                                                                                                         
 ## Despliegue
 
 [ **Deploy Vercel** LMS Vased Fronted](https://vased-web.vercel.app/ "Deploy FRONTED")
-
----
+                                                               
+---  
 
 [ **Deploy Heroku** LMS Vased Backend](https://vased-api.herokuapp.com/api/v1/ "Deploy BACKEND")
 
 ---
-
 ---
+                                                                                                        
+                                                                                                        
 
 ## Autores
 

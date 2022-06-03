@@ -9,9 +9,12 @@ import ProgressBar from "./ProgressBar";
 import { SessionContext } from "../../context/SessionContext";
 import { GlobalContext } from "../../context/GlobalContext";
 import { deleteClassroom } from "../../services/classrooms";
+import ModalLayout from "../../layout/ModalLayout";
+import FormAddTeacher from "../Forms/FormAddTeacher";
 
 const CardAula = ({ classroom }) => {
   const [expand, setExpand] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const { user } = useContext(SessionContext);
   const { dispatch } = useContext(GlobalContext);
@@ -96,7 +99,7 @@ const CardAula = ({ classroom }) => {
               <h2>Actividades</h2>
               {user.role === 1 ? (
                 <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>
-                  Crear una actividad
+                  Asignar una actividad
                 </button>
               ) : null}
             </div>
@@ -114,7 +117,7 @@ const CardAula = ({ classroom }) => {
                 <div className={cardCss.teacher}>
                   <div className={cardCss.userTop}>
                     <h2>Profesores</h2>
-                    <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>
+                    <button onClick={() => setOpenModal(true)} className={`${btn.BtnDark} ${cardCss.btnfont}`}>
                       Agregar
                     </button>
                   </div>
@@ -122,7 +125,7 @@ const CardAula = ({ classroom }) => {
                     <div className={cardCss.box}>
                       {classroom.users.teachers.map((teacher) => (
                         <span key={teacher.id} className={cardCss.boxUser}>
-                          {teacher.name} <FaTimes className={cardCss.iconBox} />
+                          {teacher.names + " " + teacher.lastNames} <FaTimes className={cardCss.iconBox} />
                         </span>
                       ))}
                     </div>
@@ -141,7 +144,7 @@ const CardAula = ({ classroom }) => {
                   <div className={cardCss.box}>
                     {classroom.users.students.map((student) => (
                       <span key={student.id} className={cardCss.boxUser}>
-                        {student.name} <FaTimes className={cardCss.iconBox} />
+                        {student.names + " " + student.lastNames} <FaTimes className={cardCss.iconBox} />
                       </span>
                     ))}
                   </div>
@@ -151,6 +154,10 @@ const CardAula = ({ classroom }) => {
           ) : null}
         </div>
       )}
+
+      <ModalLayout color="success" setOpenModal={setOpenModal} openModal={openModal} icon="show">
+        <FormAddTeacher setOpenModal={setOpenModal} openModal={openModal} classroom={classroom} />
+      </ModalLayout>
     </div>
   );
 };

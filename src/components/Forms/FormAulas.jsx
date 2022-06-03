@@ -122,23 +122,6 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                             className={styleForm.form}
                             onSubmit={handleSubmit}
                         >
-                            {/* <div className={styleForm.divContent}>
-                        <label htmlFor="color" className={styleForm.formSubtitle}>Colores</label>
-                        <div className={styleForm.radioContent}>
-                        <label>
-                            <Field type="radio" name="picked" value="One"className={styleForm.radioBtnB} />
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One" className={styleForm.radioBtnP}/>
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One"className={styleForm.radioBtnY} />
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One" className={styleForm.radioBtnG}/>
-                        </label>
-                        </div>
-                    </div> */}
 
                             <div className={styleForm.flexItem}>
                                 <div className={styleForm.formItem}>
