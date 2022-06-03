@@ -60,7 +60,7 @@ function NavBars() {
         </motion.div>
         <motion.div className={navStyles.NavLanLogin} animate={{scale:1}} initial={{scale:0}}>
           <Link to="/login">
-            <button className={style.BtnPurple}>Login</button>
+            <button className={style.BtnPink}>Login</button>
           </Link>
         </motion.div>
       </nav>  
