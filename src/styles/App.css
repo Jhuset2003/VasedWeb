@@ -17,6 +17,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  height:100%
+}
+body{
+  font-family: var(--text);
+  height: 100%;
+  position: relative;
+}
+
 body::-webkit-scrollbar{
   width: 8px;
 }
