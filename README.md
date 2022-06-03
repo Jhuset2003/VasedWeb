@@ -96,10 +96,20 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
     <img src="https://skillicons.dev/icons?i=html,css,javascript,react,git,express,bcript,jwt,sequelize" />
   </a>
 </p>
-
+<hr>
+                                                                                                        
 ## Despliegue
 
-[Vercel](https://vased-web.vercel.app/)
+[ **Deploy Vercel** LMS Vased Fronted](https://vased-web.vercel.app/ "Deploy FRONTED")
+                                                               
+---  
+
+[ **Deploy Heroku** LMS Vased Backend](https://vased-api.herokuapp.com/api/v1/ "Deploy BACKEND")
+
+---
+---
+                                                                                                        
+                                                                                                        
 
 ## Autores
 
