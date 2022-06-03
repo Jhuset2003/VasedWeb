@@ -1,3 +1,37 @@
+<p align="center"> 
+<img src="docs/linea.gif" width="100%" height="1px" >
+<img src="docs/linea.gif" width="100%" height="1px" >
+</p>
+
+<p align="center">
+   <a> <img src="https://simplonline.co/_next/image?url=https%3A%2F%2Fsimplonline-v3-prod.s3.eu-west-3.amazonaws.com%2Fmedia%2Fimage%2Fwebp%2F2c1dbc52-f4e4-4de3-b5ec-694afa509e39.webp&w=1280&q=75" width="100" height="80" />
+</a>
+<a>
+ <img src="https://pbs.twimg.com/profile_images/1052551042217508866/zUjtdRC6_400x400.jpg"   width="80" height="80" />  
+</a>
+</p>
+
+___
+___
+
+<p align="center">
+  <a href="https://educamas.com.co/" target="_blank">
+    <img src="https://process.filestackapi.com/resize=width:300,height:100,fit:max/quality=value:90/XCJiXIchRDmj0ORyMCRv" />
+  </a>
+   <a href="https://simplom.co" target="_blank">
+    <img src="https://simplon.co/images/logo.svg" width="100" height="70" />
+  </a> <strong>COHORTE </strong>
+  <img src="https://openclipart.org/download/275234/4_Row.svg" width=25 height=25" >
+</p>
+<p align="center"> 
+<img src="docs/linea.gif" width="100%" height="2px" >
+</p>
+
+___
+
+<hr>
+
+
 # Fundación VASED
 
 La fundación VASED promueve programas con sentido social para comunidades marginadas y vulnerables, niños, jóvenes, líderes comunitarios y madres cabeza de hogar mediante la generación de proyectos que fomenten la innovación social y el uso de la tecnología.
