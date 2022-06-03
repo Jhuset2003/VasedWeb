@@ -91,9 +91,17 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 - Express
 - JSON Web Tokens
 - Bcrypt
+- Vim
+- Linux
+- NodeJs
+- Postgresql
+- Python
+- Heroku
+- Vercel
+
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,javascript,react,git,express,bcript,jwt,sequelize" />
+    <img src="https://skillicons.dev/icons?i=git,vim,linux,nodejs,express,postgresql,python,bash,js,github,heroku,html,md,vscode,figma&theme=light" />
   </a>
 </p>
 <hr>
