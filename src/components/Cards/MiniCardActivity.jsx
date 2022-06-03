@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/GlobalContext';
+import { SessionContext } from '../../context/SessionContext';
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 
 const MiniCardActivity = ({task}) => {
 
-  const { user } = useContext(UserContext);
+  const { user } = useContext(SessionContext);
 
   return (
     <>
-    <div className={card.container} key={task.id}>
+    <div className={card.container}>
 
     <div className={card.cardTop}></div>
         <div className={card.text}>
@@ -19,7 +19,7 @@ const MiniCardActivity = ({task}) => {
               <span><strong>Entrega:</strong> 12/03/2020</span>
             : null}
 
-            <span><strong>Limite:</strong> {task.fecha}</span>
+            <span><strong>Limite:</strong> 12/03/2020</span>
 
             {user.role === 3 ? 
               <span><strong>Calificación:</strong> 0/{task.baseScore}*</span>

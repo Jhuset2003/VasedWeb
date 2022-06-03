@@ -3,15 +3,16 @@
 .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite,.BtnDelete {
     font-family: var(--title);
     border: none;
-    padding: 5px 15px 5px 15px;
+    padding: .5rem 1rem;
     width: auto;
-    font-size: .9rem;
+    font-size: 1rem;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5rem;
     text-decoration-line: none;
+    cursor: pointer;
 }
 .BtnDark{
     color: white;
@@ -46,8 +47,13 @@
     color: white;
     background-color: var(--black);
 }
-.BtnDark:hover,.BtnGreen:hover,.BtnPurple:hover{
+.BtnDark:hover,.BtnPurple:hover{
     background-color: var(--gray);
+    color: white;
+    transition: ease-in .3s;
+}
+.BtnGreen:hover{
+    background-color: #349748;
     color: white;
     transition: ease-in .3s;
 }
@@ -85,13 +91,13 @@
     color: white;
 }
 
-@media (min-width:480px) {
+/* @media (min-width:480px) {
     .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
         font-size: .9rem;
     }
 }
 @media (min-width:1024px) {
-    .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite{
-        font-size: 1rem;
+    .BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite,.BtnDelete{
+        font-size: 1.2rem;
     }
-}
+} */

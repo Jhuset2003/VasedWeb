@@ -1,0 +1,84 @@
+
+.containerform{
+	height:100vh;
+	width: 100%;
+	position:absolute;
+	left:0;
+	z-index: 10;
+	display: grid;
+	place-items: center;
+	border: 2px solid red;
+	
+
+}
+
+.formulario{
+	height: 90%;
+	width: 90%;
+	border-radius: 1.5em;
+
+}
+
+.title{
+	width: 80%;
+	height: 100%;
+	margin: 0  auto;
+
+}
+.title h2{
+	font-size: 1.3rem;
+	font-weight: 100;
+	text-align: center;
+	margin: 1em 0;
+	
+	}
+
+.inputicons{
+	display: flex;
+		
+	}
+	
+.inputbutton{
+	padding: 2px;
+	font-size: 40px;
+	margin-left: 5px;
+	
+}
+
+.inputselect{
+	width: 85%;
+	margin-left: 10px;
+	
+}
+
+.listadd{
+	height: 200px;
+	width: 95%;
+	display: block;
+	margin: auto;
+	margin-top: 8px;
+	border:2px solid black;
+	overflow-y: scroll;
+}
+
+.listext{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.buttonsformadd{
+display: flex;
+justify-content: space-around;
+margin-top: 10px;
+
+}
+
+@media  (min-width: 700px)
+{
+	.formulario{
+		height: 60%;
+		width: 40%;
+		
+	}	
+}

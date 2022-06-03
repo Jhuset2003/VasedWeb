@@ -17,6 +17,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  height:100%
+}
+body{
+  font-family: var(--text);
+  height: 100%;
+  position: relative;
+}
+
 body::-webkit-scrollbar{
   width: 8px;
 }
@@ -34,4 +43,5 @@ body::-webkit-scrollbar-thumb{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }

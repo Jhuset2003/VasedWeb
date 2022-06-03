@@ -48,7 +48,7 @@ const FormOfNewPassword = () => {
                       type="password" 
                       id="newPassword" 
                       name="newPassword"
-                      className={formCss.purpleInput} 
+                      className={inputCss.purpleInput} 
                       placeholder="*************"
                       value={values.password}
                       onChange={handleChange}
@@ -62,7 +62,7 @@ const FormOfNewPassword = () => {
                       type="password" 
                       id="confirmPassword" 
                       name="confirmPassword"
-                      className={formCss.purpleInput} 
+                      className={inputCss.purpleInput} 
                       placeholder="*************"
                       value={values.password}
                       onChange={handleChange}
@@ -80,11 +80,13 @@ const FormOfNewPassword = () => {
         </div>
       )}
       </Formik>
-      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal}>
-        <h1>Contraseña nueva establecida con éxito</h1>
-        <Link to="/login">
-          <button className={btn.BtnPink}>Iniciar sesión</button>
-        </Link>
+      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal} color="success">
+        <div className={newCss.modalContentSize}>
+          <h1>Contraseña nueva establecida con éxito</h1>
+          <Link to="/login">
+            <button className={btn.BtnGreen}>Iniciar sesión</button>
+          </Link>
+        </div>
       </ModalLayout>
     </>
 
