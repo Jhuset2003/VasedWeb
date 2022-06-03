@@ -122,7 +122,7 @@ const CardAula = ({ classroom }) => {
                     <div className={cardCss.box}>
                       {classroom.users.teachers.map((teacher) => (
                         <span key={teacher.id} className={cardCss.boxUser}>
-                          {teacher.name} <FaTimes className={cardCss.iconBox} />
+                          {teacher.names + " " + teacher.lastNames} <FaTimes className={cardCss.iconBox} />
                         </span>
                       ))}
                     </div>
@@ -141,7 +141,7 @@ const CardAula = ({ classroom }) => {
                   <div className={cardCss.box}>
                     {classroom.users.students.map((student) => (
                       <span key={student.id} className={cardCss.boxUser}>
-                        {student.name} <FaTimes className={cardCss.iconBox} />
+                        {student.names + " " + student.lastNames} <FaTimes className={cardCss.iconBox} />
                       </span>
                     ))}
                   </div>
