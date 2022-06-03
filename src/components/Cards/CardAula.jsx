@@ -7,53 +7,79 @@ import { FaTimes } from "react-icons/fa";
 import MiniCardActivity from "./MiniCardActivity";
 import ProgressBar from "./ProgressBar";
 import { SessionContext } from "../../context/SessionContext";
+import { GlobalContext } from "../../context/GlobalContext";
+import { deleteClassroom } from "../../services/classrooms";
 
-const CardAula = ({ aulas }) => {
+const CardAula = ({ classroom }) => {
   const [expand, setExpand] = useState(false);
 
   const { user } = useContext(SessionContext);
+  const { dispatch } = useContext(GlobalContext);
+
+  const handleDelete = async () => {
+    const resp = await deleteClassroom(classroom.id)
+    if(resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+    dispatch({
+      type: "DELETE_CLASSROOM",
+      payload: classroom.id,
+    });
+  }
+
+  const handleEdit = () => {
+    dispatch({
+      type: "SET_CLASSROOM_EDITING",
+      payload: classroom,
+    });
+  }
 
   return (
-    <div className={cardCss.card} key={aulas.id}>
+    <div className={cardCss.card}>
       <div className={cardCss.content}>
         <div className={cardCss.bgBox}>
           <div className={cardCss.textBox}>
-            <h1>{aulas.name}</h1>
-            <p>{aulas.code}</p>
+            <h1>{classroom.name}</h1>
+            <p>{classroom.code}</p>
           </div>
 
           {user.role === 3 ? (
             <div className={cardCss.bar}>
-              <ProgressBar percentage={aulas.progress} />
+              <ProgressBar percentage="0" />
             </div>
           ) : null}
 
           {user.role === 1 ? (
             <div className={cardCss.btns}>
-              <button className={btn.BtnWhite}>Editar</button>
-              <button className={btn.BtnDelete}>Eliminar</button>
+              <button onClick={handleEdit} className={btn.BtnWhite}>Editar</button>
+              <button
+              onClick={handleDelete} 
+              className={btn.BtnDelete}>
+                Eliminar
+              </button>
             </div>
           ) : null}
         </div>
         <div className={cardCss.textContent}>
           <div className={cardCss.text}>
-            <p>{aulas.description}</p>
+            <p>{classroom.description}</p>
 
             {user.role === 1 && (
               <p>
                 <span style={{fontSize: "20px"}}><strong>Administrador descripción</strong></span> <br /> <br />
-                {aulas.adminDescription}
+                {classroom.adminDescription}
               </p>
             )}
 
             <span>
-              <strong>Capacidad: {aulas.capability}</strong>
+              <strong>Capacidad: {classroom.capacity}</strong>
             </span>
           </div>
 
           {user.role === 3 ? (
             <div className={cardCss.barlaptop}>
-              <ProgressBar percentage={aulas.progress} />
+              <ProgressBar percentage="0" />
             </div>
           ) : null}
 
@@ -75,8 +101,9 @@ const CardAula = ({ aulas }) => {
               ) : null}
             </div>
             <div className={cardCss.miniCards}>
-              {aulas.tasks.map((task) => (
-                <MiniCardActivity task={task} />
+              {classroom.tasks.length <= 0 && <span>No hay tareas asignadas todavia</span>}
+              {classroom.tasks.map((task) => (
+                <MiniCardActivity task={task} key={task.id} />
               ))}
             </div>
           </div>
@@ -93,7 +120,7 @@ const CardAula = ({ aulas }) => {
                   </div>
                   <div className={cardCss.boxScroll}>
                     <div className={cardCss.box}>
-                      {aulas.teachers.map((teacher) => (
+                      {classroom.users.teachers.map((teacher) => (
                         <span key={teacher.id} className={cardCss.boxUser}>
                           {teacher.name} <FaTimes className={cardCss.iconBox} />
                         </span>
@@ -112,7 +139,7 @@ const CardAula = ({ aulas }) => {
                 </div>
                 <div className={cardCss.boxScroll}>
                   <div className={cardCss.box}>
-                    {aulas.students.map((student) => (
+                    {classroom.users.students.map((student) => (
                       <span key={student.id} className={cardCss.boxUser}>
                         {student.name} <FaTimes className={cardCss.iconBox} />
                       </span>

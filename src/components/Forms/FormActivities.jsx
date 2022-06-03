@@ -1,31 +1,52 @@
+//components
+import { Formik,  Field } from 'formik';
+
+//styles
 import styleForm from './styles/FormUsers.module.css'
 import inputCss from '../../styles/Inputs.module.css';
 import btn from '../../styles/Buttons.module.css';
-import { Formik,  Field } from 'formik';
+
+//react
+import { useContext } from 'react';
+import { createTask } from '../../services/task';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const FormActivities = ({setOpenModal, openModal}) => {
+
+    const { dispatch } = useContext(GlobalContext);
+
+    const handleSubmitCustom = async (values) => {
+        const resp = await createTask(values);
+        if(resp.status !== 200 && resp.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch ({
+            type: "ADD_TASK",
+            payload: resp.data
+        })
+        setOpenModal(false);
+        console.log(resp)
+    }
+
   return (
     <>
         <Formik
         initialValues={{
-        colors: "",
-        name: "",
-        note: "",
-        code: "",
         aula: "",
-        format: "",
+        name: "",
+        code: "",
         description: "",
+        baseScore: "",
         }}
         validate={(valores) =>{
         let errores = {};
         
         if(!valores.name){
             errores.name = 'Ingrese nombres'
-        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)){
-            errores.name = "Los nombres solo puede contener letras"
         }
-        if(!valores.note){
-            errores.note= 'Ingrese capacidad'
+        if(!valores.baseScore){
+            errores.baseScore= 'Ingrese capacidad'
         }
         
         if(!valores.code){
@@ -38,31 +59,13 @@ const FormActivities = ({setOpenModal, openModal}) => {
        
         }}
         
-        onSubmit={({resetForm})=>{
-        resetForm();
+        onSubmit={(valores)=>{
+        handleSubmitCustom(valores)
         console.log("Sended") 
         }}>
         {( {values, handleSubmit, errors, touched, handleChange, handleBlur} ) => (
             <div className={styleForm.formContainer}>
                 <form className={styleForm.form} onSubmit={handleSubmit}>
-
-                    <div className={styleForm.divContent}>
-                    <label htmlFor="color" className={styleForm.formSubtitle}>Colores</label>
-                    <div className={styleForm.radioContent}>
-                    <label>
-                        <Field type="radio" name="picked" value="One"className={styleForm.radioBtnB} />
-                    </label>
-                    <label>
-                        <Field type="radio" name="picked" value="One" className={styleForm.radioBtnP}/>
-                    </label>
-                    <label>
-                        <Field type="radio" name="picked" value="One"className={styleForm.radioBtnY} />
-                    </label>
-                    <label>
-                        <Field type="radio" name="picked" value="One" className={styleForm.radioBtnG}/>
-                    </label>
-                    </div>
-                    </div>
 
                     <div className={styleForm.formItem}>
                         <label htmlFor="name" className={styleForm.formSubtitle}>Nombre Actividad</label>
@@ -76,7 +79,7 @@ const FormActivities = ({setOpenModal, openModal}) => {
                         <label htmlFor="aula" className={styleForm.formSubtitle}>Aula</label>
                         <Field as="select" name="aula" className={inputCss.purpleInput}
                             value={values.aula} onChange={handleChange} onBlur={handleBlur}>
-                            <option value="" selected>Usuario</option>
+                            <option value="" disabled>Elija un aula</option>
                             <option value="1">Aula 12</option>
                             <option value="2">Aula 22</option>
                             <option value="3">Aula 433</option>
@@ -85,16 +88,16 @@ const FormActivities = ({setOpenModal, openModal}) => {
                     
                     <div className={styleForm.flexItem}>
                         <div className={styleForm.formItem}>
-                            <label htmlFor="note" className={styleForm.formSubtitle}>Nota base</label>
+                            <label htmlFor="baseScore" className={styleForm.formSubtitle}>Nota base</label>
                             <input 
-                            type="number" id="note" name="note" placeholder="10" className={inputCss.purpleInput}
-                            value={values.note} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.note && errors.note && <div className={styleForm.errors}>{errors.note}</div>}
+                            type="number" id="baseScore" name="baseScore" placeholder="10" className={inputCss.purpleInput}
+                            value={values.baseScore} onChange={handleChange} onBlur={handleBlur}/>
+                            {touched.baseScore && errors.baseScore && <div className={styleForm.errors}>{errors.baseScore}</div>}
                         </div>
                         <div className={styleForm.formItem}>
                             <label htmlFor="code" className={styleForm.formSubtitle}>Código</label>
                             <input 
-                            type="text" id="code" name="code" placeholder="Apellidos" className={inputCss.purpleInput}
+                            type="number" id="code" name="code" placeholder="0101" className={inputCss.purpleInput}
                             value={values.code} onChange={handleChange} onBlur={handleBlur}/>
                             {touched.code && errors.code && <div className={styleForm.errors}>{errors.code}</div>}
                         </div>
