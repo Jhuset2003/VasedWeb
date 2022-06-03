@@ -11,10 +11,14 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { deleteClassroom } from "../../services/classrooms";
 import ModalLayout from "../../layout/ModalLayout";
 import FormAddTeacher from "../Forms/FormAddTeacher";
+import FormAddStudents from "../Forms/FormAddStudents";
+import FormAddActivities from "../Forms/FormAddActivities";
 
 const CardAula = ({ classroom }) => {
   const [expand, setExpand] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
+  const [modaltask, setModalTask] = useState(false);
 
   const { user } = useContext(SessionContext);
   const { dispatch } = useContext(GlobalContext);
@@ -98,7 +102,7 @@ const CardAula = ({ classroom }) => {
             <div className={cardCss.actTop}>
               <h2>Actividades</h2>
               {user.role === 1 ? (
-                <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>
+                <button onClick={()=> setModalTask(true)} className={`${btn.BtnDark} ${cardCss.btnfont}`}>
                   Asignar una actividad
                 </button>
               ) : null}
@@ -136,7 +140,7 @@ const CardAula = ({ classroom }) => {
               <div className={cardCss.student}>
                 <div className={cardCss.userTop}>
                   <h2>Estudiantes</h2>
-                  <button className={`${btn.BtnDark} ${cardCss.btnfont}`}>
+                  <button onClick={()=> setOpenModal2(true)} className={`${btn.BtnDark} ${cardCss.btnfont}`}>
                     Agregar
                   </button>
                 </div>
@@ -156,7 +160,15 @@ const CardAula = ({ classroom }) => {
       )}
 
       <ModalLayout color="success" setOpenModal={setOpenModal} openModal={openModal} icon="show">
-        <FormAddTeacher setOpenModal={setOpenModal} openModal={openModal} classroom={classroom} />
+        <FormAddTeacher classroom={classroom} />
+      </ModalLayout>
+
+      <ModalLayout color="success" setOpenModal={setOpenModal2} openModal={openModal2} icon="show">
+        <FormAddStudents classroom={classroom} />
+      </ModalLayout>
+
+      <ModalLayout color="success" setOpenModal={setModalTask} openModal={modaltask} icon="show">
+        <FormAddActivities classroom={classroom} />
       </ModalLayout>
     </div>
   );
