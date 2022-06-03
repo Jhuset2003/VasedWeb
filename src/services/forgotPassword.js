@@ -4,6 +4,7 @@ import axios from "axios";
 //login service using axios
 export const forgotPassword = async (email) => {
   try {
+    console.log("hola")
     const response = await axios.post(
       FORGOT_PASSWORD,
       {

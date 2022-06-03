@@ -6,6 +6,7 @@ import formCss from "../components/Forms/styles/FormLogin.module.css";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { forgotPassword } from "./../services/forgotPassword";
 
 const FormOfRecovering = () => {
   return (
@@ -60,7 +61,11 @@ const FormOfRecovering = () => {
                 </div>
                 <div className={recoCss.BtnContainer}>
                   {/* <Link to="/new-password"> */}
-                  <button type="submit" className={btn.BtnPurple}>
+                  <button
+                    type="submit"
+                    onClick={() => forgotPassword(values.email)}
+                    className={btn.BtnPurple}
+                  >
                     Enviar
                   </button>
                   {/* </Link> */}
