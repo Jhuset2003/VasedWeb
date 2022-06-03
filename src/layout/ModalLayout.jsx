@@ -2,18 +2,29 @@ import styles from './ModalLayout.module.css'
 import  btn from '../styles/Buttons.module.css'
 import { motion } from 'framer-motion'
 import { FaTimes } from 'react-icons/fa'
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 
 const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => {
 
+    const { state: {classroomEditing, taskEditing, userEditing}, dispatch} = useContext(GlobalContext)
+
+    const handleClose = () => {
+        setOpenModal(false)
+        dispatch({
+            type: 'SET_EDITING_NULL',
+        })
+    }
+
   return (
         <>
-        {openModal &&
-            <motion.div className={styles.modal} animate={{scale:1}} initial={{scale:0}}>
+        {(openModal || classroomEditing || taskEditing || userEditing ) &&
+            <div className={styles.modal} >
                 <div className={styles.modalCenter}>
-                    <div className={color === "success" ? styles.modalGreen : color === "error" ? styles.modalRed : styles.modalColor}>
+                    <motion.div animate={{scale:1}} initial={{scale:0}} className={color === "success" ? styles.modalGreen : color === "error" ? styles.modalRed : styles.modalColor}>
                         <div className={styles.modalTop}>
 
-                        {icon==="show" ? <button className={`${btn.BtnRounded} ${styles.ptBtn}`} onClick={()=> setOpenModal(false)}>
+                        {icon==="show" ? <button className={`${btn.BtnRounded} ${styles.ptBtn}`} onClick={handleClose}>
                             <FaTimes className={styles.modalIcon}/>
                         </button> : null}
 
@@ -25,9 +36,9 @@ const ModalLayout = ({children, title, openModal,setOpenModal, icon, color}) => 
                             {children}
 
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
-            </motion.div>}
+            </div>}
     </>
   )
 }

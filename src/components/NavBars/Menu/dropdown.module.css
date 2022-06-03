@@ -1,8 +1,8 @@
+@import url(../../../styles/Vars.css);
 .dropdown_wrapper {
     position: relative;
     display: inline-block;
     width: 100%;
-    
   }
 
   
@@ -23,13 +23,13 @@
     
   }
   .dropdown_item_list {
-    background: var(--secundary);
+    background: white;
     z-index: 10;
     position: absolute;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     right: 20px;
@@ -48,7 +48,7 @@
   .dropdown_item_list.active {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     
     width: 60vw;
@@ -70,6 +70,7 @@
   }
   .item_list a .links{
     width: 80px;
+    color: var(--purple);
   }
   .item_list .Links a{
     display: flex;
@@ -86,7 +87,7 @@
   .item_list a:link {
     display: flex;
     /* gap: 0.8rem; */
-    color: #666666;
+    color: var(--purple);
     font-weight: 600;
     text-decoration: none;
     display: flex;

@@ -9,9 +9,11 @@ import { useContext } from 'react'
 import { SessionContext } from '../context/SessionContext'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { GlobalContext } from '../context/GlobalContext'
 const Profile = () => {
   const [openModal,setOpenModal] = useState(false)
   const { user, setUser } = useContext(SessionContext)
+  const { dispatch } = useContext(GlobalContext)
 
   const navigate = useNavigate()
 
@@ -20,6 +22,10 @@ const Profile = () => {
     window.localStorage.removeItem("sessionLogin")
     window.localStorage.removeItem("token")
     navigate('/login')
+
+    dispatch({
+      type: 'SET_INITIAL_STATE',
+    })
   }
 
   return (

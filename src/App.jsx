@@ -1,10 +1,8 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+//components
 import Aulas from "./pages/Aulas";
 import Activities from "./pages/Activities";
 import AdminUser from "./pages/AdminUsers";
 import Profile from "./pages/Profile";
-
-import "./styles/App.css";
 import Landing from "./pages/Landing";
 import DetailUser from "./pages/DetailUser";
 import Login from "./pages/Login";
@@ -12,17 +10,61 @@ import Footer from "./components/Sections/Footer";
 import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
 import NavBars from "./components/NavBars/NavBars";
+//styles
+import "./styles/App.css";
+
+//react 
+import { useContext, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Guest from "./middlewares/Guest";
 import Auth from "./middlewares/Auth";
 import AuthAdmin from "./middlewares/AuthAdmin";
 import AuthTeacher from "./middlewares/AuthTeacher";
-import { useContext, useEffect } from "react";
 import { SessionContext } from "./context/SessionContext";
-import Guest from "./middlewares/Guest";
+import { GlobalContext } from "./context/GlobalContext";
+import {getClassrooms} from "./services/classrooms";
+import { getTasks } from "./services/task";
+import { getUsers } from "./services/users";
 
 
 function App() {
     const location = useLocation();
     const { user, setUser } = useContext(SessionContext);
+    const { state, dispatch } = useContext(GlobalContext);
+
+    const setStates = async () => {
+        const classrooms = await getClassrooms();
+        if(classrooms.status !== 200 && classrooms.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch({
+            type: "SET_CLASSROOMS",
+            payload: classrooms.data,
+        });
+
+        const tasks = await getTasks();
+        if(tasks.status !== 200 && tasks.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch({
+            type: "SET_TASKS",
+            payload: tasks.data,
+        })
+
+        const users = await getUsers();
+        if(users.status !== 200 && users.status !== 204){
+            console.log('error')
+            return
+          }
+        dispatch({
+            type: "SET_USERS",
+            payload: users.data,
+        })
+        
+        console.log(state)
+    }
 
     useEffect(() => {
         //set user from localStorage
@@ -31,6 +73,11 @@ function App() {
             setUser(userLocal);
         }
     },[])
+
+    useEffect(() => {
+        //set data in the context
+        setStates()
+    },[user])
 
     return (
         <div className="App">

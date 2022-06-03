@@ -8,7 +8,7 @@ const SelectField = ({selections}) => {
     <div className={search.select_size}>
         <Select
         defaultValue={selections[0]}
-        options ={ selections.map(sup => ({ label: sup, value: sup })) }
+        options ={ selections.map(sup => ({ label: sup.nombre, value: sup.id })) }
         />
     </div>
   )

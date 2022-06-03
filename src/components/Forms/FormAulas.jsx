@@ -1,32 +1,80 @@
 import styleForm from "./styles/FormUsers.module.css";
 import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
-import { Formik, Field } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import { createClassroom, updateClassroom } from "../../services/classrooms";
+import { GlobalContext } from "../../context/GlobalContext";
 import { useContext } from "react";
-import { AulaContext } from "../../context/GlobalContext";
-import { createClassroom } from "../../services/classrooms";
 
 const FormAulas = ({ setOpenModal, openModal }) => {
-    const { addAula } = useContext(AulaContext);
+    const {
+        state: { classroomEditing },
+        dispatch,
+    } = useContext(GlobalContext);
 
     const handleSubmitCustom = async (values) => {
         const resp = await createClassroom(values);
-        console.log(resp)
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
+        console.log(resp);
+        dispatch({
+            type: "ADD_CLASSROOM",
+            payload: {
+                ...resp.data,
+                tasks: [],
+                users: {
+                    teachers: [],
+                    students: [],
+                },
+            },
+        });
+
         setOpenModal(false);
-    }
+        console.log(resp);
+    };
+
+    const handleSubmitEdit = async (values) => {
+        const resp = await updateClassroom(values);
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
+        console.log(values);
+
+        setOpenModal(false);
+
+        dispatch({
+            type: "UPDATE_CLASSROOM",
+            payload: {
+                ...resp.data,
+                tasks: [],
+                users: {
+                    teachers: [],
+                    students: [],
+                },
+            },
+        });
+
+        dispatch({
+            type: "SET_EDITING_NULL",
+        });
+    };
 
     return (
         <>
             <Formik
-                initialValues={{
-                    name: "",
-                    capacity: "",
-                    code: "",
-                    endsAt: "",
-                    description: "",
-                    adminDescription: "",
-                }}
+                initialValues={
+                    classroomEditing || {
+                        name: "",
+                        capacity: "",
+                        code: "",
+                        endsAt: "",
+                        description: "",
+                        adminDescription: "",
+                    }
+                }
                 validate={(valores) => {
                     let errores = {};
 
@@ -53,9 +101,12 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                 }}
                 onSubmit={(valores) => {
                     console.log("send");
-                    handleSubmitCustom(valores)
-                    console.log(valores)
-                    /* setOpenModal(false) */
+                    console.log(valores);
+                    if (classroomEditing) {
+                        handleSubmitEdit(valores);
+                    } else {
+                        handleSubmitCustom(valores);
+                    }
                 }}
             >
                 {({
@@ -71,23 +122,6 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                             className={styleForm.form}
                             onSubmit={handleSubmit}
                         >
-                            {/* <div className={styleForm.divContent}>
-                        <label htmlFor="color" className={styleForm.formSubtitle}>Colores</label>
-                        <div className={styleForm.radioContent}>
-                        <label>
-                            <Field type="radio" name="picked" value="One"className={styleForm.radioBtnB} />
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One" className={styleForm.radioBtnP}/>
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One"className={styleForm.radioBtnY} />
-                        </label>
-                        <label>
-                            <Field type="radio" name="picked" value="One" className={styleForm.radioBtnG}/>
-                        </label>
-                        </div>
-                    </div> */}
 
                             <div className={styleForm.flexItem}>
                                 <div className={styleForm.formItem}>
@@ -156,12 +190,11 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
-                                    {touched.capacity &&
-                                        errors.capacity && (
-                                            <div className={styleForm.errors}>
-                                                {errors.capacity}
-                                            </div>
-                                        )}
+                                    {touched.capacity && errors.capacity && (
+                                        <div className={styleForm.errors}>
+                                            {errors.capacity}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className={styleForm.formItem}>
                                     <label
@@ -239,7 +272,7 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                             </div>
                             <div className={styleForm.btnCenter}>
                                 <button type="submit" className={btn.BtnPurple}>
-                                    Enviar
+                                    {classroomEditing ? "Editar" : "Crear"}
                                 </button>
                                 <button
                                     className={btn.BtnPink}

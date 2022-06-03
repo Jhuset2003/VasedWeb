@@ -1,0 +1,81 @@
+
+.containerform{
+	width: 100%;
+	display: grid;
+	place-items: center;
+	padding: 0 1rem;
+
+}
+.formulario{
+	width: 100%;
+}
+.reactselectcontainer{
+	width: 90%;
+	position: initial;
+	z-index: 999;
+}
+
+.title h2{
+	font-size: 1.3rem;
+	font-weight: 100;
+	text-align: center;
+	margin-bottom: 1em;
+	font-weight: bold;
+	}
+
+.inputicons{
+	display: flex;
+	text-align: left;
+	z-index: 999;
+	gap: 1rem;
+	padding: 1rem 0;
+	}
+.title{
+	text-align: left;
+}
+.inputbutton{
+	padding: 2px;
+	font-size: 40px;
+	margin-left: 5px;
+	
+}
+
+.inputselect{
+	width: 85%;
+	margin-left: 10px;
+	
+}
+
+.listadd{
+	height: 200px;
+	width: 95%;
+	display: block;
+	margin: auto;
+	margin-top: 8px;
+	border:2px solid black;
+	overflow-y: scroll;
+}
+
+.listext{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.buttonsformadd{
+display: flex;
+justify-content: space-around;
+margin-top: 10px;
+
+}
+.icon{
+	color: white;
+	font-size: 1.3rem;
+}
+
+@media  (min-width: 560px)
+{
+	.containerform{
+	width: 500px;
+	}	
+}
