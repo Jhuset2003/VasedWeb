@@ -8,26 +8,20 @@ import {VscChevronDown, VscChevronUp} from 'react-icons/vsc'
 import {FaTimes} from 'react-icons/fa'
 
 //react
-import { useState, useContext } from "react";
-import { motion } from "framer-motion";
+import { useState, useContext, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SessionContext } from "../../context/SessionContext";
 import { GlobalContext } from "../../context/GlobalContext";
 import { deleteTask } from '../../services/task'
 import FormActivities from '../Forms/FormActivities'
 
-const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }) => {
+const CardActivity = ({ task }) => {
   //estado para mostrar contenido de tarea
   const [expand, setExpand] = useState(false);
-
-  //estados modal
-  /* const [modalTask, setModalTask] = useState(false);
-  const [modalEdit, setModalEdit] = useState(false); */
 
   //context
   const { user } = useContext(SessionContext);
   const { dispatch } = useContext(GlobalContext);
-
-  const data = 0;
 
   const handleDelete = async() => {
     const resp = await deleteTask(task.id);
@@ -42,10 +36,19 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
     })
   }
 
+  const handleEdit = () => {
+    dispatch({
+      type: "SET_TASK_EDITING",
+      payload: task,
+    })
+  }
+
   return (
     <div >
-        <div className={cardActivity.card} >
-            <motion.div className={cardActivity.content} transition={{}}>
+        <motion.div initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }} className={cardActivity.card} >
+            <div className={cardActivity.content} transition={{}}>
                 <div className={cardActivity.bgBox}>
                     <div className={cardActivity.textBox}>
                         <h1>{task.name}</h1>
@@ -61,7 +64,7 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
                     {user.role === 1 || user.role === 2 ?
                         <div className={cardActivity.btns}>
                             <button 
-                            onClick={() => setModalEdit(!modalEdit)}
+                            onClick={handleEdit}
                             className={btn.BtnWhite}>
                               Editar
                             </button>
@@ -76,10 +79,9 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
 
                     {user.role === 3 ?
                         <div className={cardActivity.btns}>
-                            <button 
-                            type='submit' 
+                            <button
                             className={btn.BtnDark} 
-                            onClick={()=> setModalTask(!modalTask)}>Entregar</button>{/* desarrollar la modal apartir de aquí */}
+                            >Entregar</button>{/* desarrollar la modal apartir de aquí */}
                         </div>
                     :null}
 
@@ -105,10 +107,14 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
 
                     <i className={cardActivity.icon} onClick={()=> setExpand(!expand)}>{expand ? <VscChevronUp/> : <VscChevronDown/>}</i>
                 </div>
-            </motion.div>
-
+            </div>
+        
+        <AnimatePresence>
         {expand && (
-          <div className={cardActivity.expand} >
+          <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }} className={cardActivity.expand} >
             <div className={cardActivity.activities}>
               <div className={cardActivity.actTop}>
                 <h2>{task.name}</h2>
@@ -185,23 +191,11 @@ const CardActivity = ({ task, modalTask, setModalTask, modalEdit, setModalEdit }
                 </div>
               </div>
             ) : null}
-          </div>
+          </motion.div>
         )}
-      </div>
+        </AnimatePresence>
+      </motion.div>
 
-      <div className={cardActivity.modalContainer}>
-        <ModalLayout setOpenModal={setOpenModal} openModal={openModal}>
-                    <h1>Hacer entrega</h1>
-                    <div className={cardActivity.textareaTitle}>
-                        <h4>Entrega</h4>
-                        <textarea cols="70" rows="10" className={cardActivity.textarea}></textarea>
-                    </div>
-                    <div className={cardActivity.btnContainer}>
-                        <button className={btn.BtnPink}>Enviar</button>
-                        <button className={btn.BtnPurple}>Cancelar</button>
-                    </div>
-        </ModalLayout>
-      </div>
     </div>
   );
 };
