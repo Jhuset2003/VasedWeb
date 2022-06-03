@@ -8,7 +8,7 @@ import MiniCardActivity from "./MiniCardActivity";
 import ProgressBar from "./ProgressBar";
 import { SessionContext } from "../../context/SessionContext";
 import { GlobalContext } from "../../context/GlobalContext";
-import { deleteClassroom } from "../../services/classrooms";
+import { deleteClassroom, deleteUserFromClassroom } from "../../services/classrooms";
 import ModalLayout from "../../layout/ModalLayout";
 import FormAddTeacher from "../Forms/FormAddTeacher";
 
@@ -35,6 +35,36 @@ const CardAula = ({ classroom }) => {
     dispatch({
       type: "SET_CLASSROOM_EDITING",
       payload: classroom,
+    });
+  }
+
+  const handleDeleteTeacherFromClassroom = async (userId) => {
+    const resp = await deleteUserFromClassroom(userId, classroom.id)
+    if(resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+    dispatch({
+      type: "DELETE_TEACHER_FROM_CLASSROOM",
+      payload: {
+        classroomId: classroom.id,
+        teacherId: userId,
+      },
+    });
+  }
+
+  const handleDeleteStudentFromClassroom = async (userId) => {
+    const resp = await deleteUserFromClassroom(userId, classroom.id)
+    if(resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+    dispatch({
+      type: "DELETE_STUDENT_FROM_CLASSROOM",
+      payload: {
+        classroomId: classroom.id,
+        studentId: userId,
+      },
     });
   }
 
@@ -125,7 +155,7 @@ const CardAula = ({ classroom }) => {
                     <div className={cardCss.box}>
                       {classroom.users.teachers.map((teacher) => (
                         <span key={teacher.id} className={cardCss.boxUser}>
-                          {teacher.names + " " + teacher.lastNames} <FaTimes className={cardCss.iconBox} />
+                          {teacher.names + " " + teacher.lastNames} <FaTimes onClick={()=> handleDeleteTeacherFromClassroom(teacher.id)} className={cardCss.iconBox} />
                         </span>
                       ))}
                     </div>
@@ -144,7 +174,7 @@ const CardAula = ({ classroom }) => {
                   <div className={cardCss.box}>
                     {classroom.users.students.map((student) => (
                       <span key={student.id} className={cardCss.boxUser}>
-                        {student.names + " " + student.lastNames} <FaTimes className={cardCss.iconBox} />
+                        {student.names + " " + student.lastNames} <FaTimes onClick={()=> handleDeleteStudentFromClassroom(student.id)} className={cardCss.iconBox} />
                       </span>
                     ))}
                   </div>
