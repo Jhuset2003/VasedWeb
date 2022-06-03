@@ -54,7 +54,7 @@ export default function TableAttendance() {
           value={globalFilter || ""}
           className={search.inputStyle}
           type="text"
-          placeholder="Nombre Actividad/Código"
+          placeholder="Filtro"
           />
         </div>
            {/*  <input
