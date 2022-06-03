@@ -3,72 +3,81 @@ import btn from "../../styles/Buttons.module.css";
 import formaddCss from "./styles/FormAdd.module.css";
 import { RiAddFill } from "react-icons/ri";
 import { GlobalContext } from "../../context/GlobalContext";
-import { addUserToClassroom } from "../../services/classrooms";
+import {
+    addTaskToClassroom,
+    addUserToClassroom,
+} from "../../services/classrooms";
 import Select from "react-select";
 
 const FormAddActivities = ({ classroom }) => {
+    const [selectActivity, setSelectActivity] = useState(null);
+    const [activities, setActivities] = useState([]);
 
-  const [selectActivity, setSelectActivity] = useState(null);
-  const [activities, setActivities] = useState([]);
+    const {
+        state: { tasks },
+        dispatch,
+    } = useContext(GlobalContext);
 
-  const { state: { tasks }, dispatch } = useContext(GlobalContext);
-  
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+        if (!selectActivity) {
+            return;
+        }
 
-    if (!selectActivity) {
-      return;
-    }
+        const task = tasks.find((task) => task.id == selectActivity);
 
-    const task = tasks.find((task) => task.id == selectActivity);
+        const resp = await addTaskToClassroom(task.id, classroom.id);
 
-    const resp = await addUserToClassroom(task.id, classroom.id)
+        console.log(resp);
 
-    if(resp.status !== 200 && resp.status !== 204) {
-      console.log("error")
-      return
-    }
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
 
-    dispatch({
-      type: "ADD_TASK_TO_CLASSROOM",
-      payload: {
-        classroomId: classroom.id,
-        task
-      },
-    });
-  }
+        dispatch({
+            type: "ADD_TASK_TO_CLASSROOM",
+            payload: {
+                classroomId: classroom.id,
+                task
+            },
+        });
+    };
 
-  const handleChange = (e) => {
-    setSelectActivity(e.target.value);
-  };
+    const handleChange = (e) => {
+        setSelectActivity(e.value);
+    };
 
-  useEffect(() => {
-    const taskInClassroom = classroom.tasks;
-    console.log(taskInClassroom)
-    console.log(classroom)
-    console.log(activities)
-    const filterTasks = tasks.filter(task => task && !taskInClassroom.some(taskC => taskC.id === task.id));
-    setActivities(filterTasks);
-  },[])
+    useEffect(() => {
+        const taskInClassroom = classroom.tasks;
+        const filterTasks = tasks.filter(
+            (task) => !taskInClassroom.some((taskC) => taskC.id === task.id)
+        );
+        setActivities(filterTasks);
+    }, []);
 
-  return (
-    <>
-      <section className={formaddCss.containerform}>
-        <form onSubmit={handleSubmit} className={formaddCss.formulario}>
-          <div className={formaddCss.title}>
-            <h2>Agregar una actividad</h2>
-            
-              <label htmlFor="names">
-                <span>Selecionar actividad</span>
-              </label>
-            <div className={formaddCss.inputicons}>
+    return (
+        <>
+            <section className={formaddCss.containerform}>
+                <form onSubmit={handleSubmit} className={formaddCss.formulario}>
+                    <div className={formaddCss.title}>
+                        <h2>Agregar una actividad</h2>
 
-              <Select className={formaddCss.reactselectcontainer}
-              options ={ activities.map(sup => ({ label: sup.name, value: sup.name + " " + ">>" + " Código " + sup.code })) }
-              />
+                        <label htmlFor="names">
+                            <span>Selecionar actividad</span>
+                        </label>
+                        <div className={formaddCss.inputicons}>
+                            <Select
+                                onChange={handleChange}
+                                className={formaddCss.reactselectcontainer}
+                                options={activities.map((sup) => ({
+                                    label: sup.name,
+                                    value: sup.id,
+                                }))}
+                            />
 
-              {/* <select
+                            {/* <select
                 name="names"
                 className={formaddCss.inputselect}
                 onChange={handleChange}
@@ -83,15 +92,15 @@ const FormAddActivities = ({ classroom }) => {
                 })}
               </select> */}
 
-              <button type="submit" className={btn.BtnDark}>
-                <RiAddFill className={formaddCss.icon}/>
-              </button>
-            </div>   
-          </div>
-        </form>
-      </section>
-    </>
-  )
-}
+                            <button type="submit" className={btn.BtnDark}>
+                                <RiAddFill className={formaddCss.icon} />
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </>
+    );
+};
 
-export default FormAddActivities
+export default FormAddActivities;
