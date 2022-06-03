@@ -31,7 +31,7 @@ const Aulas = () => {
                 <MainLayout>
                     <div className={styles.Letters}>
                         <h1>Aulas</h1>
-                        {user.role === 1 || user.role === 2 ? (
+                        {user.role === 1 ? (
                             <button
                                 className={BtnStyles.BtnDark}
                                 onClick={() => setOpenModal(!openModal)}
