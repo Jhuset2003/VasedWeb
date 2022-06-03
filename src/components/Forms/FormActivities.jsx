@@ -52,7 +52,6 @@ const FormActivities = ({ setOpenModal, openModal }) => {
       <Formik
         initialValues={
           taskEditing || {
-            aula: "",
             name: "",
             code: "",
             description: "",
