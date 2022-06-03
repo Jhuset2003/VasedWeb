@@ -2,7 +2,7 @@
 <img src="docs/linea.gif" width="100%" height="1px" >
 <img src="docs/linea.gif" width="100%" height="1px" >
 </p>
-:book 
+
 <p align="center">
    <a> <img src="https://simplonline.co/_next/image?url=https%3A%2F%2Fsimplonline-v3-prod.s3.eu-west-3.amazonaws.com%2Fmedia%2Fimage%2Fwebp%2F2c1dbc52-f4e4-4de3-b5ec-694afa509e39.webp&w=1280&q=75" width="100" height="80" />
 </a>
@@ -11,8 +11,9 @@
 </a>
 </p>
 
-___
-___
+---
+
+---
 
 <p align="center">
   <a href="https://educamas.com.co/" target="_blank">
@@ -27,10 +28,9 @@ ___
 <img src="docs/linea.gif" width="100%" height="2px" >
 </p>
 
-___
+---
 
 <hr>
-
 
 # Fundación VASED
 
@@ -91,25 +91,33 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 - Express
 - JSON Web Tokens
 - Bcrypt
+- Vim
+- Linux
+- NodeJs
+- Postgresql
+- Python
+- Heroku
+- Vercel
+
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,javascript,react,git,express,bcript,jwt,sequelize" />
+    <img src="https://skillicons.dev/icons?i=git,vim,linux,nodejs,express,postgresql,python,bash,js,github,heroku,html,md,vscode,figma&theme=light" />
   </a>
 </p>
+
 <hr>
                                                                                                         
 ## Despliegue
 
 [ **Deploy Vercel** LMS Vased Fronted](https://vased-web.vercel.app/ "Deploy FRONTED")
-                                                               
----  
+
+---
 
 [ **Deploy Heroku** LMS Vased Backend](https://vased-api.herokuapp.com/api/v1/ "Deploy BACKEND")
 
 ---
+
 ---
-                                                                                                        
-                                                                                                        
 
 ## Autores
 
