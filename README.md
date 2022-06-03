@@ -2,7 +2,7 @@
 <img src="docs/linea.gif" width="100%" height="1px" >
 <img src="docs/linea.gif" width="100%" height="1px" >
 </p>
-:book 
+
 <p align="center">
    <a> <img src="https://simplonline.co/_next/image?url=https%3A%2F%2Fsimplonline-v3-prod.s3.eu-west-3.amazonaws.com%2Fmedia%2Fimage%2Fwebp%2F2c1dbc52-f4e4-4de3-b5ec-694afa509e39.webp&w=1280&q=75" width="100" height="80" />
 </a>
