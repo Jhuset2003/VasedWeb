@@ -115,48 +115,6 @@ const FormActivities = ({ setOpenModal, openModal }) => {
                 )}
               </div>
 
-              <div className={styleForm.formItem}>
-                <label htmlFor="aula" className={styleForm.formSubtitle}>
-                  Aula
-                </label>
-                <Field
-                  as="select"
-                  name="aula"
-                  className={inputCss.purpleInput}
-                  value={values.aula}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                >
-                  <option value="" disabled>
-                    Elija un aula
-                  </option>
-                  <option value="1">Aula 12</option>
-                  <option value="2">Aula 22</option>
-                  <option value="3">Aula 433</option>
-                </Field>
-              </div>
-
-              <div className={styleForm.formItem}>
-                <label htmlFor="aula" className={styleForm.formSubtitle}>
-                  Aula
-                </label>
-                <Field
-                  as="select"
-                  name="aula"
-                  className={inputCss.purpleInput}
-                  value={values.aula}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                >
-                  <option value="" disabled>
-                    Elija un aula
-                  </option>
-                  <option value="1">Aula 12</option>
-                  <option value="2">Aula 22</option>
-                  <option value="3">Aula 433</option>
-                </Field>
-              </div>
-
               <div className={styleForm.flexItem}>
                 <div className={styleForm.formItem}>
                   <label htmlFor="baseScore" className={styleForm.formSubtitle}>
