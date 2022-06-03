@@ -11,8 +11,9 @@
 </a>
 </p>
 
-___
-___
+---
+
+---
 
 <p align="center">
   <a href="https://educamas.com.co/" target="_blank">
@@ -27,10 +28,9 @@ ___
 <img src="docs/linea.gif" width="100%" height="2px" >
 </p>
 
-___
+---
 
 <hr>
-
 
 # Fundación VASED
 
@@ -109,15 +109,14 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 ## Despliegue
 
 [ **Deploy Vercel** LMS Vased Fronted](https://vased-web.vercel.app/ "Deploy FRONTED")
-                                                               
----  
+
+---
 
 [ **Deploy Heroku** LMS Vased Backend](https://vased-api.herokuapp.com/api/v1/ "Deploy BACKEND")
 
 ---
+
 ---
-                                                                                                        
-                                                                                                        
 
 ## Autores
 
@@ -137,3 +136,7 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 - [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)-Paquete npm
 - [React-table](https://react-table-v7.tanstack.com/docs/overview)- Librería React usada.
 - [Sprint con Product Backlog y requerimientos técnicos.](https://trello.com/lmsvased)
+
+## Documentación
+
+- [Documentación Front-end ](https://docs.google.com/document/d/1iVlS5y5CusdIwgQR7to9i2pR2WlTmmQi1RqQ4VYT0Qk/edit#heading=h.ws7ysdu24qit)
