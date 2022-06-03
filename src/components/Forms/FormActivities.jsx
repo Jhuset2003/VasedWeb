@@ -136,7 +136,27 @@ const FormActivities = ({ setOpenModal, openModal }) => {
                 </Field>
               </div>
 
-<<<<<<< HEAD
+              <div className={styleForm.formItem}>
+                <label htmlFor="aula" className={styleForm.formSubtitle}>
+                  Aula
+                </label>
+                <Field
+                  as="select"
+                  name="aula"
+                  className={inputCss.purpleInput}
+                  value={values.aula}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                >
+                  <option value="" disabled>
+                    Elija un aula
+                  </option>
+                  <option value="1">Aula 12</option>
+                  <option value="2">Aula 22</option>
+                  <option value="3">Aula 433</option>
+                </Field>
+              </div>
+
               <div className={styleForm.flexItem}>
                 <div className={styleForm.formItem}>
                   <label htmlFor="baseScore" className={styleForm.formSubtitle}>
@@ -175,43 +195,26 @@ const FormActivities = ({ setOpenModal, openModal }) => {
                   )}
                 </div>
               </div>
-=======
-                    <div className={styleForm.formItem}>
-                        <label htmlFor="aula" className={styleForm.formSubtitle}>Aula</label>
-                        <Field as="select" name="aula" className={inputCss.purpleInput}
-                            value={values.aula} onChange={handleChange} onBlur={handleBlur}>
-                            <option value="" disabled>Elija un aula</option>
-                            <option value="1">Aula 12</option>
-                            <option value="2">Aula 22</option>
-                            <option value="3">Aula 433</option>
-                        </Field>
-                    </div>
-                    
-                    <div className={styleForm.flexItem}>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="baseScore" className={styleForm.formSubtitle}>Nota base</label>
-                            <input 
-                            type="number" id="baseScore" name="baseScore" placeholder="10" className={inputCss.purpleInput}
-                            value={values.baseScore} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.baseScore && errors.baseScore && <div className={styleForm.errors}>{errors.baseScore}</div>}
-                        </div>
-                        <div className={styleForm.formItem}>
-                            <label htmlFor="code" className={styleForm.formSubtitle}>Código</label>
-                            <input 
-                            type="number" id="code" name="code" placeholder="0101" className={inputCss.purpleInput}
-                            value={values.code} onChange={handleChange} onBlur={handleBlur}/>
-                            {touched.code && errors.code && <div className={styleForm.errors}>{errors.code}</div>}
-                        </div>
-                    </div>
-                    
-                    <div className={styleForm.formItem}> 
-                        <label htmlFor="description" className={styleForm.formSubtitle}>Descripción</label>
-                        <textarea name="description" id="description" cols="10" rows="5" placeholder="..." className={inputCss.purpleInput}
-                        value={values.description} onChange={handleChange} onBlur={handleBlur}>
-                        </textarea> 
-                        {touched.description && errors.description && <div className={styleForm.errors}>{errors.description}</div>}
-                    </div>
->>>>>>> d416cf5a88797a62e7bc5ce33b88b776c6b577a3
+
+              <div className={styleForm.formItem}>
+                <label htmlFor="description" className={styleForm.formSubtitle}>
+                  Descripción
+                </label>
+                <textarea
+                  name="description"
+                  id="description"
+                  cols="10"
+                  rows="5"
+                  placeholder="..."
+                  className={inputCss.purpleInput}
+                  value={values.description}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                ></textarea>
+                {touched.description && errors.description && (
+                  <div className={styleForm.errors}>{errors.description}</div>
+                )}
+              </div>
 
               <div className={styleForm.formItem}>
                 <label htmlFor="description" className={styleForm.formSubtitle}>
