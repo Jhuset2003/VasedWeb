@@ -123,7 +123,7 @@ export default function GlobalReducer(state, action) {
                 ...classroom,
                 users: {
                   ...classroom.users,
-                  teachers: classroom.teachers.filter(
+                  teachers: classroom.users.teachers.filter(
                     (teacher) => teacher.id !== action.payload.teacherId
                   ),
                 },
@@ -141,7 +141,7 @@ export default function GlobalReducer(state, action) {
                 ...classroom,
                 users: {
                   ...classroom.users,
-                  students: classroom.students.filter(
+                  students: classroom.users.students.filter(
                     (student) => student.id !== action.payload.studentId
                   ),
                 },
