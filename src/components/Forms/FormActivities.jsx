@@ -103,7 +103,7 @@ const FormActivities = ({setOpenModal, openModal}) => {
                         </div>
                     </div>
                     
-                    <div className={styleForm.formItem}>
+                    <div className={styleForm.formItem}> 
                         <label htmlFor="description" className={styleForm.formSubtitle}>Descripción</label>
                         <textarea name="description" id="description" cols="10" rows="5" placeholder="..." className={inputCss.purpleInput}
                         value={values.description} onChange={handleChange} onBlur={handleBlur}>
