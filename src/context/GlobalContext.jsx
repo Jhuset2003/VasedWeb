@@ -1,5 +1,4 @@
 import GlobalReducer from "../reducers/GlobalReducer";
-/* import { v4 } from "uuid"; */
 import React, { createContext, useReducer } from "react";
 
 export const GlobalContext = createContext();

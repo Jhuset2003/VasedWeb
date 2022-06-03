@@ -22,7 +22,7 @@
     border: .2rem solid var(--black);
     border-radius: 1rem;
     width: 95%;
-    height: max-content;
+    height: 95%;
     position: relative;
     padding: 1rem;
 }
@@ -76,7 +76,7 @@
     align-items: center;
     font-family: var(--title);
     text-align: center;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-x: hidden;
     overflow-y: auto;
 }

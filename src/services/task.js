@@ -1,4 +1,4 @@
-import { TASK_CREATE_ROUTE, TASK_DELETE_ROUTE, TASK_GET_ROUTE } from "../utils/routes/vasedApiRoutes";
+import { TASK_CREATE_ROUTE, TASK_DELETE_ROUTE, TASK_GET_ROUTE, TASK_UPDATE_ROUTE } from "../utils/routes/vasedApiRoutes";
 import axios from "axios";
 
 export const createTask = async (task) => {
@@ -42,6 +42,22 @@ export const deleteTask = async (taskId) => {
             }
         }
         const response = await axios.delete(TASK_DELETE_ROUTE + "/" + taskId, config);
+        return response;
+    }
+    catch (error) {
+        return error.response.data;
+    }
+}
+
+export const updateTask = async (values) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        const response = await axios.put(TASK_UPDATE_ROUTE + "/"+ values.id, values, config);
         return response;
     }
     catch (error) {
