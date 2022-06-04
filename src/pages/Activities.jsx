@@ -177,12 +177,10 @@ const Activities = () => {
       breakLinkClassName = {
         pagination.pageLink1
       }
-      renderOnZeroPageCount = {
-        null
-      }
+      
 
       /> 
-     
+      
 
       </motion.div>
 
