@@ -4,18 +4,20 @@ import FormActivities from "../components/Forms/FormActivities";
 import Search from "../components/Sections/Search";
 import MainLayout from "../layout/MainLayout";
 import ModalLayout from "../layout/ModalLayout";
+import NoData from "../components/Sections/NoData";
 
 //styles
 import BtnStyles from "../styles/Buttons.module.css";
 //use the same stlye as adminUser
 import styles from "./styles/AdminUser.module.css";
+import pagination from "./styles/pagination.module.css"
 
 //react
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { SessionContext } from "../context/SessionContext";
 import { motion} from "framer-motion";
 import { GlobalContext } from "../context/GlobalContext";
-import NoData from "../components/Sections/NoData";
+import ReactPaginate from "react-paginate";
 
 const Activities = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -27,6 +29,27 @@ const Activities = () => {
   } = useContext(GlobalContext);
 
   const [search, setSearch] = useState("");
+
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 6;
+
+  //paginacion
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(tasks.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(tasks.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, tasks]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % tasks.length;
+    console.log(event)
+    setItemOffset(newOffset);
+  };
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -47,7 +70,7 @@ const Activities = () => {
 
         <Search searchValue={search} setSearch={setSearch} />
 
-        {tasks.map((task) => {
+        {currentItems.map((task) => {
           if (
             task.name
               .toString()
@@ -104,8 +127,69 @@ const Activities = () => {
           <button className={BtnStyles.BtnPurple}>Cancelar</button>
         </div>
       </ModalLayout> */}
-    </motion.div>
+
+      < ReactPaginate
+      previousLabel = {
+        "Anterior"
+      }
+      nextLabel = {
+        "Siguiente"
+      }
+      breakLabel = {
+        "..."
+      }
+      pageCount = {
+        pageCount
+      }
+      marginPagesDisplayed = {
+        2
+      }
+      pageRangeDisplayed = {
+        3
+      }
+      onPageChange = {
+        handlePageClick
+      }
+      containerClassName = {
+        pagination.pagination1
+      }
+      pageClassName = {
+        pagination.pageItem1
+      }
+      pageLinkClassName = {
+        pagination.pageLink1
+      }
+      previousClassName = {
+        pagination.pageItem1
+      }
+      previousLinkClassName = {
+        pagination.pageLink1
+      }
+      nextClassName = {
+        pagination.pageItem1
+      }
+      nextLinkClassName = {
+        pagination.pageLink1
+      }
+      breakClassName = {
+        pagination.pageItem1
+      }
+      breakLinkClassName = {
+        pagination.pageLink1
+      }
+      renderOnZeroPageCount = {
+        null
+      }
+
+      /> 
+     
+
+      </motion.div>
+
+    
+
   );
+
 };
 
 export default Activities;
