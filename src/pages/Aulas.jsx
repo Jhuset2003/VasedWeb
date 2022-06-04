@@ -8,23 +8,51 @@ import ModalLayout from "../layout/ModalLayout";
 //styles
 import BtnStyles from "../styles/Buttons.module.css";
 import styles from "./styles/AdminUser.module.css";
+import pagination from './styles/pagination.module.css'
 
 //react
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SessionContext } from "../context/SessionContext";
 import { GlobalContext } from "../context/GlobalContext";
 
+//paginate
+import ReactPaginate from 'react-paginate'
+
 
 const Aulas = () => {
-    const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  
+ 
 
-    const { user } = useContext(SessionContext);
+  const { user } = useContext(SessionContext);
+  
     const {
         state: { classrooms },
     } = useContext(GlobalContext);
-    const [search, setSearch] = useState("");
+  
+  const [search, setSearch] = useState("");
+  
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 6;
 
+  //paginacion
+  useEffect(() => {
+     // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(classrooms.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(classrooms.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, classrooms]);
+
+   // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % classrooms.length;
+    console.log(event)
+    setItemOffset(newOffset);
+  };
     return (
         <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -42,7 +70,8 @@ const Aulas = () => {
                     </div>
                     <Search searchValue={search} setSearch={setSearch} />
 
-                    {classrooms.map((classroom) => {
+                    {
+                      currentItems.map((classroom) => {
                         if (
                             classroom.name
                                 .toLowerCase()
@@ -56,7 +85,8 @@ const Aulas = () => {
                             search === ""
                         ) {
                             return (
-                                <CardAula
+                              <CardAula
+                                    
                                     key={classroom._id}
                                     classroom={classroom}
                                 />
@@ -75,7 +105,44 @@ const Aulas = () => {
                         openModal={openModal}
                     />
                 </ModalLayout>
-            </motion.div>
+        </motion.div>
+
+        
+        < ReactPaginate
+          previousLabel = {"Anterior"}
+          nextLabel = {"Siguiente"}
+          breakLabel = {"..."}
+          pageCount = {pageCount}
+          marginPagesDisplayed = {2}
+          pageRangeDisplayed = {3}
+          onPageChange = {handlePageClick}
+          containerClassName = {pagination.pagination1}
+          pageClassName = {pagination.pageItem1}
+          pageLinkClassName = {pagination.pageLink1}
+          previousClassName = {
+            pagination.pageItem1
+          }
+          previousLinkClassName = {
+            pagination.pageLink1
+          }
+          nextClassName = {
+            pagination.pageItem1
+          }
+          nextLinkClassName = {
+            pagination.pageLink1
+          }
+          breakClassName = {
+            pagination.pageItem1
+          }
+          breakLinkClassName = {
+            pagination.pageLink1
+          }
+          renderOnZeroPageCount = {null}
+
+        /> 
+        
+        
+
         </>
     );
 };
