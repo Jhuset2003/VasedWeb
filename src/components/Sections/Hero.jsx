@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import { MdWavingHand } from "react-icons/md";
 import styles from "./styles/Hero.module.css";
 import video from "../../assests/video.mp4";
 import ReactPlayer from "react-player";
 import MainLayout from "../../layout/MainLayout";
+import { SessionContext } from "../../context/SessionContext";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const { user } = useContext(SessionContext);
+  console.log(user);
   return (
     <div>
       <MainLayout>
@@ -27,10 +31,13 @@ const Hero = () => {
                 />
               </div>
               <div className={styles.text_info_hero}>
-                <h1 className={styles.text_title_hero}>
-                  ¡Hola <br /> Te damos la bienvenida al <br /> Aula Virtual
+                {user.role === 1 || user.role === 2 || user.role === 3 ? (
+                  <h1 className={styles.text_title_main}>¡Hola, <strong>{user.name.split(" ")[0] + " " + user.name.split(" ")[1]}!</strong></h1>
+                ):null}
+                <h2 className={styles.text_title_hero}>
+                  Te damos la bienvenida al <br /> Aula Virtual
                   VASED
-                </h1>
+                </h2>
                 <p className={styles.text_details_hero}>
                   Este es un ambiente de formación en donde encontraras diversos
                   cursos que hemos creado para ti.

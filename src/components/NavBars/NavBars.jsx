@@ -16,6 +16,24 @@ function NavBars() {
 
     const { user }  = useContext(SessionContext)
 
+    const itemsstudents = [
+      {
+        anchor: <LinkHome/>,
+      },
+      {
+        
+        anchor: <LinkActivities/>
+      },
+      {
+        
+        anchor: <LinkClassrooms/>,
+      },
+      {
+          
+        anchor: <LinkProfile/>,
+      }
+    ]
+
     const items = [
         {
           anchor: <LinkHome/>,
@@ -27,8 +45,7 @@ function NavBars() {
         {
           
           anchor: <LinkClassrooms/>,
-        }
-        ,
+        },
         {
           
           anchor: <>
@@ -90,7 +107,7 @@ function NavBars() {
             </motion.div>
             <motion.div className={navStyles.NavCellMenu}  >
                 
-                  <Dropdown dropdownTitle="Dropdown" items={items} />
+                  <Dropdown dropdownTitle="Dropdown" items={items} itemsstudents={itemsstudents} />
                 
             </motion.div >
         </motion.nav>

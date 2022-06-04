@@ -5,13 +5,18 @@ import TableStyles from "./TableAttendance.module.css"
 import { MdOutlineDoubleArrow } from "react-icons/md";
 
 import BtnStyles from "../../styles/Buttons.module.css"
-import {React} from 'react'
+import {React, useContext} from 'react'
 import {FaSearch} from 'react-icons/fa'
 import search from '../Sections/styles/Search.module.css'
+import ModalLayout from "../../layout/ModalLayout";
+import { GlobalContext } from "../../context/GlobalContext";
 
 
 
 export default function TableAttendance() {
+
+  const {state : { userEditing }} = useContext(GlobalContext)
+
   const columns = useColumns();
   const data = useRows();
   const table = useTable(

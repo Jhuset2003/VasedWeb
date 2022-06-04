@@ -1,3 +1,9 @@
+@property --offset {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0;
+  }
+
 /*desktop*/
 .section_hero {
     width: 100%;
@@ -50,13 +56,23 @@ video  {
     padding: 10px;
 }
 
-.text_title_hero {
+.text_title_hero, .text_title_main {
     font-size: 20px;
     font-weight: bold;
-    margin: 0px;
-    color: var(--black);
+    margin: 0 0 1rem 0;
     font-family: var(--title);
     color: var(--purple);
+}
+
+.text_title_main{
+    text-underline-offset: var(--offset, 0.5em);
+  text-decoration: underline 0.15em;
+    text-decoration-color: transparent;
+  transition: --offset 400ms, text-decoration-color 400ms;
+}
+.text_title_main:hover, .text_title_main:focus {
+    --offset: 0.2em;
+  text-decoration-color: var(--fusia);
 }
 
 .text_details_hero {
@@ -108,9 +124,8 @@ video  {
     }
 
 
-    .text_title_hero {
+    .text_title_hero, .text_title_main {
         font-size: 30px;
-        color: var(--purple);
     }
 
     .text_details_hero {

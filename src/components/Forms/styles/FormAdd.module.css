@@ -10,16 +10,18 @@
 	width: 100%;
 }
 .reactselectcontainer{
-	width: 90%;
-	position: initial;
+	width: 80%;
+	position: absolute !important;
 	z-index: 999;
+	top: 50%;
+	left: 10%;
 }
 
 .title h2{
 	font-size: 1.3rem;
 	font-weight: 100;
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	font-weight: bold;
 	}
 
@@ -29,7 +31,10 @@
 	z-index: 999;
 	gap: 1rem;
 	padding: 1rem 0;
-	}
+	align-items: center;
+	justify-content: center;
+	margin-top: 3rem;
+  }
 .title{
 	text-align: left;
 }

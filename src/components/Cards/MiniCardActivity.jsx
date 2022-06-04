@@ -47,8 +47,8 @@ const MiniCardActivity = ({task, classroom }) => {
         </div>
         {user.role === 1 || user.role === 2 ? 
         <div className={card.btns}>
-            <button className={btn.BtnGreen}>Editar</button>
-            <button onClick={handleDelete} className={btn.BtnDelete}>Eliminar</button>
+            <button className={btn.BtnGreen}>Asignar</button>
+            <button className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 

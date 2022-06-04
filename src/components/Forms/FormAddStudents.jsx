@@ -4,6 +4,7 @@ import formaddCss from "./styles/FormAdd.module.css";
 import { RiAddFill } from "react-icons/ri";
 import { GlobalContext } from '../../context/GlobalContext';
 import { addUserToClassroom } from '../../services/classrooms';
+import Select from "react-select";
 
 const FormAddStudents = ({classroom}) => {
 
@@ -38,7 +39,7 @@ const FormAddStudents = ({classroom}) => {
   }
 
   const handleChange = (e) => {
-    setSelectUser(e.target.value);
+    setSelectUser(e.value);
   };
 
   useEffect(() => {
@@ -64,7 +65,11 @@ const FormAddStudents = ({classroom}) => {
               </label>
             <div className={formaddCss.inputicons}>
 
-              <select
+            <Select onChange={handleChange} className={formaddCss.reactselectcontainer}
+            options ={ students.map(people => ({ label: people.names + " " + people.lastNames, value: people.id })) }
+            />
+
+              {/* <select
                 name="names"
                 className={formaddCss.inputselect}
                 onChange={handleChange}
@@ -77,7 +82,7 @@ const FormAddStudents = ({classroom}) => {
                     </option>
                   );
                 })}
-              </select>
+              </select> */}
 
               <button type="submit" className={btn.BtnDark}>
                 <RiAddFill className={formaddCss.icon}/>
