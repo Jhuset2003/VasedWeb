@@ -26,6 +26,7 @@ const CardAula = ({ classroom }) => {
     const { user } = useContext(SessionContext);
     const { dispatch } = useContext(GlobalContext);
 
+
     const handleDelete = async () => {
         const resp = await deleteClassroom(classroom.id);
         if (resp.status !== 200 && resp.status !== 204) {
