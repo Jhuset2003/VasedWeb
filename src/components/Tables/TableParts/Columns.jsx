@@ -27,8 +27,8 @@ export default function useColumns() {
             accessor: "email",
         },
         {
-            Header: "Creado",
-            accessor: "createdAt",
+            Header: "Activo",
+            accessor: "active",
         },
     ],  []
  );
