@@ -1,11 +1,30 @@
 import React, { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext';
 import { SessionContext } from '../../context/SessionContext';
+import { deleteTaskFromClassroom } from '../../services/classrooms';
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 
-const MiniCardActivity = ({task}) => {
+const MiniCardActivity = ({task, classroom }) => {
 
   const { user } = useContext(SessionContext);
+
+  const { dispatch } = useContext(GlobalContext);
+
+  const handleDelete = async () => {
+    const resp = await deleteTaskFromClassroom(task.id, classroom.id);
+    if(resp.status !== 200 && resp.status !== 204) {
+      console.log('error');
+      return;
+    }
+    dispatch({
+      type: 'DELETE_TASK_FROM_CLASSROOM',
+      payload: {
+        classroomId: classroom.id,
+        taskId: task.id
+      }
+    })
+  }
 
   return (
     <>
@@ -13,7 +32,7 @@ const MiniCardActivity = ({task}) => {
 
     <div className={card.cardTop}></div>
         <div className={card.text}>
-            <span>{task.name}*</span>
+            <span>{task.name}</span>
 
             {user.role === 3 ? 
               <span><strong>Entrega:</strong> 12/03/2020</span>
@@ -29,7 +48,7 @@ const MiniCardActivity = ({task}) => {
         {user.role === 1 || user.role === 2 ? 
         <div className={card.btns}>
             <button className={btn.BtnGreen}>Editar</button>
-            <button className={btn.BtnDelete}>Eliminar</button>
+            <button onClick={handleDelete} className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 
