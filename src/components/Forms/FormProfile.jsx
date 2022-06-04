@@ -13,6 +13,7 @@ const FormProfile = ({openModal, setOpenModal}) => {
         email: "",
         birthday: "",
         city: "",
+        country: "",
         password: "",
         confirmPassword: ""
         }}
@@ -33,6 +34,11 @@ const FormProfile = ({openModal, setOpenModal}) => {
         }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
             errores.city = "La ciudad solo puede contener letras"
         }
+        if(!valores.country){
+            errores.country = 'Ingresa una ciudad'
+        }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.city)){
+            errores.country = "La ciudad solo puede contener letras"
+        }
 
         if(!valores.password){
             errores.password = 'Ingresa una contraseña'
@@ -52,34 +58,6 @@ const FormProfile = ({openModal, setOpenModal}) => {
                 <h1 className={formProfile.formTitle}>Actualizar perfil</h1>
                 <form className={formProfile.form} onSubmit={handleSubmit}>
                     
-                    <div className={formProfile.flexItem}>
-                        <div className={formProfile.formItem}>
-                            <label htmlFor="name" className={formProfile.formSubtitle}>Nombres</label>
-                            <input 
-                            type="text" id="name" name="name" placeholder="Nombres" className={inputCss.disabledInput}
-                            value={values.name} disabled/>
-                        </div>
-                        <div className={formProfile.formItem}>
-                            <label htmlFor="lastname" className={formProfile.formSubtitle}>Apellidos</label>
-                            <input 
-                            type="text" id="lastname" name="lastname" placeholder="Apellidos" className={inputCss.disabledInput}
-                            value={values.lastname} disabled/>
-                        </div>
-                    </div>
-                    <div className={formProfile.flexItem}>
-                        <div className={formProfile.formItem}>
-                            <label htmlFor="id" className={formProfile.formSubtitle}>Documento</label>
-                            <input 
-                            type="number" id="id" name="id" placeholder="0000000" className={inputCss.disabledInput}
-                            value={values.id} disabled/>
-                        </div>
-                        <div className={formProfile.formItem}>
-                            <label htmlFor="typeid" className={formProfile.formSubtitle}>Tipo de documento</label>
-                            <input 
-                            type="date" id="typeid" name="typeid" placeholder="CC" className={inputCss.disabledInput}
-                            value={values.typeid} disabled/>
-                        </div>
-                    </div>
                     <div className={formProfile.flexItem}>
                         <div className={formProfile.formItem}>
                             <label htmlFor="email" className={formProfile.formSubtitle}>Correo</label>
@@ -108,8 +86,8 @@ const FormProfile = ({openModal, setOpenModal}) => {
                         <div className={formProfile.formItem}>
                             <label htmlFor="country" className={formProfile.formSubtitle}>País</label>
                             <input 
-                            type="text" id="country" name="country" placeholder="País" className={inputCss.disabledInput}
-                            value={values.country} disabled/>
+                            type="text" id="country" name="country" placeholder="País" className={inputCss.purpleInput}
+                            value={values.country}/>
                         </div>
                     </div>
 

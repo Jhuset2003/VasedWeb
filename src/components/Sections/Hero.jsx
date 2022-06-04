@@ -10,7 +10,6 @@ import { SessionContext } from "../../context/SessionContext";
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const { user } = useContext(SessionContext);
-  console.log(user);
   return (
     <div>
       <MainLayout>

@@ -46,7 +46,7 @@ const FormUsers = ({ setOpenModal, openModal }) => {
     dispatch({
       type: "SET_EDITING_NULL"
     })
-    
+
     console.log(resp);
   }
 
@@ -204,9 +204,9 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                     <option value="" disabled>
                       Tipo documento
                     </option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
+                    <option value={1}>Cédula de ciudadanía </option>
+                    <option value={2}>Tarjeta de identidad</option>
+                    <option value={3}>Pasaporte</option>
                   </Field>
                   {touched.dniTypeId && errors.dniTypeId && (
                     <div className={styleForm.errors}>{errors.dniTypeId}</div>
@@ -305,9 +305,9 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                   <option disabled value="">
                     Rol
                   </option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
+                  <option value={1}>Administrador</option>
+                  <option value={2}>Profesor</option>
+                  <option value={3}>Estudiante</option>
                 </Field>
                 {touched.roleId && errors.roleId && (
                   <div className={styleForm.errors}>{errors.roleId}</div>

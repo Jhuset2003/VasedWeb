@@ -133,6 +133,19 @@ export default function GlobalReducer(state, action) {
                           }
                         : classroom
                 ),
+                users: state.users.map((user) => {
+                    if (user.id == action.payload.teacherId) {
+                        return {
+                            ...user,
+                            classrooms: user.classrooms.filter(
+                                (classroom) =>
+                                    classroom.id != action.payload.classroomId
+                                
+                            )
+                        };
+                    }
+                    return user;
+                })
             };
 
         case "DELETE_STUDENT_FROM_CLASSROOM":
@@ -146,13 +159,23 @@ export default function GlobalReducer(state, action) {
                                   ...classroom.users,
                                   students: classroom.users.students.filter(
                                       (student) =>
-                                          student.id !==
-                                          action.payload.studentId
+                                          student.id !== action.payload.studentId
                                   ),
                               },
                           }
                         : classroom;
                 }),
+                users: state.users.map((user) => {
+                    return user.id == action.payload.studentId
+                        ? {
+                              ...user,
+                              classrooms: user.classrooms.filter(
+                                  (classroom) =>
+                                      classroom.id != action.payload.classroomId
+                              ),
+                          }
+                        : user;
+                })
             };
 
         case "DELETE_TASK_FROM_CLASSROOM":
@@ -174,7 +197,7 @@ export default function GlobalReducer(state, action) {
             return {
                 ...state,
                 classrooms: state.classrooms.map((classroom) => {
-                    return classroom.id === action.payload.classroomId
+                    return classroom.id === action.payload.classroom.id
                         ? {
                               ...classroom,
                               users: {
@@ -187,13 +210,24 @@ export default function GlobalReducer(state, action) {
                           }
                         : classroom;
                 }),
+                users: state.users.map((user) => {
+                    return user.id == action.payload.teacher.id
+                        ? {
+                              ...user,
+                              classrooms: [
+                                  ...user.classrooms,
+                                  action.payload.classroom,
+                              ],
+                          }
+                        : user;
+                })
             };
 
         case "ADD_STUDENT_TO_CLASSROOM":
             return {
                 ...state,
                 classrooms: state.classrooms.map((classroom) => {
-                    return classroom.id === action.payload.classroomId
+                    return classroom.id === action.payload.classroom.id
                         ? {
                               ...classroom,
                               users: {
@@ -206,6 +240,17 @@ export default function GlobalReducer(state, action) {
                           }
                         : classroom;
                 }),
+                users: state.users.map((user) => {
+                    return user.id === action.payload.student.id
+                        ? {
+                              ...user,
+                              classrooms: [
+                                  ...user.classrooms,
+                                  action.payload.classroom,
+                              ],
+                          }
+                        : user;
+                })
             };
 
         case "ADD_TASK_TO_CLASSROOM":

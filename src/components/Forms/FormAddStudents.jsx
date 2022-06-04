@@ -32,7 +32,7 @@ const FormAddStudents = ({classroom}) => {
     dispatch({
       type: "ADD_STUDENT_TO_CLASSROOM",
       payload: {
-        classroomId: classroom.id,
+        classroom,
         student
       },
     });
