@@ -5,7 +5,6 @@ import { RiAddFill } from "react-icons/ri";
 import { GlobalContext } from "../../context/GlobalContext";
 import {
     addTaskToClassroom,
-    addUserToClassroom,
 } from "../../services/classrooms";
 import Select from "react-select";
 
