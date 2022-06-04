@@ -66,7 +66,7 @@ const Activities = () => {
         } else {
             setFilteredTasks(tasks);
         }
-    }, [search]);
+    }, [search, tasks]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {

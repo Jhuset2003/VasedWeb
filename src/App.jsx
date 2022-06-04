@@ -1,3 +1,8 @@
+//styles
+import "./styles/App.css";
+
+
+
 //components
 import Aulas from "./pages/Aulas";
 import Activities from "./pages/Activities";
@@ -10,8 +15,6 @@ import Footer from "./components/Sections/Footer";
 import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
 import NavBars from "./components/NavBars/NavBars";
-//styles
-import "./styles/App.css";
 
 //react 
 import { useContext, useEffect } from "react";

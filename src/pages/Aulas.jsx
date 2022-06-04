@@ -65,7 +65,7 @@ const Aulas = () => {
         } else {
             setFilteredClassrooms(classrooms);
         }
-    }, [search]);
+    }, [search, classrooms]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
@@ -105,7 +105,7 @@ const Aulas = () => {
                         ) {
                             return (
                                 <CardAula
-                                    key={classroom._id}
+                                    key={classroom.id}
                                     classroom={classroom}
                                 />
                             );
