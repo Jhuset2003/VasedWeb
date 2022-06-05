@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SessionContext } from "../../context/SessionContext";
 import { GlobalContext } from "../../context/GlobalContext";
 import { deleteTask, getAnswer } from "../../services/task";
+import FormAnswer from "../Forms/FormAnswer";
 
 const CardActivity = ({ task }) => {
 
@@ -167,13 +168,15 @@ const CardActivity = ({ task }) => {
       </motion.div>
 
       <ModalLayout
+        title="Formulario entregar respuesta"
         setOpenModal={setOpenModal}
         openModal={openModal}
         icon="show"
         color="success"
       >
-        {/* <FormFeedback /> */}
-        <h1>Formulario de entrega aqui</h1>
+
+        <FormAnswer/>
+
       </ModalLayout>
     </div>
   );
