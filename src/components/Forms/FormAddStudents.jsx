@@ -47,7 +47,7 @@ const FormAddStudents = ({classroom}) => {
     console.log(studentInClassroom)
     const filterUsers = users.filter(user => user.roleId === 3 && !studentInClassroom.some(userC => userC.id === user.id));
     setStudents(filterUsers);
-  },[])
+  },[classroom])
 
   return (
     <div>

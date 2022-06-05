@@ -54,7 +54,7 @@ const MiniCardActivity = ({task, classroom }) => {
             <button 
             onClick={() => setOpenModal(true)}
             className={btn.BtnGreen}>Asignar</button>
-            <button className={btn.BtnDelete}>Eliminar</button>
+            <button onClick={handleDelete} className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 

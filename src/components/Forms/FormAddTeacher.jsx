@@ -39,14 +39,14 @@ const FormAddTeacher = ({ classroom }) => {
   }
 
   const handleChange = (e) => {
-    setSelectUser(e.target.value);
+    setSelectUser(e.value);
   };
 
   useEffect(() => {
     const teacherInClassroom = classroom.users.teachers;
     const filterUsers = users.filter(user => user.roleId === 2 && !teacherInClassroom.some(userC => userC.id === user.id));
     setTeachers(filterUsers);
-  },[])
+  },[classroom])
 
   return (
     <>

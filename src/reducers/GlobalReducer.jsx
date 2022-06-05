@@ -155,6 +155,7 @@ export default function GlobalReducer(state, action) {
                     return classroom.id === action.payload.classroomId
                         ? {
                               ...classroom,
+                              totalStudents: classroom.totalStudents - 1,
                               users: {
                                   ...classroom.users,
                                   students: classroom.users.students.filter(
@@ -230,6 +231,7 @@ export default function GlobalReducer(state, action) {
                     return classroom.id === action.payload.classroom.id
                         ? {
                               ...classroom,
+                              totalStudents: classroom.totalStudents + 1,
                               users: {
                                   ...classroom.users,
                                   students: [
