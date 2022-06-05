@@ -92,7 +92,7 @@ const FormAddActivities = ({ classroom }) => {
               </select> */}
 
                             <button type="submit" className={btn.BtnDark}>
-                                <RiAddFill className={formaddCss.icon} />
+                                Asignar <RiAddFill className={formaddCss.icon} />
                             </button>
                         </div>
                     </div>

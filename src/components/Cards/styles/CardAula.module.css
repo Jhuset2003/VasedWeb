@@ -124,8 +124,9 @@ border-radius: 10px;
 }
 .users{
     width: 90%;
-    display: grid;
-    grid-template-columns: 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr; */
+    display: flex;
     gap: 2rem;
     padding-bottom: 1rem;
 }
@@ -151,7 +152,9 @@ border-radius: 10px;
 background-color: var(--black);
 border-radius: 10px;
 }
-
+.teacher, .student{
+    width: 100%;
+}
 
 .barlaptop{
     display: none;
@@ -209,8 +212,8 @@ border-radius: 10px;
 
     .users{
         width: 90%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr); */
         gap: 2rem;
     }
     
