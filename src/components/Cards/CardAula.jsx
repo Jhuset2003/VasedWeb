@@ -26,6 +26,7 @@ const CardAula = ({ classroom }) => {
     const { user } = useContext(SessionContext);
     const { dispatch } = useContext(GlobalContext);
 
+    console.log(classroom)
 
     const handleDelete = async () => {
         const resp = await deleteClassroom(classroom.id);
@@ -123,7 +124,14 @@ const CardAula = ({ classroom }) => {
                         )}
 
                         <span>
-                            <strong>Capacidad: {classroom.capacity}</strong>
+                            {
+                                classroom.totalStudents >= classroom.capacity ? (
+                                    <strong>Capacidad: {classroom.totalStudents}/{classroom.capacity}</strong>
+                                ) :
+                                (
+                                    <strong>Capacidad: {classroom.totalStudents}/{classroom.capacity}</strong>
+                                )
+                            }
                         </span>
                     </div>
 
