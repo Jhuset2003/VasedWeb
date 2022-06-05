@@ -1,8 +1,6 @@
 //styles
 import "./styles/App.css";
 
-
-
 //components
 import Aulas from "./pages/Aulas";
 import Activities from "./pages/Activities";
@@ -16,7 +14,7 @@ import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
 import NavBars from "./components/NavBars/NavBars";
 
-//react 
+//react
 import { useContext, useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Guest from "./middlewares/Guest";
@@ -25,48 +23,65 @@ import AuthAdmin from "./middlewares/AuthAdmin";
 import AuthTeacher from "./middlewares/AuthTeacher";
 import { SessionContext } from "./context/SessionContext";
 import { GlobalContext } from "./context/GlobalContext";
-import {getClassrooms} from "./services/classrooms";
+import { getClassrooms } from "./services/classrooms";
 import { getTasks } from "./services/task";
 import { getUsers } from "./services/users";
-
 
 function App() {
     const location = useLocation();
     const { user, setUser } = useContext(SessionContext);
-    const { state, dispatch } = useContext(GlobalContext);
+    const {
+        state: { classrooms, tasks },
+        dispatch,
+    } = useContext(GlobalContext);
 
     const setStates = async () => {
-        const classrooms = await getClassrooms();
-        if(classrooms.status !== 200 && classrooms.status !== 204){
-            console.log('error')
-            return
-          }
+        const classroomsResp = await getClassrooms();
+        if (classroomsResp.status !== 200 && classroomsResp.status !== 204) {
+            console.log("error");
+            return;
+        }
         dispatch({
             type: "SET_CLASSROOMS",
-            payload: classrooms.data,
+            payload: classroomsResp.data,
         });
 
-        const tasks = await getTasks();
-        if(tasks.status !== 200 && tasks.status !== 204){
-            console.log('error')
-            return
-          }
-        dispatch({
-            type: "SET_TASKS",
-            payload: tasks.data,
-        })
+        if (user.role === 1 || user.role === 2) {
+            const tasks = await getTasks();
+            if (tasks.status !== 200 && tasks.status !== 204) {
+                console.log("error");
+                return;
+            }
+            dispatch({
+                type: "SET_TASKS",
+                payload: tasks.data,
+            });
+        } else if (user.role === 3) {
+            const tasksClass = user.user_task_classrooms.map((task) => {
+                return {
+                    ...task.task_classroom.task,
+                    classroomId: task.task_classroom.classroomId,
+                    answer: null,
+                    task_classroomId: task.id,
+                };
+            });
+
+            dispatch({
+                type: "SET_TASKS",
+                payload: tasksClass,
+            });
+        }
 
         const users = await getUsers();
-        if(users.status !== 200 && users.status !== 204){
-            console.log('error')
-            return
-          }
+        if (users.status !== 200 && users.status !== 204) {
+            console.log("error");
+            return;
+        }
         dispatch({
             type: "SET_USERS",
             payload: users.data,
-        })
-    
-    }
+        });
+    };
 
     useEffect(() => {
         //set user from localStorage
@@ -74,12 +89,29 @@ function App() {
             const userLocal = JSON.parse(localStorage.getItem("sessionLogin"));
             setUser(userLocal);
         }
-    },[])
+    }, []);
 
     useEffect(() => {
         //set data in the context
-        setStates()
-    },[user])
+        setStates();
+    }, [user]);
+
+    useEffect(() => {
+        if (user.role === 3) {
+            const parsedClassrooms = classrooms.map((classroom) => {
+                return {
+                    ...classroom,
+                    tasks: tasks.filter((task) => {
+                        return task.classroomId === classroom.id;
+                    }),
+                };
+            });
+            dispatch({
+                type: "SET_CLASSROOMS",
+                payload: parsedClassrooms,
+            });
+        }
+    }, [tasks]);
 
     return (
         <div className="App">
@@ -115,31 +147,46 @@ function App() {
                         </AuthAdmin>
                     }
                 />
-                <Route path="/perfil" element={
-                    <Auth>
-                        <Profile />
-                    </Auth>
-                } />
-                <Route path="/detalle-usuario/:userId" element={
-                    <AuthTeacher>
-                        <DetailUser />
-                    </AuthTeacher>
-                } />
-                <Route path="/login" element={
-                    <Guest>
-                        <Login />
-                    </Guest>
-                }/>
-                <Route path="/recover" element={
-                    <Guest>
-                        <FormOfRecovering />
-                    </Guest>
-                } />
-                <Route path="/new-password" element={
-                    <Guest>
-                        <FormOfNewPassword />
-                    </Guest>
-                } />
+                <Route
+                    path="/perfil"
+                    element={
+                        <Auth>
+                            <Profile />
+                        </Auth>
+                    }
+                />
+                <Route
+                    path="/detalle-usuario/:userId"
+                    element={
+                        <AuthTeacher>
+                            <DetailUser />
+                        </AuthTeacher>
+                    }
+                />
+                <Route
+                    path="/login"
+                    element={
+                        <Guest>
+                            <Login />
+                        </Guest>
+                    }
+                />
+                <Route
+                    path="/recover"
+                    element={
+                        <Guest>
+                            <FormOfRecovering />
+                        </Guest>
+                    }
+                />
+                <Route
+                    path="/new-password"
+                    element={
+                        <Guest>
+                            <FormOfNewPassword />
+                        </Guest>
+                    }
+                />
 
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
