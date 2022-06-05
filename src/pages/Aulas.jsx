@@ -25,7 +25,7 @@ const Aulas = () => {
     const { user } = useContext(SessionContext);
 
     const {
-        state: { classrooms },
+        state: { classrooms, tasks },
     } = useContext(GlobalContext);
 
     const [filteredClassrooms, setFilteredClassrooms] = useState(classrooms);
@@ -65,7 +65,7 @@ const Aulas = () => {
         } else {
             setFilteredClassrooms(classrooms);
         }
-    }, [search, classrooms]);
+    }, [search, classrooms, user]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
@@ -91,25 +91,14 @@ const Aulas = () => {
                     <Search searchValue={search} setSearch={setSearch} />
 
                     {currentItems.map((classroom) => {
-                        if (
-                            classroom.name
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) ||
-                            classroom.description
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) ||
-                            classroom.code
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) ||
-                            search === ""
-                        ) {
+
                             return (
                                 <CardAula
                                     key={classroom.id}
                                     classroom={classroom}
                                 />
                             );
-                        }
+                        
                     })}
                 </MainLayout>
                 <ModalLayout
