@@ -2,6 +2,7 @@ import btn from '../styles/Buttons.module.css'
 import profileCss from './styles/Profile.module.css'
 import MainLayout from '../layout/MainLayout'
 import FormProfile from '../components/Forms/FormProfile'
+import {FaUserGraduate} from 'react-icons/fa'
 
 import ModalLayout from '../layout/ModalLayout'
 import { useState } from 'react'
@@ -34,6 +35,26 @@ const Profile = () => {
             <div className={profileCss.contProfile}>
                 <h1 className={profileCss.title}>Perfil</h1>
                   <button onClick={handleLogout} className={btn.BtnPink}>Cerrar sesión</button>
+            </div>
+            <div className={profileCss.containerData}>
+              <picture className={profileCss.img}>
+                <FaUserGraduate className={profileCss.icon}/>
+              </picture>
+              <div className={profileCss.textContainer}>
+                <div className={profileCss.User}>
+                  <h2 className={profileCss.UserName}>e</h2>
+                  <p className={profileCss.UserCC}>s</p>
+                  <p className={profileCss.UserMail}>d</p>
+                  <p className={profileCss.UserLocation}>s</p>
+                </div>
+                <div className={profileCss.Details}>
+                    <p className={profileCss.DetailsRol}>
+                      Rol: </p>
+                    <p className={profileCss.DetailsInit}>Fecha ultimo ingreso: -</p>
+                    <p className={profileCss.DetailsCreated}>Fecha creación: </p>
+                    <p className={profileCss.DetailsEnd}>Fecha nacimiento: </p>
+                </div>
+              </div>
             </div>
             <FormProfile setOpenModal={setOpenModal} openModal={openModal}/>
         </MainLayout>

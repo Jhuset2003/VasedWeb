@@ -65,8 +65,7 @@ function App() {
             type: "SET_USERS",
             payload: users.data,
         })
-        
-        console.log(state)
+    
     }
 
     useEffect(() => {
@@ -121,7 +120,7 @@ function App() {
                         <Profile />
                     </Auth>
                 } />
-                <Route path="/detalle-usuario" element={
+                <Route path="/detalle-usuario/:userId" element={
                     <AuthTeacher>
                         <DetailUser />
                     </AuthTeacher>

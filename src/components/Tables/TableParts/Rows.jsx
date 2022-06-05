@@ -34,7 +34,7 @@ export default function useRows() {
             actions: (
                 <>
                 <div className={rowsStyles.center}>
-                    <Link to="/detalle-usuario">
+                    <Link to={`/detalle-usuario/${user.id}`}>
                         <button className={BtnStyles.BtnPurple}>
                             <RiEyeLine />
                         </button>
