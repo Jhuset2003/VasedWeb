@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext';
 import { SessionContext } from '../../context/SessionContext';
 import { deleteTaskFromClassroom } from '../../services/classrooms';
 import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
+import ModalLayout from '../../layout/ModalLayout';
+import FormAssingTask from '../Forms/FormAssingTask';
 
 const MiniCardActivity = ({task, classroom }) => {
+
+  const [openModal, setOpenModal] = useState(false);
 
   const { user } = useContext(SessionContext);
 
@@ -47,12 +51,23 @@ const MiniCardActivity = ({task, classroom }) => {
         </div>
         {user.role === 1 || user.role === 2 ? 
         <div className={card.btns}>
-            <button className={btn.BtnGreen}>Asignar</button>
+            <button 
+            onClick={() => setOpenModal(true)}
+            className={btn.BtnGreen}>Asignar</button>
             <button className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 
     </div>
+
+    <ModalLayout
+        color="success"
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+        icon="show"
+    >
+        <FormAssingTask />
+    </ModalLayout>
     </>
   )
 }

@@ -205,8 +205,9 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                       Tipo documento
                     </option>
                     <option value={1}>Cédula de ciudadanía </option>
-                    <option value={2}>Tarjeta de identidad</option>
+                    <option value={2}>Cédula de Extranjeria</option>
                     <option value={3}>Pasaporte</option>
+                    <option value={4}>Tarjeta de identidad</option>
                   </Field>
                   {touched.dniTypeId && errors.dniTypeId && (
                     <div className={styleForm.errors}>{errors.dniTypeId}</div>

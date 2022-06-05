@@ -13,9 +13,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SessionContext } from "../../context/SessionContext";
 import { GlobalContext } from "../../context/GlobalContext";
 import { deleteTask } from '../../services/task'
-import FormActivities from '../Forms/FormActivities'
+import FormFeedback from '../Forms/FormFeedback'
 
 const CardActivity = ({ task }) => {
+  const [openModal, setOpenModal] = useState(false);
+
   //estado para mostrar contenido de tarea
   const [expand, setExpand] = useState(false);
 
@@ -80,8 +82,9 @@ const CardActivity = ({ task }) => {
                     {user.role === 3 ?
                         <div className={cardActivity.btns}>
                             <button
+                            onClick={() => setOpenModal(true)}
                             className={btn.BtnDark} 
-                            >Entregar</button>{/* desarrollar la modal apartir de aquí */}
+                            >Entregar</button>
                         </div>
                     :null}
 
@@ -142,59 +145,18 @@ const CardActivity = ({ task }) => {
               </div>
             ) : null}
 
-            {user.role === 1 || user.role === 2 ? (
-              <div className={cardActivity.users}>
-                {user.role === 1 ? (
-                  <div className={cardActivity.teacher}>
-                    <div className={cardActivity.userTop}>
-                      <h2>Profesores</h2>
-                      <button
-                        className={`${btn.BtnDark} ${cardActivity.btnfont}`}
-                      >
-                        Agregar
-                      </button>
-                    </div>
-                    <div className={cardActivity.boxScroll}>
-                      {/* {activity.users.students.map((student) => (
-                        <span key={student.id} className={cardActivity.boxUser}>
-                          {student.name} <FaTimes className={cardActivity.iconBox} />
-                        </span>
-                      ))} */}
-                      <span className={cardActivity.boxUser}>
-                          name <FaTimes className={cardActivity.iconBox} />
-                      </span>
-                    </div>
-                  </div>
-                ) : null}
-
-                <div className={cardActivity.student}>
-                  <div className={cardActivity.userTop}>
-                    <h2>Estudiantes</h2>
-                    <button
-                      className={`${btn.BtnDark} ${cardActivity.btnfont}`}
-                    >
-                      Agregar
-                    </button>
-                  </div>
-                  <div className={cardActivity.boxScroll}>
-                    <div className={cardActivity.box}>
-                    {/* {task.users.teachers.map((teacher) => (
-                        <span key={teacher.id} className={cardActivity.boxUser}>
-                          {teacher.name} <FaTimes className={cardActivity.iconBox} />
-                        </span>
-                      ))} */}
-                      <span className={cardActivity.boxUser}>
-                          name <FaTimes className={cardActivity.iconBox} />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
           </motion.div>
         )}
         </AnimatePresence>
       </motion.div>
+
+      <ModalLayout 
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+        icon="show">
+        {/* <FormFeedback /> */}
+        <h1>Formulario de entrega aqui</h1>
+      </ModalLayout>
 
     </div>
   );
