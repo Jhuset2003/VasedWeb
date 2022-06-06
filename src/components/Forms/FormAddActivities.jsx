@@ -39,7 +39,10 @@ const FormAddActivities = ({ classroom }) => {
             type: "ADD_TASK_TO_CLASSROOM",
             payload: {
                 classroomId: classroom.id,
-                task
+                task: {
+                    ...task,
+                    task_classroom: resp.data
+                }
             },
         });
     };
@@ -54,7 +57,7 @@ const FormAddActivities = ({ classroom }) => {
             (task) => !taskInClassroom.some((taskC) => taskC.id === task.id)
         );
         setActivities(filterTasks);
-    }, []);
+    }, [classroom, tasks]);
 
     return (
         <>
