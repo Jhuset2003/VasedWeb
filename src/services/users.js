@@ -1,4 +1,4 @@
-import { CREATE_USER_ROUTE, USERS_GET_ROUTE, USER_DELETE_ROUTE, USER_UPDATE_ROUTE, GET_USER_ROUTE } from "../utils/routes/vasedApiRoutes"
+import { CREATE_USER_ROUTE, USERS_GET_ROUTE, USER_DELETE_ROUTE, USER_UPDATE_ROUTE, GET_USER_ROUTE, USERS_GET_TASKS_BY_CLASSROOM } from "../utils/routes/vasedApiRoutes"
 import axios from "axios";
 
 export const createUser = async (user) => {
@@ -75,6 +75,22 @@ export const getOneUser = async (userId) => {
             }
         }
         const response = await axios.get(GET_USER_ROUTE + "/" + userId, config);
+        return response;
+    }
+    catch (error) {
+        return error.response.data;
+    }
+}
+
+export const getListOfUsersBytask = async (taskClassroomId) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        const response = await axios.get(`${USERS_GET_TASKS_BY_CLASSROOM}/${taskClassroomId}`, config);
         return response;
     }
     catch (error) {

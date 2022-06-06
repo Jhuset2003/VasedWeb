@@ -11,6 +11,8 @@ const FormAddStudents = ({classroom}) => {
   const [selectUser, setSelectUser] = useState(null);
   const [students, setStudents] = useState([]);
 
+  console.log(classroom)
+
   const { state: { users }, dispatch } = useContext(GlobalContext);
 
   const handleSubmit = async (e) => {
@@ -55,19 +57,26 @@ const FormAddStudents = ({classroom}) => {
       <section className={formaddCss.containerform}>
         <form onSubmit={handleSubmit} className={formaddCss.formulario}>
           <div className={formaddCss.title}>
-            <h2>Agregar Estudiantes</h2>
+            <h2 className={formaddCss.subtitle}>Agregar Estudiantes</h2>
             <div className={formaddCss.forminput}>
 
-              <span>100/1000</span>
+              <span className={formaddCss.spanText}><strong className={formaddCss.textColor}>{classroom.totalStudents + " "}</strong> {classroom.totalStudents === 1 ? "estudiante agregado" : "estudiantes agregados"}  de un total de <strong className={formaddCss.textColor}>{" " + classroom.capacity}</strong></span>
             </div>
               <label htmlFor="names">
                 <span>Selecionar usuario</span>
               </label>
             <div className={formaddCss.inputicons}>
 
-            <Select onChange={handleChange} className={formaddCss.reactselectcontainer}
+            {classroom.totalStudents === classroom.capacity ? 
+            <Select isDisabled
+            onChange={handleChange} className={formaddCss.reactselectcontainer}
             options ={ students.map(people => ({ label: people.names + " " + people.lastNames, value: people.id })) }
-            />
+            /> : 
+            <Select 
+            onChange={handleChange} className={formaddCss.reactselectcontainer}
+            options ={ students.map(people => ({ label: people.names + " " + people.lastNames, value: people.id })) }
+            />} 
+            
 
               {/* <select
                 name="names"
@@ -85,7 +94,7 @@ const FormAddStudents = ({classroom}) => {
               </select> */}
 
               <button type="submit" className={btn.BtnDark}>
-                <RiAddFill className={formaddCss.icon}/>
+                Añadir <RiAddFill className={formaddCss.icon}/>
               </button>
             </div>   
           </div>

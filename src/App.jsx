@@ -13,6 +13,7 @@ import Footer from "./components/Sections/Footer";
 import FormOfNewPassword from "./pages/FormOfNewPassword";
 import FormOfRecovering from "./pages/FormOfRecovering";
 import NavBars from "./components/NavBars/NavBars";
+import Students from "./pages/Students";
 
 //react
 import { useContext, useEffect } from "react";
@@ -185,6 +186,14 @@ function App() {
                         <Guest>
                             <FormOfNewPassword />
                         </Guest>
+                    }
+                />
+                <Route
+                    path="/estudiantes"
+                    element={
+                        <AuthTeacher>
+                            <Students/>
+                        </AuthTeacher>
                     }
                 />
 

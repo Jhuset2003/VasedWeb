@@ -4,23 +4,18 @@ import input from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from "formik";
 
-const FormAnswer = () => {
+const FormAnswer = ({answer}) => {
   return (
     <div>
         <Formik
                 initialValues={{
                     answer: "",
-                    file: "",
                 }}
                 validate={(valores) => {
                     let errores = {};
 
                     if (!valores.answer) {
                         errores.answer = "Ingrese una respuesta";
-                    }
-
-                    if (!valores.file) {
-                        errores.file = "Selecione un archivo";
                     }
                     return errores;
                 }}
@@ -40,6 +35,9 @@ const FormAnswer = () => {
                     handleBlur,
                 }) => (
                     <div className={styleForm.formContainer}>
+                        {answer ? (
+                            <span>{answer.answer_text}</span>
+                        ):
                         <form
                             action=""
                             className={styleForm.form}
@@ -71,33 +69,10 @@ const FormAnswer = () => {
                                 )}
                             </div>
 
-                            <div className={styleForm.formItem}>
-                                <label
-                                    htmlFor="file"
-                                    className={styleForm.formSubtitle}
-                                >
-                                    Subir Documento
-                                </label>
-                                <input
-                                    type="file"
-                                    id="file"
-                                    name="file"
-                                    placeholder="Documento"
-                                    className={styleForm.fileInput}
-                                    value={values.file}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                />
-                                {touched.file && errors.file && (
-                                    <div className={styleForm.errors}>
-                                        {errors.file}
-                                    </div>
-                                )}
-                            </div>
                             <button type="submit" className={btn.BtnPurple}>
                                 Entregar
                             </button>
-                        </form>
+                        </form>}
                     </div>
                 )}
             </Formik>

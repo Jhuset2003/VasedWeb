@@ -7,6 +7,7 @@ import {
     CLASSROOM_ADD_TASK,
     CLASSROOM_DELETE_TASK,
     CLASSROOM_DELETE_USER,
+    CLASSROOM_ADD_USER_TASK,
 } from "../utils/routes/vasedApiRoutes";
 import axios from "axios";
 
@@ -154,3 +155,22 @@ export const deleteUserFromClassroom = async (user, classroom) => {
         return error.response.data;
     }
 };
+
+export const assignTaskToUser = async (user, task) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+        };
+        const response = await axios.post(
+            `${CLASSROOM_ADD_USER_TASK}?userId=${user}&taskClassroomId=${task}`,
+            {},
+            config
+        );
+        return response;
+    } catch (error) {
+        return error.response.data;
+    }
+}

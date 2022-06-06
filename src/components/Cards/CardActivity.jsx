@@ -101,7 +101,7 @@ const CardActivity = ({ task }) => {
                 <button 
                 onClick={() => setOpenModal(true)}
                 className={btn.BtnDark}>
-                  {answer ? "Editar respuesta" : "Responder"}
+                  {answer ? "Ver respuesta" : "Responder"}
                 </button>
                 {/* desarrollar la modal apartir de aquí */}
               </div>
@@ -158,7 +158,7 @@ const CardActivity = ({ task }) => {
                     <h2>Feedback</h2>
                   </div>
                   <div className={cardActivity.taskDescrip}>
-                    <p>{answer.feedback || "No hay feedback"}</p>
+                    <p>{answer?.feedback || "No hay feedback"}</p>
                   </div>
                 </div>
               ) : null}
@@ -173,9 +173,9 @@ const CardActivity = ({ task }) => {
         openModal={openModal}
         icon="show"
         color="success"
+        
       >
-
-        <FormAnswer/>
+        <FormAnswer answer={answer}/>
 
       </ModalLayout>
     </div>

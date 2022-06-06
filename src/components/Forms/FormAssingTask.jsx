@@ -2,20 +2,43 @@ import React, { useContext, useEffect, useState } from "react";
 import btn from "../../styles/Buttons.module.css";
 import formaddCss from "./styles/FormAdd.module.css";
 import { RiAddFill } from "react-icons/ri";
-import { GlobalContext } from "../../context/GlobalContext";
 import Select from "react-select";
+import { assignTaskToUser } from "../../services/classrooms";
+import { GlobalContext } from "../../context/GlobalContext";
 
-const FormAddActivities = () => {
+const FormAssingTask = ({classroom, task, usersList}) => {
 
+    const { state: { users }, dispatch } = useContext(GlobalContext);
+
+    const [assign, setAssing] = useState(null);
+    const [userStudent, setUserStudent] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!assign) {
+            return;
+        }
+
+        const resp = await assignTaskToUser(assign, task.task_classroom.id)
+        if(resp.status !== 200 && resp.status !== 204) {
+            console.log("error")
+            return
+        }
+        console.log("resp", resp)
+
     };
 
     const handleChange = (e) => {
-        setSelectActivity(e.value);
+        setAssing(e.value);
     };
 
+    useEffect(() => {
+        //
+        setUserStudent(classroom.users.students);
+    },[classroom])
+
+    console.log(userStudent)
 
     return (
         <>
@@ -31,7 +54,10 @@ const FormAddActivities = () => {
                             <Select
                                 onChange={handleChange}
                                 className={formaddCss.reactselectcontainer}
-                                options={""}
+                                options={userStudent.map(user => ({
+                                    value: user.id,
+                                    label: user.names + " " + user.lastNames
+                                }))}
                             />
 
                             <button type="submit" className={btn.BtnDark}>
@@ -44,5 +70,4 @@ const FormAddActivities = () => {
         </>
     );
 };
-
-export default FormAddActivities;
+export default FormAssingTask
