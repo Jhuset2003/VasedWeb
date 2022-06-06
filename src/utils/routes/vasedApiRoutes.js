@@ -32,6 +32,7 @@ export const TASK_GET_ROUTE = TASK_ROUTE + "/"
 export const TASK_DELETE_ROUTE = TASK_ROUTE + "/delete-task"
 export const TASK_UPDATE_ROUTE = TASK_ROUTE + "/update-task"
 export const ANSWER_GET_ROUTE = TASK_ROUTE + "/answer"
+export const GET_USER_TASK_CLASSROOMS = TASK_ROUTE + "/user-task-classrooms"
 
 
 // User routes
@@ -47,3 +48,6 @@ export const CLASSROOM_ADD_USER_TASK = TASK_ROUTE + "/add-user-task-classroom"
 export const GET_ANSWERS_BY_USER_ROUTE = ANSWER_ROUTE + "/"
 export const CREATE_NEW_ANSWER_ROUTE = ANSWER_ROUTE + "/create-answer" //POST
 export const ADD_FEEDBACK = ANSWER_ROUTE + "/add-feedback" //POST
+
+// answer routes
+export const GET_ANSWERS_BY_USER = ANSWER_ROUTE
