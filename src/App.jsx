@@ -65,6 +65,7 @@ function App() {
                     classroomId: task.task_classroom.classroomId,
                     answer: null,
                     task_classroomId: task.id,
+                    userTaskClassroomId: task.id,
                 };
             });
 

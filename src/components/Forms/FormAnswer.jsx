@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styleForm from "./styles/FormUsers.module.css";
 import formaddCss from "./styles/FormAdd.module.css";
 import input from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from "formik";
+import { createAnswer } from '../../services/task';
+import { GlobalContext } from '../../context/GlobalContext';
 
-const FormAnswer = ({answer}) => {
+const FormAnswer = ({answer, setAnswer, task}) => {
+
+    const { dispatch } = useContext(GlobalContext);
+
+    const handleSubmitCustom = async (values) => {
+        const resp = await createAnswer({
+            answer: values.answer,
+            userTaskClassroomId: task.userTaskClassroomId,
+        });
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            return;
+        }
+        setAnswer(resp.data);
+
+        dispatch({
+            type: "ADD_ANSWER_TO_TASK",
+            payload: {
+                taskId: task.id,
+                answer: resp.data,
+            }
+        })
+    }
+
   return (
     <div>
         <Formik

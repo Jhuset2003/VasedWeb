@@ -6,7 +6,7 @@ import Select from "react-select";
 import { assignTaskToUser } from "../../services/classrooms";
 import { GlobalContext } from "../../context/GlobalContext";
 
-const FormAssingTask = ({classroom, task, usersList}) => {
+const FormAssingTask = ({classroom, task, usersList, setUsersList}) => {
 
     const { state: { users }, dispatch } = useContext(GlobalContext);
 
@@ -25,7 +25,8 @@ const FormAssingTask = ({classroom, task, usersList}) => {
             console.log("error")
             return
         }
-        console.log("resp", resp)
+        const userAssigned = users.find(user => user.id === assign);
+        setUsersList([...usersList, userAssigned])
 
     };
 
@@ -34,9 +35,13 @@ const FormAssingTask = ({classroom, task, usersList}) => {
     };
 
     useEffect(() => {
-        //
-        setUserStudent(classroom.users.students);
-    },[classroom])
+        // students in classroom.users.students that are not in usersList
+        const students = classroom.users.students.filter(
+            (student) => !usersList.some((user) => user.id === student.id)
+        )
+        setUserStudent(students);
+        
+    },[classroom, usersList])
 
     console.log(userStudent)
 

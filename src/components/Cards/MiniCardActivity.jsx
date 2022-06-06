@@ -52,15 +52,15 @@ const MiniCardActivity = ({task, classroom }) => {
         <div className={card.text}>
             <span>{task.name}</span>
 
-            {user.role === 3 ? 
+            {/*user.role === 3 ? 
               <span><strong>Entrega:</strong> 12/03/2020</span>
-            : null}
+  : null*/}
 
-            <span><strong>Limite:</strong> 12/03/2020</span>
+            {/* <span><strong>Limite:</strong> 12/03/2020</span> */}
 
-            {user.role === 3 ? 
+            {/*user.role === 3 ? 
               <span><strong>Calificación:</strong> 0/{task.baseScore}*</span>
-            : null}
+            : null*/}
             
         </div>
         {user.role === 1 || user.role === 2 ? 
@@ -80,7 +80,7 @@ const MiniCardActivity = ({task, classroom }) => {
         openModal={openModal}
         icon="show"
     >
-        <FormAssingTask classroom={classroom} task={task} usersList={usersList}/>
+        <FormAssingTask classroom={classroom} task={task} usersList={usersList} setUsersList={setUsersList}/>
     </ModalLayout>
 
     <ModalLayout

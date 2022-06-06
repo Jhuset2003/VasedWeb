@@ -281,8 +281,24 @@ export default function GlobalReducer(state, action) {
                 }), */
             }
 
+        case "ADD_ANSWER_TO_TASK":
+            return {
+                ...state,
+                tasks: state.tasks.map((task) => {
+                    return task.id === action.payload.taskId
+                        ? {
+                              ...task,
+                              answers: action.payload.answer,
+                          }
+                        : task;
+                })
+            }
+            
+
         default:
             break;
     }
 }
+
+
 
