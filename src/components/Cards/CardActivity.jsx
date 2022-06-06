@@ -125,7 +125,7 @@ const CardActivity = ({ task }) => {
             {user.role === 3 ? (
               <div className={cardActivity.circleNoteLaptop}>
                 <span>
-                  {answer ? answer.score : "-"}/{task.baseScore}
+                  {answer?.score || "-"}/{task.baseScore}
                 </span>
               </div>
             ) : null}
@@ -175,7 +175,7 @@ const CardActivity = ({ task }) => {
         color="success"
         
       >
-        <FormAnswer answer={answer}/>
+        <FormAnswer answer={answer} setAnswer={setAnswer} task={task}/>
 
       </ModalLayout>
     </div>
