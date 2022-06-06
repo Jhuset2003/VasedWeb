@@ -79,7 +79,7 @@ const MiniCardActivity = ({task, classroom }) => {
         openModal={openModal}
         icon="show"
     >
-        <FormAssingTask classroom={classroom} task={task} usersList={usersList}/>
+        <FormAssingTask classroom={classroom} task={task} usersList={usersList} setUsersList={setUsersList}/>
     </ModalLayout>
     </>
   )
