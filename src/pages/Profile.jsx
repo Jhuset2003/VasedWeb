@@ -111,7 +111,7 @@ const Profile = () => {
           <div className={profileCss.boxContainer}>
             <div className={profileCss.metrics}>
               <h2>Lo estas haciendo genial <FaRegHandPeace/></h2>
-              <CircularProgressbar className={profileCss.contentBars} value={user && answers ? (user.user_task_classrooms.length / answers.length) * 100 : 0} text={user && answers ? `${(user.user_task_classrooms.length / answers.length) * 100}%`: "0%"} 
+              <CircularProgressbar className={profileCss.contentBars} value={user && answers.length ? (user.user_task_classrooms.length / answers.length) * 100 : 0} text={user && answers.length > 0 ? `${(user.user_task_classrooms.length / answers.length) * 100}%`: "0%"} 
               
               styles={buildStyles({
 
