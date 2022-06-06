@@ -53,7 +53,7 @@ const FormAssingTask = ({classroom, task, usersList, setUsersList}) => {
                         <h2>Asignar una actividad para estudiante</h2>
 
                         <label htmlFor="names">
-                            <span>Selecionar estudiante</span>
+                            <span>Seleccionar estudiante</span>
                         </label>
                         <div className={formaddCss.inputicons}>
                             <Select
