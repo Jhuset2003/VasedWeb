@@ -267,6 +267,19 @@ export default function GlobalReducer(state, action) {
                         : classroom;
                 })
             }
+        
+        case "ASSIGN_TASK_TO_USER":
+            return {
+                ...state,
+                /* tasks: state.tasks.map((task) => {
+                    return task.id === action.payload.taskId
+                        ? {
+                              ...task,
+                              assignedTo: action.payload.userId,
+                            }
+                        : task;
+                }), */
+            }
 
         default:
             break;

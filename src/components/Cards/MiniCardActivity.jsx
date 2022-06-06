@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext';
 import { SessionContext } from '../../context/SessionContext';
 import { deleteTaskFromClassroom } from '../../services/classrooms';
@@ -6,6 +6,7 @@ import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 import ModalLayout from '../../layout/ModalLayout';
 import FormAssingTask from '../Forms/FormAssingTask';
+import { getListOfUsersBytask } from '../../services/users';
 
 const MiniCardActivity = ({task, classroom }) => {
 
@@ -14,6 +15,18 @@ const MiniCardActivity = ({task, classroom }) => {
   const { user } = useContext(SessionContext);
 
   const { dispatch } = useContext(GlobalContext);
+
+    
+  const [usersList, setUsersList] = useState([]);
+
+  const getUsers = async () => {
+    const resp = await getListOfUsersBytask(task.task_classroom.id)
+    setUsersList(resp.data);
+  }
+
+  useEffect(() => {
+    getUsers();
+  },[])
 
   const handleDelete = async () => {
     const resp = await deleteTaskFromClassroom(task.id, classroom.id);
@@ -66,7 +79,7 @@ const MiniCardActivity = ({task, classroom }) => {
         openModal={openModal}
         icon="show"
     >
-        <FormAssingTask />
+        <FormAssingTask classroom={classroom} task={task} usersList={usersList}/>
     </ModalLayout>
     </>
   )

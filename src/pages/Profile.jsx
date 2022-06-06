@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { GlobalContext } from "../context/GlobalContext";
 const Profile = () => {
   const { user, setUser } = useContext(SessionContext);
-  console.log("user", user);
+
   const { dispatch } = useContext(GlobalContext);
 
   const navigate = useNavigate();

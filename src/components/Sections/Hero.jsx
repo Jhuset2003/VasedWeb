@@ -31,11 +31,15 @@ const Hero = () => {
               </div>
               <div className={styles.text_info_hero}>
                 {user.role === 1 || user.role === 2 || user.role === 3 ? (
-                  <h1 className={styles.text_title_main}>¡Hola, <strong>{user.name.split(" ")[0] + " " + user.name.split(" ")[1]}!</strong></h1>
-                ):null}
+                  <h1 className={styles.text_title_main}>
+                    ¡Hola,{" "}
+                    <strong>
+                      {user.name.split(" ")[0] + " " + user.name.split(" ")[1]}!
+                    </strong>
+                  </h1>
+                ) : null}
                 <h2 className={styles.text_title_hero}>
-                  Te damos la bienvenida al <br /> Aula Virtual
-                  VASED
+                  Te damos la bienvenida al <br /> Aula Virtual VASED
                 </h2>
                 <p className={styles.text_details_hero}>
                   Este es un ambiente de formación en donde encontraras diversos

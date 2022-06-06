@@ -7,6 +7,7 @@ export const AUTH_ROUTE = API_URL + "/auth"
 export const TASK_ROUTE = API_URL + "/tasks"
 export const USER_ROUTE = API_URL + "/users"
 export const CLASSROOM_ROUTE = API_URL + "/classrooms"
+export const ANSWER_ROUTE = API_URL + "/answers"
 
 
 // auth routes 
@@ -29,9 +30,17 @@ export const TASK_DELETE_ROUTE = TASK_ROUTE + "/delete-task"
 export const TASK_UPDATE_ROUTE = TASK_ROUTE + "/update-task"
 export const ANSWER_GET_ROUTE = TASK_ROUTE + "/answer"
 
+
 // User routes
 export const CREATE_USER_ROUTE = USER_ROUTE + "/create-user"
 export const USERS_GET_ROUTE = USER_ROUTE + "/"
 export const USER_DELETE_ROUTE = USER_ROUTE + "/delete-user"
 export const USER_UPDATE_ROUTE = USER_ROUTE + "/update-user"
 export const GET_USER_ROUTE = USER_ROUTE + "/"
+export const USERS_GET_TASKS_BY_CLASSROOM = USER_ROUTE + "/users-by-taskClassroomId"
+
+//intermediate routes queries
+export const CLASSROOM_ADD_USER_TASK = TASK_ROUTE + "/add-user-task-classroom"
+export const GET_ANSWERS_BY_USER_ROUTE = ANSWER_ROUTE + "/"
+export const CREATE_NEW_ANSWER_ROUTE = ANSWER_ROUTE + "/create-answer" //POST
+export const ADD_FEEDBACK = ANSWER_ROUTE + "/add-feedback" //POST

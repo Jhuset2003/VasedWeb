@@ -14,9 +14,10 @@ const DetailUser = () => {
 
   const { state: { users } } = useContext(GlobalContext);
   const { userId } = useParams();
-  const [userOne, setUserOne] = useState(null);
+  const [userOne, setUserOne] = useState({});
 
   console.log(userOne);
+  console.log(userOne.roleId);
 
   useEffect(() => {
     setUserOne(users.find((user) => user.id === Number(userId)));
@@ -34,36 +35,56 @@ const DetailUser = () => {
         </div>
         <UserDetails user={userOne}/>
 
-        {/* {userOne.roleId === 3 && (
+        {userOne.roleId === 3 &&
+        <h3 className={stylesDetail.subtitleContainer}>Entregas</h3>}
+
+        {userOne.roleId === 3 && (
           <>
-          {userOne.answers.length > 0 ? (
+      
             <div className={stylesDetail.UserDetailsContainer}>
               Tiene aulas
             </div>
-          ) : <UserNoDetails text="Ninguna entrega realizada"/>}
+          {/* {userOne.answers.length > 0 ? (
+          ) : <UserNoDetails text="Ninguna entrega realizada"/>
+          } */}
           </>
         )
-        } */}
+        }
         
-        { userOne?.classrooms ? (
-          <div className={stylesDetail.UserDetailsContainer}>
-            <div className={stylesDetail.miniCards}>
-            {userOne.classrooms.map((classroom) => 
-                <CardDetail dataCard={classroom} />
-                )}
-            </div>
-          </div>
-        ) : <UserNoDetails text="Ninguna aula asignada" />}
+        {userOne.roleId === 2 || userOne.roleId === 3 ? (
+          <>
+          <h3 className={stylesDetail.subtitleContainer}>Aulas</h3>
+          { userOne?.classrooms ? (
+            <>
+              <div className={stylesDetail.UserDetailsContainer}>
+                <div className={stylesDetail.miniCards}>
+                {userOne.classrooms.map((classroom) => 
+                    <CardDetail dataCard={classroom} />
+                    )}
+                </div>
+              </div>
+            </>
+          ) : <UserNoDetails text="Ninguna aula asignada" />}
+  
+          </>
+        ):null}
 
-        {userOne?.task_classrooms ? (
-          <div className={stylesDetail.UserDetailsContainer}>
-            <div className={stylesDetail.miniCards}>
-            {userOne.task_classrooms.map((task) => 
-                <CardDetail dataCard={task} />
-                )}
-            </div>
-          </div>
-        ) : <UserNoDetails text="Ninguna actividad asignada"/>}
+        {userOne.roleId === 3 &&
+        <h3 className={stylesDetail.subtitleContainer}>Actividades</h3>}
+        {
+          userOne.roleId === 3 && 
+          <>
+            {userOne?.task_classrooms ? (
+              <div className={stylesDetail.UserDetailsContainer}>
+                <div className={stylesDetail.miniCards}>
+                {userOne.task_classrooms.map((task) => 
+                    <CardDetail dataCard={task} />
+                    )}
+                </div>
+              </div>
+          ) : <UserNoDetails text="Ninguna actividad asignada"/>}
+          </>
+        }
       
       </MainLayout>
     </div>
