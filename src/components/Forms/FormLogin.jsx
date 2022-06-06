@@ -122,7 +122,7 @@ const FormLogin = () => {
                                 Entrar
                             </button>
                         </form>
-                        <Link to="/recover" className={formCss.formRecover}>
+                        <Link to="/forgot-password" className={formCss.formRecover}>
                             ¿Olvidaste tu contraseña?
                         </Link>
                     </div>
