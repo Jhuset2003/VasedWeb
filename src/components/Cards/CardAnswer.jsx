@@ -5,7 +5,7 @@ import btn from '../../styles/Buttons.module.css'
 import card from './styles/MiniCardActivity.module.css'
 import FormFeedback from '../Forms/FormFeedback';
 
-const CardAnswer = ({answer}) => {
+const CardAnswer = ({answer, userAnswers, setUserAnswers}) => {
 
     const {user} = useContext(SessionContext);
     const [openModal, setOpenModal] = useState(false);
@@ -34,7 +34,7 @@ const CardAnswer = ({answer}) => {
             setOpenModal={setOpenModal}
             openModal={openModal}
             icon="show">
-            <FormFeedback openModal={openModal} setOpenModal={setOpenModal} answer={answer} />
+            <FormFeedback openModal={openModal} setOpenModal={setOpenModal} answer={answer} setUserAnswers={setUserAnswers} userAnswers={userAnswers}/>
         </ModalLayout>
     </>
   )

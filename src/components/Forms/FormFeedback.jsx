@@ -5,7 +5,7 @@ import btn from "../../styles/Buttons.module.css";
 import { Formik } from 'formik';
 import { addFeedback } from '../../services/task';
 
-const FormFeedback = ({setOpenModal, openModal, answer}) => {
+const FormFeedback = ({setOpenModal, openModal, answer, setUserAnswers, userAnswers}) => {
 
 
     const handleSubmitCustom = async (values) => {
@@ -20,6 +20,18 @@ const FormFeedback = ({setOpenModal, openModal, answer}) => {
             console.log(resp);
             return;
         }
+
+        setUserAnswers(userAnswers.map((userAnswer) => {
+            if (userAnswer.id === answer.id) {
+                return {
+                    ...userAnswer,
+                    feedback: values.feedback,
+                    score: Number(values.score),
+                }
+            }
+            return userAnswer;
+        }));
+
 
         setOpenModal(false);
     };
