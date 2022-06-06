@@ -18,6 +18,7 @@ import { GlobalContext } from "../context/GlobalContext";
 
 //paginate
 import ReactPaginate from "react-paginate";
+import NoData from "../components/Sections/NoData";
 
 const Aulas = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -89,6 +90,9 @@ const Aulas = () => {
                         ) : null}
                     </div>
                     <Search searchValue={search} setSearch={setSearch} />
+
+                    {currentItems?.length === 0 &&
+                    <NoData textStudent={"Ninguna aula asignada aun"}/>}
 
                     {currentItems.map((classroom) => {
 

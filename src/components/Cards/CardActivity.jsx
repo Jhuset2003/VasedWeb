@@ -18,6 +18,7 @@ import FormAnswer from "../Forms/FormAnswer";
 const CardActivity = ({ task }) => {
 
   const [openModal, setOpenModal] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
 
   //estado para mostrar contenido de tarea
   const [expand, setExpand] = useState(false);
@@ -90,7 +91,7 @@ const CardActivity = ({ task }) => {
                   Editar
                 </button>
 
-                <button onClick={handleDelete} className={btn.BtnDelete}>
+                <button onClick={setOpenDelete} className={btn.BtnDelete}>
                   Eliminar
                 </button>
               </div>
@@ -176,6 +177,25 @@ const CardActivity = ({ task }) => {
         
       >
         <FormAnswer answer={answer}/>
+
+      </ModalLayout>
+
+      <ModalLayout
+        setOpenModal={setOpenDelete}
+        openModal={openDelete}
+        color="error"
+        
+      >
+        <p>¿Estas seguro de eliminar esta tarea?</p>
+
+        <div className={cardActivity.btns}>
+          <button onClick={handleDelete} className={btn.BtnDelete}>
+            Eliminar
+          </button>
+          <button onClick={() => setOpenDelete(false)} className={btn.BtnPurple}>
+            Cancelar
+          </button>
+        </div>
 
       </ModalLayout>
     </div>

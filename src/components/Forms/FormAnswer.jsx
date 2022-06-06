@@ -1,5 +1,6 @@
 import React from 'react'
 import styleForm from "./styles/FormUsers.module.css";
+import formaddCss from "./styles/FormAdd.module.css";
 import input from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from "formik";
@@ -34,7 +35,7 @@ const FormAnswer = ({answer}) => {
                     handleChange,
                     handleBlur,
                 }) => (
-                    <div className={styleForm.formContainer}>
+                    <div className={formaddCss.containerform}>
                         {answer ? (
                             <span>{answer.answer_text}</span>
                         ):
