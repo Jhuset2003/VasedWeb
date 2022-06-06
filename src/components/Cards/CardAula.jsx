@@ -219,12 +219,14 @@ const CardAula = ({ classroom }) => {
                             <div className={cardCss.student}>
                                 <div className={cardCss.userTop}>
                                     <h2>Estudiantes</h2>
-                                    <button
+                                    {user.role === 1 ? (
+                                        <button
                                         onClick={() => setOpenModal2(true)}
                                         className={`${btn.BtnDark} ${cardCss.btnfont}`}
                                     >
                                         Agregar
-                                    </button>
+                                        </button>
+                                    ):null}
                                 </div>
                                 <div className={cardCss.boxScroll}>
                                     <div className={cardCss.box}>
@@ -237,16 +239,18 @@ const CardAula = ({ classroom }) => {
                                                     {student.names +
                                                         " " +
                                                         student.lastNames}{" "}
-                                                    <FaTimes
-                                                        onClick={() =>
-                                                            handleDeleteStudentFromClassroom(
-                                                                student.id
-                                                            )
-                                                        }
-                                                        className={
-                                                            cardCss.iconBox
-                                                        }
-                                                    />
+                                                    {user.role === 1 ? (
+                                                            <FaTimes
+                                                            onClick={() =>
+                                                                handleDeleteStudentFromClassroom(
+                                                                    student.id
+                                                                )
+                                                            }
+                                                            className={
+                                                                cardCss.iconBox
+                                                            }
+                                                        />
+                                                    ):null}
                                                 </span>
                                             )
                                         )}

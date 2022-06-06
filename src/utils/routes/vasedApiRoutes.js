@@ -12,6 +12,9 @@ export const ANSWER_ROUTE = API_URL + "/answers"
 
 // auth routes 
 export const LOGIN_ROUTE = AUTH_ROUTE + "/login"
+export const FORGOT_PASSWORD_ROUTE = AUTH_ROUTE + "/forgot-password"
+export const RESET_PASSWORD_ROUTE = AUTH_ROUTE + "/reset-password"
+export const ACTIVATE_ACCOUNT_ROUTE = AUTH_ROUTE + "/activate-account"
 
 // classroom routes
 export const CLASSROOM_CREATE_ROUTE = CLASSROOM_ROUTE + "/create-classroom"

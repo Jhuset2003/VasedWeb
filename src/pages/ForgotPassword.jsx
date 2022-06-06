@@ -6,8 +6,20 @@ import formCss from '../components/Forms/styles/FormLogin.module.css';
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { forgotPassword } from '../services/users';
 
-const FormOfRecovering = () => {
+const ForgotPassword = () => {
+
+  const handleSubmitCustom = async (values) => {
+    const resp = await forgotPassword(values.email)
+    console.log(resp)
+    if (resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+
+  }
+
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1}}>
       <Formik
@@ -15,17 +27,17 @@ const FormOfRecovering = () => {
       email: ""
     }}
 
-    onSubmit={(valores, {resetForm})=>{
-      resetForm();
+    onSubmit={(values)=>{
+      handleSubmitCustom(values)
       console.log("formulario enviado") 
+      console.log(values)
     }}
     
     validate={(valores) =>{
       let errores = {};
 
-      //Validación de contraseña 
       if(!valores.email){
-        errores.email = 'Ingresa un correo'
+        errores.email = 'Ingrese un correo'
       }
       return errores;
     }}>
@@ -46,14 +58,21 @@ const FormOfRecovering = () => {
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}/>
-                      {touched.email && errors.email && <div className={formCss.errors}>{errors.email}</div>}
+                      {touched.email && errors.email && <div className={recoCss.errors}>{errors.email}</div>}
                   </div>
                   <div className={recoCss.BtnContainer}>
-                    <Link to="/new-password">
-                      <button type="button" className={btn.BtnPurple}>Enviar</button>
-                    </Link>
+
+                    <button 
+                    type="submit" 
+                    className={btn.BtnPurple}>
+                      Enviar
+                    </button>
+
                     <Link to="/login">
                       <button className={btn.BtnPink}>Regresar</button>
+                    </Link>
+                    <Link to="/reset-password">
+                      <button className={btn.BtnPink}>desar</button>
                     </Link>
 
                   </div>
@@ -68,4 +87,4 @@ const FormOfRecovering = () => {
   )
 }
 
-export default FormOfRecovering
+export default ForgotPassword

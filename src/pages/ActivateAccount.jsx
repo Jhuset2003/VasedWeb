@@ -5,25 +5,42 @@ import btn from '../styles/Buttons.module.css';
 import formCss from '../components/Forms/styles/FormLogin.module.css'; 
 import { Formik } from 'formik';
 import ModalLayout from '../layout/ModalLayout';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { activateAccount } from '../services/users';
 
+const ActivateAccount = () => {
+    
 
+    let {id} = useParams();
+  let {token} = useParams();
 
-const FormOfNewPassword = () => {
-  const [openModal,setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
-
+  const handleSubmitCustom = async (values) => {
+    const resp = await activateAccount(
+      {
+        id,
+        token,
+        password: values.password
+      }
+    )
+    console.log(resp)
+    if (resp.status !== 200 && resp.status !== 204) {
+      console.log("error")
+      return
+    }
+    setOpenModal(true);
+  }
   return (
     <>
       <Formik
       initialValues={{
-        newPassword: "",
-        confirmPassword: ""
+        password: "",
       }}
 
-      onSubmit={(valores, {resetForm})=>{
-        resetForm();
-        console.log("Contraseña actialuzada éxitosamente") 
+      onSubmit={(valores)=>{
+        handleSubmitCustom(valores)
+        console.log("Contraseña nueva guardada éxitosamente") 
       }}
     
       validate={(valores) =>{
@@ -46,8 +63,8 @@ const FormOfNewPassword = () => {
                       <h3 className={newCss.formFieldTitle}>Contraseña nueva</h3>
                       <input 
                       type="password" 
-                      id="newPassword" 
-                      name="newPassword"
+                      id="password" 
+                      name="password"
                       className={inputCss.purpleInput} 
                       placeholder="*************"
                       value={values.password}
@@ -56,42 +73,31 @@ const FormOfNewPassword = () => {
                       {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}
                   </div>
 
-                  <div className={newCss.formField}>
-                      <h3 className={newCss.formFieldTitle}>Repetir contraseña</h3>
-                      <input 
-                      type="password" 
-                      id="confirmPassword" 
-                      name="confirmPassword"
-                      className={inputCss.purpleInput} 
-                      placeholder="*************"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}/>
-                      {touched.password && errors.password && <div className={formCss.errors}>{errors.password}</div>}
-                  </div>
                   <div className={newCss.BtnContainer}>
                       <button 
                       type='submit' 
                       className={btn.BtnPurple} 
-                      onClick={()=> setOpenModal(!openModal)}>Confirmar</button>
+                      >Confirmar</button>
                   </div>
                 </form>
             </div>
         </div>
       )}
       </Formik>
-      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal} color="success">
-        <div className={newCss.modalContentSize}>
-          <h1>Contraseña nueva establecida con éxito</h1>
+      <ModalLayout title="Modal" setOpenModal={setOpenModal} openModal={openModal} 
+      color="success">
+        
+          <div className={newCss.modalContentSize}>
+          <h1>Cuenta activada con éxito</h1>
           <Link to="/login">
             <button className={btn.BtnGreen}>Iniciar sesión</button>
           </Link>
         </div>
+        
       </ModalLayout>
     </>
 
-    
   )
 }
 
-export default FormOfNewPassword
+export default ActivateAccount
