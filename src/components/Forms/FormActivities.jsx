@@ -72,7 +72,7 @@ const FormActivities = ({ setOpenModal, openModal }) => {
             errores.code = "Ingrese un código";
           }
           if (!valores.description) {
-            errores.description = "Ingrese una desccripción";
+            errores.description = "Ingrese una descripción";
           }
           return errores;
         }}
