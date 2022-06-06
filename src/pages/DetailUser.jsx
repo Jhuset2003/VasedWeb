@@ -10,6 +10,7 @@ import CardDetail from "../components/Cards/CardDetail";
 import { GlobalContext } from "../context/GlobalContext";
 import { getAnswersByUser } from "../services/users";
 import { getUserTaskClassrooms } from "../services/task";
+import CardAnswer from "../components/Cards/CardAnswer";
 
 const DetailUser = () => {
     const navigate = useNavigate();
@@ -69,17 +70,17 @@ const DetailUser = () => {
 
                 {userOne.roleId === 3 && (
                     <>
-                        <div className={stylesDetail.UserDetailsContainer}>
+                        
+                        {userAnswers.length === 0 ? (
+                            <UserNoDetails text="No hay entregas" />
+                        )
+                        :(
+                            <div className={stylesDetail.UserDetailsContainer}>
                             {userAnswers.map((answer) => (
-                                <span>{answer.answer_text}</span>
+                                <CardAnswer answer={answer}/>
                             ))}
-                            {userAnswers.length === 0 && (
-                                <span>No hay entregas</span>
-                            )}
                         </div>
-                        {/* {userOne.answers.length > 0 ? (
-          ) : <UserNoDetails text="Ninguna entrega realizada"/>
-          } */}
+                        )}
                     </>
                 )}
 
@@ -114,16 +115,24 @@ const DetailUser = () => {
                     </h3>
                 )}
 
-                <div className={stylesDetail.UserDetailsContainer}>
-                    <div className={stylesDetail.miniCards}>
-                        {userTaskClassrooms.map((task) => (
-                            <CardDetail dataCard={task.task_classroom.task} />
-                        ))}
-                    </div>
-                </div>
-                {userTaskClassrooms.length === 0 && (
-                    <UserNoDetails text="Ninguna actividad asignada" />
+                {userOne.roleId === 3 && (
+                    <>
+                    
+                    {userTaskClassrooms.length === 0 ? (
+                        <UserNoDetails text="Ninguna actividad asignada" />
+                    )
+                    :(
+                        <div className={stylesDetail.UserDetailsContainer}>
+                            <div className={stylesDetail.miniCards}>
+                                {userTaskClassrooms.map((task) => (
+                                    <CardDetail dataCard={task.task_classroom.task} />
+                                ))}
+                            </div>
+                        </div>  
+                    )}
+                    </>
                 )}
+
             </MainLayout>
         </div>
     );

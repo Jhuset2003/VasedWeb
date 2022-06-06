@@ -3,12 +3,31 @@ import styleForm from "./styles/FormUsers.module.css";
 import inputCss from "../../styles/Inputs.module.css";
 import btn from "../../styles/Buttons.module.css";
 import { Formik } from 'formik';
+import { addFeedback } from '../../services/task';
 
-const FormFeedback = ({setOpenModal, openModal}) => {
+const FormFeedback = ({setOpenModal, openModal, answer}) => {
+
+
+    const handleSubmitCustom = async (values) => {
+        const resp = await addFeedback({
+            score: Number(values.score),
+            feedback: values.feedback,
+            answerId: answer.id,
+        });
+        console.log(values);
+        if (resp.status !== 200 && resp.status !== 204) {
+            console.log("error");
+            console.log(resp);
+            return;
+        }
+
+        setOpenModal(false);
+    };
+
   return (
     <div className={styleForm.formFeedback}>
-        <h1>Entrega -estudiante- </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis natus est sed labore voluptas soluta id incidunt, cum facere provident distinctio culpa deserunt. Illo dolor ratione consequatur aut fugit officia!</p>
+        <h1>Entrega {answer.id}</h1>
+        <p>{answer.answer_text}</p>
 
         <Formik
                 initialValues={{
@@ -17,21 +36,17 @@ const FormFeedback = ({setOpenModal, openModal}) => {
                 }}
                 validate={(valores) => {
                     let errores = {};
-
-                    //Validación del nombre de usuario
                     if (!valores.score) {
                         errores.score = "Ingrese una calificación";
                     }
-                    //Validación de contraseña
                     if (!valores.feedback) {
                         errores.feedback = "Ingrese la retroalimentación";
                     }
                     return errores;
                 }}
-                onSubmit={(valores, { resetForm }) => {
-                    resetForm();
-                    handleSubmitCustom(valores);
-                    console.log(valores)
+                onSubmit={(values) => {
+                    handleSubmitCustom(values);
+                    console.log(values)
                     console.log("formulario enviado");
                 }}
             >
@@ -57,7 +72,7 @@ const FormFeedback = ({setOpenModal, openModal}) => {
                                     Calificación estudiante
                                 </label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     id="score"
                                     name="score"
                                     placeholder="Calificación"
@@ -81,8 +96,8 @@ const FormFeedback = ({setOpenModal, openModal}) => {
                                     Retroalimentación
                                 </label>
                                 <textarea
-                                    name="feeback"
-                                    id="feeback"
+                                    name="feedback"
+                                    id="feedback"
                                     cols="10"
                                     rows="5"
                                     placeholder="Escriba aquí su retroalimentación"
@@ -102,6 +117,7 @@ const FormFeedback = ({setOpenModal, openModal}) => {
                                     Enviar
                                 </button>
                                 <button
+                                    type="button"
                                     className={btn.BtnPink}
                                     onClick={() => setOpenModal(false)}
                                 >
