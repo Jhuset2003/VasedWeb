@@ -5,6 +5,7 @@
 }
 
 .formFeedback{
+    width: 100%;
     min-height: 80vh;
     display: grid;
     gap: 1rem;

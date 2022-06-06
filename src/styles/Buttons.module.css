@@ -1,6 +1,6 @@
 /*Variables de estilos de botones*/
 
-.BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite,.BtnDelete {
+.BtnDark,.BtnBlue,.BtnGreen,.BtnPink,.BtnPurple,.BtnWhite,.BtnGray,.BtnDelete {
     font-family: var(--title);
     border: none;
     padding: .5rem 1rem;
@@ -13,6 +13,15 @@
     gap: .5rem;
     text-decoration-line: none;
     cursor: pointer;
+}
+.BtnGray{
+    background: var(--gray);
+    color: var(--white);
+    cursor: default !important;
+}
+.BtnGray:hover{
+    background: var(--gray);
+    color: var(--white);
 }
 .BtnDark{
     color: white;

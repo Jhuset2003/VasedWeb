@@ -1,4 +1,4 @@
-import { ANSWER_GET_ROUTE, CREATE_NEW_ANSWER_ROUTE, TASK_CREATE_ROUTE, TASK_DELETE_ROUTE, TASK_GET_ROUTE, TASK_UPDATE_ROUTE } from "../utils/routes/vasedApiRoutes";
+import { ADD_FEEDBACK, ANSWER_GET_ROUTE, CREATE_NEW_ANSWER_ROUTE, GET_USER_TASK_CLASSROOMS, TASK_CREATE_ROUTE, TASK_DELETE_ROUTE, TASK_GET_ROUTE, TASK_UPDATE_ROUTE } from "../utils/routes/vasedApiRoutes";
 import axios from "axios";
 
 export const createTask = async (task) => {
@@ -91,6 +91,38 @@ export const createAnswer = async (values) => {
             }
         }
         const response = await axios.post(CREATE_NEW_ANSWER_ROUTE, values, config);
+        return response;
+    }
+    catch (error) {
+        return error.response.data;
+    }
+}
+
+export const getUserTaskClassrooms = async (userId) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        const response = await axios.get(GET_USER_TASK_CLASSROOMS + "/" + userId, config);
+        return response;
+    }
+    catch (error) {
+        return error.response.data;
+    }
+}
+
+export const addFeedback = async (values) => {
+    try {
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        const response = await axios.post(ADD_FEEDBACK, values, config);
         return response;
     }
     catch (error) {

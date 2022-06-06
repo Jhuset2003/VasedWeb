@@ -94,6 +94,9 @@ const Activities = () => {
 
                 <Search searchValue={search} setSearch={setSearch} />
 
+                {currentItems?.length === 0 &&
+                <NoData textStudent={"Ninguna actividad asignada aun"}/>}
+
                 {currentItems.map((task) => (
                     <CardActivity
                         key={task.id}
@@ -116,23 +119,6 @@ const Activities = () => {
                 />
             </ModalLayout>
 
-            {/* formulario de entrega actividad
-      <ModalLayout
-        title="Entregar actividad"
-        setOpenModal={setModalTask}
-        openModal={modalTask}
-      >
-        <h1>Hacer entrega</h1>
-        <div className={styles.textareaTitle}>
-          <h4>Entrega</h4>
-          <textarea cols="70" rows="10" className={styles.textarea}></textarea>
-        </div>
-        <div className={styles.btnContainer}>
-          <button className={BtnStyles.BtnPink}>Enviar</button>
-          <button className={BtnStyles.BtnPurple}>Cancelar</button>
-        </div>
-      </ModalLayout> */}
-
             <ReactPaginate
                 previousLabel={"Anterior"}
                 nextLabel={"Siguiente"}
@@ -150,6 +136,7 @@ const Activities = () => {
                 nextLinkClassName={pagination.pageLink1}
                 breakClassName={pagination.pageItem1}
                 breakLinkClassName={pagination.pageLink1}
+                renderOnZeroPageCount={null}
             />
         </motion.div>
     );

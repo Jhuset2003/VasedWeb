@@ -11,6 +11,7 @@ import { getListOfUsersBytask } from '../../services/users';
 const MiniCardActivity = ({task, classroom }) => {
 
   const [openModal, setOpenModal] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
 
   const { user } = useContext(SessionContext);
 
@@ -67,7 +68,7 @@ const MiniCardActivity = ({task, classroom }) => {
             <button 
             onClick={() => setOpenModal(true)}
             className={btn.BtnGreen}>Asignar</button>
-            <button onClick={handleDelete} className={btn.BtnDelete}>Eliminar</button>
+            <button onClick={() => setOpenDelete(true)} className={btn.BtnDelete}>Eliminar</button>
         </div>
         : null}
 
@@ -81,6 +82,25 @@ const MiniCardActivity = ({task, classroom }) => {
     >
         <FormAssingTask classroom={classroom} task={task} usersList={usersList} setUsersList={setUsersList}/>
     </ModalLayout>
+
+    <ModalLayout
+        setOpenModal={setOpenDelete}
+        openModal={openDelete}
+        color="error"
+        
+      >
+        <p>¿Estas seguro de eliminar esta tarea?</p>
+
+        <div className={card.btns}>
+          <button onClick={handleDelete} className={btn.BtnDelete}>
+            Eliminar
+          </button>
+          <button onClick={() => setOpenDelete(false)} className={btn.BtnPurple}>
+            Cancelar
+          </button>
+        </div>
+
+      </ModalLayout>
     </>
   )
 }

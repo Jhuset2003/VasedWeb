@@ -22,6 +22,7 @@ const CardAula = ({ classroom }) => {
     const [openModal, setOpenModal] = useState(false);
     const [openModal2, setOpenModal2] = useState(false);
     const [modaltask, setModalTask] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
 
     const { user } = useContext(SessionContext);
     const { dispatch } = useContext(GlobalContext);
@@ -84,12 +85,6 @@ const CardAula = ({ classroom }) => {
                         <p>{classroom.code}</p>
                     </div>
 
-                    {user.role === 3 ? (
-                        <div className={cardCss.bar}>
-                            <ProgressBar percentage="0" />
-                        </div>
-                    ) : null}
-
                     {user.role === 1 ? (
                         <div className={cardCss.btns}>
                             <button
@@ -99,7 +94,7 @@ const CardAula = ({ classroom }) => {
                                 Editar
                             </button>
                             <button
-                                onClick={handleDelete}
+                                onClick={setOpenDelete}
                                 className={btn.BtnDelete}
                             >
                                 Eliminar
@@ -132,12 +127,6 @@ const CardAula = ({ classroom }) => {
                             }
                         </span>
                     </div>
-
-                    {user.role === 3 ? (
-                        <div className={cardCss.barlaptop}>
-                            <ProgressBar percentage="0" />
-                        </div>
-                    ) : null}
 
                     <i
                         className={cardCss.icon}
@@ -287,6 +276,25 @@ const CardAula = ({ classroom }) => {
                 icon="show"
             >
                 <FormAddActivities classroom={classroom} />
+            </ModalLayout>
+
+            <ModalLayout
+                setOpenModal={setOpenDelete}
+                openModal={openDelete}
+                color="error"
+                
+            >
+                <p>¿Estas seguro de eliminar esta tarea?</p>
+
+                <div className={cardCss.btns}>
+                <button onClick={handleDelete} className={btn.BtnDelete}>
+                    Eliminar
+                </button>
+                <button onClick={() => setOpenDelete(false)} className={btn.BtnPurple}>
+                    Cancelar
+                </button>
+                </div>
+
             </ModalLayout>
         </div>
     );
