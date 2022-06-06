@@ -77,7 +77,7 @@ const DetailUser = () => {
                         :(
                             <div className={stylesDetail.UserDetailsContainer}>
                             {userAnswers.map((answer) => (
-                                <CardAnswer answer={answer}/>
+                                <CardAnswer answer={answer} setUserAnswers={setUserAnswers} userAnswers={userAnswers}/>
                             ))}
                         </div>
                         )}
