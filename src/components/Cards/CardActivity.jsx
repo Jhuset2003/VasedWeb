@@ -109,13 +109,7 @@ const CardActivity = ({ task }) => {
             ) : null}
           </div>
           <div className={cardActivity.textContent}>
-            <div className={cardActivity.text}>
-              <span>Fecha: 20/05/2020</span>
 
-              <span>
-                <strong>Limite: 20/03/2020</strong>
-              </span>
-            </div>
 
             {user.role === 1 || user.role === 2 ? (
               <div className={cardActivity.note}>
