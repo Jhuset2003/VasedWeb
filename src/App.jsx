@@ -10,8 +10,7 @@ import Landing from "./pages/Landing";
 import DetailUser from "./pages/DetailUser";
 import Login from "./pages/Login";
 import Footer from "./components/Sections/Footer";
-import FormOfNewPassword from "./pages/FormOfNewPassword";
-import FormOfRecovering from "./pages/FormOfRecovering";
+import ForgotPassword from "./pages/ForgotPassword";
 import NavBars from "./components/NavBars/NavBars";
 import Students from "./pages/Students";
 
@@ -27,6 +26,8 @@ import { GlobalContext } from "./context/GlobalContext";
 import { getClassrooms } from "./services/classrooms";
 import { getTasks } from "./services/task";
 import { getUsers } from "./services/users";
+import ResetPassword from "./pages/ResetPassword";
+import ActivateAccount from "./pages/ActivateAccount";
 
 function App() {
     const location = useLocation();
@@ -117,7 +118,7 @@ function App() {
     return (
         <div className="App">
             {location.pathname === "/login" ? null : location.pathname ===
-              "/recover" ? null : location.pathname ===
+              "/forgot-password" ? null : location.pathname ===
               "/new-password" ? null : (
                 <NavBars />
             )}
@@ -173,18 +174,26 @@ function App() {
                     }
                 />
                 <Route
-                    path="/recover"
+                    path="/forgot-password"
                     element={
                         <Guest>
-                            <FormOfRecovering />
+                            <ForgotPassword />
                         </Guest>
                     }
                 />
                 <Route
-                    path="/new-password"
+                    path="/reset-password/:id/:token"
                     element={
                         <Guest>
-                            <FormOfNewPassword />
+                            <ResetPassword />
+                        </Guest>
+                    }
+                />
+                <Route
+                    path="/activate-account/:id/:token"
+                    element={
+                        <Guest>
+                            <ActivateAccount />
                         </Guest>
                     }
                 />
@@ -201,8 +210,8 @@ function App() {
             </Routes>
 
             {location.pathname === "/login" ? null : location.pathname ===
-              "/recover" ? null : location.pathname ===
-              "/new-password" ? null : (
+              "/forgot-password" ? null : location.pathname ===
+              "/reset-password/:id/:token" ? null : (
                 <Footer />
             )}
         </div>
