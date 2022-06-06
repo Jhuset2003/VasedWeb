@@ -16,20 +16,20 @@
 }
 
 .bgBox{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     width: 100%;
     background: var(--green);
     padding: 1.5rem;
     min-height: 8rem;
     border-radius: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .btns{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     padding: 1rem 0 0 0;
 }
@@ -124,8 +124,9 @@ border-radius: 10px;
 }
 .users{
     width: 90%;
-    display: grid;
-    grid-template-columns: 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr; */
+    display: flex;
     gap: 2rem;
     padding-bottom: 1rem;
 }
@@ -151,7 +152,9 @@ border-radius: 10px;
 background-color: var(--black);
 border-radius: 10px;
 }
-
+.teacher, .student{
+    width: 100%;
+}
 
 .barlaptop{
     display: none;
@@ -209,8 +212,8 @@ border-radius: 10px;
 
     .users{
         width: 90%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr); */
         gap: 2rem;
     }
     

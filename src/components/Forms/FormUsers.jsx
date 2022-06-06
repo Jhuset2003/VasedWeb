@@ -6,43 +6,66 @@ import btn from "../../styles/Buttons.module.css";
 //react
 import { useContext } from "react";
 import { Formik, Field } from "formik";
-import { createUser } from "../../services/users";
+import { createUser, updateUser } from "../../services/users";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const FormUsers = ({ setOpenModal, openModal }) => {
-
-  const { dispatch } = useContext(GlobalContext);
+  const {
+    state: { userEditing },
+    dispatch,
+  } = useContext(GlobalContext);
 
   const handleSubmitCustom = async (values) => {
     const resp = await createUser(values);
 
-    if(resp.status !== 200 && resp.status !== 204){
-      console.log('error')
-      return
+    if (resp.status !== 200 && resp.status !== 204) {
+      console.log("error");
+      return;
     }
     dispatch({
       type: "ADD_USER",
       payload: resp.data,
-    })
-    
+    });
+
     setOpenModal(false);
     console.log(resp);
+  };
+
+  const handleEdit = async (values) => {
+    const resp = await updateUser(values);
+
+    if (resp.status !== 200 && resp.status !== 204) {
+      console.log("error");
+      return;
+    }
+    dispatch({
+      type: "UPDATE_USER",
+      payload: resp.data,
+    });
+
+    dispatch({
+      type: "SET_EDITING_NULL"
+    })
+
+    console.log(resp);
   }
-  
+
   return (
     <>
       <Formik
-        initialValues={{
-          names: "",
-          lastNames: "",
-          email: "",
-          dni: "",
-          dniTypeId: "",
-          birthDate: "",
-          country: "",
-          city: "",
-          roleId: "",
-        }}
+        initialValues={
+          userEditing || {
+            names: "",
+            lastNames: "",
+            email: "",
+            dni: "",
+            dniTypeId: "",
+            birthDate: "",
+            country: "",
+            city: "",
+            roleId: "",
+          }
+        }
         validate={(valores) => {
           let errores = {};
 
@@ -91,9 +114,12 @@ const FormUsers = ({ setOpenModal, openModal }) => {
           return errores;
         }}
         onSubmit={(valores) => {
-          handleSubmitCustom(valores);
+          if (userEditing) {
+            handleEdit(valores);
+          } else {
+            handleSubmitCustom(valores);
+          }
           console.log("Sended");
-          console.log(valores);
         }}
       >
         {({
@@ -178,9 +204,10 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                     <option value="" disabled>
                       Tipo documento
                     </option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
+                    <option value={1}>Cédula de ciudadanía </option>
+                    <option value={2}>Cédula de Extranjeria</option>
+                    <option value={3}>Pasaporte</option>
+                    <option value={4}>Tarjeta de identidad</option>
                   </Field>
                   {touched.dniTypeId && errors.dniTypeId && (
                     <div className={styleForm.errors}>{errors.dniTypeId}</div>
@@ -264,37 +291,47 @@ const FormUsers = ({ setOpenModal, openModal }) => {
                   )}
                 </div>
               </div>
-                <div className={styleForm.formItem}>
-                  <label htmlFor="roleId" className={styleForm.formSubtitle}>
-                    Role
-                  </label>
-                  <Field
-                    as="select"
-                    name="roleId"
-                    className={inputCss.purpleInput}
-                    value={values.roleId}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  >
-                    <option disabled value="">
-                      Rol
-                    </option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                  </Field>
-                  {touched.roleId && errors.roleId && (
-                    <div className={styleForm.errors}>{errors.roleId}</div>
-                  )}
-                </div>
+              <div className={styleForm.formItem}>
+                <label htmlFor="roleId" className={styleForm.formSubtitle}>
+                  Role
+                </label>
+                <Field
+                  as="select"
+                  name="roleId"
+                  className={inputCss.purpleInput}
+                  value={values.roleId}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                >
+                  <option disabled value="">
+                    Rol
+                  </option>
+                  <option value={1}>Administrador</option>
+                  <option value={2}>Profesor</option>
+                  <option value={3}>Estudiante</option>
+                </Field>
+                {touched.roleId && errors.roleId && (
+                  <div className={styleForm.errors}>{errors.roleId}</div>
+                )}
+              </div>
 
-                <div className={styleForm.btnCenter}>
-                  <button 
+              <div className={styleForm.btnCenter}>
+                <button
                   type="submit"
                   /* onClick={handleSubmit} */
-                  className={btn.BtnPurple}>Enviar</button>
-                  <button className={btn.BtnPink} type="button" onClick={()=> setOpenModal(!openModal)}> Cancelar</button>
-                </div>
+                  className={btn.BtnPurple}
+                >
+                  {userEditing ? "Editar" : "Crear"}
+                </button>
+                <button
+                  className={btn.BtnPink}
+                  type="button"
+                  onClick={() => setOpenModal(!openModal)}
+                >
+                  {" "}
+                  Cancelar
+                </button>
+              </div>
             </form>
           </div>
         )}

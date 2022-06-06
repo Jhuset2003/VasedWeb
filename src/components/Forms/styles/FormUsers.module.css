@@ -4,6 +4,19 @@
     width: 100%;
 }
 
+.formFeedback{
+    min-height: 80vh;
+    display: grid;
+    gap: 1rem;
+}
+.formFeedback h1{
+    font-size: 1.5rem;
+}
+
+.formFeedback p{
+    font-family: var(--text);
+}
+
 .form {
     width: 100%;
     display: grid;
@@ -30,13 +43,15 @@
 
 .formTitle, .formSubtitle,.formSubtitleLabel {
     font-family: var(--title);
-    font-weight: 700;
+    font-weight: bold;
 }
 .formTitle{
     font-size: 1.2rem;
 }
 .formSubtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-align: left;
+    padding-bottom: .5rem;
 }
 .formSubtitleLabel {
     font-size: 0.9rem;
@@ -88,7 +103,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 @media (min-width: 992px) {
     .formTitle {
         font-size: 1.5rem;

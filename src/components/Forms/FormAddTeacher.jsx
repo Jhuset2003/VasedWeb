@@ -4,6 +4,7 @@ import formaddCss from "./styles/FormAdd.module.css";
 import { RiAddFill } from "react-icons/ri";
 import { GlobalContext } from "../../context/GlobalContext";
 import { addUserToClassroom } from "../../services/classrooms";
+import Select from "react-select";
 
 const FormAddTeacher = ({ classroom }) => {
 
@@ -31,21 +32,21 @@ const FormAddTeacher = ({ classroom }) => {
     dispatch({
       type: "ADD_TEACHER_TO_CLASSROOM",
       payload: {
-        classroomId: classroom.id,
+        classroom,
         teacher
       },
     });
   }
 
   const handleChange = (e) => {
-    setSelectUser(e.target.value);
+    setSelectUser(e.value);
   };
 
   useEffect(() => {
     const teacherInClassroom = classroom.users.teachers;
     const filterUsers = users.filter(user => user.roleId === 2 && !teacherInClassroom.some(userC => userC.id === user.id));
     setTeachers(filterUsers);
-  },[])
+  },[classroom])
 
   return (
     <>
@@ -55,30 +56,19 @@ const FormAddTeacher = ({ classroom }) => {
             <h2>Agregar Profesores</h2>
             <div className={formaddCss.forminput}>
 
-              <span>100/1000</span>
+              
             </div>
               <label htmlFor="names">
                 <span>Selecionar usuario</span>
               </label>
             <div className={formaddCss.inputicons}>
 
-              <select
-                name="names"
-                className={formaddCss.inputselect}
-                onChange={handleChange}
-              >
-                <option defaultValue="">Usuario</option>
-                {teachers.map((people) => {
-                  return (
-                    <option key={people.id} value={people.id}>
-                      {people.names + " " + people.lastNames}
-                    </option>
-                  );
-                })}
-              </select>
+              <Select onChange={handleChange} className={formaddCss.reactselectcontainer}
+              options ={ teachers.map(people => ({ label: people.names + " " + people.lastNames, value: people.id })) }
+              />
 
               <button type="submit" className={btn.BtnDark}>
-                <RiAddFill className={formaddCss.icon}/>
+                Añadir <RiAddFill className={formaddCss.icon}/>
               </button>
             </div>   
           </div>

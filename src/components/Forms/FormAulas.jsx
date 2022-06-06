@@ -28,6 +28,7 @@ const FormAulas = ({ setOpenModal, openModal }) => {
                     teachers: [],
                     students: [],
                 },
+                totalStudents: 0,
             },
         });
 

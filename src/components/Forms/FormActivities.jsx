@@ -173,26 +173,6 @@ const FormActivities = ({ setOpenModal, openModal }) => {
                 )}
               </div>
 
-              <div className={styleForm.formItem}>
-                <label htmlFor="description" className={styleForm.formSubtitle}>
-                  Descripción
-                </label>
-                <textarea
-                  name="description"
-                  id="description"
-                  cols="10"
-                  rows="5"
-                  placeholder="..."
-                  className={inputCss.purpleInput}
-                  value={values.description}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                ></textarea>
-                {touched.description && errors.description && (
-                  <div className={styleForm.errors}>{errors.description}</div>
-                )}
-              </div>
-
               <div className={styleForm.btnCenter}>
                 <button type="submit" className={btn.BtnPurple}>
                   {taskEditing ? "Editar" : "Crear"}

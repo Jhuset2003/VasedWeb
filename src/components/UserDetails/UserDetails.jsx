@@ -1,27 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import userStyles from "./UserDetails.module.css"
-import MainLayout from "../../layout/MainLayout"
-function User() {
+import { getOneUser } from '../../services/users'
+import { useParams } from 'react-router-dom'
+
+const UserDetails = ({user}) => {
+
   return (
-      <>
-      <MainLayout>
+    <>
         <div className={userStyles.UserDetailsContainer}>
             <div className={userStyles.User}>
-                <h2 className={userStyles.UserName}>Adam B Schiff</h2>
-                <p className={userStyles.UserCC}>CC 1101263548</p>
-                <p className={userStyles.UserMail}>adambs@correo.com</p>
-                <p className={userStyles.UserLocation}>Medellin - Colombia</p>
+                <h2 className={userStyles.UserName}>{user?.names + " " + user?.lastNames}</h2>
+                <p className={userStyles.UserCC}>{
+                user?.dniTypeId === 1
+                ? "Admin"
+                : user?.dniTypeId === 2
+                ? "Profesor"
+                : "Estudiante"
+                + " " + user?.dni}</p>
+                <p className={userStyles.UserMail}>{user?.email}</p>
+                <p className={userStyles.UserLocation}>{user?.city + " - " + user?.country}</p>
             </div>
             <div className={userStyles.Details}>
-                <p className={userStyles.DetailsRol}>Estudiante</p>
-                <p className={userStyles.DetailsInit}>Ultimo Ingreso: 20/03/2021</p>
-                <p className={userStyles.DetailsCreated}>Fecha de creacion: 04/02/2021</p>
-                <p className={userStyles.DetailsEnd}>Fecha de nacimientos: 04/01/2021</p>
+                <p className={userStyles.DetailsRol}>
+                  Rol: {user?.roleId === 1
+                    ? "Admin"
+                    : user?.roleId === 2
+                    ? "Profesor"
+                    : "Estudiante"}</p>
+                <p className={userStyles.DetailsInit}>Fecha ultimo ingreso: -</p>
+                <p className={userStyles.DetailsCreated}>Fecha creación: { user?.createdAt?.split("T")[0]
+                }</p>
+                <p className={userStyles.DetailsEnd}>Fecha nacimiento: {user?.birthDate?.split("T")[0]}</p>
             </div>
         </div>
-      </MainLayout>
-      </>
+    </>
   )
 }
 
-export default User
+export default UserDetails

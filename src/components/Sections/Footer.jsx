@@ -17,19 +17,19 @@ const Footer = () => {
           <img className={styles.logo_vased} src={logo} alt="" />
         </div>
         <div className={styles.social_networks}>
-          <a href="">
+          <a href="https://www.facebook.com/fundacionvasedcol/" target="_blank">
             <FaFacebook />
           </a>
-          <a href="">
+          <a href="https://twitter.com/Fundacion_VASED" target="_blank">
             <FaTwitter />
           </a>
-          <a href="">
+          <a href="https://www.instagram.com/fundacion_vased/" target="_blank">
             <FaInstagram />
           </a>
-          <a href="">
+          <a href="https://www.linkedin.com/company/28922719/" target="_blank">
             <FaLinkedinIn />
           </a>
-          <a href="">
+          <a href="https://www.youtube.com/channel/UC2yR56NyqYvplv4Qfvt6LAw" target="_blank">
             <FaYoutube />
           </a>
         </div>

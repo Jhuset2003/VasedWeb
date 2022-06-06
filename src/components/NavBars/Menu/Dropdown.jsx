@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   dropdown_wrapper,
   dropdown_activator,
@@ -8,11 +8,13 @@ import {
 } from "./dropdown.module.css";
 import { FiMenu } from 'react-icons/fi';
 import navStyles from "../NavStyles/NavbarStyles.module.css"
+import { SessionContext } from "../../../context/SessionContext";
 
-function Dropdown({ items = [], dropdownTitle }) {
+function Dropdown({ items = [], dropdownTitle, itemsstudents }) {
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const { user }  = useContext(SessionContext)
 
   const clickHandler = () => {
     setIsOpen(!isOpen);
@@ -63,6 +65,8 @@ function Dropdown({ items = [], dropdownTitle }) {
         ref={dropdownListRef}
         className={`${dropdown_item_list} ${isOpen ? active : ""} `}
       >
+        {user.role === 1 || user.role === 2 ?
+        <>
         {items.map((item, index) => {
           return (
             <li className={item_list} key={index}>
@@ -70,6 +74,16 @@ function Dropdown({ items = [], dropdownTitle }) {
             </li>
           );
         })}
+        </>
+        :<>
+        {itemsstudents.map((item, index) => {
+          return (
+            <li className={item_list} key={index}>
+              <div onClick={clickHandler}>{item.anchor}</div>
+            </li>
+          );
+        })}
+        </>}
       </ul>
     </div>
   );

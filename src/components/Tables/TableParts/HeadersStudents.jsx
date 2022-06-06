@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 export default function useColumns() {
     const columns = useMemo(
         () => [
@@ -7,18 +7,13 @@ export default function useColumns() {
                 accessor: "name",
             },
             {
-                Header: "Rol",
-                accessor: "role",
-            },
-            {
                 Header: "Documento",
                 accessor: "id",
                 type: "numeric",
             },
-
             {
-                Header: "Email",
-                accessor: "email",
+                Header: "Aulas",
+                accessor: "aulas",
             },
             {
                 Header: "Activo",
