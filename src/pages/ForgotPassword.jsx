@@ -71,9 +71,6 @@ const ForgotPassword = () => {
                     <Link to="/login">
                       <button className={btn.BtnPink}>Regresar</button>
                     </Link>
-                    <Link to="/reset-password">
-                      <button className={btn.BtnPink}>desar</button>
-                    </Link>
 
                   </div>
                 </form>
