@@ -8,14 +8,16 @@ import { RiAdminFill } from "react-icons/ri";
 import { CircularProgressbar,  buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { SessionContext } from "../context/SessionContext";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GlobalContext } from "../context/GlobalContext";
+import { getAnswersByUser } from "../services/users";
 const Profile = () => {
   const { user, setUser } = useContext(SessionContext);
+  const [answers, setAnswers] = useState([]);
 
   const { dispatch } = useContext(GlobalContext);
 
@@ -31,6 +33,19 @@ const Profile = () => {
       type: "SET_INITIAL_STATE",
     });
   };
+
+  const getAnswers = async () => {
+    const resp = await getAnswersByUser(user.id);
+    if (resp.status !== 200 && resp.status !== 204) {
+      console.log("error");
+      return;
+    }
+    setAnswers(resp.data);
+  }
+
+  useEffect(() => {
+    getAnswers();
+  }, []);
 
   return (
     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
@@ -96,7 +111,7 @@ const Profile = () => {
           <div className={profileCss.boxContainer}>
             <div className={profileCss.metrics}>
               <h2>Lo estas haciendo genial <FaRegHandPeace/></h2>
-              <CircularProgressbar className={profileCss.contentBars} value={"80"} text={`80%`} 
+              <CircularProgressbar className={profileCss.contentBars} value={(user.user_task_classrooms.length / answers.length) * 100} text={`${(user.user_task_classrooms.length / answers.length) * 100}%`} 
               
               styles={buildStyles({
 
@@ -116,7 +131,7 @@ const Profile = () => {
               <div className={profileCss.box}>
                 <h1 className={profileCss.iconNumber}>
                   <BsFillHandThumbsUpFill/>
-                  <span>5</span>
+                  <span>{answers.length}</span>
                 </h1>
               </div>
             </div>
