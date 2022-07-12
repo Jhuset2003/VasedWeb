@@ -98,6 +98,7 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 - Python
 - Heroku
 - Vercel
+- Vite
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -115,8 +116,21 @@ Se desarrolló una plataforma de educación para la comunidad VASED, esta aula v
 [ **Deploy Heroku** LMS Vased Backend](https://vased-api.herokuapp.com/api/v1/ "Deploy BACKEND")
 
 ---
+
+
+## Clonar repositorio
+
 ---
-                                                                                                        
+
+```git
+git clone https://github.com/Jhuset2003/VasedWeb.git
+
+cd VasedWeb
+
+npm install
+
+npm run dev
+```
                                                                                                         
 
 ## Autores
